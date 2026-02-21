@@ -49,11 +49,13 @@ export function parseTnef(buffer: ArrayBuffer | Uint8Array): TnefParseResult {
 
   // Parse attributes
   while (decoder.remaining > 0) {
-    // Need at least 1 (level) + 2 (attr) + 4 (length) = 7 bytes
-    if (decoder.remaining < 7) break;
+    // Need at least 1 (level) + 4 (attr type) + 4 (length) = 9 bytes
+    if (decoder.remaining < 9) break;
 
     const level = decoder.readUint8();
-    const attrId = decoder.readUint16LE();
+    // Attribute type is 4 bytes: low 16 bits = attribute ID, high 16 bits = data type
+    const attrType = decoder.readUint32LE();
+    const attrId = attrType & 0xFFFF;
     const attrLength = decoder.readUint32LE();
 
     if (attrLength > decoder.remaining) break;
