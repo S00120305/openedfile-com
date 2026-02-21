@@ -1,0 +1,13 @@
+{
+  "name": "OpenedFile",
+  "short_name": "OpenedFile",
+  "description": "Free browser-based file conversion tools",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#2563eb",
+  "background_color": "#ffffff",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "/favicon.ico", "sizes": "32x32", "type": "image/x-icon" }
+  ]
+}

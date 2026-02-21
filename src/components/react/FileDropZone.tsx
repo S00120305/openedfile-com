@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback, type DragEvent, type ChangeEvent } from 'react';
+import { useState, useRef, useCallback, type DragEvent, type ChangeEvent, type KeyboardEvent } from 'react';
 
 interface FileDropZoneProps {
   accept?: string;
@@ -68,9 +68,21 @@ export default function FileDropZone({
     if (!disabled) inputRef.current?.click();
   };
 
+  const handleKeyDown = (e: KeyboardEvent) => {
+    if ((e.key === 'Enter' || e.key === ' ') && !disabled) {
+      e.preventDefault();
+      inputRef.current?.click();
+    }
+  };
+
   return (
     <div
+      role="button"
+      tabIndex={0}
+      aria-label={title}
+      aria-disabled={disabled || undefined}
       onClick={handleClick}
+      onKeyDown={handleKeyDown}
       onDragOver={handleDragOver}
       onDragLeave={handleDragLeave}
       onDrop={handleDrop}

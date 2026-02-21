@@ -15,3 +15,15 @@
   --color-primary-800: #1e40af;
   --color-primary-900: #1e3a8a;
 }
+
+/* Focus styles */
+*:focus-visible {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+  header, footer, .no-print, [data-ad-slot] { display: none !important; }
+  body { color: #000; background: #fff; }
+}
