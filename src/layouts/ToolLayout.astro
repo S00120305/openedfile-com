@@ -8,12 +8,13 @@ interface Props {
   description: string;
   heading: string;
   subheading: string;
+  ogImage?: string;
 }
 
-const { title, description, heading, subheading } = Astro.props;
+const { title, description, heading, subheading, ogImage } = Astro.props;
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} ogImage={ogImage}>
   <!-- Page header -->
   <section class="bg-gradient-to-b from-primary-50 to-white dark:from-gray-900 dark:to-gray-950">
     <div class="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8 text-center">

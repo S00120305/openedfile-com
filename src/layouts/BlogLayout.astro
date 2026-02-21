@@ -1,5 +1,6 @@
 ---
 import BaseLayout from './BaseLayout.astro';
+import AdBanner from '../components/AdBanner.astro';
 import { getLocaleFromUrl, getLocalizedPath } from '../i18n/utils';
 
 interface Props {
@@ -46,6 +47,11 @@ const backToBlog = locale === 'ja' ? 'ブログ一覧に戻る' : 'Back to Blog'
       </p>
     </header>
 
+    <!-- Ad banner (after title) -->
+    <div class="mb-10">
+      <AdBanner slot="content" />
+    </div>
+
     <!-- Article body -->
     <div class="prose prose-gray dark:prose-invert max-w-none
       prose-headings:font-semibold prose-headings:text-gray-900 dark:prose-headings:text-white
@@ -54,6 +60,11 @@ const backToBlog = locale === 'ja' ? 'ブログ一覧に戻る' : 'Back to Blog'
       prose-strong:text-gray-900 dark:prose-strong:text-white
       prose-li:marker:text-gray-400">
       <slot />
+    </div>
+
+    <!-- Ad banner (after article) -->
+    <div class="mt-10">
+      <AdBanner slot="content" />
     </div>
 
     <!-- Related tools -->
