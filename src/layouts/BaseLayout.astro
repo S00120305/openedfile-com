@@ -100,9 +100,8 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
     <!-- Theme initialization (prevent flash) -->
     <script is:inline>
       (function() {
-        const theme = localStorage.getItem('theme');
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        if (theme === 'dark' || (!theme && prefersDark)) {
+        var theme = localStorage.getItem('theme');
+        if (theme === 'dark') {
           document.documentElement.classList.add('dark');
         }
       })();
