@@ -1,0 +1,64 @@
+{
+  "site": {
+    "title": "OpenedFile - Open Any File in Your Browser",
+    "description": "Free browser-based file converter. Open HEIC, WebP, winmail.dat and more. Your files never leave your device.",
+    "tagline": "Open unopenable files. In your browser. Instantly."
+  },
+  "nav": {
+    "home": "Home",
+    "tools": "Tools",
+    "blog": "Blog",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "home": {
+    "hero_title": "Open Any File,",
+    "hero_title_accent": "Right in Your Browser",
+    "hero_description": "Free, private file conversion tools that run entirely in your browser. No uploads, no servers, no risk.",
+    "tools_section_title": "Conversion Tools",
+    "tools_section_description": "Choose a tool to get started. All processing happens on your device."
+  },
+  "tools": {
+    "webp": {
+      "title": "WebP to JPG/PNG",
+      "description": "Convert WebP images to widely compatible JPG or PNG format. Adjust quality settings for the perfect balance."
+    },
+    "heic": {
+      "title": "HEIC to JPG",
+      "description": "Convert iPhone HEIC/HEIF photos to JPG. Open your iOS photos on any device or platform."
+    },
+    "winmail": {
+      "title": "Open winmail.dat",
+      "description": "Extract and view contents of winmail.dat email attachments from Microsoft Outlook."
+    }
+  },
+  "privacy_badge": {
+    "text": "Your files never leave your device",
+    "tooltip": "All processing is done locally in your browser. No files are uploaded to any server."
+  },
+  "footer": {
+    "tools_title": "Tools",
+    "legal_title": "Legal",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "about": "About",
+    "contact": "Contact",
+    "copyright": "OpenedFile. All rights reserved.",
+    "tagline": "Browser-based file tools. Private. Free. Fast."
+  },
+  "theme": {
+    "light": "Light mode",
+    "dark": "Dark mode",
+    "toggle": "Toggle theme"
+  },
+  "language": {
+    "switch": "Language",
+    "en": "English",
+    "ja": "Japanese"
+  },
+  "common": {
+    "coming_soon": "Coming Soon",
+    "try_now": "Try Now",
+    "learn_more": "Learn More"
+  }
+}

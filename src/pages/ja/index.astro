@@ -1,11 +1,11 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import ToolCard from '../components/ToolCard.astro';
-import PrivacyBadge from '../components/PrivacyBadge.astro';
-import AdBanner from '../components/AdBanner.astro';
-import { t } from '../i18n/utils';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ToolCard from '../../components/ToolCard.astro';
+import PrivacyBadge from '../../components/PrivacyBadge.astro';
+import AdBanner from '../../components/AdBanner.astro';
+import { t } from '../../i18n/utils';
 
-const locale = 'en';
+const locale = 'ja';
 ---
 
 <BaseLayout>
@@ -50,19 +50,19 @@ const locale = 'en';
       <ToolCard
         title={t(locale, 'tools.webp.title')}
         description={t(locale, 'tools.webp.description')}
-        href="/tools/webp"
+        href="/ja/tools/webp"
         icon="webp"
       />
       <ToolCard
         title={t(locale, 'tools.heic.title')}
         description={t(locale, 'tools.heic.description')}
-        href="/tools/heic"
+        href="/ja/tools/heic"
         icon="heic"
       />
       <ToolCard
         title={t(locale, 'tools.winmail.title')}
         description={t(locale, 'tools.winmail.description')}
-        href="/tools/winmail"
+        href="/ja/tools/winmail"
         icon="winmail"
       />
     </div>

@@ -1,0 +1,64 @@
+{
+  "site": {
+    "title": "OpenedFile - ブラウザでどんなファイルも開ける",
+    "description": "無料のブラウザベースファイル変換ツール。HEIC、WebP、winmail.datなどに対応。ファイルはデバイスから一切離れません。",
+    "tagline": "開けないファイルを、すぐ開ける。ブラウザだけで。"
+  },
+  "nav": {
+    "home": "ホーム",
+    "tools": "ツール",
+    "blog": "ブログ",
+    "about": "このサイトについて",
+    "contact": "お問い合わせ"
+  },
+  "home": {
+    "hero_title": "どんなファイルも、",
+    "hero_title_accent": "ブラウザで開ける",
+    "hero_description": "完全無料・プライベートなファイル変換ツール。すべての処理はブラウザ内で完結。アップロード不要、サーバー不要、リスクなし。",
+    "tools_section_title": "変換ツール",
+    "tools_section_description": "ツールを選んで始めましょう。すべての処理はあなたのデバイス上で行われます。"
+  },
+  "tools": {
+    "webp": {
+      "title": "WebP → JPG/PNG 変換",
+      "description": "WebP画像を互換性の高いJPGまたはPNG形式に変換。品質設定で最適なバランスに調整できます。"
+    },
+    "heic": {
+      "title": "HEIC → JPG 変換",
+      "description": "iPhoneのHEIC/HEIF写真をJPGに変換。どのデバイスやプラットフォームでもiOS写真を開けます。"
+    },
+    "winmail": {
+      "title": "winmail.dat を開く",
+      "description": "Microsoft Outlookからのwinmail.datメール添付ファイルの中身を抽出・表示します。"
+    }
+  },
+  "privacy_badge": {
+    "text": "ファイルはデバイスから離れません",
+    "tooltip": "すべての処理はブラウザ内でローカルに行われます。ファイルがサーバーにアップロードされることは一切ありません。"
+  },
+  "footer": {
+    "tools_title": "ツール",
+    "legal_title": "法的情報",
+    "privacy": "プライバシーポリシー",
+    "terms": "利用規約",
+    "about": "このサイトについて",
+    "contact": "お問い合わせ",
+    "copyright": "OpenedFile. All rights reserved.",
+    "tagline": "ブラウザベースのファイルツール。プライベート。無料。高速。"
+  },
+  "theme": {
+    "light": "ライトモード",
+    "dark": "ダークモード",
+    "toggle": "テーマ切替"
+  },
+  "language": {
+    "switch": "言語",
+    "en": "English",
+    "ja": "日本語"
+  },
+  "common": {
+    "coming_soon": "近日公開",
+    "try_now": "試してみる",
+    "learn_more": "詳しく見る"
+  }
+}

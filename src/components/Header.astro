@@ -1,0 +1,30 @@
+---
+import LanguageSwitcher from './LanguageSwitcher.astro';
+import ThemeToggle from './ThemeToggle.astro';
+import { getLocaleFromUrl, getLocalizedPath } from '../i18n/utils';
+
+const locale = getLocaleFromUrl(Astro.url);
+const homeHref = getLocalizedPath('/', locale);
+---
+
+<header class="sticky top-0 z-50 border-b border-gray-200 bg-white/80 backdrop-blur-lg dark:border-gray-800 dark:bg-gray-900/80">
+  <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
+    <!-- Logo -->
+    <a href={homeHref} class="flex items-center gap-2 text-xl font-bold text-gray-900 dark:text-white">
+      <!-- File icon -->
+      <svg class="w-7 h-7 text-primary-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path>
+        <path d="M14 2v4a2 2 0 0 0 2 2h4"></path>
+        <path d="m9 15 2 2 4-4"></path>
+      </svg>
+      <span>OpenedFile</span>
+    </a>
+
+    <!-- Right side controls -->
+    <div class="flex items-center gap-2">
+      <LanguageSwitcher />
+      <div class="w-px h-6 bg-gray-200 dark:bg-gray-700"></div>
+      <ThemeToggle />
+    </div>
+  </div>
+</header>

@@ -1,0 +1,26 @@
+---
+interface Props {
+  slot?: 'header' | 'sidebar' | 'content' | 'footer';
+  class?: string;
+}
+
+const { slot = 'header', class: className } = Astro.props;
+
+const sizeClasses: Record<string, string> = {
+  header: 'min-h-[90px] max-w-[728px]',
+  sidebar: 'min-h-[250px] w-[300px]',
+  content: 'min-h-[90px] max-w-[728px]',
+  footer: 'min-h-[90px] max-w-[728px]',
+};
+---
+
+<div
+  class:list={[
+    'mx-auto flex items-center justify-center bg-gray-50 border border-dashed border-gray-300 rounded-lg text-gray-400 text-sm dark:bg-gray-800/50 dark:border-gray-700 dark:text-gray-500',
+    sizeClasses[slot],
+    className,
+  ]}
+  data-ad-slot={slot}
+>
+  <span>Ad</span>
+</div>
