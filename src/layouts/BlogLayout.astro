@@ -1,0 +1,94 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import { getLocaleFromUrl, getLocalizedPath } from '../i18n/utils';
+
+interface Props {
+  title: string;
+  description: string;
+  date: string;
+  category: string;
+  readingTime: string;
+  relatedTools?: { name: string; href: string }[];
+}
+
+const locale = getLocaleFromUrl(Astro.url);
+const { title, description, date, category, readingTime, relatedTools = [] } = Astro.props;
+
+const blogIndexPath = getLocalizedPath('/blog', locale);
+const blogLabel = locale === 'ja' ? 'ブログ' : 'Blog';
+const relatedToolsLabel = locale === 'ja' ? '関連ツール' : 'Related Tools';
+const backToBlog = locale === 'ja' ? 'ブログ一覧に戻る' : 'Back to Blog';
+---
+
+<BaseLayout title={title} description={description}>
+  <article class="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
+    <!-- Breadcrumb -->
+    <nav class="mb-8 text-sm text-gray-500 dark:text-gray-400">
+      <a href={getLocalizedPath('/', locale)} class="hover:text-primary-600 dark:hover:text-primary-400">OpenedFile</a>
+      <span class="mx-2">/</span>
+      <a href={blogIndexPath} class="hover:text-primary-600 dark:hover:text-primary-400">{blogLabel}</a>
+      <span class="mx-2">/</span>
+      <span class="text-gray-700 dark:text-gray-300">{category}</span>
+    </nav>
+
+    <!-- Article header -->
+    <header class="mb-10">
+      <div class="flex items-center gap-3 text-sm text-gray-500 dark:text-gray-400 mb-4">
+        <time datetime={date}>{date}</time>
+        <span>·</span>
+        <span>{readingTime}</span>
+      </div>
+      <h1 class="text-3xl font-bold text-gray-900 dark:text-white sm:text-4xl leading-tight">
+        {title}
+      </h1>
+      <p class="mt-4 text-lg text-gray-600 dark:text-gray-300">
+        {description}
+      </p>
+    </header>
+
+    <!-- Article body -->
+    <div class="prose prose-gray dark:prose-invert max-w-none
+      prose-headings:font-semibold prose-headings:text-gray-900 dark:prose-headings:text-white
+      prose-a:text-primary-600 dark:prose-a:text-primary-400 prose-a:no-underline hover:prose-a:underline
+      prose-img:rounded-xl
+      prose-strong:text-gray-900 dark:prose-strong:text-white
+      prose-li:marker:text-gray-400">
+      <slot />
+    </div>
+
+    <!-- Related tools -->
+    {relatedTools.length > 0 && (
+      <div class="mt-12 rounded-xl border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-800/60">
+        <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">{relatedToolsLabel}</h2>
+        <div class="flex flex-wrap gap-3">
+          {relatedTools.map((tool) => (
+            <a
+              href={tool.href}
+              class="inline-flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-4 py-2.5 text-sm font-medium text-gray-900 hover:border-primary-300 hover:bg-primary-50 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:hover:border-primary-500 dark:hover:bg-primary-950 transition-colors"
+            >
+              <svg class="h-4 w-4 text-primary-600 dark:text-primary-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path>
+                <path d="M14 2v4a2 2 0 0 0 2 2h4"></path>
+                <path d="m9 15 2 2 4-4"></path>
+              </svg>
+              {tool.name}
+            </a>
+          ))}
+        </div>
+      </div>
+    )}
+
+    <!-- Back to blog -->
+    <div class="mt-10">
+      <a
+        href={blogIndexPath}
+        class="inline-flex items-center gap-2 text-sm font-medium text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300"
+      >
+        <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="m15 18-6-6 6-6"></path>
+        </svg>
+        {backToBlog}
+      </a>
+    </div>
+  </article>
+</BaseLayout>

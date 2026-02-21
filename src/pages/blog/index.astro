@@ -1,0 +1,152 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const articles = [
+  {
+    slug: 'what-is-winmail-dat',
+    title: 'What Is a Winmail.dat File? The Complete Guide',
+    description: 'Learn what winmail.dat files are, why you receive them, and how to open them easily in your browser.',
+    category: 'Winmail.dat',
+    date: '2026-02-21',
+  },
+  {
+    slug: 'tnef-explained',
+    title: 'Understanding Outlook\'s TNEF Encoding',
+    description: 'A deep dive into Microsoft\'s Transport Neutral Encapsulation Format and why it causes winmail.dat attachments.',
+    category: 'Winmail.dat',
+    date: '2026-02-21',
+  },
+  {
+    slug: 'open-winmail-dat-on-mac',
+    title: 'How to Open Winmail.dat on Mac',
+    description: 'Step-by-step guide to opening winmail.dat files on macOS without installing any software.',
+    category: 'Winmail.dat',
+    date: '2026-02-21',
+  },
+  {
+    slug: 'winmail-dat-iphone',
+    title: 'Winmail.dat on iPhone: What to Do When You Receive One',
+    description: 'How to handle winmail.dat attachments on your iPhone or iPad using free browser-based tools.',
+    category: 'Winmail.dat',
+    date: '2026-02-21',
+  },
+  {
+    slug: 'prevent-winmail-dat',
+    title: 'How to Prevent Winmail.dat: Outlook Settings Guide',
+    description: 'Configure Microsoft Outlook to stop sending winmail.dat files to your recipients.',
+    category: 'Winmail.dat',
+    date: '2026-02-21',
+  },
+  {
+    slug: 'heic-vs-jpg',
+    title: 'HEIC vs JPG: The Complete Comparison Guide',
+    description: 'Compare HEIC and JPG image formats — quality, file size, compatibility, and when to use each.',
+    category: 'HEIC',
+    date: '2026-02-21',
+  },
+  {
+    slug: 'why-iphone-uses-heic',
+    title: 'Why iPhone Uses HEIC and How to Convert',
+    description: 'Understand why Apple chose HEIC as the default photo format and learn easy ways to convert to JPG.',
+    category: 'HEIC',
+    date: '2026-02-21',
+  },
+  {
+    slug: 'heic-compatibility-guide',
+    title: 'HEIC Compatibility Guide: Windows, Android & Linux',
+    description: 'Everything you need to know about HEIC support across platforms and how to solve compatibility issues.',
+    category: 'HEIC',
+    date: '2026-02-21',
+  },
+  {
+    slug: 'heic-quality-and-size',
+    title: 'HEIC Quality and File Size: What You Need to Know',
+    description: 'How HEIC achieves smaller file sizes without sacrificing image quality compared to JPG.',
+    category: 'HEIC',
+    date: '2026-02-21',
+  },
+  {
+    slug: 'photo-format-history',
+    title: 'The History and Future of Photo Formats',
+    description: 'From BMP to AVIF — a journey through the evolution of digital image formats and what comes next.',
+    category: 'HEIC',
+    date: '2026-02-21',
+  },
+  {
+    slug: 'webp-explained',
+    title: 'WebP Format Explained: Everything You Need to Know',
+    description: 'A comprehensive guide to Google\'s WebP image format — features, benefits, limitations, and conversion.',
+    category: 'WebP',
+    date: '2026-02-21',
+  },
+  {
+    slug: 'webp-vs-jpg-vs-png',
+    title: 'WebP vs JPG vs PNG: Which Format Should You Use?',
+    description: 'Compare the three most popular image formats and learn which one is best for your use case.',
+    category: 'WebP',
+    date: '2026-02-21',
+  },
+  {
+    slug: 'webp-compatibility',
+    title: 'WebP Compatibility Issues and How to Solve Them',
+    description: 'Troubleshoot WebP compatibility problems across browsers, apps, and operating systems.',
+    category: 'WebP',
+    date: '2026-02-21',
+  },
+  {
+    slug: 'online-converter-privacy',
+    title: 'Privacy Risks of Online File Converters',
+    description: 'Why uploading your files to online conversion tools is risky and what alternatives exist.',
+    category: 'Privacy',
+    date: '2026-02-21',
+  },
+  {
+    slug: 'why-client-side-processing',
+    title: 'Why Client-Side Processing Is Safer for Your Files',
+    description: 'How browser-based file processing protects your privacy compared to server-side conversion tools.',
+    category: 'Privacy',
+    date: '2026-02-21',
+  },
+];
+
+const categoryColors: Record<string, string> = {
+  'Winmail.dat': 'bg-purple-100 text-purple-700 dark:bg-purple-900/40 dark:text-purple-300',
+  'HEIC': 'bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300',
+  'WebP': 'bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-300',
+  'Privacy': 'bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300',
+};
+---
+
+<BaseLayout
+  title="Blog | OpenedFile"
+  description="Learn about file formats, privacy, and browser-based file conversion. Tips, guides, and technical explanations for WebP, HEIC, winmail.dat, and more."
+>
+  <div class="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
+    <h1 class="text-3xl font-bold text-gray-900 dark:text-white sm:text-4xl">Blog</h1>
+    <p class="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-2xl">
+      Guides, tips, and technical explanations about file formats, privacy, and browser-based file conversion.
+    </p>
+
+    <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {articles.map((article) => (
+        <a
+          href={`/blog/${article.slug}`}
+          class="group rounded-xl border border-gray-200 bg-white p-6 hover:border-primary-300 hover:shadow-md dark:border-gray-700 dark:bg-gray-800/60 dark:hover:border-primary-600 transition-all"
+        >
+          <div class="flex items-center gap-2 mb-3">
+            <span class={`inline-block rounded-full px-2.5 py-0.5 text-xs font-medium ${categoryColors[article.category] || ''}`}>
+              {article.category}
+            </span>
+            <time class="text-xs text-gray-400 dark:text-gray-500" datetime={article.date}>{article.date}</time>
+          </div>
+          <h2 class="text-base font-semibold text-gray-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors leading-snug">
+            {article.title}
+          </h2>
+          <p class="mt-2 text-sm text-gray-500 dark:text-gray-400 line-clamp-3">
+            {article.description}
+          </p>
+        </a>
+      ))}
+    </div>
+  </div>
+</BaseLayout>

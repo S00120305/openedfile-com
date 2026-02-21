@@ -1,0 +1,178 @@
+---
+import BlogLayout from '../../layouts/BlogLayout.astro';
+---
+
+<BlogLayout
+  title="How to Prevent Winmail.dat: Outlook Settings Guide"
+  description="Configure Microsoft Outlook to stop sending winmail.dat files to your recipients."
+  date="2026-02-21"
+  category="Winmail.dat"
+  readingTime="5 min read"
+  relatedTools={[{ name: "Winmail.dat Viewer", href: "/tools/winmail" }]}
+>
+  <p>
+    If your colleagues, clients, or friends have told you that your emails arrive with a mysterious <strong>winmail.dat</strong> attachment instead of the files you intended to send, the problem is almost certainly your Outlook settings. The good news is that fixing it takes just a few minutes, and once you make the change, the issue will not recur.
+  </p>
+  <p>
+    In this guide, we will explain exactly why Outlook sends winmail.dat files and walk you through the settings you need to change in every modern version of Outlook to prevent it from happening.
+  </p>
+
+  <h2>Why Outlook Sends Winmail.dat</h2>
+  <p>
+    Microsoft Outlook supports three email formats: <strong>HTML</strong>, <strong>Plain Text</strong>, and <strong>Rich Text Format (RTF)</strong>. When you compose a message using RTF, Outlook encodes the entire email, including attachments, formatting, and metadata, using a proprietary format called TNEF (Transport Neutral Encapsulation Format). This encoded data is attached to the email as a file called winmail.dat.
+  </p>
+  <p>
+    When the recipient also uses Outlook, the winmail.dat file is decoded automatically, and the message appears as intended. But when the recipient uses any other email client, such as Apple Mail, Gmail, Thunderbird, or a mobile email app, they cannot decode the TNEF data. Instead, they see a useless winmail.dat attachment, and the original files appear to be missing.
+  </p>
+  <p>
+    The solution is straightforward: configure Outlook to use HTML format instead of RTF. HTML provides rich formatting (fonts, colors, images, and layout) while remaining compatible with every modern email client.
+  </p>
+
+  <h2>Checking Your Current Format Settings</h2>
+  <p>
+    Before making changes, it is helpful to check what format Outlook is currently using. There are two places where the format is set:
+  </p>
+  <ul>
+    <li><strong>Global default</strong>: The format used for all new messages by default.</li>
+    <li><strong>Per-contact override</strong>: A format specified for individual contacts, which overrides the global default when sending to those contacts.</li>
+  </ul>
+  <p>
+    Even if your global setting is correct, a per-contact override can cause winmail.dat files to be sent to specific recipients. We will address both settings below.
+  </p>
+
+  <h2>Changing the Default Format in Outlook 365 and Outlook 2021</h2>
+  <p>
+    Microsoft 365 (formerly Office 365) and Outlook 2021 share the same interface for mail format settings. Follow these steps:
+  </p>
+  <ul>
+    <li><strong>Step 1</strong>: Open Outlook and click <strong>File</strong> in the top menu bar.</li>
+    <li><strong>Step 2</strong>: Click <strong>Options</strong> in the left sidebar.</li>
+    <li><strong>Step 3</strong>: In the Outlook Options dialog, click <strong>Mail</strong> in the left panel.</li>
+    <li><strong>Step 4</strong>: Under the <strong>Compose messages</strong> section, find the dropdown labeled <strong>"Compose messages in this format."</strong></li>
+    <li><strong>Step 5</strong>: Change the dropdown from <strong>Rich Text</strong> to <strong>HTML</strong>.</li>
+    <li><strong>Step 6</strong>: Click <strong>OK</strong> to save your changes.</li>
+  </ul>
+  <p>
+    From this point forward, all new messages you compose will use HTML format by default, and Outlook will not generate winmail.dat files for them.
+  </p>
+
+  <h2>Changing the Default Format in Outlook 2019 and 2016</h2>
+  <p>
+    The process for Outlook 2019 and Outlook 2016 is identical to the steps above:
+  </p>
+  <ul>
+    <li>Go to <strong>File</strong> &gt; <strong>Options</strong> &gt; <strong>Mail</strong>.</li>
+    <li>Under <strong>Compose messages</strong>, change the format dropdown to <strong>HTML</strong>.</li>
+    <li>Click <strong>OK</strong>.</li>
+  </ul>
+  <p>
+    If you are using an older version of Outlook (2013 or 2010), the same setting exists in the same location. Microsoft has kept this setting consistent across many versions.
+  </p>
+
+  <h2>Changing the Format for a Single Message</h2>
+  <p>
+    If you only need to change the format for a specific email rather than your global default, you can do so while composing the message:
+  </p>
+  <ul>
+    <li><strong>Step 1</strong>: Open a new email or the reply/forward window.</li>
+    <li><strong>Step 2</strong>: Click the <strong>Format Text</strong> tab in the ribbon.</li>
+    <li><strong>Step 3</strong>: In the <strong>Format</strong> group, you will see three buttons: <strong>HTML</strong>, <strong>Plain Text</strong>, and <strong>Rich Text</strong>.</li>
+    <li><strong>Step 4</strong>: Click <strong>HTML</strong> to switch the current message to HTML format.</li>
+  </ul>
+  <p>
+    This changes the format for only the current message without affecting your default setting. It is useful when you notice that a message has been set to Rich Text, perhaps because you replied to an RTF message or because a per-contact setting triggered it.
+  </p>
+
+  <h2>Per-Contact Format Settings</h2>
+  <p>
+    One of the most overlooked causes of winmail.dat files is the per-contact format override. Outlook allows you to specify a preferred email format for individual contacts. If a contact is set to "Send using Outlook Rich Text format," every email you send to that person will be TNEF-encoded, regardless of your global default.
+  </p>
+  <p>
+    To check and fix per-contact settings:
+  </p>
+  <ul>
+    <li><strong>Step 1</strong>: Open your <strong>Contacts</strong> (People) in Outlook.</li>
+    <li><strong>Step 2</strong>: Find and double-click the contact you want to check.</li>
+    <li><strong>Step 3</strong>: Double-click on the contact's <strong>email address</strong> within the contact form.</li>
+    <li><strong>Step 4</strong>: In the dialog that appears, look for the <strong>"Internet Format"</strong> dropdown.</li>
+    <li><strong>Step 5</strong>: Change it from "Send using Outlook Rich Text format" to <strong>"Let Outlook decide the best sending format"</strong> or <strong>"Send Plain Text only."</strong></li>
+    <li><strong>Step 6</strong>: Click <strong>OK</strong> and save the contact.</li>
+  </ul>
+  <p>
+    If you have many contacts, it may not be practical to check each one individually. In that case, ensuring your global default is set to HTML and paying attention to the format indicator when composing messages is the best approach.
+  </p>
+
+  <h2>Exchange Server and Microsoft 365 Admin Settings</h2>
+  <p>
+    If you are an IT administrator managing an Exchange Server or Microsoft 365 organization, you can prevent winmail.dat files at the server level. This is the most effective approach because it applies to all users in the organization without requiring each person to change their individual settings.
+  </p>
+  <h3>Exchange Online (Microsoft 365)</h3>
+  <p>
+    In the Exchange Admin Center, you can configure remote domains to prevent TNEF encoding:
+  </p>
+  <ul>
+    <li>Navigate to <strong>Mail flow</strong> &gt; <strong>Remote domains</strong>.</li>
+    <li>Select the <strong>Default</strong> remote domain (which applies to all external recipients).</li>
+    <li>Under <strong>Text and character set</strong>, find the <strong>"Rich Text format"</strong> setting.</li>
+    <li>Change it to <strong>"Never"</strong> to prevent TNEF encoding for all outbound email to external domains.</li>
+    <li>Save your changes.</li>
+  </ul>
+  <h3>Exchange Server On-Premises</h3>
+  <p>
+    For on-premises Exchange Server, you can use the Exchange Management Shell (PowerShell):
+  </p>
+  <ul>
+    <li>Run the command: <strong>Set-RemoteDomain -Identity Default -TNEFEnabled $false</strong></li>
+    <li>This disables TNEF encoding for all messages sent to external recipients through the default remote domain.</li>
+  </ul>
+  <p>
+    These server-level settings override individual user preferences, ensuring that no one in the organization sends winmail.dat files to external recipients.
+  </p>
+
+  <h2>Outlook for Mac Settings</h2>
+  <p>
+    Outlook for Mac handles email format differently from the Windows version. In general, Outlook for Mac is less likely to send winmail.dat files because it defaults to HTML format and does not expose the Rich Text Format option as prominently. However, it is still worth verifying your settings:
+  </p>
+  <ul>
+    <li>Open <strong>Outlook</strong> on your Mac.</li>
+    <li>Go to <strong>Outlook</strong> &gt; <strong>Preferences</strong> (or <strong>Settings</strong> in newer versions).</li>
+    <li>Click <strong>Composing</strong>.</li>
+    <li>Under <strong>Message format</strong>, ensure that <strong>HTML</strong> is selected.</li>
+    <li>Ensure that any option related to Rich Text or TNEF is unchecked or set to the non-RTF option.</li>
+  </ul>
+  <p>
+    The new Outlook for Mac (built on web technologies) does not use TNEF at all, so if you have migrated to the new version, winmail.dat files should not be a concern from your end.
+  </p>
+
+  <h2>Testing Your Changes</h2>
+  <p>
+    After updating your settings, it is important to verify that the changes are working. Here is how to test:
+  </p>
+  <ul>
+    <li><strong>Send a test email with an attachment</strong> to a non-Outlook email address (such as a Gmail or Yahoo address that you can check).</li>
+    <li><strong>Check the received email</strong> on the non-Outlook client. Verify that the attachment appears as the original file (PDF, DOCX, JPG, etc.) rather than as a winmail.dat file.</li>
+    <li><strong>Check the email source</strong>: If you want to be thorough, view the raw email source in the receiving client. Look for the Content-Type header of the attachment. It should show the correct MIME type (e.g., application/pdf) rather than application/ms-tnef.</li>
+    <li><strong>Test with multiple recipients</strong>: If you changed per-contact settings, send test emails to several contacts to ensure the fix works across the board.</li>
+  </ul>
+
+  <h2>When TNEF Is Still Needed</h2>
+  <p>
+    There are rare cases where TNEF encoding is actually necessary:
+  </p>
+  <ul>
+    <li><strong>Voting buttons</strong>: Outlook's voting button feature relies on TNEF to transmit the voting options. If you use voting buttons in your emails, they will only work when sent in RTF/TNEF format to other Outlook users.</li>
+    <li><strong>Custom Outlook forms</strong>: Organizations that use custom Outlook forms may require TNEF to transmit form data.</li>
+    <li><strong>Certain calendar features</strong>: While standard calendar invitations use the iCalendar format, some advanced Outlook calendar features may depend on MAPI properties transmitted via TNEF.</li>
+  </ul>
+  <p>
+    In these cases, you can change the format to RTF for specific messages using the Format Text tab while keeping your default set to HTML. This ensures that TNEF is only used when intentionally needed.
+  </p>
+
+  <h2>Conclusion</h2>
+  <p>
+    Preventing winmail.dat files is a simple configuration change that can save your recipients significant frustration. By switching your Outlook default from Rich Text to HTML, checking your per-contact settings, and (if you are an administrator) configuring your Exchange server to disable TNEF for external recipients, you can ensure that your emails and attachments arrive in a universally readable format.
+  </p>
+  <p>
+    If you are on the receiving end and need to open a winmail.dat file right now, our free <a href="/tools/winmail">Winmail.dat Viewer</a> can extract the contents in seconds, directly in your browser. But with the settings described in this guide, you can help ensure that fewer people ever need to use such a tool in the first place.
+  </p>
+</BlogLayout>

@@ -1,0 +1,152 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const articles = [
+  {
+    slug: 'what-is-winmail-dat',
+    title: 'Winmail.datファイルとは？完全ガイド',
+    description: 'winmail.datファイルの正体、受信する理由、ブラウザで簡単に開く方法を解説します。',
+    category: 'Winmail.dat',
+    date: '2026-02-21',
+  },
+  {
+    slug: 'tnef-explained',
+    title: 'OutlookのTNEFエンコーディングを理解する',
+    description: 'MicrosoftのTransport Neutral Encapsulation Formatとwinmail.dat添付ファイルが生成される仕組みを詳しく解説。',
+    category: 'Winmail.dat',
+    date: '2026-02-21',
+  },
+  {
+    slug: 'open-winmail-dat-on-mac',
+    title: 'MacでWinmail.datを開く方法',
+    description: 'ソフトウェアをインストールせずにmacOSでwinmail.datファイルを開くステップバイステップガイド。',
+    category: 'Winmail.dat',
+    date: '2026-02-21',
+  },
+  {
+    slug: 'winmail-dat-iphone',
+    title: 'iPhoneでWinmail.datが届いた時の対処法',
+    description: '無料のブラウザベースツールを使ってiPhoneやiPadでwinmail.dat添付ファイルを処理する方法。',
+    category: 'Winmail.dat',
+    date: '2026-02-21',
+  },
+  {
+    slug: 'prevent-winmail-dat',
+    title: 'Winmail.datの問題を防ぐ：Outlook設定ガイド',
+    description: 'Microsoft Outlookの設定を変更して、受信者にwinmail.datファイルが送られないようにする方法。',
+    category: 'Winmail.dat',
+    date: '2026-02-21',
+  },
+  {
+    slug: 'heic-vs-jpg',
+    title: 'HEIC vs JPG：完全比較ガイド',
+    description: 'HEICとJPG画像フォーマットを徹底比較 — 画質、ファイルサイズ、互換性、使い分けのポイント。',
+    category: 'HEIC',
+    date: '2026-02-21',
+  },
+  {
+    slug: 'why-iphone-uses-heic',
+    title: 'iPhoneがHEICを使う理由と変換方法',
+    description: 'AppleがHEICをデフォルトの写真フォーマットに選んだ理由と、JPGへの簡単な変換方法を解説。',
+    category: 'HEIC',
+    date: '2026-02-21',
+  },
+  {
+    slug: 'heic-compatibility-guide',
+    title: 'HEIC互換性ガイド：Windows・Android・Linux',
+    description: '各プラットフォームでのHEICサポート状況と互換性問題の解決方法をまとめました。',
+    category: 'HEIC',
+    date: '2026-02-21',
+  },
+  {
+    slug: 'heic-quality-and-size',
+    title: 'HEICの画質とファイルサイズの関係',
+    description: 'HEICがJPGと比較して画質を犠牲にせずにファイルサイズを小さくできる仕組みを解説。',
+    category: 'HEIC',
+    date: '2026-02-21',
+  },
+  {
+    slug: 'photo-format-history',
+    title: '写真フォーマットの歴史と未来',
+    description: 'BMPからAVIFまで — デジタル画像フォーマットの進化の歴史とこれからの展望。',
+    category: 'HEIC',
+    date: '2026-02-21',
+  },
+  {
+    slug: 'webp-explained',
+    title: 'WebPフォーマット完全解説',
+    description: 'GoogleのWebP画像フォーマットの特徴、メリット、制限事項、変換方法を包括的に解説。',
+    category: 'WebP',
+    date: '2026-02-21',
+  },
+  {
+    slug: 'webp-vs-jpg-vs-png',
+    title: 'WebP vs JPG vs PNG：どれを使うべきか',
+    description: '3つの人気画像フォーマットを比較し、用途別の最適なフォーマットの選び方を解説。',
+    category: 'WebP',
+    date: '2026-02-21',
+  },
+  {
+    slug: 'webp-compatibility',
+    title: 'WebPの互換性問題とその解決策',
+    description: 'ブラウザ、アプリ、OSでのWebP互換性の問題をトラブルシューティング。',
+    category: 'WebP',
+    date: '2026-02-21',
+  },
+  {
+    slug: 'online-converter-privacy',
+    title: 'オンラインファイル変換ツールのプライバシーリスク',
+    description: 'オンライン変換ツールにファイルをアップロードすることのリスクと、安全な代替手段について。',
+    category: 'プライバシー',
+    date: '2026-02-21',
+  },
+  {
+    slug: 'why-client-side-processing',
+    title: 'クライアントサイド処理が安全な理由',
+    description: 'ブラウザベースのファイル処理がサーバーサイド変換ツールと比べてプライバシーを保護する仕組み。',
+    category: 'プライバシー',
+    date: '2026-02-21',
+  },
+];
+
+const categoryColors: Record<string, string> = {
+  'Winmail.dat': 'bg-purple-100 text-purple-700 dark:bg-purple-900/40 dark:text-purple-300',
+  'HEIC': 'bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300',
+  'WebP': 'bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-300',
+  'プライバシー': 'bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300',
+};
+---
+
+<BaseLayout
+  title="ブログ | OpenedFile"
+  description="ファイルフォーマット、プライバシー、ブラウザベースファイル変換に関するガイド、ヒント、技術解説。WebP、HEIC、winmail.datなど。"
+>
+  <div class="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
+    <h1 class="text-3xl font-bold text-gray-900 dark:text-white sm:text-4xl">ブログ</h1>
+    <p class="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-2xl">
+      ファイルフォーマット、プライバシー、ブラウザベースファイル変換に関するガイド、ヒント、技術解説をお届けします。
+    </p>
+
+    <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {articles.map((article) => (
+        <a
+          href={`/ja/blog/${article.slug}`}
+          class="group rounded-xl border border-gray-200 bg-white p-6 hover:border-primary-300 hover:shadow-md dark:border-gray-700 dark:bg-gray-800/60 dark:hover:border-primary-600 transition-all"
+        >
+          <div class="flex items-center gap-2 mb-3">
+            <span class={`inline-block rounded-full px-2.5 py-0.5 text-xs font-medium ${categoryColors[article.category] || ''}`}>
+              {article.category}
+            </span>
+            <time class="text-xs text-gray-400 dark:text-gray-500" datetime={article.date}>{article.date}</time>
+          </div>
+          <h2 class="text-base font-semibold text-gray-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors leading-snug">
+            {article.title}
+          </h2>
+          <p class="mt-2 text-sm text-gray-500 dark:text-gray-400 line-clamp-3">
+            {article.description}
+          </p>
+        </a>
+      ))}
+    </div>
+  </div>
+</BaseLayout>
