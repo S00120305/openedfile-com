@@ -7,10 +7,10 @@ interface Props {
 const { slot = 'header', class: className } = Astro.props;
 
 const sizeClasses: Record<string, string> = {
-  header: 'min-h-[90px] max-w-[728px]',
+  header: 'min-h-[90px] w-full max-w-[728px]',
   sidebar: 'min-h-[250px] w-[300px]',
-  content: 'min-h-[90px] max-w-[728px]',
-  footer: 'min-h-[90px] max-w-[728px]',
+  content: 'min-h-[90px] w-full max-w-[728px]',
+  footer: 'min-h-[90px] w-full max-w-[728px]',
 };
 ---
 

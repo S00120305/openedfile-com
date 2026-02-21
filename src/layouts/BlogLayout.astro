@@ -16,12 +16,19 @@ const locale = getLocaleFromUrl(Astro.url);
 const { title, description, date, category, readingTime, relatedTools = [] } = Astro.props;
 
 const blogIndexPath = getLocalizedPath('/blog', locale);
+const homeLabel = locale === 'ja' ? 'ホーム' : 'Home';
 const blogLabel = locale === 'ja' ? 'ブログ' : 'Blog';
 const relatedToolsLabel = locale === 'ja' ? '関連ツール' : 'Related Tools';
 const backToBlog = locale === 'ja' ? 'ブログ一覧に戻る' : 'Back to Blog';
+
+const breadcrumbs = [
+  { name: homeLabel, href: getLocalizedPath('/', locale) },
+  { name: blogLabel, href: blogIndexPath },
+  { name: title, href: Astro.url.pathname },
+];
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
   <article class="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
     <!-- Breadcrumb -->
     <nav class="mb-8 text-sm text-gray-500 dark:text-gray-400">

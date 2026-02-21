@@ -16,7 +16,10 @@
     "hero_title_accent": "Right in Your Browser",
     "hero_description": "Free, private file conversion tools that run entirely in your browser. No uploads, no servers, no risk.",
     "tools_section_title": "Conversion Tools",
-    "tools_section_description": "Choose a tool to get started. All processing happens on your device."
+    "tools_section_description": "Choose a tool to get started. All processing happens on your device.",
+    "latest_blog_title": "Latest from the Blog",
+    "latest_blog_description": "Tips, guides, and technical explanations about file formats and privacy.",
+    "view_all_posts": "View all posts"
   },
   "tools": {
     "webp": {
@@ -278,6 +281,7 @@
   },
   "footer": {
     "tools_title": "Tools",
+    "blog_title": "Blog",
     "legal_title": "Legal",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",

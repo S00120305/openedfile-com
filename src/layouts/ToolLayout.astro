@@ -3,18 +3,47 @@ import BaseLayout from './BaseLayout.astro';
 import AdBanner from '../components/AdBanner.astro';
 import PrivacyBadge from '../components/PrivacyBadge.astro';
 
+import { getLocaleFromUrl, getLocalizedPath } from '../i18n/utils';
+
 interface Props {
   title: string;
   description: string;
   heading: string;
   subheading: string;
   ogImage?: string;
+  toolName?: string;
 }
 
-const { title, description, heading, subheading, ogImage } = Astro.props;
+const { title, description, heading, subheading, ogImage, toolName } = Astro.props;
+const locale = getLocaleFromUrl(Astro.url);
+const homeLabel = locale === 'ja' ? 'ホーム' : 'Home';
+const toolsLabel = locale === 'ja' ? 'ツール' : 'Tools';
+
+const breadcrumbs = [
+  { name: homeLabel, href: getLocalizedPath('/', locale) },
+  { name: toolsLabel, href: getLocalizedPath('/', locale) + '#tools' },
+  { name: heading, href: Astro.url.pathname },
+];
+
+const softwareAppSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": toolName || heading,
+  "description": description,
+  "url": `https://openedfile.com${Astro.url.pathname}`,
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+  },
+  "browserRequirements": "Requires a modern web browser",
+};
 ---
 
-<BaseLayout title={title} description={description} ogImage={ogImage}>
+<BaseLayout title={title} description={description} ogImage={ogImage} breadcrumbs={breadcrumbs}>
+  <script slot="structured-data" type="application/ld+json" set:html={JSON.stringify(softwareAppSchema)} />
   <!-- Page header -->
   <section class="bg-gradient-to-b from-primary-50 to-white dark:from-gray-900 dark:to-gray-950">
     <div class="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8 text-center">

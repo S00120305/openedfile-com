@@ -8,6 +8,7 @@ interface Props {
   title?: string;
   description?: string;
   ogImage?: string;
+  breadcrumbs?: { name: string; href: string }[];
 }
 
 const locale = getLocaleFromUrl(Astro.url);
@@ -15,7 +16,22 @@ const {
   title = t(locale, 'site.title'),
   description = t(locale, 'site.description'),
   ogImage = '/og/default.png',
+  breadcrumbs = [],
 } = Astro.props;
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') || 'https://openedfile.com';
+
+// BreadcrumbList schema
+const breadcrumbSchema = breadcrumbs.length > 0 ? {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": breadcrumbs.map((item, i) => ({
+    "@type": "ListItem",
+    "position": i + 1,
+    "name": item.name,
+    "item": `${siteUrl}${item.href}`,
+  })),
+} : null;
 
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 ---
@@ -74,6 +90,12 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
       gtag('js', new Date());
       gtag('config', 'G-3DQ439LCJZ');
     </script>
+
+    <!-- Structured Data -->
+    {breadcrumbSchema && (
+      <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    )}
+    <slot name="structured-data" />
 
     <!-- Theme initialization (prevent flash) -->
     <script is:inline>

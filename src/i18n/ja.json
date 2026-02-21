@@ -16,7 +16,10 @@
     "hero_title_accent": "ブラウザで開ける",
     "hero_description": "完全無料・プライベートなファイル変換ツール。すべての処理はブラウザ内で完結。アップロード不要、サーバー不要、リスクなし。",
     "tools_section_title": "変換ツール",
-    "tools_section_description": "ツールを選んで始めましょう。すべての処理はあなたのデバイス上で行われます。"
+    "tools_section_description": "ツールを選んで始めましょう。すべての処理はあなたのデバイス上で行われます。",
+    "latest_blog_title": "最新のブログ記事",
+    "latest_blog_description": "ファイルフォーマットやプライバシーに関するガイド、ヒント、技術解説。",
+    "view_all_posts": "すべての記事を見る"
   },
   "tools": {
     "webp": {
@@ -278,6 +281,7 @@
   },
   "footer": {
     "tools_title": "ツール",
+    "blog_title": "ブログ",
     "legal_title": "法的情報",
     "privacy": "プライバシーポリシー",
     "terms": "利用規約",
