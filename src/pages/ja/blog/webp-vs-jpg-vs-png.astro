@@ -10,11 +10,28 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
   readingTime="6分で読めます"
   relatedTools={[{ name: "WebP → JPG/PNG 変換ツール", href: "/ja/tools/webp" }]}
 >
-  <h2>はじめに</h2>
+  <h2 id="introduction">はじめに</h2>
   <p>画像をWebサイトに掲載するとき、SNSでシェアするとき、あるいはファイルとして保存するとき、どのフォーマットを選べばよいか迷った経験はないでしょうか。WebP、JPG（JPEG）、PNGは現在最も広く使われている画像フォーマットですが、それぞれに明確な特徴と得意分野があります。</p>
   <p>この記事では、3つのフォーマットを多角的に比較し、用途別に最適なフォーマットを選ぶための実践的なガイドを提供します。フォーマット選びに迷った際の判断基準として、ぜひ参考にしてください。</p>
 
-  <h2>JPG（JPEG）の概要</h2>
+  <nav class="not-prose my-8 rounded-xl border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-800">
+    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">目次</h2>
+    <ul class="space-y-2 text-sm">
+      <li><a href="#jpg-overview" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">JPG（JPEG）の概要</a></li>
+      <li><a href="#png-overview" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">PNG（Portable Network Graphics）の概要</a></li>
+      <li><a href="#webp-overview" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">WebPの概要</a></li>
+      <li><a href="#detailed-comparison" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">詳細比較</a></li>
+      <li><a href="#best-for-photos" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">写真に最適なフォーマット</a></li>
+      <li><a href="#best-for-graphics" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">ロゴやグラフィックスに最適なフォーマット</a></li>
+      <li><a href="#best-for-web" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Webページに最適なフォーマット</a></li>
+      <li><a href="#best-for-sns" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">SNS投稿に最適なフォーマット</a></li>
+      <li><a href="#best-for-archive" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">アーカイブ・長期保存に最適なフォーマット</a></li>
+      <li><a href="#conversion" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">フォーマット間の変換</a></li>
+      <li><a href="#summary" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">おすすめのまとめ</a></li>
+    </ul>
+  </nav>
+
+  <h2 id="jpg-overview">JPG（JPEG）の概要</h2>
   <p>JPG（Joint Photographic Experts Group）は、<strong>1992年に標準化された</strong>最も歴史のある画像フォーマットの1つです。30年以上にわたって使用されており、事実上あらゆるデバイスとソフトウェアでサポートされています。</p>
   <p>JPGの主な特徴は以下の通りです。</p>
   <ul>
@@ -25,7 +42,7 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     <li><strong>8ビット色深度</strong>：チャンネルあたり8ビット、合計約1670万色を表現できます。</li>
   </ul>
 
-  <h2>PNG（Portable Network Graphics）の概要</h2>
+  <h2 id="png-overview">PNG（Portable Network Graphics）の概要</h2>
   <p>PNGは<strong>1996年に開発された</strong>可逆圧縮の画像フォーマットです。GIFの特許問題を受けて代替フォーマットとして生まれましたが、現在では透過画像やグラフィックスの標準フォーマットとして広く利用されています。</p>
   <p>PNGの主な特徴は以下の通りです。</p>
   <ul>
@@ -36,7 +53,7 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     <li><strong>アニメーション対応</strong>：APNG（Animated PNG）として拡張されていますが、対応はGIFほど広くありません。</li>
   </ul>
 
-  <h2>WebPの概要</h2>
+  <h2 id="webp-overview">WebPの概要</h2>
   <p>WebPは<strong>Googleが2010年に開発した</strong>次世代画像フォーマットです。JPGとPNGの両方の長所を兼ね備え、より高い圧縮効率を実現しています。</p>
   <p>WebPの主な特徴は以下の通りです。</p>
   <ul>
@@ -47,7 +64,9 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     <li><strong>ブラウザ対応が広い</strong>：主要ブラウザの97%以上でサポートされていますが、一部のデスクトップアプリでは非対応の場合があります。</li>
   </ul>
 
-  <h2>詳細比較</h2>
+  <div class="not-prose my-8 rounded-xl border border-blue-200 bg-blue-50 p-5 dark:border-blue-800 dark:bg-blue-950/50"><div class="flex gap-3"><span class="text-xl">💡</span><div><p class="font-semibold text-blue-900 dark:text-blue-200">ポイント</p><p class="mt-1 text-sm text-blue-800 dark:text-blue-300">WebPはJPGとPNGの良いところを1つにまとめたフォーマットです。非可逆・可逆圧縮、透過、アニメーションのすべてに対応し、ファイルサイズも最小です。</p></div></div></div>
+
+  <h2 id="detailed-comparison">詳細比較</h2>
   <p>3つのフォーマットを主要な観点で比較してみましょう。</p>
 
   <h3>圧縮方式と圧縮率</h3>
@@ -92,7 +111,7 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     <li><strong>WebP（非可逆）</strong>：JPGの約65〜75%（例：650〜750KB）</li>
   </ul>
 
-  <h2>写真に最適なフォーマット</h2>
+  <h2 id="best-for-photos">写真に最適なフォーマット</h2>
   <p>風景写真、ポートレート、商品写真など、一般的な写真には以下のフォーマットが適しています。</p>
   <ul>
     <li><strong>Web配信用</strong>：WebP（最小ファイルサイズ、高画質）</li>
@@ -101,7 +120,9 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
   </ul>
   <p>Webサイトに写真を掲載する場合、WebPを第一候補とし、フォールバックとしてJPGを用意するのが理想的です。</p>
 
-  <h2>ロゴやグラフィックスに最適なフォーマット</h2>
+  <div class="not-prose my-8 rounded-xl border border-green-200 bg-green-50 p-5 dark:border-green-800 dark:bg-green-950/50"><div class="flex gap-3"><span class="text-xl">✅</span><div><p class="font-semibold text-green-900 dark:text-green-200">おすすめ</p><p class="mt-1 text-sm text-green-800 dark:text-green-300">Webサイトの写真にはWebP形式を第一候補にしましょう。JPGと比べてファイルサイズが25〜34%小さく、ページ読み込み速度とCore Web Vitalsの向上に直結します。</p></div></div></div>
+
+  <h2 id="best-for-graphics">ロゴやグラフィックスに最適なフォーマット</h2>
   <p>ロゴ、アイコン、イラスト、図表など、シャープなエッジと均一な色面を持つグラフィックスには以下が適しています。</p>
   <ul>
     <li><strong>透過が必要な場合</strong>：PNG（最も互換性が高い）またはWebP（ファイルサイズ重視）</li>
@@ -109,7 +130,9 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     <li><strong>JPGは避けるべき</strong>：JPGはシャープなエッジ周辺にアーチファクト（ノイズ）が発生しやすいため、グラフィックスには不向きです。</li>
   </ul>
 
-  <h2>Webページに最適なフォーマット</h2>
+  <div class="not-prose my-8 rounded-xl border border-amber-200 bg-amber-50 p-5 dark:border-amber-800 dark:bg-amber-950/50"><div class="flex gap-3"><span class="text-xl">⚠️</span><div><p class="font-semibold text-amber-900 dark:text-amber-200">注意</p><p class="mt-1 text-sm text-amber-800 dark:text-amber-300">ロゴやテキスト画像にJPGを使うと、エッジ周辺にノイズ（アーチファクト）が発生し品質が低下します。グラフィックスにはPNGまたはWebP（可逆）を使いましょう。</p></div></div></div>
+
+  <h2 id="best-for-web">Webページに最適なフォーマット</h2>
   <p>Webサイトのパフォーマンスを最大化するには、画像フォーマットの選択が重要です。</p>
   <ul>
     <li><strong>最適な選択</strong>：WebP（ファイルサイズが最小で、ページ読み込み速度とCore Web Vitalsを改善）</li>
@@ -118,7 +141,7 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     <li><strong>アイコンやロゴ</strong>：WebP（可逆）またはPNG、SVGも検討</li>
   </ul>
 
-  <h2>SNS投稿に最適なフォーマット</h2>
+  <h2 id="best-for-sns">SNS投稿に最適なフォーマット</h2>
   <p>SNSプラットフォームに画像を投稿する場合、各プラットフォームの対応状況を考慮する必要があります。</p>
   <ul>
     <li><strong>最も安全な選択</strong>：JPG（すべてのSNSで確実にアップロード・表示可能）</li>
@@ -126,7 +149,7 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     <li><strong>WebP</strong>：対応が広がっているものの、一部のプラットフォームでは再エンコードされるため、最初からJPGやPNGで投稿するのが確実です。</li>
   </ul>
 
-  <h2>アーカイブ・長期保存に最適なフォーマット</h2>
+  <h2 id="best-for-archive">アーカイブ・長期保存に最適なフォーマット</h2>
   <p>写真やデジタル資産を長期的に保存する場合は、以下の点を考慮しましょう。</p>
   <ul>
     <li><strong>画質保持を最優先</strong>：PNG（ロスレスで画質劣化なし、長い歴史と広い互換性）</li>
@@ -135,7 +158,9 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     <li><strong>将来性</strong>：JPGとPNGは非常に広くサポートされており、今後数十年にわたって読み取れる可能性が高いです。WebPも主要フォーマットとして定着していますが、歴史はまだ比較的浅いです。</li>
   </ul>
 
-  <h2>フォーマット間の変換</h2>
+  <div class="not-prose my-8 rounded-xl border border-blue-200 bg-blue-50 p-5 dark:border-blue-800 dark:bg-blue-950/50"><div class="flex gap-3"><span class="text-xl">💡</span><div><p class="font-semibold text-blue-900 dark:text-blue-200">ポイント</p><p class="mt-1 text-sm text-blue-800 dark:text-blue-300">長期保存にはPNGが最も安全です。30年以上の実績があり、ロスレス圧縮で画質劣化もありません。ストレージ効率を重視する場合はWebP（可逆）も検討してください。</p></div></div></div>
+
+  <h2 id="conversion">フォーマット間の変換</h2>
   <p>実際の作業では、WebPで受け取った画像をJPGに変換したり、PNGからWebPに変換したりする場面が頻繁に発生します。このようなフォーマット変換を安全かつ簡単に行うために、<a href="/ja/tools/webp">OpenedFileのWebP変換ツール</a>をご活用ください。</p>
   <p>OpenedFileの変換ツールには以下の利点があります。</p>
   <ul>
@@ -147,7 +172,7 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
   </ul>
   <p>また、<a href="/ja/tools/heic">HEIC変換ツール</a>もご用意しています。iPhoneで撮影したHEIC写真をJPGやPNGに変換する場合にご利用ください。</p>
 
-  <h2>おすすめのまとめ</h2>
+  <h2 id="summary">おすすめのまとめ</h2>
   <p>最適なフォーマットの選択は、用途と優先事項によって異なります。以下を簡潔な指針としてご活用ください。</p>
   <ul>
     <li><strong>Webサイトの画像最適化</strong>：WebPを最優先（ファイルサイズ最小、高画質）</li>
@@ -157,4 +182,22 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     <li><strong>ストレージ効率重視</strong>：WebP（すべての用途で最小サイズ）</li>
   </ul>
   <p>フォーマットの変換が必要になった際は、<a href="/ja/tools/webp">OpenedFileのWebP変換ツール</a>でプライバシーを守りながら簡単に変換できます。画像フォーマットの特性を理解し、目的に応じた最適なフォーマットを選びましょう。</p>
+
+  <div class="not-prose mt-12 rounded-xl border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-800">
+    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">関連記事</h2>
+    <div class="grid gap-3 sm:grid-cols-2">
+      <a href="/ja/blog/webp-explained" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">WebP完全解説</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">WebPフォーマットの特徴、メリット、変換方法を包括的に解説します。</p>
+      </a>
+      <a href="/ja/blog/webp-compatibility" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">WebPの互換性問題</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">ブラウザ、アプリ、OSでのWebP互換性の問題と解決策を詳しく解説します。</p>
+      </a>
+      <a href="/ja/blog/online-converter-privacy" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">プライバシーリスク</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">オンライン変換ツールに潜むプライバシーリスクと安全な代替手段を紹介します。</p>
+      </a>
+    </div>
+  </div>
 </BlogLayout>

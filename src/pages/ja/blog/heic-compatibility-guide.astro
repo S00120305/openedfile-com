@@ -13,11 +13,27 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
   <h2>はじめに</h2>
   <p>iPhoneで撮影したHEIC形式の写真を他のデバイスで開こうとして、「このファイル形式はサポートされていません」というエラーに遭遇したことはありませんか？ HEICは優れた画像フォーマットですが、すべてのプラットフォームで完全にサポートされているわけではありません。この記事では、Windows、Android、Linux、macOS、そしてWebブラウザにおけるHEICのサポート状況を詳しく解説し、互換性問題の具体的な解決方法をご紹介します。</p>
 
-  <h2>HEIC互換性の現状</h2>
+  <nav class="not-prose my-8 rounded-xl border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-800">
+    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">目次</h2>
+    <ul class="space-y-2 text-sm">
+      <li><a href="#heic互換性の現状" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">HEIC互換性の現状</a></li>
+      <li><a href="#windowsでのheicサポート" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">WindowsでのHEICサポート</a></li>
+      <li><a href="#androidでのheicサポート" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">AndroidでのHEICサポート</a></li>
+      <li><a href="#linuxでのheicサポート" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">LinuxでのHEICサポート</a></li>
+      <li><a href="#macosでのheicサポート" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">macOSでのHEICサポート</a></li>
+      <li><a href="#webブラウザでのheicサポート" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">WebブラウザでのHEICサポート</a></li>
+      <li><a href="#互換性問題の最も簡単な解決方法" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">互換性問題の最も簡単な解決方法</a></li>
+      <li><a href="#一括変換のヒント" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">一括変換のヒント</a></li>
+    </ul>
+  </nav>
+
+  <h2 id="heic互換性の現状">HEIC互換性の現状</h2>
   <p>HEICは2017年にAppleによって広く普及しましたが、それから数年が経った現在でも、すべてのプラットフォームでシームレスに使えるわけではありません。その理由の一つは、HEICが使用するHEVCコーデックにライセンス料が発生するためです。このライセンスの問題が、各プラットフォームでの対応を遅らせる要因となっています。</p>
   <p>以下では、主要なプラットフォームごとのサポート状況を詳しく見ていきましょう。</p>
 
-  <h2>WindowsでのHEICサポート</h2>
+  <div class="not-prose my-8 rounded-xl border border-blue-200 bg-blue-50 p-5 dark:border-blue-800 dark:bg-blue-950/50"><div class="flex gap-3"><span class="text-xl">💡</span><div><p class="font-semibold text-blue-900 dark:text-blue-200">ポイント</p><p class="mt-1 text-sm text-blue-800 dark:text-blue-300">HEICの互換性問題の根本原因は、HEVCコーデックのライセンス料にあります。ロイヤリティフリーのAVIFとは異なり、HEVCを使用するにはライセンス料の支払いが必要なため、一部のプラットフォームでの対応が遅れています。</p></div></div></div>
+
+  <h2 id="windowsでのheicサポート">WindowsでのHEICサポート</h2>
   <h3>Windows 10/11での対応状況</h3>
   <p>Windows 10（バージョン1809以降）およびWindows 11では、Microsoft Storeから拡張機能をインストールすることでHEICファイルを表示できます。</p>
   <ul>
@@ -35,7 +51,9 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     <li>Windows 10の古いバージョンでは拡張機能自体がインストールできない場合がある</li>
   </ul>
 
-  <h2>AndroidでのHEICサポート</h2>
+  <div class="not-prose my-8 rounded-xl border border-amber-200 bg-amber-50 p-5 dark:border-amber-800 dark:bg-amber-950/50"><div class="flex gap-3"><span class="text-xl">⚠️</span><div><p class="font-semibold text-amber-900 dark:text-amber-200">注意</p><p class="mt-1 text-sm text-amber-800 dark:text-amber-300">WindowsでHEICを扱うには、HEIF画像拡張機能とHEVCビデオ拡張機能の両方が必要です。片方だけではファイルを正しく開けない場合があります。</p></div></div></div>
+
+  <h2 id="androidでのheicサポート">AndroidでのHEICサポート</h2>
   <h3>Android 9以降での対応</h3>
   <p>GoogleはAndroid 9（Pie）でHEIFの読み取りサポートを追加し、Android 10でHEIFでの保存機能を追加しました。しかし、実際のサポート状況はデバイスメーカーや機種によって大きく異なります。</p>
   <ul>
@@ -52,7 +70,7 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     <li><a href="/ja/tools/heic">OpenedFileのHEIC変換ツール</a>でJPGに変換してから転送する</li>
   </ul>
 
-  <h2>LinuxでのHEICサポート</h2>
+  <h2 id="linuxでのheicサポート">LinuxでのHEICサポート</h2>
   <h3>限定的なネイティブサポート</h3>
   <p>LinuxでのHEICサポートは、他のプラットフォームと比較して最も限定的です。ほとんどのLinuxディストリビューションでは、追加パッケージのインストールが必要です。</p>
   <ul>
@@ -63,14 +81,40 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
 
   <h3>Linuxでのインストール手順</h3>
   <p>Ubuntu/Debian系の場合、以下のパッケージをインストールすることでHEICサポートを有効にできます。</p>
-  <ul>
-    <li>libheif-dev：HEIFライブラリの開発版</li>
-    <li>heif-gdk-pixbuf：GDK-PixBufローダー（ファイルマネージャーでのサムネイル表示に必要）</li>
-    <li>heif-thumbnailer：サムネイル生成ツール</li>
-  </ul>
+
+  <div class="not-prose my-6 flex gap-4 rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+    <div class="flex shrink-0 items-center justify-center w-10 h-10 rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400">
+      <span class="text-sm font-bold">1</span>
+    </div>
+    <div class="min-w-0">
+      <h3 class="font-semibold text-gray-900 dark:text-white">libheif-devをインストール</h3>
+      <p class="mt-1.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">HEIFライブラリの開発版をインストールします。基本的なHEIC読み込み機能を提供します。</p>
+    </div>
+  </div>
+
+  <div class="not-prose my-6 flex gap-4 rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+    <div class="flex shrink-0 items-center justify-center w-10 h-10 rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400">
+      <span class="text-sm font-bold">2</span>
+    </div>
+    <div class="min-w-0">
+      <h3 class="font-semibold text-gray-900 dark:text-white">heif-gdk-pixbufをインストール</h3>
+      <p class="mt-1.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">GDK-PixBufローダーをインストールします。ファイルマネージャーでのサムネイル表示に必要です。</p>
+    </div>
+  </div>
+
+  <div class="not-prose my-6 flex gap-4 rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+    <div class="flex shrink-0 items-center justify-center w-10 h-10 rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400">
+      <span class="text-sm font-bold">3</span>
+    </div>
+    <div class="min-w-0">
+      <h3 class="font-semibold text-gray-900 dark:text-white">heif-thumbnailerをインストール</h3>
+      <p class="mt-1.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">サムネイル生成ツールをインストールします。デスクトップ環境でのプレビュー表示が可能になります。</p>
+    </div>
+  </div>
+
   <p>ただし、コマンドラインでのインストールに慣れていない方にとっては、<a href="/ja/tools/heic">ブラウザベースのHEIC変換ツール</a>を使用するのが最も簡単な方法でしょう。</p>
 
-  <h2>macOSでのHEICサポート</h2>
+  <h2 id="macosでのheicサポート">macOSでのHEICサポート</h2>
   <p>macOS High Sierra（10.13、2017年リリース）以降では、HEICがネイティブでサポートされています。</p>
   <ul>
     <li><strong>プレビューApp</strong>：HEICファイルの表示、および他形式への書き出しが可能</li>
@@ -81,7 +125,9 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
   </ul>
   <p>macOSはHEICにとって最も快適な環境と言えます。iPhoneからAirDropで転送した写真もそのまま開けます。</p>
 
-  <h2>WebブラウザでのHEICサポート</h2>
+  <div class="not-prose my-8 rounded-xl border border-green-200 bg-green-50 p-5 dark:border-green-800 dark:bg-green-950/50"><div class="flex gap-3"><span class="text-xl">✅</span><div><p class="font-semibold text-green-900 dark:text-green-200">おすすめ</p><p class="mt-1 text-sm text-green-800 dark:text-green-300">MacユーザーはプレビューAppで「ファイル > 書き出す」からHEICをJPGやPNGに簡単に変換できます。大量のファイルを変換する場合はOpenedFileのオンラインツールが便利です。</p></div></div></div>
+
+  <h2 id="webブラウザでのheicサポート">WebブラウザでのHEICサポート</h2>
   <p>Webブラウザにおいて、HEICのネイティブサポートは非常に限定的です。</p>
   <ul>
     <li><strong>Safari</strong>：macOS High Sierra以降およびiOS 11以降でネイティブ対応。img要素でのHEIC画像表示が可能。</li>
@@ -91,7 +137,7 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
   </ul>
   <p>このため、Webサイトに画像を掲載する場合は、HEICではなくJPG、PNG、またはWebP形式を使用するのが現実的です。</p>
 
-  <h2>互換性問題の最も簡単な解決方法</h2>
+  <h2 id="互換性問題の最も簡単な解決方法">互換性問題の最も簡単な解決方法</h2>
   <p>各プラットフォームで個別に設定を行うのは面倒です。最も簡単で確実な方法は、HEICファイルを広く互換性のあるJPGまたはPNG形式に変換することです。</p>
   <p><a href="/ja/tools/heic">OpenedFileのHEIC変換ツール</a>なら、OSやブラウザを問わず、すぐにHEICファイルをJPGやPNGに変換できます。</p>
   <ul>
@@ -101,7 +147,7 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     <li><strong>高品質変換</strong>：画質を維持しながら効率的に変換</li>
   </ul>
 
-  <h2>一括変換のヒント</h2>
+  <h2 id="一括変換のヒント">一括変換のヒント</h2>
   <p>大量のHEICファイルを変換する必要がある場合は、以下のヒントを参考にしてください。</p>
   <ul>
     <li><strong>フォルダ単位で整理</strong>：まずHEICファイルを1つのフォルダにまとめてから、変換作業を行うと効率的です。</li>
@@ -110,7 +156,27 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     <li><strong>命名規則</strong>：変換後のファイルに統一的な命名規則を適用すると、管理が容易になります。</li>
   </ul>
 
+  <div class="not-prose my-8 rounded-xl border border-blue-200 bg-blue-50 p-5 dark:border-blue-800 dark:bg-blue-950/50"><div class="flex gap-3"><span class="text-xl">💡</span><div><p class="font-semibold text-blue-900 dark:text-blue-200">ポイント</p><p class="mt-1 text-sm text-blue-800 dark:text-blue-300">変換後もオリジナルのHEICファイルは保持しておきましょう。将来的にHEICの互換性が向上すれば、より高品質な元ファイルを活用できます。</p></div></div></div>
+
   <h2>まとめ</h2>
   <p>HEICは技術的に優れた画像フォーマットですが、プラットフォームによって互換性に大きな差があります。Apple製品ではネイティブに対応しているものの、Windows、Android、Linux、そしてWebブラウザではまだ完全なサポートには至っていません。</p>
   <p>現時点での最も実用的な対処法は、普段はHEICの効率性を活かしつつ、他のデバイスやサービスと共有する際には<a href="/ja/tools/heic">OpenedFileのHEIC変換ツール</a>でJPGやPNGに変換することです。将来的にはHEICの互換性がさらに改善されることが期待されますが、それまでは状況に応じた柔軟な対応が求められます。</p>
+
+  <div class="not-prose mt-12 rounded-xl border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-800">
+    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">関連記事</h2>
+    <div class="grid gap-3 sm:grid-cols-2">
+      <a href="/ja/blog/heic-vs-jpg" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">HEIC vs JPG比較</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">画質・サイズ・互換性を徹底比較</p>
+      </a>
+      <a href="/ja/blog/why-iphone-uses-heic" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">iPhoneがHEICを使う理由</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">AppleがHEICをデフォルトに選んだ理由と変換方法</p>
+      </a>
+      <a href="/ja/blog/heic-quality-and-size" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">HEICの画質とサイズ</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">画質を犠牲にせずファイルサイズを小さくする仕組み</p>
+      </a>
+    </div>
+  </div>
 </BlogLayout>

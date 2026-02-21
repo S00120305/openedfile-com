@@ -13,22 +13,71 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
   <h2>はじめに</h2>
   <p>「ファイルサイズが小さい = 画質が低い」という印象をお持ちの方は多いのではないでしょうか。しかし、HEICフォーマットはこの常識を覆します。HEICはJPGと比較して約40〜50%も小さなファイルサイズでありながら、同等以上の画質を実現しています。この記事では、HEICがどのような技術でこの驚異的な効率性を達成しているのか、その仕組みを詳しく解説します。</p>
 
-  <h2>HEICの優位性</h2>
+  <nav class="not-prose my-8 rounded-xl border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-800">
+    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">目次</h2>
+    <ul class="space-y-2 text-sm">
+      <li><a href="#heicの優位性" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">HEICの優位性</a></li>
+      <li><a href="#hevc圧縮の仕組み" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">HEVC圧縮の仕組み</a></li>
+      <li><a href="#ファイルサイズ削減を支える3つの技術" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">ファイルサイズ削減を支える3つの技術</a></li>
+      <li><a href="#同じファイルサイズでの品質比較" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">同じファイルサイズでの品質比較</a></li>
+      <li><a href="#同じ品質でのファイルサイズ比較" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">同じ品質でのファイルサイズ比較</a></li>
+      <li><a href="#iphoneでの実際のストレージ節約" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">iPhoneでの実際のストレージ節約</a></li>
+      <li><a href="#変換時の品質設定について" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">変換時の品質設定について</a></li>
+      <li><a href="#ファイルサイズと品質のどちらを優先すべきか" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">ファイルサイズと品質のどちらを優先すべきか</a></li>
+    </ul>
+  </nav>
+
+  <h2 id="heicの優位性">HEICの優位性</h2>
   <p>HEICがJPGよりも効率的な画像圧縮を実現できるのは、根本的に異なる圧縮技術を使用しているからです。JPGは1992年に標準化された離散コサイン変換（DCT）をベースにしていますが、HEICは2013年に標準化されたHEVC（H.265）コーデックを使用しています。</p>
   <p>約20年の技術的進歩を反映したHEVCは、画像データの冗長性をより効果的に検出・除去することで、少ないデータ量でより多くの視覚情報を表現できます。</p>
 
-  <h2>HEVC圧縮の仕組み</h2>
+  <div class="not-prose my-8 rounded-xl border border-blue-200 bg-blue-50 p-5 dark:border-blue-800 dark:bg-blue-950/50"><div class="flex gap-3"><span class="text-xl">💡</span><div><p class="font-semibold text-blue-900 dark:text-blue-200">ポイント</p><p class="mt-1 text-sm text-blue-800 dark:text-blue-300">JPG（1992年）とHEIC/HEVC（2013年）の間には約20年の技術的進歩があり、この差がファイルサイズと画質の両面での優位性を生み出しています。</p></div></div></div>
+
+  <h2 id="hevc圧縮の仕組み">HEVC圧縮の仕組み</h2>
   <p>HEICが使用するHEVC（High Efficiency Video Coding）は、もともと動画圧縮のために開発されたコーデックです。動画は連続する静止画の集まりですが、HEVCは1枚の静止画（イントラフレーム）の圧縮にも非常に優れています。</p>
   <p>HEVCの静止画圧縮プロセスは、大きく分けて以下のステップで行われます。</p>
-  <ul>
-    <li>画像をコーディングツリーユニット（CTU）に分割</li>
-    <li>各CTU内でイントラ予測を実行し、冗長な情報を検出</li>
-    <li>予測残差を変換（DCT/DST）して周波数領域に変換</li>
-    <li>量子化によって視覚的に影響の少ない情報を削減</li>
-    <li>エントロピー符号化（CABAC）で最終的なビットストリームを生成</li>
-  </ul>
 
-  <h2>ファイルサイズ削減を支える3つの技術</h2>
+  <div class="not-prose my-6 flex gap-4 rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+    <div class="flex shrink-0 items-center justify-center w-10 h-10 rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400">
+      <span class="text-sm font-bold">1</span>
+    </div>
+    <div class="min-w-0">
+      <h3 class="font-semibold text-gray-900 dark:text-white">CTUへの分割</h3>
+      <p class="mt-1.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">画像をコーディングツリーユニット（CTU）に分割します。</p>
+    </div>
+  </div>
+
+  <div class="not-prose my-6 flex gap-4 rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+    <div class="flex shrink-0 items-center justify-center w-10 h-10 rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400">
+      <span class="text-sm font-bold">2</span>
+    </div>
+    <div class="min-w-0">
+      <h3 class="font-semibold text-gray-900 dark:text-white">イントラ予測</h3>
+      <p class="mt-1.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">各CTU内でイントラ予測を実行し、冗長な情報を検出します。</p>
+    </div>
+  </div>
+
+  <div class="not-prose my-6 flex gap-4 rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+    <div class="flex shrink-0 items-center justify-center w-10 h-10 rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400">
+      <span class="text-sm font-bold">3</span>
+    </div>
+    <div class="min-w-0">
+      <h3 class="font-semibold text-gray-900 dark:text-white">変換と量子化</h3>
+      <p class="mt-1.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">予測残差を変換（DCT/DST）して周波数領域に変換し、量子化によって視覚的に影響の少ない情報を削減します。</p>
+    </div>
+  </div>
+
+  <div class="not-prose my-6 flex gap-4 rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+    <div class="flex shrink-0 items-center justify-center w-10 h-10 rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400">
+      <span class="text-sm font-bold">4</span>
+    </div>
+    <div class="min-w-0">
+      <h3 class="font-semibold text-gray-900 dark:text-white">エントロピー符号化</h3>
+      <p class="mt-1.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">エントロピー符号化（CABAC）で最終的なビットストリームを生成します。</p>
+    </div>
+  </div>
+
+  <h2 id="ファイルサイズ削減を支える3つの技術">ファイルサイズ削減を支える3つの技術</h2>
   <h3>高度なイントラ予測</h3>
   <p>JPGの圧縮では、画像を8x8ピクセルのブロックに分割し、各ブロックを独立して処理します。一方、HEVCでは35種類のイントラ予測モード（33方向の角度予測 + DC予測 + Planar予測）を使用して、隣接するブロックの情報から現在のブロックの内容を高精度に予測します。</p>
   <p>この予測が正確であればあるほど、実際に保存する必要がある「予測との差分（残差）」が小さくなり、結果としてファイルサイズが削減されます。特に空や壁などの均一な領域では、予測精度が非常に高くなるため、大幅なサイズ削減が実現できます。</p>
@@ -41,7 +90,7 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
   <p>JPGはハフマン符号化を使用していますが、HEVCはCABAC（Context-Adaptive Binary Arithmetic Coding）という、より高度なエントロピー符号化方式を採用しています。CABACは、データの統計的特性を文脈に応じて動的に学習し、より効率的にデータを圧縮します。</p>
   <p>CABACはハフマン符号化と比較して、同じデータに対して約10〜15%高い圧縮効率を実現するとされています。これ単体では大きな差に見えないかもしれませんが、他の技術との組み合わせで最終的なファイルサイズに大きく貢献しています。</p>
 
-  <h2>同じファイルサイズでの品質比較</h2>
+  <h2 id="同じファイルサイズでの品質比較">同じファイルサイズでの品質比較</h2>
   <p>HEICとJPGを同じファイルサイズに設定した場合、HEICの方が明らかに高い画質を示します。具体的には以下のような違いが現れます。</p>
   <ul>
     <li><strong>グラデーション領域</strong>：空や海の写真では、JPGでバンディング（色の段差）が発生する品質でも、HEICでは滑らかなグラデーションを維持</li>
@@ -51,7 +100,7 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
   </ul>
   <p>これらの差は特に低ビットレート（高圧縮）時に顕著になります。つまり、ファイルサイズを小さくすればするほど、HEICの優位性が際立ちます。</p>
 
-  <h2>同じ品質でのファイルサイズ比較</h2>
+  <h2 id="同じ品質でのファイルサイズ比較">同じ品質でのファイルサイズ比較</h2>
   <p>逆に、同じ視覚品質を目標とした場合のファイルサイズ差を見てみましょう。一般的なベンチマークテストでは、以下のような結果が報告されています。</p>
   <ul>
     <li>SSIM（構造的類似性指標）0.95を目標とした場合：HEICはJPGの約55%のファイルサイズ</li>
@@ -60,7 +109,9 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
   </ul>
   <p>つまり、人間の目で見てほぼ同じ品質と判断される画像を生成する場合、HEICのファイルサイズはJPGの半分程度になるということです。</p>
 
-  <h2>iPhoneでの実際のストレージ節約</h2>
+  <div class="not-prose my-8 rounded-xl border border-green-200 bg-green-50 p-5 dark:border-green-800 dark:bg-green-950/50"><div class="flex gap-3"><span class="text-xl">✅</span><div><p class="font-semibold text-green-900 dark:text-green-200">おすすめ</p><p class="mt-1 text-sm text-green-800 dark:text-green-300">同じ画質を目標にした場合、HEICのファイルサイズはJPGの約半分です。iPhoneでは「高効率」（HEIC）設定のまま使用することで、ストレージを大幅に節約できます。</p></div></div></div>
+
+  <h2 id="iphoneでの実際のストレージ節約">iPhoneでの実際のストレージ節約</h2>
   <p>理論的な数値だけでなく、実際のiPhoneでの使用状況を見てみましょう。</p>
   <ul>
     <li><strong>通常の写真（12MP）</strong>：JPGで約3.5〜5MB → HEICで約1.8〜2.5MB</li>
@@ -70,7 +121,7 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
   </ul>
   <p>年間で1万枚の写真を撮影するユーザーの場合、HEICを使用することで約15〜25GBのストレージを節約できる計算になります。これは128GBモデルのiPhoneでは、ストレージ全体の約12〜20%に相当する大きな節約です。</p>
 
-  <h2>変換時の品質設定について</h2>
+  <h2 id="変換時の品質設定について">変換時の品質設定について</h2>
   <p>HEICをJPGに変換する際、品質（Quality）パラメータの設定が重要になります。<a href="/ja/tools/heic">OpenedFileのHEIC変換ツール</a>では、この品質設定を細かく調整できます。</p>
   <ul>
     <li><strong>品質100%</strong>：最高品質。ファイルサイズは最大になりますが、変換による劣化は最小限。印刷用途に最適。</li>
@@ -78,9 +129,10 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     <li><strong>品質80〜85%</strong>：良好な品質。Webサイトやブログでの使用に最適。ファイルサイズとのバランスが良い。</li>
     <li><strong>品質70%以下</strong>：ファイルサイズを最優先する場合。サムネイルやプレビュー用に適しています。</li>
   </ul>
-  <p>注意すべき点として、HEICからJPGへの変換は非可逆圧縮から非可逆圧縮への変換であるため、理論上は品質の低下が避けられません。ただし、品質90%以上で変換すれば、実用上問題になることはほとんどありません。</p>
 
-  <h2>ファイルサイズと品質のどちらを優先すべきか</h2>
+  <div class="not-prose my-8 rounded-xl border border-amber-200 bg-amber-50 p-5 dark:border-amber-800 dark:bg-amber-950/50"><div class="flex gap-3"><span class="text-xl">⚠️</span><div><p class="font-semibold text-amber-900 dark:text-amber-200">注意</p><p class="mt-1 text-sm text-amber-800 dark:text-amber-300">HEICからJPGへの変換は非可逆圧縮から非可逆圧縮への変換であるため、理論上は品質の低下が避けられません。ただし、品質90%以上で変換すれば、実用上問題になることはほとんどありません。</p></div></div></div>
+
+  <h2 id="ファイルサイズと品質のどちらを優先すべきか">ファイルサイズと品質のどちらを優先すべきか</h2>
   <p>最終的に、ファイルサイズと品質のどちらを優先すべきかは、用途によって異なります。</p>
   <ul>
     <li><strong>ストレージ節約を重視</strong>：iPhoneの設定で「高効率」（HEIC）を選択し、そのまま保存。変換が必要な場合は品質85%程度のJPGに変換。</li>
@@ -92,4 +144,22 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
   <h2>まとめ</h2>
   <p>HEICは、HEVC（H.265）コーデックの高度な圧縮技術 — 高度なイントラ予測、適応的なブロック構造、CABAC符号化 — を活用することで、JPGの約半分のファイルサイズで同等以上の画質を実現しています。この効率性は、ストレージ容量の限られたスマートフォンにとって極めて大きな価値を持ちます。</p>
   <p>HEICからJPGへの変換が必要な場面では、<a href="/ja/tools/heic">OpenedFileのHEIC変換ツール</a>を使って、用途に応じた品質設定で変換することで、最適なファイルサイズと画質のバランスを実現できます。</p>
+
+  <div class="not-prose mt-12 rounded-xl border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-800">
+    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">関連記事</h2>
+    <div class="grid gap-3 sm:grid-cols-2">
+      <a href="/ja/blog/heic-vs-jpg" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">HEIC vs JPG比較</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">画質・サイズ・互換性を徹底比較</p>
+      </a>
+      <a href="/ja/blog/why-iphone-uses-heic" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">iPhoneがHEICを使う理由</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">AppleがHEICをデフォルトに選んだ理由と変換方法</p>
+      </a>
+      <a href="/ja/blog/photo-format-history" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">写真フォーマットの歴史</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">BMPからAVIFまでの進化の歴史と未来</p>
+      </a>
+    </div>
+  </div>
 </BlogLayout>

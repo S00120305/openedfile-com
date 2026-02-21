@@ -17,7 +17,21 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     The good news is that opening a winmail.dat file on a Mac is simple once you know what the file is and have the right tool. In this guide, we will walk through exactly why Mac users encounter this problem and provide multiple methods for extracting the contents of a winmail.dat file on macOS.
   </p>
 
-  <h2>The Mac Winmail.dat Problem</h2>
+  <nav class="not-prose my-8 rounded-xl border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-800">
+    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Table of Contents</h2>
+    <ul class="space-y-2 text-sm">
+      <li><a href="#the-mac-winmail-dat-problem" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">The Mac Winmail.dat Problem</a></li>
+      <li><a href="#why-apple-mail-cannot-open-winmail-dat" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Why Apple Mail Cannot Open Winmail.dat</a></li>
+      <li><a href="#method-1-use-a-browser-based-tool" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Method 1: Use a Browser-Based Tool (Recommended)</a></li>
+      <li><a href="#method-2-third-party-mac-applications" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Method 2: Third-Party Mac Applications</a></li>
+      <li><a href="#method-3-ask-the-sender-to-resend" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Method 3: Ask the Sender to Resend</a></li>
+      <li><a href="#comparing-the-methods" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Comparing the Methods</a></li>
+      <li><a href="#tips-for-mac-users-who-frequently-receive-winmail-dat" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Tips for Mac Users Who Frequently Receive Winmail.dat</a></li>
+      <li><a href="#conclusion" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Conclusion</a></li>
+    </ul>
+  </nav>
+
+  <h2 id="the-mac-winmail-dat-problem">The Mac Winmail.dat Problem</h2>
   <p>
     Winmail.dat files are created by Microsoft Outlook when it sends emails using Rich Text Format (RTF). Outlook encodes the message and its attachments using a proprietary format called TNEF (Transport Neutral Encapsulation Format). When this email reaches a Mac user, whether through Apple Mail, Spark, Airmail, or any other non-Outlook mail client, the email application cannot decode the TNEF encoding. Instead of the original attachments, the user sees a single file called winmail.dat.
   </p>
@@ -25,29 +39,85 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     This is particularly common in business environments where the sender uses Outlook on Windows while the recipient uses a Mac. The sender has no idea that their email arrived in an unreadable format because Outlook does not warn them about potential compatibility issues.
   </p>
 
-  <h2>Why Apple Mail Cannot Open Winmail.dat</h2>
+  <h2 id="why-apple-mail-cannot-open-winmail-dat">Why Apple Mail Cannot Open Winmail.dat</h2>
   <p>
     Apple Mail has included limited TNEF support in recent versions of macOS, and some winmail.dat files may be partially decoded. However, this support is inconsistent. Complex TNEF structures, multiple attachments, or messages with extensive MAPI properties may still produce an unopenable winmail.dat file in Apple Mail.
   </p>
+
+  <div class="not-prose my-8 rounded-xl border border-blue-200 bg-blue-50 p-5 dark:border-blue-800 dark:bg-blue-950/50">
+    <div class="flex gap-3">
+      <span class="text-xl">💡</span>
+      <div>
+        <p class="font-semibold text-blue-900 dark:text-blue-200">Did You Know?</p>
+        <p class="mt-1 text-sm text-blue-800 dark:text-blue-300">Apple Mail's built-in TNEF support is limited and inconsistent. It may extract simple attachments from some winmail.dat files, but complex TNEF structures with multiple files, MAPI properties, or embedded OLE objects will still appear as unopenable winmail.dat attachments.</p>
+      </div>
+    </div>
+  </div>
+
   <p>
     The fundamental issue is that TNEF is a Microsoft-proprietary format. Apple has not implemented full TNEF decoding in Mail because it is not an open standard and because Microsoft has historically not provided comprehensive documentation for the format. As a result, Mac users need a dedicated tool to reliably extract winmail.dat contents.
   </p>
 
-  <h2>Method 1: Use a Browser-Based Tool (Recommended)</h2>
+  <h2 id="method-1-use-a-browser-based-tool">Method 1: Use a Browser-Based Tool (Recommended)</h2>
   <p>
     The fastest and easiest way to open a winmail.dat file on your Mac is to use a browser-based viewer. Our free <a href="/tools/winmail">Winmail.dat Viewer</a> works directly in Safari, Chrome, Firefox, or any other browser on your Mac. Here is how to use it:
   </p>
-  <ul>
-    <li><strong>Step 1</strong>: Save the winmail.dat file from your email to your Mac. In Apple Mail, you can right-click the attachment and choose "Save Attachment" or simply drag it to your Desktop or Downloads folder.</li>
-    <li><strong>Step 2</strong>: Open your web browser and navigate to our <a href="/tools/winmail">Winmail.dat Viewer</a>.</li>
-    <li><strong>Step 3</strong>: Drag and drop the winmail.dat file onto the viewer, or click the upload area to select the file from your Mac.</li>
-    <li><strong>Step 4</strong>: The tool will instantly decode the TNEF file and display its contents. You will see a list of all attachments that were embedded inside, along with options to download each one individually.</li>
-  </ul>
+
+  <div class="not-prose my-8 rounded-xl border border-green-200 bg-green-50 p-5 dark:border-green-800 dark:bg-green-950/50">
+    <div class="flex gap-3">
+      <span class="text-xl">✅</span>
+      <div>
+        <p class="font-semibold text-green-900 dark:text-green-200">Recommended</p>
+        <p class="mt-1 text-sm text-green-800 dark:text-green-300">The browser-based tool is the fastest method. No software to install, works on any Mac with a web browser, and your file is processed locally so nothing leaves your computer. The entire process takes less than 30 seconds.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="not-prose my-6 flex gap-4 rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+    <div class="flex shrink-0 items-center justify-center w-10 h-10 rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400">
+      <span class="text-sm font-bold">1</span>
+    </div>
+    <div class="min-w-0">
+      <h3 class="font-semibold text-gray-900 dark:text-white">Save the Winmail.dat File</h3>
+      <p class="mt-1.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">Save the winmail.dat file from your email to your Mac. In Apple Mail, you can right-click the attachment and choose "Save Attachment" or simply drag it to your Desktop or Downloads folder.</p>
+    </div>
+  </div>
+
+  <div class="not-prose my-6 flex gap-4 rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+    <div class="flex shrink-0 items-center justify-center w-10 h-10 rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400">
+      <span class="text-sm font-bold">2</span>
+    </div>
+    <div class="min-w-0">
+      <h3 class="font-semibold text-gray-900 dark:text-white">Open the Viewer</h3>
+      <p class="mt-1.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">Open your web browser and navigate to our <a href="/tools/winmail" class="text-primary-600 hover:underline dark:text-primary-400">Winmail.dat Viewer</a>.</p>
+    </div>
+  </div>
+
+  <div class="not-prose my-6 flex gap-4 rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+    <div class="flex shrink-0 items-center justify-center w-10 h-10 rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400">
+      <span class="text-sm font-bold">3</span>
+    </div>
+    <div class="min-w-0">
+      <h3 class="font-semibold text-gray-900 dark:text-white">Upload the File</h3>
+      <p class="mt-1.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">Drag and drop the winmail.dat file onto the viewer, or click the upload area to select the file from your Mac.</p>
+    </div>
+  </div>
+
+  <div class="not-prose my-6 flex gap-4 rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+    <div class="flex shrink-0 items-center justify-center w-10 h-10 rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400">
+      <span class="text-sm font-bold">4</span>
+    </div>
+    <div class="min-w-0">
+      <h3 class="font-semibold text-gray-900 dark:text-white">View and Download Contents</h3>
+      <p class="mt-1.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">The tool will instantly decode the TNEF file and display its contents. You will see a list of all attachments that were embedded inside, along with options to download each one individually.</p>
+    </div>
+  </div>
+
   <p>
     This entire process takes less than 30 seconds and requires no software installation. The file is processed entirely within your browser, so your data never leaves your Mac. This makes it the most convenient and privacy-respecting option available.
   </p>
 
-  <h2>Method 2: Third-Party Mac Applications</h2>
+  <h2 id="method-2-third-party-mac-applications">Method 2: Third-Party Mac Applications</h2>
   <p>
     If you receive winmail.dat files frequently and prefer a native Mac application, there are several third-party apps available:
   </p>
@@ -63,7 +133,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     While these applications work well, they require installation and maintenance. For occasional winmail.dat files, a browser-based tool like our <a href="/tools/winmail">Winmail.dat Viewer</a> is usually the more practical choice.
   </p>
 
-  <h2>Method 3: Ask the Sender to Resend</h2>
+  <h2 id="method-3-ask-the-sender-to-resend">Method 3: Ask the Sender to Resend</h2>
   <p>
     If you have a relationship with the sender, you can ask them to resend the email in a different format. Here is what to tell them:
   </p>
@@ -77,7 +147,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     This will send the email using standard HTML formatting with standard MIME attachments, which every email client can handle. However, this approach is not always practical, especially if the sender is a business contact, an automated system, or someone you do not know well.
   </p>
 
-  <h2>Comparing the Methods</h2>
+  <h2 id="comparing-the-methods">Comparing the Methods</h2>
   <p>
     Here is how the three methods compare for Mac users:
   </p>
@@ -90,7 +160,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     For most Mac users, the browser-based approach is the best starting point. It solves the immediate problem without requiring any commitment to installing software, and it works on the very first try.
   </p>
 
-  <h2>Tips for Mac Users Who Frequently Receive Winmail.dat</h2>
+  <h2 id="tips-for-mac-users-who-frequently-receive-winmail-dat">Tips for Mac Users Who Frequently Receive Winmail.dat</h2>
   <p>
     If you regularly receive winmail.dat files from the same sender or organization, here are some strategies to reduce the annoyance:
   </p>
@@ -101,11 +171,29 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     <li><strong>Consider an Apple Mail plugin</strong>: If the volume of winmail.dat files is high enough to justify it, a plugin like Letter Opener can decode them automatically within Apple Mail.</li>
   </ul>
 
-  <h2>Conclusion</h2>
+  <h2 id="conclusion">Conclusion</h2>
   <p>
     Receiving a winmail.dat file on a Mac can be frustrating, but it does not have to be a roadblock. With a free browser-based tool like our <a href="/tools/winmail">Winmail.dat Viewer</a>, you can extract the contents of any winmail.dat file in seconds without installing anything on your Mac. Whether you choose a browser tool, a desktop application, or simply ask the sender to switch formats, the solution is straightforward and accessible.
   </p>
   <p>
     The next time a winmail.dat file appears in your inbox, you will know exactly what it is and exactly how to handle it.
   </p>
+
+  <div class="not-prose mt-12 rounded-xl border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-800">
+    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Related Articles</h2>
+    <div class="grid gap-3 sm:grid-cols-2">
+      <a href="/blog/what-is-winmail-dat" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">What Is a Winmail.dat File?</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">The complete guide to understanding winmail.dat files and how to open them.</p>
+      </a>
+      <a href="/blog/winmail-dat-iphone" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">Winmail.dat on iPhone</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">How to handle winmail.dat attachments on your iPhone or iPad.</p>
+      </a>
+      <a href="/blog/prevent-winmail-dat" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">How to Prevent Winmail.dat</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">Configure Outlook to stop sending winmail.dat files to your recipients.</p>
+      </a>
+    </div>
+  </div>
 </BlogLayout>

@@ -10,7 +10,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
   readingTime="5 min read"
   relatedTools={[{ name: "HEIC to JPG/PNG Converter", href: "/tools/heic" }]}
 >
-  <h2>Introduction</h2>
+  <h2 id="introduction">Introduction</h2>
   <p>
     One of the most common questions about the HEIC image format is how it manages to produce
     files that are significantly smaller than JPGs while maintaining the same or better visual
@@ -20,7 +20,22 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     in practical terms.
   </p>
 
-  <h2>The HEIC Advantage</h2>
+  <nav class="not-prose my-8 rounded-xl border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-800">
+    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Table of Contents</h2>
+    <ul class="space-y-2 text-sm">
+      <li><a href="#the-heic-advantage" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">The HEIC Advantage</a></li>
+      <li><a href="#understanding-hevc-compression" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Understanding HEVC Compression</a></li>
+      <li><a href="#how-heic-reduces-file-size" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">How HEIC Reduces File Size</a></li>
+      <li><a href="#quality-comparison-at-the-same-file-size" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Quality Comparison at the Same File Size</a></li>
+      <li><a href="#quality-comparison-at-the-same-quality" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Quality Comparison at the Same Quality</a></li>
+      <li><a href="#real-world-storage-savings-on-iphone" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Real-World Storage Savings on iPhone</a></li>
+      <li><a href="#conversion-quality-considerations" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Conversion Quality Considerations</a></li>
+      <li><a href="#when-file-size-matters-vs-quality" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">When File Size Matters vs. Quality</a></li>
+      <li><a href="#conclusion" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Conclusion</a></li>
+    </ul>
+  </nav>
+
+  <h2 id="the-heic-advantage">The HEIC Advantage</h2>
   <p>
     HEIC files are typically <strong>40% to 50% smaller</strong> than JPG files at equivalent
     visual quality. This is not a marginal improvement; it is a generational leap in compression
@@ -28,13 +43,24 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     Using JPG, you might fit around 15,000 photos. Using HEIC, that number jumps to roughly
     25,000 to 30,000 photos. The visual quality of those photos is essentially indistinguishable.
   </p>
+
+  <div class="not-prose my-8 rounded-xl border border-blue-200 bg-blue-50 p-5 dark:border-blue-800 dark:bg-blue-950/50">
+    <div class="flex gap-3">
+      <span class="text-xl">💡</span>
+      <div>
+        <p class="font-semibold text-blue-900 dark:text-blue-200">Did You Know?</p>
+        <p class="mt-1 text-sm text-blue-800 dark:text-blue-300">HEIC files are 40-50% smaller than equivalent JPG files at the same visual quality. On a 64 GB iPhone, this means fitting roughly 25,000-30,000 photos instead of 15,000 — with no visible difference in image quality.</p>
+      </div>
+    </div>
+  </div>
+
   <p>
     This advantage is not the result of a single clever trick. It comes from a fundamentally
     more sophisticated compression architecture that improves on JPG's approach in nearly every
     dimension.
   </p>
 
-  <h2>Understanding HEVC Compression</h2>
+  <h2 id="understanding-hevc-compression">Understanding HEVC Compression</h2>
   <p>
     HEIC uses the HEVC (High Efficiency Video Coding) codec, also known as H.265, for image
     compression. HEVC was originally developed for video compression and represents the
@@ -46,7 +72,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     the specific technical improvements it introduces.
   </p>
 
-  <h2>How HEIC Reduces File Size</h2>
+  <h2 id="how-heic-reduces-file-size">How HEIC Reduces File Size</h2>
   <h3>Advanced Intra Prediction</h3>
   <p>
     When compressing an image, the codec tries to predict what each region of the image looks
@@ -95,7 +121,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     allowing for better rate-distortion optimization.
   </p>
 
-  <h2>Quality Comparison at the Same File Size</h2>
+  <h2 id="quality-comparison-at-the-same-file-size">Quality Comparison at the Same File Size</h2>
   <p>
     When you constrain both HEIC and JPG to the same file size and compare the resulting image
     quality, the difference is clearly visible, especially at lower file sizes. In controlled
@@ -107,7 +133,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     <li><strong>At 2 MB:</strong> Both formats look good at normal viewing distances, but pixel-level inspection reveals that HEIC preserves finer textures and produces fewer ringing artifacts around high-contrast edges.</li>
   </ul>
 
-  <h2>Quality Comparison at the Same Quality</h2>
+  <h2 id="quality-comparison-at-the-same-quality">Quality Comparison at the Same Quality</h2>
   <p>
     When you target the same perceived visual quality and compare the resulting file sizes, HEIC
     consistently produces smaller files:
@@ -123,7 +149,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     photos with large areas of smooth color.
   </p>
 
-  <h2>Real-World Storage Savings on iPhone</h2>
+  <h2 id="real-world-storage-savings-on-iphone">Real-World Storage Savings on iPhone</h2>
   <p>
     Apple's decision to switch the iPhone's default photo format from JPG to HEIC was driven
     largely by storage considerations. Here are some real-world scenarios that illustrate the
@@ -136,13 +162,24 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     <li><strong>Transfer times:</strong> Smaller files transfer faster over Wi-Fi and cellular networks, which matters when syncing photos to iCloud or sharing via AirDrop</li>
   </ul>
 
-  <h2>Conversion Quality Considerations</h2>
+  <h2 id="conversion-quality-considerations">Conversion Quality Considerations</h2>
   <p>
     When converting HEIC to JPG, there is an inherent quality trade-off because you are
     re-encoding an already-compressed image into a different lossy format. Each generation of
     lossy compression introduces additional quality loss. Here are some guidelines for choosing
     quality settings when converting:
   </p>
+
+  <div class="not-prose my-8 rounded-xl border border-amber-200 bg-amber-50 p-5 dark:border-amber-800 dark:bg-amber-950/50">
+    <div class="flex gap-3">
+      <span class="text-xl">⚠️</span>
+      <div>
+        <p class="font-semibold text-amber-900 dark:text-amber-200">Important</p>
+        <p class="mt-1 text-sm text-amber-800 dark:text-amber-300">Converting HEIC to JPG introduces generation loss because you are re-encoding an already lossy-compressed image into another lossy format. Always keep your original HEIC files as the highest-quality source and convert copies only when needed.</p>
+      </div>
+    </div>
+  </div>
+
   <h3>Choosing Quality Settings</h3>
   <ul>
     <li><strong>Quality 95-100%:</strong> Minimal additional quality loss. Files will be larger than the original HEIC. Best for printing, archival, or professional editing.</li>
@@ -150,13 +187,24 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     <li><strong>Quality 70-84%:</strong> Some quality loss may be visible upon close inspection. Suitable for web publishing and social media where smaller file sizes are prioritized.</li>
     <li><strong>Quality below 70%:</strong> Noticeable quality degradation. Only use when file size constraints are severe.</li>
   </ul>
+
+  <div class="not-prose my-8 rounded-xl border border-green-200 bg-green-50 p-5 dark:border-green-800 dark:bg-green-950/50">
+    <div class="flex gap-3">
+      <span class="text-xl">✅</span>
+      <div>
+        <p class="font-semibold text-green-900 dark:text-green-200">Recommended</p>
+        <p class="mt-1 text-sm text-green-800 dark:text-green-300">A quality setting of 90% is the ideal default when converting HEIC to JPG. It provides an excellent balance between file size and visual quality, with differences imperceptible to most people under normal viewing conditions.</p>
+      </div>
+    </div>
+  </div>
+
   <p>
     When using <a href="/tools/heic">OpenedFile's HEIC converter</a>, you can select the quality
     level before conversion, giving you full control over the quality-size trade-off. For most
     uses, a quality setting of 90% provides an excellent balance.
   </p>
 
-  <h2>When File Size Matters vs. Quality</h2>
+  <h2 id="when-file-size-matters-vs-quality">When File Size Matters vs. Quality</h2>
   <p>
     Different situations call for different priorities:
   </p>
@@ -180,7 +228,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     each specific use case requires.
   </p>
 
-  <h2>Conclusion</h2>
+  <h2 id="conclusion">Conclusion</h2>
   <p>
     HEIC's ability to produce files that are roughly half the size of JPGs without sacrificing
     visual quality is not magic; it is the result of decades of advancement in compression
@@ -195,4 +243,22 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     conversion quick and painless while letting you choose exactly the right quality level for
     your needs.
   </p>
+
+  <div class="not-prose mt-12 rounded-xl border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-800">
+    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Related Articles</h2>
+    <div class="grid gap-3 sm:grid-cols-2">
+      <a href="/blog/heic-vs-jpg" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">HEIC vs JPG: The Complete Comparison Guide</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">Compare HEIC and JPG image formats — quality, file size, compatibility, and when to use each.</p>
+      </a>
+      <a href="/blog/why-iphone-uses-heic" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">Why iPhone Uses HEIC and How to Convert</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">Understand why Apple chose HEIC as the default photo format and learn easy ways to convert to JPG.</p>
+      </a>
+      <a href="/blog/photo-format-history" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">The History and Future of Photo Formats</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">From BMP to AVIF — a journey through the evolution of digital image formats and what comes next.</p>
+      </a>
+    </div>
+  </div>
 </BlogLayout>

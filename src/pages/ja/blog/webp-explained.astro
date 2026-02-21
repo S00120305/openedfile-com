@@ -10,15 +10,33 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
   readingTime="6分で読めます"
   relatedTools={[{ name: "WebP → JPG/PNG 変換ツール", href: "/ja/tools/webp" }]}
 >
-  <h2>はじめに</h2>
+  <h2 id="introduction">はじめに</h2>
   <p>Webサイトの表示速度は、ユーザー体験とSEOの両方に大きな影響を与えます。画像はWebページのデータ量の大部分を占めるため、より効率的な画像フォーマットの選択は、サイトパフォーマンス改善の鍵となります。そこで注目されているのが、Googleが開発した<strong>WebP</strong>画像フォーマットです。</p>
   <p>この記事では、WebPフォーマットの技術的な仕組みから、実際の活用方法、制限事項、そして他のフォーマットとの使い分けまで、包括的に解説します。WebPを正しく理解することで、Webサイトの最適化やファイル管理に役立てることができるでしょう。</p>
 
-  <h2>WebPとは</h2>
+  <nav class="not-prose my-8 rounded-xl border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-800">
+    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">目次</h2>
+    <ul class="space-y-2 text-sm">
+      <li><a href="#what-is-webp" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">WebPとは</a></li>
+      <li><a href="#technical-mechanism" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">WebPの技術的な仕組み</a></li>
+      <li><a href="#lossy-lossless" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">非可逆WebPと可逆WebP</a></li>
+      <li><a href="#key-features" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">WebPの主要機能</a></li>
+      <li><a href="#file-size-advantage" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">JPG・PNGに対するファイルサイズの優位性</a></li>
+      <li><a href="#limitations" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">WebPの制限事項</a></li>
+      <li><a href="#browser-support" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">ブラウザサポート状況</a></li>
+      <li><a href="#best-use-cases" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">WebPの最適な使い所</a></li>
+      <li><a href="#conversion" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">WebPからJPG/PNGへの変換</a></li>
+      <li><a href="#summary" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">まとめ</a></li>
+    </ul>
+  </nav>
+
+  <h2 id="what-is-webp">WebPとは</h2>
   <p>WebP（ウェッピー）は、<strong>Googleが2010年に発表した画像フォーマット</strong>です。もともとはWeb上の画像配信を効率化することを目的として開発されました。「より小さなファイルサイズで、より高品質な画像を提供する」というコンセプトのもと、当時主流だったJPGやPNGに代わる次世代フォーマットとして位置づけられました。</p>
   <p>Googleは自社のWebサービス（YouTube、Google Playなど）でWebPを積極的に採用し、その有効性を実証してきました。現在では多くのWebサイトやCDN（コンテンツ配信ネットワーク）がWebPを標準的にサポートしており、Webの画像フォーマットとして広く普及しています。</p>
 
-  <h2>WebPの技術的な仕組み</h2>
+  <div class="not-prose my-8 rounded-xl border border-blue-200 bg-blue-50 p-5 dark:border-blue-800 dark:bg-blue-950/50"><div class="flex gap-3"><span class="text-xl">💡</span><div><p class="font-semibold text-blue-900 dark:text-blue-200">ポイント</p><p class="mt-1 text-sm text-blue-800 dark:text-blue-300">WebPは非可逆・可逆圧縮、透過、アニメーションをすべて1つのフォーマットでサポートする、Web向けに最適化された次世代画像フォーマットです。</p></div></div></div>
+
+  <h2 id="technical-mechanism">WebPの技術的な仕組み</h2>
   <p>WebPは、Googleが動画コーデックとして開発した<strong>VP8</strong>および<strong>VP8L</strong>の技術を画像圧縮に応用しています。これにより、従来のフォーマットよりも高い圧縮効率を実現しています。</p>
 
   <h3>VP8コーデック（非可逆圧縮）</h3>
@@ -27,7 +45,7 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
   <h3>VP8Lコーデック（可逆圧縮）</h3>
   <p>WebPの可逆（ロスレス）圧縮は、VP8Lと呼ばれる独自のコーデックを使用しています。VP8Lは、色変換、空間予測、カラーキャッシュ、LZ77マッチングとハフマン符号化など、複数の高度な技術を組み合わせて高い圧縮率を実現しています。PNGと比較して、平均で<strong>約26%小さいファイルサイズ</strong>を達成できるとされています。</p>
 
-  <h2>非可逆WebPと可逆WebP</h2>
+  <h2 id="lossy-lossless">非可逆WebPと可逆WebP</h2>
   <p>WebPは<strong>非可逆（ロッシー）圧縮</strong>と<strong>可逆（ロスレス）圧縮</strong>の両方をサポートしています。これは1つのフォーマットで両方の圧縮方式に対応するという大きな利点です。</p>
 
   <h3>非可逆WebP</h3>
@@ -36,7 +54,9 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
   <h3>可逆WebP</h3>
   <p>画質を一切劣化させずに圧縮する方式です。ロゴ、アイコン、テキストを含む画像、スクリーンショットなど、画質の劣化を許容できない用途に適しています。PNGと比較して約26%小さいファイルサイズで、完全に同一の画質を維持できます。</p>
 
-  <h2>WebPの主要機能</h2>
+  <div class="not-prose my-8 rounded-xl border border-green-200 bg-green-50 p-5 dark:border-green-800 dark:bg-green-950/50"><div class="flex gap-3"><span class="text-xl">✅</span><div><p class="font-semibold text-green-900 dark:text-green-200">おすすめ</p><p class="mt-1 text-sm text-green-800 dark:text-green-300">写真にはWebP非可逆（品質75〜80）を、ロゴやスクリーンショットにはWebP可逆を使うのが最適な使い分けです。</p></div></div></div>
+
+  <h2 id="key-features">WebPの主要機能</h2>
   <p>WebPはファイルサイズの効率だけでなく、複数の高度な機能を備えています。</p>
 
   <h3>アニメーション</h3>
@@ -48,7 +68,7 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
   <h3>メタデータ</h3>
   <p>WebPファイルはEXIFメタデータ（撮影情報）やXMPメタデータ（著作権情報など）、ICCカラープロファイルを格納できます。これにより、写真のワークフローにおいても重要なメタデータを保持できます。</p>
 
-  <h2>JPG・PNGに対するファイルサイズの優位性</h2>
+  <h2 id="file-size-advantage">JPG・PNGに対するファイルサイズの優位性</h2>
   <p>WebPの最大の魅力はファイルサイズの効率です。Googleの公式ベンチマークおよび多数の独立した検証によると、以下のような優位性があります。</p>
   <ul>
     <li><strong>非可逆WebP vs JPG</strong>：同等の画質で約25〜34%小さいファイルサイズ</li>
@@ -57,7 +77,7 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
   </ul>
   <p>Webサイト全体で考えると、画像をWebPに変換するだけでページ容量を20〜30%削減できるケースも珍しくありません。これはページ読み込み速度の改善、帯域幅の節約、そしてモバイルユーザーのデータ通信量削減に直結します。</p>
 
-  <h2>WebPの制限事項</h2>
+  <h2 id="limitations">WebPの制限事項</h2>
   <p>優れた性能を持つWebPですが、いくつかの制限事項があることも知っておく必要があります。</p>
   <ul>
     <li><strong>古いソフトウェアとの互換性</strong>：2020年以前にリリースされた多くのアプリケーション（旧バージョンのPhotoshop、一部の画像ビューアなど）はWebPをネイティブサポートしていません。</li>
@@ -67,7 +87,9 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     <li><strong>SNSプラットフォーム</strong>：一部のSNSやメッセージングアプリでは、WebP形式の直接アップロードに対応していない場合があります。</li>
   </ul>
 
-  <h2>ブラウザサポート状況</h2>
+  <div class="not-prose my-8 rounded-xl border border-amber-200 bg-amber-50 p-5 dark:border-amber-800 dark:bg-amber-950/50"><div class="flex gap-3"><span class="text-xl">⚠️</span><div><p class="font-semibold text-amber-900 dark:text-amber-200">注意</p><p class="mt-1 text-sm text-amber-800 dark:text-amber-300">WebPは最終配信用フォーマットです。編集を繰り返すワークフローでは、元画像をPNGやTIFFで保存し、配信時のみWebPに変換するのがベストプラクティスです。</p></div></div></div>
+
+  <h2 id="browser-support">ブラウザサポート状況</h2>
   <p>2026年現在、WebPはすべての主要ブラウザで広くサポートされています。</p>
   <ul>
     <li><strong>Google Chrome</strong>：バージョン17以降（2012年〜）で完全サポート</li>
@@ -78,7 +100,7 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
   </ul>
   <p>Can I Use のデータによると、WebPは世界中のブラウザの<strong>97%以上</strong>でサポートされています。Internet Explorer 11のみが非対応の主要ブラウザですが、IE11はすでにサポートが終了しています。</p>
 
-  <h2>WebPの最適な使い所</h2>
+  <h2 id="best-use-cases">WebPの最適な使い所</h2>
   <p>WebPが特に効果を発揮するシーンをまとめます。</p>
   <ul>
     <li><strong>Webサイトの画像最適化</strong>：ページ読み込み速度の改善とCore Web Vitalsスコアの向上</li>
@@ -88,20 +110,65 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     <li><strong>SNS向け画像</strong>：対応プラットフォームでの効率的な画像共有</li>
   </ul>
 
-  <h2>WebPからJPG/PNGへの変換</h2>
+  <h2 id="conversion">WebPからJPG/PNGへの変換</h2>
   <p>WebPの互換性の制限に直面した場合、JPGやPNGに変換することで問題を解決できます。しかし、変換ツールを選ぶ際にはプライバシーにも注意が必要です。多くのオンライン変換ツールはファイルをサーバーにアップロードして処理するため、個人的な画像が第三者のサーバーに一時的にせよ保存されるリスクがあります。</p>
   <p><a href="/ja/tools/webp">OpenedFileのWebP変換ツール</a>は、すべての処理をブラウザ内で完結させるクライアントサイド方式を採用しています。ファイルがサーバーにアップロードされることは一切なく、プライバシーを確保しながら簡単にWebPファイルをJPGやPNGに変換できます。</p>
   <p>変換手順は非常にシンプルです。</p>
-  <ul>
-    <li>ステップ1：<a href="/ja/tools/webp">WebP変換ツール</a>にアクセス</li>
-    <li>ステップ2：WebPファイルをドラッグ＆ドロップまたはファイル選択</li>
-    <li>ステップ3：出力形式（JPGまたはPNG）と品質設定を選択</li>
-    <li>ステップ4：変換ボタンをクリックしてダウンロード</li>
-  </ul>
+
+  <div class="not-prose my-6 flex gap-4 rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+    <div class="flex shrink-0 items-center justify-center w-10 h-10 rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400"><span class="text-sm font-bold">1</span></div>
+    <div class="min-w-0">
+      <h3 class="font-semibold text-gray-900 dark:text-white">ツールにアクセス</h3>
+      <p class="mt-1.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400"><a href="/ja/tools/webp" class="text-primary-600 dark:text-primary-400 hover:underline">WebP変換ツール</a>をブラウザで開きます。</p>
+    </div>
+  </div>
+
+  <div class="not-prose my-6 flex gap-4 rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+    <div class="flex shrink-0 items-center justify-center w-10 h-10 rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400"><span class="text-sm font-bold">2</span></div>
+    <div class="min-w-0">
+      <h3 class="font-semibold text-gray-900 dark:text-white">ファイルを選択</h3>
+      <p class="mt-1.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">WebPファイルをドラッグ＆ドロップまたはファイル選択で読み込みます。</p>
+    </div>
+  </div>
+
+  <div class="not-prose my-6 flex gap-4 rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+    <div class="flex shrink-0 items-center justify-center w-10 h-10 rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400"><span class="text-sm font-bold">3</span></div>
+    <div class="min-w-0">
+      <h3 class="font-semibold text-gray-900 dark:text-white">出力形式を選択</h3>
+      <p class="mt-1.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">出力形式（JPGまたはPNG）と品質設定を選択します。</p>
+    </div>
+  </div>
+
+  <div class="not-prose my-6 flex gap-4 rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+    <div class="flex shrink-0 items-center justify-center w-10 h-10 rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400"><span class="text-sm font-bold">4</span></div>
+    <div class="min-w-0">
+      <h3 class="font-semibold text-gray-900 dark:text-white">変換してダウンロード</h3>
+      <p class="mt-1.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">変換ボタンをクリックして、変換されたファイルをダウンロードします。</p>
+    </div>
+  </div>
+
   <p>複数ファイルの一括変換にも対応しており、大量のWebPファイルを効率的に変換できます。</p>
 
-  <h2>まとめ</h2>
+  <h2 id="summary">まとめ</h2>
   <p>WebPは、Googleが開発した高効率な次世代画像フォーマットです。非可逆・可逆の両方の圧縮方式をサポートし、アニメーションや透過にも対応するなど、非常に多機能なフォーマットとなっています。JPGやPNGと比較して25〜34%小さいファイルサイズを実現できるため、Webサイトのパフォーマンス最適化に大きく貢献します。</p>
   <p>一方で、古いソフトウェアとの互換性や、編集ワークフローにおける制限など、注意すべき点もあります。WebPの特性を正しく理解し、用途に応じてJPGやPNGと使い分けることが重要です。</p>
   <p>互換性の問題が発生した場合は、<a href="/ja/tools/webp">OpenedFileのWebP変換ツール</a>を活用して、安全かつ簡単にフォーマット変換を行いましょう。プライバシーを守りながら、最適な画像フォーマットで作業を進められます。</p>
+
+  <div class="not-prose mt-12 rounded-xl border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-800">
+    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">関連記事</h2>
+    <div class="grid gap-3 sm:grid-cols-2">
+      <a href="/ja/blog/webp-vs-jpg-vs-png" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">WebP vs JPG vs PNG</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">3つの画像フォーマットを比較し、用途別に最適なフォーマットを解説します。</p>
+      </a>
+      <a href="/ja/blog/webp-compatibility" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">WebPの互換性問題</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">ブラウザ、アプリ、OSでのWebP互換性の問題と解決策を詳しく解説します。</p>
+      </a>
+      <a href="/ja/blog/online-converter-privacy" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">プライバシーリスク</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">オンライン変換ツールに潜むプライバシーリスクと安全な代替手段を紹介します。</p>
+      </a>
+    </div>
+  </div>
 </BlogLayout>

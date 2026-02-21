@@ -10,7 +10,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
   readingTime="5 min read"
   relatedTools={[{ name: "WebP to JPG/PNG Converter", href: "/tools/webp" }]}
 >
-  <h2>The WebP Compatibility Problem</h2>
+  <h2 id="the-webp-compatibility-problem">The WebP Compatibility Problem</h2>
   <p>
     WebP has become the default image format on millions of websites, and for good reason: it delivers smaller file sizes, supports transparency, and handles animation. But while WebP works beautifully inside web browsers, the moment you try to use a WebP file outside of a browser, problems can arise. You might find that your photo editor cannot open it, your email client displays a broken image, or your presentation software refuses to insert it.
   </p>
@@ -18,7 +18,22 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     This article covers the current state of WebP compatibility across browsers, operating systems, and applications, and provides practical solutions for every common problem you might encounter.
   </p>
 
-  <h2>Browser Support: The Good News</h2>
+  <nav class="not-prose my-8 rounded-xl border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-800">
+    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Table of Contents</h2>
+    <ul class="space-y-2 text-sm">
+      <li><a href="#browser-support-the-good-news" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Browser Support: The Good News</a></li>
+      <li><a href="#operating-system-support" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Operating System Support</a></li>
+      <li><a href="#application-support-issues" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Application Support Issues</a></li>
+      <li><a href="#social-media-platform-support" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Social Media Platform Support</a></li>
+      <li><a href="#email-client-limitations" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Email Client Limitations</a></li>
+      <li><a href="#common-problems-and-solutions" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Common Problems and Solutions</a></li>
+      <li><a href="#converting-webp-for-maximum-compatibility" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Converting WebP for Maximum Compatibility</a></li>
+      <li><a href="#the-future-of-webp-compatibility" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">The Future of WebP Compatibility</a></li>
+      <li><a href="#conclusion" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Conclusion</a></li>
+    </ul>
+  </nav>
+
+  <h2 id="browser-support-the-good-news">Browser Support: The Good News</h2>
   <p>
     In 2026, WebP enjoys <strong>near-universal browser support</strong>. If you are viewing images in a web browser, WebP will almost certainly work:
   </p>
@@ -33,7 +48,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     The only browser that never supported WebP was <strong>Internet Explorer</strong>, which Microsoft officially retired in June 2022. If you are still encountering users on Internet Explorer, it may be time to consider dropping support for it entirely, as Microsoft no longer provides security updates for it.
   </p>
 
-  <h2>Operating System Support</h2>
+  <h2 id="operating-system-support">Operating System Support</h2>
   <p>
     Operating system support for WebP has improved significantly in recent years, but gaps remain:
   </p>
@@ -54,7 +69,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     <strong>Android</strong> has supported WebP since version 4.0 (2011) for lossy and version 4.2.1 for lossless and transparency. <strong>iOS</strong> added full WebP support in iOS 14 (2020). Both platforms handle WebP well in their native photo galleries and sharing workflows.
   </p>
 
-  <h2>Application Support Issues</h2>
+  <h2 id="application-support-issues">Application Support Issues</h2>
   <p>
     While browsers and modern operating systems handle WebP smoothly, many desktop applications still struggle with the format:
   </p>
@@ -73,7 +88,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     <li><strong>LibreOffice</strong> — Added WebP support in version 7.4 (2022).</li>
   </ul>
 
-  <h2>Social Media Platform Support</h2>
+  <h2 id="social-media-platform-support">Social Media Platform Support</h2>
   <p>
     Social media platforms have inconsistent WebP support for uploads:
   </p>
@@ -87,7 +102,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     As a general rule, if you are uploading images to social media, <strong>JPG for photos</strong> and <strong>PNG for graphics with transparency</strong> remain the safest options.
   </p>
 
-  <h2>Email Client Limitations</h2>
+  <h2 id="email-client-limitations">Email Client Limitations</h2>
   <p>
     Email is one of the most challenging environments for WebP:
   </p>
@@ -98,32 +113,66 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     <li><strong>Gmail (web)</strong> — Supports WebP display since it runs in a browser.</li>
     <li><strong>Thunderbird</strong> — Supports WebP.</li>
   </ul>
+
+  <div class="not-prose my-8 rounded-xl border border-amber-200 bg-amber-50 p-5 dark:border-amber-800 dark:bg-amber-950/50">
+    <div class="flex gap-3">
+      <span class="text-xl">&#x26A0;&#xFE0F;</span>
+      <div>
+        <p class="font-semibold text-amber-900 dark:text-amber-200">Important</p>
+        <p class="mt-1 text-sm text-amber-800 dark:text-amber-300">Desktop Outlook does not render WebP images inline. Recipients will see a broken image placeholder or a download link instead. For professional email communication, always convert WebP images to JPG or PNG before embedding or attaching them.</p>
+      </div>
+    </div>
+  </div>
+
   <p>
     For email attachments and embedded images, <strong>always use JPG or PNG</strong> to ensure maximum compatibility across all email clients. This is one of the most important practical rules for working with images in professional communication.
   </p>
 
-  <h2>Common Problems and Solutions</h2>
-  <h3>Problem: "I Downloaded an Image and It's a .webp File I Can't Open"</h3>
-  <p>
-    This is the single most common WebP complaint. When you right-click and save an image from a website, your browser often saves it as a .webp file because that is the format the server delivered. The solution is straightforward: convert the WebP file to JPG or PNG using a <a href="/tools/webp">browser-based converter</a>. The conversion takes seconds and does not require installing any software.
-  </p>
+  <h2 id="common-problems-and-solutions">Common Problems and Solutions</h2>
 
-  <h3>Problem: "Chrome Keeps Saving Images as WebP"</h3>
-  <p>
-    When you use "Save image as" in Chrome, the browser saves the image in whatever format the website serves. Since most modern websites serve WebP, your downloads folder fills up with .webp files. There is no built-in Chrome setting to change this behavior. Your best options are: use a browser extension that forces downloads as JPG/PNG, or batch-convert your WebP files after downloading using a tool like <a href="/tools/webp">OpenedFile's converter</a>.
-  </p>
+  <div class="not-prose my-6 flex gap-4 rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+    <div class="flex shrink-0 items-center justify-center w-10 h-10 rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400"><span class="text-sm font-bold">1</span></div>
+    <div class="min-w-0">
+      <h3 class="font-semibold text-gray-900 dark:text-white">"I Downloaded an Image and It's a .webp File I Can't Open"</h3>
+      <p class="mt-1.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">This is the single most common WebP complaint. When you right-click and save an image from a website, your browser often saves it as a .webp file because that is the format the server delivered. The solution is straightforward: convert the WebP file to JPG or PNG using a <a href="/tools/webp" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 underline">browser-based converter</a>. The conversion takes seconds and does not require installing any software.</p>
+    </div>
+  </div>
 
-  <h3>Problem: "I Need to Convert Many WebP Files at Once"</h3>
-  <p>
-    If you have a folder full of WebP images that need converting, look for a converter that supports <strong>batch processing</strong>. <a href="/tools/webp">OpenedFile's WebP converter</a> allows you to drag and drop multiple files at once and convert them all simultaneously, with all processing happening locally in your browser.
-  </p>
+  <div class="not-prose my-6 flex gap-4 rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+    <div class="flex shrink-0 items-center justify-center w-10 h-10 rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400"><span class="text-sm font-bold">2</span></div>
+    <div class="min-w-0">
+      <h3 class="font-semibold text-gray-900 dark:text-white">"Chrome Keeps Saving Images as WebP"</h3>
+      <p class="mt-1.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">When you use "Save image as" in Chrome, the browser saves the image in whatever format the website serves. Since most modern websites serve WebP, your downloads folder fills up with .webp files. There is no built-in Chrome setting to change this behavior. Your best options are: use a browser extension that forces downloads as JPG/PNG, or batch-convert your WebP files after downloading using a tool like <a href="/tools/webp" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 underline">OpenedFile's converter</a>.</p>
+    </div>
+  </div>
 
-  <h3>Problem: "WebP Files Won't Open in My Image Editor"</h3>
-  <p>
-    If your image editor predates WebP support, you have two options: update to a newer version that supports WebP natively, or convert the WebP file to JPG or PNG before opening it in your editor.
-  </p>
+  <div class="not-prose my-6 flex gap-4 rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+    <div class="flex shrink-0 items-center justify-center w-10 h-10 rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400"><span class="text-sm font-bold">3</span></div>
+    <div class="min-w-0">
+      <h3 class="font-semibold text-gray-900 dark:text-white">"I Need to Convert Many WebP Files at Once"</h3>
+      <p class="mt-1.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">If you have a folder full of WebP images that need converting, look for a converter that supports <strong>batch processing</strong>. <a href="/tools/webp" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 underline">OpenedFile's WebP converter</a> allows you to drag and drop multiple files at once and convert them all simultaneously, with all processing happening locally in your browser.</p>
+    </div>
+  </div>
 
-  <h2>Converting WebP for Maximum Compatibility</h2>
+  <div class="not-prose my-6 flex gap-4 rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+    <div class="flex shrink-0 items-center justify-center w-10 h-10 rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400"><span class="text-sm font-bold">4</span></div>
+    <div class="min-w-0">
+      <h3 class="font-semibold text-gray-900 dark:text-white">"WebP Files Won't Open in My Image Editor"</h3>
+      <p class="mt-1.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">If your image editor predates WebP support, you have two options: update to a newer version that supports WebP natively, or convert the WebP file to JPG or PNG before opening it in your editor.</p>
+    </div>
+  </div>
+
+  <div class="not-prose my-8 rounded-xl border border-green-200 bg-green-50 p-5 dark:border-green-800 dark:bg-green-950/50">
+    <div class="flex gap-3">
+      <span class="text-xl">&#x2705;</span>
+      <div>
+        <p class="font-semibold text-green-900 dark:text-green-200">Recommended</p>
+        <p class="mt-1 text-sm text-green-800 dark:text-green-300">When you need to send images via email or embed them in documents, always convert WebP files to JPG (for photos) or PNG (for graphics with transparency) first. This ensures your images display correctly for every recipient, regardless of their software version.</p>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="converting-webp-for-maximum-compatibility">Converting WebP for Maximum Compatibility</h2>
   <p>
     The most reliable solution to any WebP compatibility issue is to convert the file to a universally supported format. When choosing your target format:
   </p>
@@ -135,7 +184,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     For privacy and convenience, use a converter that processes files <strong>entirely on your device</strong>. <a href="/tools/webp">OpenedFile's WebP to JPG/PNG Converter</a> is a free, browser-based tool that never uploads your images to any server. Your files stay on your computer throughout the entire conversion process, making it safe to use with personal photos, business documents, and sensitive images.
   </p>
 
-  <h2>The Future of WebP Compatibility</h2>
+  <h2 id="the-future-of-webp-compatibility">The Future of WebP Compatibility</h2>
   <p>
     WebP compatibility is steadily improving. As older software versions phase out and users upgrade their operating systems, the number of environments that cannot handle WebP shrinks every year. Newer formats like <strong>AVIF</strong> and <strong>JPEG XL</strong> are also emerging, which may eventually surpass WebP in both compression efficiency and feature set.
   </p>
@@ -143,11 +192,29 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     However, complete universal support for any single format takes years, sometimes decades. JPG has been around since 1992 and is only now truly universal. WebP, at 16 years old, is well on its way but still has gaps. For the foreseeable future, knowing how to convert between formats remains an essential skill.
   </p>
 
-  <h2>Conclusion</h2>
+  <h2 id="conclusion">Conclusion</h2>
   <p>
     WebP works perfectly in browsers and increasingly well in operating systems and applications, but it is not yet a universal format for all workflows. Email, older software, and some social media platforms still handle WebP poorly. The practical solution is simple: when WebP causes problems, convert it to JPG or PNG.
   </p>
   <p>
     A fast, privacy-respecting <a href="/tools/webp">browser-based converter</a> is the most convenient tool for the job. It requires no installation, no account, and no file uploads, and it solves the compatibility problem in seconds. As the software ecosystem continues to evolve, WebP compatibility issues will gradually diminish, but until then, format conversion remains your best friend.
   </p>
+
+  <div class="not-prose mt-12 rounded-xl border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-800">
+    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Related Articles</h2>
+    <div class="grid gap-3 sm:grid-cols-2">
+      <a href="/blog/webp-explained" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">WebP Format Explained: Everything You Need to Know</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">A comprehensive guide to Google's WebP image format — features, benefits, limitations, and conversion.</p>
+      </a>
+      <a href="/blog/webp-vs-jpg-vs-png" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">WebP vs JPG vs PNG: Which Format Should You Use?</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">Compare the three most popular image formats and learn which one is best for your use case.</p>
+      </a>
+      <a href="/blog/why-client-side-processing" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">Why Client-Side Processing Is Safer for Your Files</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">How browser-based file processing protects your privacy compared to server-side conversion tools.</p>
+      </a>
+    </div>
+  </div>
 </BlogLayout>

@@ -10,11 +10,28 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
   readingTime="6分で読めます"
   relatedTools={[{ name: "WebP → JPG/PNG 変換ツール", href: "/ja/tools/webp" }, { name: "HEIC → JPG/PNG 変換ツール", href: "/ja/tools/heic" }, { name: "Winmail.dat ビューア", href: "/ja/tools/winmail" }]}
 >
-  <h2>はじめに</h2>
+  <h2 id="introduction">はじめに</h2>
   <p>「WebPをJPGに変換したい」「HEICファイルを開きたい」「PDFをWordに変換したい」——こうした作業を行うために、検索エンジンで「オンライン 変換 無料」と検索した経験は誰にでもあるでしょう。しかし、その「無料」のオンライン変換ツールにファイルをアップロードするとき、あなたのデータに何が起きているか、考えたことはあるでしょうか。</p>
   <p>この記事では、オンラインファイル変換サービスに潜むプライバシーリスクを詳しく解説し、個人情報や機密データを守るための安全な代替手段について紹介します。</p>
 
-  <h2>「無料」変換ツールの隠れたコスト</h2>
+  <nav class="not-prose my-8 rounded-xl border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-800">
+    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">目次</h2>
+    <ul class="space-y-2 text-sm">
+      <li><a href="#hidden-cost" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">「無料」変換ツールの隠れたコスト</a></li>
+      <li><a href="#what-happens" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">ファイルアップロード時に何が起きるか</a></li>
+      <li><a href="#privacy-incidents" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">実際に起きたプライバシー事件</a></li>
+      <li><a href="#sensitive-data" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">リスクにさらされる機密データの種類</a></li>
+      <li><a href="#data-usage" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">変換サービスによるデータ利用</a></li>
+      <li><a href="#terms-of-service" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">利用規約の注意点</a></li>
+      <li><a href="#client-side-alternative" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">代替手段：クライアントサイド処理</a></li>
+      <li><a href="#browser-tools" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">ブラウザベースツールの仕組み</a></li>
+      <li><a href="#verify-local" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">ローカル処理の確認方法</a></li>
+      <li><a href="#openedfile" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">OpenedFileの設計理念</a></li>
+      <li><a href="#summary" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">おすすめのまとめ</a></li>
+    </ul>
+  </nav>
+
+  <h2 id="hidden-cost">「無料」変換ツールの隠れたコスト</h2>
   <p>インターネット上には、数え切れないほどの「無料」ファイル変換ツールが存在しています。これらのサービスは一見便利に見えますが、「無料」には理由があります。サーバーの運用、帯域幅、ストレージにはコストがかかるため、サービス提供者は何らかの方法で収益を得る必要があります。</p>
   <p>一般的な収益モデルには以下のようなものがあります。</p>
   <ul>
@@ -24,7 +41,9 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     <li><strong>トラッキング</strong>：ユーザーの行動データを広告ネットワークに販売する。</li>
   </ul>
 
-  <h2>ファイルアップロード時に何が起きるか</h2>
+  <div class="not-prose my-8 rounded-xl border border-amber-200 bg-amber-50 p-5 dark:border-amber-800 dark:bg-amber-950/50"><div class="flex gap-3"><span class="text-xl">⚠️</span><div><p class="font-semibold text-amber-900 dark:text-amber-200">注意</p><p class="mt-1 text-sm text-amber-800 dark:text-amber-300">「無料」のオンライン変換ツールは、広告、データ収集、トラッキングなどで収益を得ている場合があります。特にデータ収集は最も深刻なプライバシーリスクです。</p></div></div></div>
+
+  <h2 id="what-happens">ファイルアップロード時に何が起きるか</h2>
   <p>従来のオンライン変換ツールにファイルをアップロードすると、以下のプロセスが発生します。</p>
 
   <h3>サーバーへの転送と処理</h3>
@@ -36,7 +55,7 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
   <h3>データマイニングの可能性</h3>
   <p>最も懸念されるのが、アップロードされたファイルからデータを抽出・分析するケースです。画像ファイルにはEXIF情報（撮影日時、GPS座標、使用デバイス）が含まれている場合があり、ドキュメントには作成者名やメタデータが含まれています。これらの情報が収集・分析される可能性を否定できません。</p>
 
-  <h2>実際に起きたプライバシー事件</h2>
+  <h2 id="privacy-incidents">実際に起きたプライバシー事件</h2>
   <p>オンライン変換サービスに関連するプライバシー問題は、過去に複数報告されています。</p>
   <ul>
     <li><strong>データ漏洩事件</strong>：大手オンラインPDF変換サービスで、ユーザーがアップロードしたファイルが適切に削除されず、第三者からアクセス可能な状態になっていた事例があります。</li>
@@ -45,7 +64,7 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     <li><strong>機密文書の流出</strong>：企業の従業員がオンライン変換ツールを使用して機密文書を変換し、その内容がサービス提供者に露出したケースが報告されています。</li>
   </ul>
 
-  <h2>リスクにさらされる機密データの種類</h2>
+  <h2 id="sensitive-data">リスクにさらされる機密データの種類</h2>
   <p>オンライン変換ツールにアップロードされるファイルには、さまざまな種類の機密情報が含まれている可能性があります。</p>
 
   <h3>個人写真</h3>
@@ -57,7 +76,9 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
   <h3>メール添付ファイル</h3>
   <p><a href="/ja/tools/winmail">winmail.dat</a>ファイルの中身を確認するためにオンラインツールを使用する場合、メールの添付ファイルに含まれる機密情報がサーバーに送信されることになります。ビジネスメールの添付ファイルには、顧客情報や社内機密が含まれていることが少なくありません。</p>
 
-  <h2>変換サービスによるデータ利用</h2>
+  <div class="not-prose my-8 rounded-xl border border-blue-200 bg-blue-50 p-5 dark:border-blue-800 dark:bg-blue-950/50"><div class="flex gap-3"><span class="text-xl">💡</span><div><p class="font-semibold text-blue-900 dark:text-blue-200">ポイント</p><p class="mt-1 text-sm text-blue-800 dark:text-blue-300">画像ファイルにはEXIF情報（GPS座標、撮影日時、デバイス情報）が含まれている場合があります。オンラインツールにアップロードすると、これらの個人情報も一緒に送信されます。</p></div></div></div>
+
+  <h2 id="data-usage">変換サービスによるデータ利用</h2>
   <p>アップロードされたファイルが変換サービスによってどのように利用される可能性があるかを把握しておきましょう。</p>
 
   <h3>機械学習モデルの学習データ</h3>
@@ -69,7 +90,7 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
   <h3>広告ターゲティング</h3>
   <p>アップロードされたファイルの種類や内容に基づいて、ターゲティング広告が表示される場合があります。例えば、不動産関連のドキュメントを変換すると、不動産広告が表示されるようになるかもしれません。</p>
 
-  <h2>利用規約の注意点</h2>
+  <h2 id="terms-of-service">利用規約の注意点</h2>
   <p>オンライン変換ツールを使用する前に、必ず利用規約（Terms of Service）とプライバシーポリシーを確認しましょう。特に以下の点に注意してください。</p>
   <ul>
     <li><strong>ファイルの保持期間</strong>：アップロードしたファイルがいつ削除されるか。</li>
@@ -79,7 +100,7 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     <li><strong>準拠法と管轄</strong>：サービスがどの国の法律に準拠しているか。プライバシー保護の基準は国によって大きく異なります。</li>
   </ul>
 
-  <h2>代替手段：クライアントサイド処理</h2>
+  <h2 id="client-side-alternative">代替手段：クライアントサイド処理</h2>
   <p>ファイルをサーバーにアップロードせずに変換を行う方法として、<strong>クライアントサイド処理</strong>があります。これは、ファイルの変換処理をあなたのブラウザ内（クライアントサイド）で直接行う技術です。</p>
   <p>クライアントサイド処理では、以下が実現されます。</p>
   <ul>
@@ -89,7 +110,9 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     <li>サーバー側にファイルデータが一切残らない</li>
   </ul>
 
-  <h2>ブラウザベースツールの仕組み</h2>
+  <div class="not-prose my-8 rounded-xl border border-green-200 bg-green-50 p-5 dark:border-green-800 dark:bg-green-950/50"><div class="flex gap-3"><span class="text-xl">✅</span><div><p class="font-semibold text-green-900 dark:text-green-200">おすすめ</p><p class="mt-1 text-sm text-green-800 dark:text-green-300">クライアントサイド処理のツールを使えば、ファイルが一切サーバーに送信されません。プライバシーを守りながら安全にファイル変換を行えます。</p></div></div></div>
+
+  <h2 id="browser-tools">ブラウザベースツールの仕組み</h2>
   <p>最新のWebブラウザは非常に強力な処理能力を持っており、画像変換のような作業をブラウザ内だけで完結させることが可能です。具体的には以下の技術が使われています。</p>
   <ul>
     <li><strong>HTML5 Canvas API</strong>：画像の描画と変換処理</li>
@@ -98,17 +121,44 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     <li><strong>File API / Blob API</strong>：ファイルの読み込みと出力</li>
   </ul>
 
-  <h2>ローカル処理の確認方法</h2>
+  <h2 id="verify-local">ローカル処理の確認方法</h2>
   <p>あるオンラインツールが本当にクライアントサイドで処理しているかどうかを確認するには、ブラウザの開発者ツールを使います。</p>
-  <ul>
-    <li>ブラウザの開発者ツールを開く（F12キーまたはCtrl+Shift+I）</li>
-    <li>「ネットワーク」タブを選択</li>
-    <li>ファイルを変換してみる</li>
-    <li>ネットワークタブにファイルデータのアップロードを示すリクエストがないか確認する</li>
-  </ul>
+
+  <div class="not-prose my-6 flex gap-4 rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+    <div class="flex shrink-0 items-center justify-center w-10 h-10 rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400"><span class="text-sm font-bold">1</span></div>
+    <div class="min-w-0">
+      <h3 class="font-semibold text-gray-900 dark:text-white">開発者ツールを開く</h3>
+      <p class="mt-1.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">ブラウザの開発者ツールを開きます（F12キーまたはCtrl+Shift+I）。</p>
+    </div>
+  </div>
+
+  <div class="not-prose my-6 flex gap-4 rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+    <div class="flex shrink-0 items-center justify-center w-10 h-10 rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400"><span class="text-sm font-bold">2</span></div>
+    <div class="min-w-0">
+      <h3 class="font-semibold text-gray-900 dark:text-white">ネットワークタブを選択</h3>
+      <p class="mt-1.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">「ネットワーク」タブを選択し、ログをクリアします。</p>
+    </div>
+  </div>
+
+  <div class="not-prose my-6 flex gap-4 rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+    <div class="flex shrink-0 items-center justify-center w-10 h-10 rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400"><span class="text-sm font-bold">3</span></div>
+    <div class="min-w-0">
+      <h3 class="font-semibold text-gray-900 dark:text-white">ファイルを変換してみる</h3>
+      <p class="mt-1.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">ツールでファイルを選択して変換処理を実行します。</p>
+    </div>
+  </div>
+
+  <div class="not-prose my-6 flex gap-4 rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+    <div class="flex shrink-0 items-center justify-center w-10 h-10 rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400"><span class="text-sm font-bold">4</span></div>
+    <div class="min-w-0">
+      <h3 class="font-semibold text-gray-900 dark:text-white">リクエストを確認</h3>
+      <p class="mt-1.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">ネットワークタブにファイルデータのアップロードを示すリクエストがないか確認します。大きなPOSTリクエストが発生していればサーバー送信の証拠です。</p>
+    </div>
+  </div>
+
   <p>クライアントサイド処理のツールであれば、ファイルデータがサーバーに送信されるリクエストは表示されません。大きなデータのPOSTリクエストが発生している場合は、サーバーにファイルがアップロードされている証拠です。</p>
 
-  <h2>OpenedFileの設計理念</h2>
+  <h2 id="openedfile">OpenedFileの設計理念</h2>
   <p>OpenedFileは、ファイル変換におけるプライバシーの課題を解決するために設計されたツールです。すべての変換処理をクライアントサイドで行い、ファイルがサーバーにアップロードされることは一切ありません。</p>
   <ul>
     <li><a href="/ja/tools/webp">WebP → JPG/PNG 変換ツール</a>：WebP画像をブラウザ内で安全に変換</li>
@@ -117,7 +167,7 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
   </ul>
   <p>これらのツールはすべて、ブラウザのJavaScript環境内で動作します。インターネット接続がなくても（ページを読み込んだ後であれば）変換処理が可能です。これこそが、真にプライベートなファイル変換のあり方です。</p>
 
-  <h2>おすすめのまとめ</h2>
+  <h2 id="summary">おすすめのまとめ</h2>
   <p>オンラインファイル変換ツールの利用にあたっては、以下の点を心がけましょう。</p>
   <ul>
     <li><strong>機密ファイルはアップロードしない</strong>：個人写真、ビジネス文書、機密情報を含むファイルは、サーバーアップロード型のツールで変換しない。</li>
@@ -127,4 +177,22 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     <li><strong>不要なアカウント登録を避ける</strong>：ファイル変換のためにメールアドレスの登録を求めるサービスには注意する。</li>
   </ul>
   <p>デジタルプライバシーは自分自身で守るものです。便利さの裏に潜むリスクを理解し、安全なツールを選択する習慣を身につけましょう。<a href="/ja/tools/webp">OpenedFile</a>のようなクライアントサイド処理のツールを活用することで、プライバシーを犠牲にすることなく、必要なファイル変換を行えます。</p>
+
+  <div class="not-prose mt-12 rounded-xl border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-800">
+    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">関連記事</h2>
+    <div class="grid gap-3 sm:grid-cols-2">
+      <a href="/ja/blog/why-client-side-processing" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">クライアントサイド処理が安全な理由</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">ブラウザベースのファイル処理がプライバシーを保護する仕組みを技術的に解説します。</p>
+      </a>
+      <a href="/ja/blog/webp-explained" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">WebP完全解説</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">WebPフォーマットの特徴、メリット、変換方法を包括的に解説します。</p>
+      </a>
+      <a href="/ja/blog/heic-vs-jpg" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">HEIC vs JPG比較</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">iPhoneのHEICフォーマットとJPGを比較し、最適な使い分けを解説します。</p>
+      </a>
+    </div>
+  </div>
 </BlogLayout>

@@ -10,7 +10,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
   readingTime="7 min read"
   relatedTools={[{ name: "HEIC to JPG/PNG Converter", href: "/tools/heic" }]}
 >
-  <h2>Introduction</h2>
+  <h2 id="introduction">Introduction</h2>
   <p>
     The story of digital image formats is a fascinating journey through nearly five decades of
     innovation, competition, patent disputes, and evolving technology. From the earliest bitmap
@@ -21,7 +21,26 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     today and where the technology is heading next.
   </p>
 
-  <h2>The Early Days: BMP and Raw Bitmaps</h2>
+  <nav class="not-prose my-8 rounded-xl border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-800">
+    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Table of Contents</h2>
+    <ul class="space-y-2 text-sm">
+      <li><a href="#the-early-days-bmp-and-raw-bitmaps" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">The Early Days: BMP and Raw Bitmaps</a></li>
+      <li><a href="#gif-animation-and-the-256-color-limit" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">GIF: Animation and the 256-Color Limit (1987)</a></li>
+      <li><a href="#the-jpeg-revolution" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">The JPEG Revolution (1992)</a></li>
+      <li><a href="#png-arrives" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">PNG Arrives: Lossless Compression and Transparency (1996)</a></li>
+      <li><a href="#the-web-era-jpeg-2000" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">The Web Era: JPEG 2000 and the Failed Successors</a></li>
+      <li><a href="#googles-webp" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Google's WebP (2010)</a></li>
+      <li><a href="#apples-heic-heif" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Apple's HEIC/HEIF (2017)</a></li>
+      <li><a href="#avif-the-open-source-challenger" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">AVIF: The Open-Source Challenger (2019)</a></li>
+      <li><a href="#jpeg-xl-the-ambitious-successor" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">JPEG XL: The Ambitious Successor (2022)</a></li>
+      <li><a href="#comparison-table-of-image-formats" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Comparison Table of Image Formats</a></li>
+      <li><a href="#what-the-future-holds" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">What the Future Holds</a></li>
+      <li><a href="#choosing-the-right-format-today" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Choosing the Right Format Today</a></li>
+      <li><a href="#conclusion" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Conclusion</a></li>
+    </ul>
+  </nav>
+
+  <h2 id="the-early-days-bmp-and-raw-bitmaps">The Early Days: BMP and Raw Bitmaps</h2>
   <p>
     The earliest digital image formats were conceptually simple. The BMP (Bitmap) format,
     introduced by Microsoft and IBM in the late 1980s for use in Windows and OS/2, stored images
@@ -36,7 +55,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     better was needed.
   </p>
 
-  <h2>GIF: Animation and the 256-Color Limit (1987)</h2>
+  <h2 id="gif-animation-and-the-256-color-limit">GIF: Animation and the 256-Color Limit (1987)</h2>
   <p>
     CompuServe introduced the GIF (Graphics Interchange Format) in 1987 as a way to transmit
     images over its dial-up network service. GIF used LZW (Lempel-Ziv-Welch) lossless
@@ -57,13 +76,24 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     directly lead to the creation of PNG.
   </p>
 
-  <h2>The JPEG Revolution (1992)</h2>
+  <h2 id="the-jpeg-revolution">The JPEG Revolution (1992)</h2>
   <p>
     The JPEG standard, published in 1992 by the Joint Photographic Experts Group, was a
     transformative moment in digital imaging. For the first time, there was a widely adopted
     format that could compress full-color photographs to a fraction of their original size with
     acceptable quality loss.
   </p>
+
+  <div class="not-prose my-8 rounded-xl border border-blue-200 bg-blue-50 p-5 dark:border-blue-800 dark:bg-blue-950/50">
+    <div class="flex gap-3">
+      <span class="text-xl">💡</span>
+      <div>
+        <p class="font-semibold text-blue-900 dark:text-blue-200">Did You Know?</p>
+        <p class="mt-1 text-sm text-blue-800 dark:text-blue-300">JPEG has dominated digital photography for over 30 years since its introduction in 1992. It remains the most widely used image format in the world — a remarkable testament to the robustness of the original standard.</p>
+      </div>
+    </div>
+  </div>
+
   <p>
     JPEG's compression works by converting image data from the spatial domain to the frequency
     domain using the Discrete Cosine Transform (DCT), then discarding high-frequency information
@@ -83,7 +113,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     compression ratios. These limitations would drive the development of newer formats.
   </p>
 
-  <h2>PNG Arrives: Lossless Compression and Transparency (1996)</h2>
+  <h2 id="png-arrives">PNG Arrives: Lossless Compression and Transparency (1996)</h2>
   <p>
     PNG (Portable Network Graphics) was developed in 1996 as a direct response to the GIF patent
     controversy. It was designed to be a patent-free, lossless image format with several important
@@ -103,7 +133,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     JPEG as the preferred format for photographs.
   </p>
 
-  <h2>The Web Era: JPEG 2000 and the Failed Successors</h2>
+  <h2 id="the-web-era-jpeg-2000">The Web Era: JPEG 2000 and the Failed Successors</h2>
   <p>
     As the internet grew and bandwidth remained limited, there was strong motivation to create
     better image formats. JPEG 2000, finalized in the year 2000, was the official successor to
@@ -123,7 +153,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     on the web, JPEG continued to reign.
   </p>
 
-  <h2>Google's WebP (2010)</h2>
+  <h2 id="googles-webp">Google's WebP (2010)</h2>
   <p>
     In 2010, Google introduced WebP, an image format designed specifically for the web. WebP uses
     compression technology derived from the VP8 video codec (which Google had acquired by
@@ -142,7 +172,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     performance-conscious websites and content delivery networks.
   </p>
 
-  <h2>Apple's HEIC/HEIF (2017)</h2>
+  <h2 id="apples-heic-heif">Apple's HEIC/HEIF (2017)</h2>
   <p>
     Apple's adoption of HEIC (High Efficiency Image Container) in 2017 brought the HEIF standard
     into the mainstream consumer space. Based on the HEVC (H.265) video codec, HEIC offered
@@ -162,7 +192,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     handles the conversion privately and efficiently.
   </p>
 
-  <h2>AVIF: The Open-Source Challenger (2019)</h2>
+  <h2 id="avif-the-open-source-challenger">AVIF: The Open-Source Challenger (2019)</h2>
   <p>
     AVIF (AV1 Image File Format) emerged in 2019 as an image format based on the AV1 video codec.
     AV1 was developed by the Alliance for Open Media (AOM), a consortium that includes Google,
@@ -183,7 +213,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     enough for practical use.
   </p>
 
-  <h2>JPEG XL: The Ambitious Successor (2022)</h2>
+  <h2 id="jpeg-xl-the-ambitious-successor">JPEG XL: The Ambitious Successor (2022)</h2>
   <p>
     JPEG XL is the latest format from the JPEG committee, standardized in 2022. It was designed
     to be the universal successor to both JPEG and PNG, combining the best features of every
@@ -206,7 +236,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     browser consensus needed for widespread web adoption.
   </p>
 
-  <h2>Comparison Table of Image Formats</h2>
+  <h2 id="comparison-table-of-image-formats">Comparison Table of Image Formats</h2>
   <p>
     Here is a summary of how the major image formats compare across key dimensions:
   </p>
@@ -221,7 +251,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     <li><strong>JPEG XL:</strong> Lossy and lossless, limited browser support, alpha transparency, up to 32-bit float, HDR, progressive. Technically superior but adoption is uncertain.</li>
   </ul>
 
-  <h2>What the Future Holds</h2>
+  <h2 id="what-the-future-holds">What the Future Holds</h2>
   <h3>AI-Based Compression</h3>
   <p>
     The next frontier in image compression is artificial intelligence. Neural network-based image
@@ -230,6 +260,17 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     training datasets and using that knowledge to compress new images more efficiently than
     hand-crafted algorithms can.
   </p>
+
+  <div class="not-prose my-8 rounded-xl border border-blue-200 bg-blue-50 p-5 dark:border-blue-800 dark:bg-blue-950/50">
+    <div class="flex gap-3">
+      <span class="text-xl">💡</span>
+      <div>
+        <p class="font-semibold text-blue-900 dark:text-blue-200">Did You Know?</p>
+        <p class="mt-1 text-sm text-blue-800 dark:text-blue-300">AI-based image codecs from companies like Google and Meta are already outperforming AVIF and JPEG XL at low bitrates. The future of image compression may rely on neural networks that learn to reconstruct images from remarkably little data.</p>
+      </div>
+    </div>
+  </div>
+
   <p>
     Companies like Google, Meta, and various research institutions have published papers showing
     AI codecs that outperform AVIF and JPEG XL at low bitrates. However, these codecs currently
@@ -246,10 +287,21 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     and reinterpret the scene.
   </p>
 
-  <h2>Choosing the Right Format Today</h2>
+  <h2 id="choosing-the-right-format-today">Choosing the Right Format Today</h2>
   <p>
     With so many formats available, choosing the right one depends on your specific use case:
   </p>
+
+  <div class="not-prose my-8 rounded-xl border border-green-200 bg-green-50 p-5 dark:border-green-800 dark:bg-green-950/50">
+    <div class="flex gap-3">
+      <span class="text-xl">✅</span>
+      <div>
+        <p class="font-semibold text-green-900 dark:text-green-200">Recommended</p>
+        <p class="mt-1 text-sm text-green-800 dark:text-green-300">For web publishing, use WebP or AVIF with JPEG fallback. For mobile photography, use HEIC on iPhone and convert to JPG for sharing. For graphics and screenshots, PNG remains the best choice. When in doubt, JPEG is still the safest format for universal compatibility.</p>
+      </div>
+    </div>
+  </div>
+
   <ul>
     <li><strong>For web publishing:</strong> Use WebP or AVIF with JPEG fallback for maximum compatibility and performance</li>
     <li><strong>For mobile photography:</strong> HEIC on iPhone, JPEG for cross-platform sharing</li>
@@ -263,7 +315,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     any software and without compromising your privacy.
   </p>
 
-  <h2>Conclusion</h2>
+  <h2 id="conclusion">Conclusion</h2>
   <p>
     The evolution of image formats reflects the broader arc of computing history: from simple,
     uncompressed representations to increasingly sophisticated algorithms that squeeze more
@@ -278,4 +330,22 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     unify these disparate approaches, but for now, understanding the strengths and limitations
     of each format remains an essential skill for anyone who works with digital images.
   </p>
+
+  <div class="not-prose mt-12 rounded-xl border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-800">
+    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Related Articles</h2>
+    <div class="grid gap-3 sm:grid-cols-2">
+      <a href="/blog/heic-vs-jpg" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">HEIC vs JPG: The Complete Comparison Guide</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">Compare HEIC and JPG image formats — quality, file size, compatibility, and when to use each.</p>
+      </a>
+      <a href="/blog/webp-explained" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">WebP Format Explained: Everything You Need to Know</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">A comprehensive guide to Google's WebP image format — features, benefits, limitations, and conversion.</p>
+      </a>
+      <a href="/blog/webp-vs-jpg-vs-png" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">WebP vs JPG vs PNG: Which Format Should You Use?</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">Compare the three most popular image formats and learn which one is best for your use case.</p>
+      </a>
+    </div>
+  </div>
 </BlogLayout>

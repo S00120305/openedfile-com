@@ -13,7 +13,21 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
   <h2>はじめに</h2>
   <p>デジタル写真を扱うとき、HEICとJPGという2つのフォーマットに出会うことが多くなりました。特にiPhoneユーザーであれば、撮影した写真がHEIC形式で保存されていることに気づいた方も多いでしょう。この記事では、HEICとJPGを画質、ファイルサイズ、互換性など多角的に比較し、それぞれのフォーマットの最適な使い分けについて詳しく解説します。</p>
 
-  <h2>HEICとは何か</h2>
+  <nav class="not-prose my-8 rounded-xl border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-800">
+    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">目次</h2>
+    <ul class="space-y-2 text-sm">
+      <li><a href="#heicとは何か" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">HEICとは何か</a></li>
+      <li><a href="#jpgとは何か" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">JPGとは何か</a></li>
+      <li><a href="#ファイルサイズの比較" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">ファイルサイズの比較</a></li>
+      <li><a href="#画質の比較" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">画質の比較</a></li>
+      <li><a href="#互換性の違い" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">互換性の違い</a></li>
+      <li><a href="#機能の比較" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">機能の比較</a></li>
+      <li><a href="#heicとjpgの使い分け" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">HEICとJPGの使い分け</a></li>
+      <li><a href="#heicからjpgへの変換方法" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">HEICからJPGへの変換方法</a></li>
+    </ul>
+  </nav>
+
+  <h2 id="heicとは何か">HEICとは何か</h2>
   <p>HEIC（High Efficiency Image Container）は、HEIF（High Efficiency Image Format）規格に基づく画像フォーマットです。HEVC（H.265）コーデックを使用して画像データを圧縮しており、2017年にAppleがiOS 11で採用したことで広く知られるようになりました。</p>
   <p>HEICの主な特徴は以下の通りです。</p>
   <ul>
@@ -23,7 +37,7 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     <li><strong>非破壊編集</strong>：編集情報をメタデータとして保存し、元画像を保持したまま編集できます。</li>
   </ul>
 
-  <h2>JPGとは何か</h2>
+  <h2 id="jpgとは何か">JPGとは何か</h2>
   <p>JPG（JPEG）は、1992年に標準化された最も広く普及している画像フォーマットです。Joint Photographic Experts Groupが開発し、離散コサイン変換（DCT）を用いた非可逆圧縮を採用しています。</p>
   <p>JPGの主な特徴は以下の通りです。</p>
   <ul>
@@ -33,7 +47,7 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     <li><strong>シンプルな構造</strong>：1ファイルに1画像というわかりやすい構造です。</li>
   </ul>
 
-  <h2>ファイルサイズの比較</h2>
+  <h2 id="ファイルサイズの比較">ファイルサイズの比較</h2>
   <p>HEICとJPGの最も大きな違いの1つがファイルサイズです。一般的に、HEICはJPGと比較して<strong>約40〜50%小さいファイルサイズ</strong>で同等の画質を実現できます。</p>
   <p>具体的な例を見てみましょう。</p>
   <ul>
@@ -41,9 +55,10 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     <li>48MP写真の場合：JPGで約12MB → HEICで約5.5MB</li>
     <li>1000枚の写真を保存する場合：JPGで約4.5GB → HEICで約2.2GB</li>
   </ul>
-  <p>この差はストレージ容量が限られているスマートフォンにとって非常に大きなメリットとなります。128GBのiPhoneであれば、HEICを使用することで数千枚分の追加写真を保存できる計算になります。</p>
 
-  <h2>画質の比較</h2>
+  <div class="not-prose my-8 rounded-xl border border-blue-200 bg-blue-50 p-5 dark:border-blue-800 dark:bg-blue-950/50"><div class="flex gap-3"><span class="text-xl">💡</span><div><p class="font-semibold text-blue-900 dark:text-blue-200">ポイント</p><p class="mt-1 text-sm text-blue-800 dark:text-blue-300">128GBのiPhoneであれば、HEICを使用することで数千枚分の追加写真を保存できる計算になります。ストレージ容量が限られているスマートフォンにとって非常に大きなメリットです。</p></div></div></div>
+
+  <h2 id="画質の比較">画質の比較</h2>
   <p>同じファイルサイズで比較した場合、HEICはJPGよりも明らかに高い画質を提供します。これはHEVC圧縮の技術的優位性によるものです。</p>
   <p>画質面でHEICが優れているポイントは以下の通りです。</p>
   <ul>
@@ -54,15 +69,16 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
   </ul>
   <p>ただし、高品質設定のJPGとHEICの画質差は、一般的な閲覧条件では肉眼で判別しにくい場合もあります。画質の差が顕著に現れるのは、低ビットレートでの圧縮時や、拡大表示時です。</p>
 
-  <h2>互換性の違い</h2>
+  <h2 id="互換性の違い">互換性の違い</h2>
   <p>互換性に関しては、JPGが圧倒的に優位です。</p>
   <ul>
     <li><strong>JPG</strong>：事実上すべてのデバイス、OS、ブラウザ、画像編集ソフトで対応。Webサイトへのアップロードも問題なし。</li>
     <li><strong>HEIC</strong>：Apple製品ではネイティブ対応。Windows 10/11では拡張機能のインストールが必要。Androidでは端末によって対応状況が異なる。Webブラウザでの対応は限定的（Safariのみネイティブサポート）。</li>
   </ul>
-  <p>この互換性の差が、HEICが優れた技術であるにもかかわらずJPGを完全に置き換えられない最大の理由です。</p>
 
-  <h2>機能の比較</h2>
+  <div class="not-prose my-8 rounded-xl border border-amber-200 bg-amber-50 p-5 dark:border-amber-800 dark:bg-amber-950/50"><div class="flex gap-3"><span class="text-xl">⚠️</span><div><p class="font-semibold text-amber-900 dark:text-amber-200">注意</p><p class="mt-1 text-sm text-amber-800 dark:text-amber-300">この互換性の差が、HEICが優れた技術であるにもかかわらずJPGを完全に置き換えられない最大の理由です。他のデバイスやサービスと写真を共有する際は、JPGへの変換を検討しましょう。</p></div></div></div>
+
+  <h2 id="機能の比較">機能の比較</h2>
   <p>フォーマットとしての機能面では、HEICが多くの優位性を持っています。</p>
   <ul>
     <li><strong>透過（アルファチャンネル）</strong>：HEICは対応、JPGは非対応。</li>
@@ -73,7 +89,7 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     <li><strong>色深度</strong>：HEICは最大16ビット、JPGは8ビット。</li>
   </ul>
 
-  <h2>HEICとJPGの使い分け</h2>
+  <h2 id="heicとjpgの使い分け">HEICとJPGの使い分け</h2>
   <h3>HEICを使うべき場面</h3>
   <ul>
     <li>iPhoneやiPadで写真を撮影・保存する場合（ストレージ節約）</li>
@@ -91,19 +107,73 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     <li>幅広い互換性が必要な場合</li>
   </ul>
 
-  <h2>HEICからJPGへの変換方法</h2>
+  <div class="not-prose my-8 rounded-xl border border-green-200 bg-green-50 p-5 dark:border-green-800 dark:bg-green-950/50"><div class="flex gap-3"><span class="text-xl">✅</span><div><p class="font-semibold text-green-900 dark:text-green-200">おすすめ</p><p class="mt-1 text-sm text-green-800 dark:text-green-300">普段はiPhoneでHEICのまま撮影・保存し、共有や公開が必要な場面でJPGに変換するのが最も効率的な運用方法です。</p></div></div></div>
+
+  <h2 id="heicからjpgへの変換方法">HEICからJPGへの変換方法</h2>
   <p>HEICの画質とサイズのメリットを享受しつつ、必要なときにJPGに変換するのが最も実用的なアプローチです。</p>
   <p><a href="/ja/tools/heic">OpenedFileのHEIC変換ツール</a>を使えば、ブラウザ上で簡単にHEICファイルをJPGやPNGに変換できます。ファイルはサーバーにアップロードされず、すべてブラウザ内で処理されるため、プライバシーも安心です。</p>
   <p>変換手順は非常にシンプルです。</p>
-  <ul>
-    <li>ステップ1：<a href="/ja/tools/heic">HEIC変換ツール</a>にアクセス</li>
-    <li>ステップ2：HEICファイルをドラッグ＆ドロップまたは選択</li>
-    <li>ステップ3：出力形式（JPGまたはPNG）と品質を選択</li>
-    <li>ステップ4：変換ボタンをクリックしてダウンロード</li>
-  </ul>
+
+  <div class="not-prose my-6 flex gap-4 rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+    <div class="flex shrink-0 items-center justify-center w-10 h-10 rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400">
+      <span class="text-sm font-bold">1</span>
+    </div>
+    <div class="min-w-0">
+      <h3 class="font-semibold text-gray-900 dark:text-white">HEIC変換ツールにアクセス</h3>
+      <p class="mt-1.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400"><a href="/ja/tools/heic" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 underline">HEIC変換ツール</a>をブラウザで開きます。</p>
+    </div>
+  </div>
+
+  <div class="not-prose my-6 flex gap-4 rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+    <div class="flex shrink-0 items-center justify-center w-10 h-10 rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400">
+      <span class="text-sm font-bold">2</span>
+    </div>
+    <div class="min-w-0">
+      <h3 class="font-semibold text-gray-900 dark:text-white">HEICファイルを選択</h3>
+      <p class="mt-1.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">HEICファイルをドラッグ＆ドロップまたはファイル選択で追加します。</p>
+    </div>
+  </div>
+
+  <div class="not-prose my-6 flex gap-4 rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+    <div class="flex shrink-0 items-center justify-center w-10 h-10 rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400">
+      <span class="text-sm font-bold">3</span>
+    </div>
+    <div class="min-w-0">
+      <h3 class="font-semibold text-gray-900 dark:text-white">出力形式と品質を選択</h3>
+      <p class="mt-1.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">出力形式（JPGまたはPNG）と品質を選択します。</p>
+    </div>
+  </div>
+
+  <div class="not-prose my-6 flex gap-4 rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+    <div class="flex shrink-0 items-center justify-center w-10 h-10 rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400">
+      <span class="text-sm font-bold">4</span>
+    </div>
+    <div class="min-w-0">
+      <h3 class="font-semibold text-gray-900 dark:text-white">変換してダウンロード</h3>
+      <p class="mt-1.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">変換ボタンをクリックして、変換されたファイルをダウンロードします。</p>
+    </div>
+  </div>
 
   <h2>まとめ</h2>
   <p>HEICとJPGはそれぞれ異なる強みを持つフォーマットです。HEICはファイルサイズの効率性と高度な機能で優れており、JPGは比類のない互換性で依然として重要な役割を果たしています。</p>
   <p>日常的にはiPhoneでHEICを使って撮影・保存し、共有や公開が必要な場面でJPGに変換するという使い分けが最も効率的です。<a href="/ja/tools/heic">OpenedFileのHEIC変換ツール</a>を活用すれば、この運用をスムーズに行えます。</p>
   <p>画像フォーマットの選択は、用途と環境に応じて最適なものを選ぶことが大切です。この記事が、あなたの写真管理の参考になれば幸いです。</p>
+
+  <div class="not-prose mt-12 rounded-xl border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-800">
+    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">関連記事</h2>
+    <div class="grid gap-3 sm:grid-cols-2">
+      <a href="/ja/blog/why-iphone-uses-heic" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">iPhoneがHEICを使う理由</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">AppleがHEICをデフォルトに選んだ理由と変換方法</p>
+      </a>
+      <a href="/ja/blog/heic-quality-and-size" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">HEICの画質とサイズ</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">画質を犠牲にせずファイルサイズを小さくする仕組み</p>
+      </a>
+      <a href="/ja/blog/heic-compatibility-guide" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">HEIC互換性ガイド</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">各プラットフォームでのHEICサポート状況と解決方法</p>
+      </a>
+    </div>
+  </div>
 </BlogLayout>

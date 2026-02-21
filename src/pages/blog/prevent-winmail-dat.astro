@@ -17,7 +17,24 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     In this guide, we will explain exactly why Outlook sends winmail.dat files and walk you through the settings you need to change in every modern version of Outlook to prevent it from happening.
   </p>
 
-  <h2>Why Outlook Sends Winmail.dat</h2>
+  <nav class="not-prose my-8 rounded-xl border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-800">
+    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Table of Contents</h2>
+    <ul class="space-y-2 text-sm">
+      <li><a href="#why-outlook-sends-winmail-dat" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Why Outlook Sends Winmail.dat</a></li>
+      <li><a href="#checking-your-current-format-settings" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Checking Your Current Format Settings</a></li>
+      <li><a href="#changing-the-default-format-in-outlook-365-and-outlook-2021" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Changing the Default Format in Outlook 365 and Outlook 2021</a></li>
+      <li><a href="#changing-the-default-format-in-outlook-2019-and-2016" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Changing the Default Format in Outlook 2019 and 2016</a></li>
+      <li><a href="#changing-the-format-for-a-single-message" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Changing the Format for a Single Message</a></li>
+      <li><a href="#per-contact-format-settings" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Per-Contact Format Settings</a></li>
+      <li><a href="#exchange-server-and-microsoft-365-admin-settings" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Exchange Server and Microsoft 365 Admin Settings</a></li>
+      <li><a href="#outlook-for-mac-settings" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Outlook for Mac Settings</a></li>
+      <li><a href="#testing-your-changes" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Testing Your Changes</a></li>
+      <li><a href="#when-tnef-is-still-needed" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">When TNEF Is Still Needed</a></li>
+      <li><a href="#conclusion" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Conclusion</a></li>
+    </ul>
+  </nav>
+
+  <h2 id="why-outlook-sends-winmail-dat">Why Outlook Sends Winmail.dat</h2>
   <p>
     Microsoft Outlook supports three email formats: <strong>HTML</strong>, <strong>Plain Text</strong>, and <strong>Rich Text Format (RTF)</strong>. When you compose a message using RTF, Outlook encodes the entire email, including attachments, formatting, and metadata, using a proprietary format called TNEF (Transport Neutral Encapsulation Format). This encoded data is attached to the email as a file called winmail.dat.
   </p>
@@ -28,7 +45,17 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     The solution is straightforward: configure Outlook to use HTML format instead of RTF. HTML provides rich formatting (fonts, colors, images, and layout) while remaining compatible with every modern email client.
   </p>
 
-  <h2>Checking Your Current Format Settings</h2>
+  <div class="not-prose my-8 rounded-xl border border-green-200 bg-green-50 p-5 dark:border-green-800 dark:bg-green-950/50">
+    <div class="flex gap-3">
+      <span class="text-xl">✅</span>
+      <div>
+        <p class="font-semibold text-green-900 dark:text-green-200">Recommended</p>
+        <p class="mt-1 text-sm text-green-800 dark:text-green-300">The quick fix: Go to <strong>File > Options > Mail</strong>, and change "Compose messages in this format" from <strong>Rich Text</strong> to <strong>HTML</strong>. This single change prevents winmail.dat for all new messages.</p>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="checking-your-current-format-settings">Checking Your Current Format Settings</h2>
   <p>
     Before making changes, it is helpful to check what format Outlook is currently using. There are two places where the format is set:
   </p>
@@ -40,23 +67,52 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     Even if your global setting is correct, a per-contact override can cause winmail.dat files to be sent to specific recipients. We will address both settings below.
   </p>
 
-  <h2>Changing the Default Format in Outlook 365 and Outlook 2021</h2>
+  <h2 id="changing-the-default-format-in-outlook-365-and-outlook-2021">Changing the Default Format in Outlook 365 and Outlook 2021</h2>
   <p>
     Microsoft 365 (formerly Office 365) and Outlook 2021 share the same interface for mail format settings. Follow these steps:
   </p>
-  <ul>
-    <li><strong>Step 1</strong>: Open Outlook and click <strong>File</strong> in the top menu bar.</li>
-    <li><strong>Step 2</strong>: Click <strong>Options</strong> in the left sidebar.</li>
-    <li><strong>Step 3</strong>: In the Outlook Options dialog, click <strong>Mail</strong> in the left panel.</li>
-    <li><strong>Step 4</strong>: Under the <strong>Compose messages</strong> section, find the dropdown labeled <strong>"Compose messages in this format."</strong></li>
-    <li><strong>Step 5</strong>: Change the dropdown from <strong>Rich Text</strong> to <strong>HTML</strong>.</li>
-    <li><strong>Step 6</strong>: Click <strong>OK</strong> to save your changes.</li>
-  </ul>
-  <p>
-    From this point forward, all new messages you compose will use HTML format by default, and Outlook will not generate winmail.dat files for them.
-  </p>
 
-  <h2>Changing the Default Format in Outlook 2019 and 2016</h2>
+  <div class="not-prose my-6 flex gap-4 rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+    <div class="flex shrink-0 items-center justify-center w-10 h-10 rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400">
+      <span class="text-sm font-bold">1</span>
+    </div>
+    <div class="min-w-0">
+      <h3 class="font-semibold text-gray-900 dark:text-white">Open Outlook Options</h3>
+      <p class="mt-1.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">Open Outlook and click <strong>File</strong> in the top menu bar, then click <strong>Options</strong> in the left sidebar.</p>
+    </div>
+  </div>
+
+  <div class="not-prose my-6 flex gap-4 rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+    <div class="flex shrink-0 items-center justify-center w-10 h-10 rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400">
+      <span class="text-sm font-bold">2</span>
+    </div>
+    <div class="min-w-0">
+      <h3 class="font-semibold text-gray-900 dark:text-white">Navigate to Mail Settings</h3>
+      <p class="mt-1.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">In the Outlook Options dialog, click <strong>Mail</strong> in the left panel.</p>
+    </div>
+  </div>
+
+  <div class="not-prose my-6 flex gap-4 rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+    <div class="flex shrink-0 items-center justify-center w-10 h-10 rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400">
+      <span class="text-sm font-bold">3</span>
+    </div>
+    <div class="min-w-0">
+      <h3 class="font-semibold text-gray-900 dark:text-white">Change the Compose Format</h3>
+      <p class="mt-1.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">Under the <strong>Compose messages</strong> section, find the dropdown labeled <strong>"Compose messages in this format"</strong> and change it from <strong>Rich Text</strong> to <strong>HTML</strong>.</p>
+    </div>
+  </div>
+
+  <div class="not-prose my-6 flex gap-4 rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+    <div class="flex shrink-0 items-center justify-center w-10 h-10 rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400">
+      <span class="text-sm font-bold">4</span>
+    </div>
+    <div class="min-w-0">
+      <h3 class="font-semibold text-gray-900 dark:text-white">Save Your Changes</h3>
+      <p class="mt-1.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">Click <strong>OK</strong> to save your changes. From this point forward, all new messages you compose will use HTML format by default, and Outlook will not generate winmail.dat files for them.</p>
+    </div>
+  </div>
+
+  <h2 id="changing-the-default-format-in-outlook-2019-and-2016">Changing the Default Format in Outlook 2019 and 2016</h2>
   <p>
     The process for Outlook 2019 and Outlook 2016 is identical to the steps above:
   </p>
@@ -69,7 +125,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     If you are using an older version of Outlook (2013 or 2010), the same setting exists in the same location. Microsoft has kept this setting consistent across many versions.
   </p>
 
-  <h2>Changing the Format for a Single Message</h2>
+  <h2 id="changing-the-format-for-a-single-message">Changing the Format for a Single Message</h2>
   <p>
     If you only need to change the format for a specific email rather than your global default, you can do so while composing the message:
   </p>
@@ -83,29 +139,74 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     This changes the format for only the current message without affecting your default setting. It is useful when you notice that a message has been set to Rich Text, perhaps because you replied to an RTF message or because a per-contact setting triggered it.
   </p>
 
-  <h2>Per-Contact Format Settings</h2>
+  <h2 id="per-contact-format-settings">Per-Contact Format Settings</h2>
   <p>
     One of the most overlooked causes of winmail.dat files is the per-contact format override. Outlook allows you to specify a preferred email format for individual contacts. If a contact is set to "Send using Outlook Rich Text format," every email you send to that person will be TNEF-encoded, regardless of your global default.
   </p>
+
+  <div class="not-prose my-8 rounded-xl border border-amber-200 bg-amber-50 p-5 dark:border-amber-800 dark:bg-amber-950/50">
+    <div class="flex gap-3">
+      <span class="text-xl">⚠️</span>
+      <div>
+        <p class="font-semibold text-amber-900 dark:text-amber-200">Important</p>
+        <p class="mt-1 text-sm text-amber-800 dark:text-amber-300">Per-contact format overrides are one of the most overlooked causes of winmail.dat. Even if your global default is set to HTML, a single contact with "Send using Outlook Rich Text format" will still receive winmail.dat files. Always check individual contact settings if the problem persists for specific recipients.</p>
+      </div>
+    </div>
+  </div>
+
   <p>
     To check and fix per-contact settings:
   </p>
-  <ul>
-    <li><strong>Step 1</strong>: Open your <strong>Contacts</strong> (People) in Outlook.</li>
-    <li><strong>Step 2</strong>: Find and double-click the contact you want to check.</li>
-    <li><strong>Step 3</strong>: Double-click on the contact's <strong>email address</strong> within the contact form.</li>
-    <li><strong>Step 4</strong>: In the dialog that appears, look for the <strong>"Internet Format"</strong> dropdown.</li>
-    <li><strong>Step 5</strong>: Change it from "Send using Outlook Rich Text format" to <strong>"Let Outlook decide the best sending format"</strong> or <strong>"Send Plain Text only."</strong></li>
-    <li><strong>Step 6</strong>: Click <strong>OK</strong> and save the contact.</li>
-  </ul>
+
+  <div class="not-prose my-6 flex gap-4 rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+    <div class="flex shrink-0 items-center justify-center w-10 h-10 rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400">
+      <span class="text-sm font-bold">1</span>
+    </div>
+    <div class="min-w-0">
+      <h3 class="font-semibold text-gray-900 dark:text-white">Open the Contact</h3>
+      <p class="mt-1.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">Open your <strong>Contacts</strong> (People) in Outlook and find and double-click the contact you want to check.</p>
+    </div>
+  </div>
+
+  <div class="not-prose my-6 flex gap-4 rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+    <div class="flex shrink-0 items-center justify-center w-10 h-10 rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400">
+      <span class="text-sm font-bold">2</span>
+    </div>
+    <div class="min-w-0">
+      <h3 class="font-semibold text-gray-900 dark:text-white">Open the Email Format Dialog</h3>
+      <p class="mt-1.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">Double-click on the contact's <strong>email address</strong> within the contact form. In the dialog that appears, look for the <strong>"Internet Format"</strong> dropdown.</p>
+    </div>
+  </div>
+
+  <div class="not-prose my-6 flex gap-4 rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+    <div class="flex shrink-0 items-center justify-center w-10 h-10 rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400">
+      <span class="text-sm font-bold">3</span>
+    </div>
+    <div class="min-w-0">
+      <h3 class="font-semibold text-gray-900 dark:text-white">Change the Format Setting</h3>
+      <p class="mt-1.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">Change the dropdown from "Send using Outlook Rich Text format" to <strong>"Let Outlook decide the best sending format"</strong> or <strong>"Send Plain Text only."</strong> Click <strong>OK</strong> and save the contact.</p>
+    </div>
+  </div>
+
   <p>
     If you have many contacts, it may not be practical to check each one individually. In that case, ensuring your global default is set to HTML and paying attention to the format indicator when composing messages is the best approach.
   </p>
 
-  <h2>Exchange Server and Microsoft 365 Admin Settings</h2>
+  <h2 id="exchange-server-and-microsoft-365-admin-settings">Exchange Server and Microsoft 365 Admin Settings</h2>
   <p>
     If you are an IT administrator managing an Exchange Server or Microsoft 365 organization, you can prevent winmail.dat files at the server level. This is the most effective approach because it applies to all users in the organization without requiring each person to change their individual settings.
   </p>
+
+  <div class="not-prose my-8 rounded-xl border border-blue-200 bg-blue-50 p-5 dark:border-blue-800 dark:bg-blue-950/50">
+    <div class="flex gap-3">
+      <span class="text-xl">💡</span>
+      <div>
+        <p class="font-semibold text-blue-900 dark:text-blue-200">Did You Know?</p>
+        <p class="mt-1 text-sm text-blue-800 dark:text-blue-300">Exchange administrators can disable TNEF encoding organization-wide with a single setting. In Exchange Online, navigate to <strong>Mail flow > Remote domains</strong> and set "Rich Text format" to <strong>"Never"</strong> on the Default domain. For on-premises Exchange, run <code>Set-RemoteDomain -Identity Default -TNEFEnabled $false</code> in PowerShell. This prevents winmail.dat for all external recipients instantly.</p>
+      </div>
+    </div>
+  </div>
+
   <h3>Exchange Online (Microsoft 365)</h3>
   <p>
     In the Exchange Admin Center, you can configure remote domains to prevent TNEF encoding:
@@ -129,7 +230,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     These server-level settings override individual user preferences, ensuring that no one in the organization sends winmail.dat files to external recipients.
   </p>
 
-  <h2>Outlook for Mac Settings</h2>
+  <h2 id="outlook-for-mac-settings">Outlook for Mac Settings</h2>
   <p>
     Outlook for Mac handles email format differently from the Windows version. In general, Outlook for Mac is less likely to send winmail.dat files because it defaults to HTML format and does not expose the Rich Text Format option as prominently. However, it is still worth verifying your settings:
   </p>
@@ -144,7 +245,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     The new Outlook for Mac (built on web technologies) does not use TNEF at all, so if you have migrated to the new version, winmail.dat files should not be a concern from your end.
   </p>
 
-  <h2>Testing Your Changes</h2>
+  <h2 id="testing-your-changes">Testing Your Changes</h2>
   <p>
     After updating your settings, it is important to verify that the changes are working. Here is how to test:
   </p>
@@ -155,7 +256,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     <li><strong>Test with multiple recipients</strong>: If you changed per-contact settings, send test emails to several contacts to ensure the fix works across the board.</li>
   </ul>
 
-  <h2>When TNEF Is Still Needed</h2>
+  <h2 id="when-tnef-is-still-needed">When TNEF Is Still Needed</h2>
   <p>
     There are rare cases where TNEF encoding is actually necessary:
   </p>
@@ -168,11 +269,29 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     In these cases, you can change the format to RTF for specific messages using the Format Text tab while keeping your default set to HTML. This ensures that TNEF is only used when intentionally needed.
   </p>
 
-  <h2>Conclusion</h2>
+  <h2 id="conclusion">Conclusion</h2>
   <p>
     Preventing winmail.dat files is a simple configuration change that can save your recipients significant frustration. By switching your Outlook default from Rich Text to HTML, checking your per-contact settings, and (if you are an administrator) configuring your Exchange server to disable TNEF for external recipients, you can ensure that your emails and attachments arrive in a universally readable format.
   </p>
   <p>
     If you are on the receiving end and need to open a winmail.dat file right now, our free <a href="/tools/winmail">Winmail.dat Viewer</a> can extract the contents in seconds, directly in your browser. But with the settings described in this guide, you can help ensure that fewer people ever need to use such a tool in the first place.
   </p>
+
+  <div class="not-prose mt-12 rounded-xl border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-800">
+    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Related Articles</h2>
+    <div class="grid gap-3 sm:grid-cols-2">
+      <a href="/blog/what-is-winmail-dat" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">What Is a Winmail.dat File?</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">The complete guide to understanding winmail.dat files and how to open them.</p>
+      </a>
+      <a href="/blog/tnef-explained" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">Understanding Outlook's TNEF Encoding</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">A deep dive into the proprietary format behind winmail.dat files.</p>
+      </a>
+      <a href="/blog/open-winmail-dat-on-mac" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">How to Open Winmail.dat on Mac</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">Step-by-step guide for macOS users dealing with winmail.dat attachments.</p>
+      </a>
+    </div>
+  </div>
 </BlogLayout>

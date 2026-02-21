@@ -10,7 +10,22 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
   readingTime="4分で読めます"
   relatedTools={[{ name: "Winmail.dat ビューア", href: "/ja/tools/winmail" }]}
 >
-  <h2>MacでのWinmail.dat問題</h2>
+
+  <nav class="not-prose my-8 rounded-xl border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-800">
+    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">目次</h2>
+    <ul class="space-y-2 text-sm">
+      <li><a href="#mac-problem" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">MacでのWinmail.dat問題</a></li>
+      <li><a href="#why-apple-mail-cant-open" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Apple MailがWinmail.datを開けない理由</a></li>
+      <li><a href="#method-browser" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">方法1：ブラウザベースツールで開く（最もおすすめ）</a></li>
+      <li><a href="#method-apps" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">方法2：サードパーティアプリを使用する</a></li>
+      <li><a href="#method-resend" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">方法3：送信者にメールを再送してもらう</a></li>
+      <li><a href="#comparison" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">3つの方法の比較</a></li>
+      <li><a href="#tips" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Macユーザー向けの追加ヒント</a></li>
+      <li><a href="#summary" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">まとめ</a></li>
+    </ul>
+  </nav>
+
+  <h2 id="mac-problem">MacでのWinmail.dat問題</h2>
   <p>
     macOSユーザーがMicrosoft Outlookを使用している相手からメールを受信したとき、添付ファイルの代わりに「winmail.dat」という不明なファイルが届くことがあります。この問題はMacユーザーの間で非常によく知られており、特にビジネス環境でWindows/Outlookユーザーとやり取りする際に頻繁に発生します。
   </p>
@@ -18,7 +33,17 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     winmail.datファイルには、送信者が添付した文書、画像、その他のファイルがMicrosoft独自のTNEF（Transport Neutral Encapsulation Format）でエンコードされて格納されています。macOSのApple Mailはこの形式をネイティブにサポートしていないため、ユーザーはファイルの中身にアクセスすることができません。
   </p>
 
-  <h2>Apple MailがWinmail.datを開けない理由</h2>
+  <div class="not-prose my-8 rounded-xl border border-blue-200 bg-blue-50 p-5 dark:border-blue-800 dark:bg-blue-950/50">
+    <div class="flex gap-3">
+      <span class="text-xl">💡</span>
+      <div>
+        <p class="font-semibold text-blue-900 dark:text-blue-200">ポイント</p>
+        <p class="mt-1 text-sm text-blue-800 dark:text-blue-300">winmail.datのファイルサイズを確認してみてください。数KB以下の場合は書式情報のみで、重要な添付ファイルは含まれていない可能性が高いです。サイズが大きい場合は添付ファイルが埋め込まれている可能性があります。</p>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="why-apple-mail-cant-open">Apple MailがWinmail.datを開けない理由</h2>
   <p>
     Apple Mailは標準的なメール形式（MIME、HTML、プレーンテキスト）に対応していますが、MicrosoftのプロプライエタリなTNEF形式には対応していません。これは技術的な選択であり、AppleがMicrosoftの独自形式をサポートする義務がないためです。
   </p>
@@ -35,19 +60,62 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     そのため、macOSユーザーはwinmail.datファイルを開くための別の方法を見つける必要があります。以下に、最も効果的な3つの方法を紹介します。
   </p>
 
-  <h2>方法1：ブラウザベースツールで開く（最もおすすめ）</h2>
+  <h2 id="method-browser">方法1：ブラウザベースツールで開く（最もおすすめ）</h2>
   <p>
     最も簡単で安全な方法は、<a href="/ja/tools/winmail">OpenedFileのWinmail.datビューア</a>を使用することです。このツールはSafariやChromeなどのウェブブラウザ上で動作するため、macOSにアプリケーションをインストールする必要がまったくありません。
   </p>
 
   <h3>使い方の手順</h3>
-  <ul>
-    <li><strong>ステップ1：</strong>Apple Mailでメールを開き、winmail.datファイルをデスクトップやダウンロードフォルダに保存します</li>
-    <li><strong>ステップ2：</strong>SafariまたはChromeで<a href="/ja/tools/winmail">OpenedFileのWinmail.datビューア</a>を開きます</li>
-    <li><strong>ステップ3：</strong>保存したwinmail.datファイルをブラウザの画面にドラッグ＆ドロップします。または、「ファイルを選択」ボタンをクリックしてファイルを指定します</li>
-    <li><strong>ステップ4：</strong>ツールが自動的にTNEF形式をデコードし、内容を表示します</li>
-    <li><strong>ステップ5：</strong>埋め込まれた添付ファイルがある場合は、それぞれ個別にダウンロードできます</li>
-  </ul>
+
+  <div class="not-prose my-6 flex gap-4 rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+    <div class="flex shrink-0 items-center justify-center w-10 h-10 rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400">
+      <span class="text-sm font-bold">1</span>
+    </div>
+    <div class="min-w-0">
+      <h3 class="font-semibold text-gray-900 dark:text-white">winmail.datファイルを保存</h3>
+      <p class="mt-1.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">Apple Mailでメールを開き、winmail.datファイルをデスクトップやダウンロードフォルダに保存します。</p>
+    </div>
+  </div>
+
+  <div class="not-prose my-6 flex gap-4 rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+    <div class="flex shrink-0 items-center justify-center w-10 h-10 rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400">
+      <span class="text-sm font-bold">2</span>
+    </div>
+    <div class="min-w-0">
+      <h3 class="font-semibold text-gray-900 dark:text-white">ビューアを開く</h3>
+      <p class="mt-1.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">SafariまたはChromeで<a href="/ja/tools/winmail" class="text-primary-600 dark:text-primary-400 hover:underline">OpenedFileのWinmail.datビューア</a>を開きます。</p>
+    </div>
+  </div>
+
+  <div class="not-prose my-6 flex gap-4 rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+    <div class="flex shrink-0 items-center justify-center w-10 h-10 rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400">
+      <span class="text-sm font-bold">3</span>
+    </div>
+    <div class="min-w-0">
+      <h3 class="font-semibold text-gray-900 dark:text-white">ファイルをドラッグ＆ドロップ</h3>
+      <p class="mt-1.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">保存したwinmail.datファイルをブラウザの画面にドラッグ＆ドロップします。または、「ファイルを選択」ボタンをクリックしてファイルを指定します。</p>
+    </div>
+  </div>
+
+  <div class="not-prose my-6 flex gap-4 rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+    <div class="flex shrink-0 items-center justify-center w-10 h-10 rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400">
+      <span class="text-sm font-bold">4</span>
+    </div>
+    <div class="min-w-0">
+      <h3 class="font-semibold text-gray-900 dark:text-white">内容を確認</h3>
+      <p class="mt-1.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">ツールが自動的にTNEF形式をデコードし、内容を表示します。</p>
+    </div>
+  </div>
+
+  <div class="not-prose my-6 flex gap-4 rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+    <div class="flex shrink-0 items-center justify-center w-10 h-10 rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400">
+      <span class="text-sm font-bold">5</span>
+    </div>
+    <div class="min-w-0">
+      <h3 class="font-semibold text-gray-900 dark:text-white">添付ファイルをダウンロード</h3>
+      <p class="mt-1.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">埋め込まれた添付ファイルがある場合は、それぞれ個別にダウンロードできます。</p>
+    </div>
+  </div>
 
   <h3>この方法のメリット</h3>
   <ul>
@@ -58,7 +126,17 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     <li><strong>高速処理</strong> - ファイルのアップロード待ちがなく、即座に結果が表示される</li>
   </ul>
 
-  <h2>方法2：サードパーティアプリを使用する</h2>
+  <div class="not-prose my-8 rounded-xl border border-green-200 bg-green-50 p-5 dark:border-green-800 dark:bg-green-950/50">
+    <div class="flex gap-3">
+      <span class="text-xl">✅</span>
+      <div>
+        <p class="font-semibold text-green-900 dark:text-green-200">おすすめ</p>
+        <p class="mt-1 text-sm text-green-800 dark:text-green-300">ブラウザベースツールが最も手軽な方法です。30秒以内で完了し、ソフトウェアのインストールも不要。データはMacのブラウザ内で処理されるため、プライバシーも万全です。</p>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="method-apps">方法2：サードパーティアプリを使用する</h2>
   <p>
     macOS用のTNEFビューアアプリケーションもいくつか存在します。代表的なものを紹介します。
   </p>
@@ -73,15 +151,17 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     Apple Mailのプラグインとして動作し、winmail.datファイルをメール内で直接デコードしてくれるアプリケーションです。有料アプリですが、頻繁にwinmail.datを受信する場合は便利です。
   </p>
 
-  <h3>サードパーティアプリの注意点</h3>
-  <ul>
-    <li>アプリのインストールとアップデートが必要</li>
-    <li>macOSのメジャーアップデート後に互換性の問題が発生する可能性がある</li>
-    <li>無料アプリの場合、サポートや更新が途絶える可能性がある</li>
-    <li>Apple Mailプラグインは、macOSのセキュリティポリシーの変更により動作しなくなる場合がある</li>
-  </ul>
+  <div class="not-prose my-8 rounded-xl border border-amber-200 bg-amber-50 p-5 dark:border-amber-800 dark:bg-amber-950/50">
+    <div class="flex gap-3">
+      <span class="text-xl">⚠️</span>
+      <div>
+        <p class="font-semibold text-amber-900 dark:text-amber-200">注意</p>
+        <p class="mt-1 text-sm text-amber-800 dark:text-amber-300">サードパーティアプリはmacOSのメジャーアップデート後に互換性の問題が発生する可能性があります。また、Apple Mailプラグインはセキュリティポリシーの変更により動作しなくなる場合があります。</p>
+      </div>
+    </div>
+  </div>
 
-  <h2>方法3：送信者にメールを再送してもらう</h2>
+  <h2 id="method-resend">方法3：送信者にメールを再送してもらう</h2>
   <p>
     根本的な解決策として、送信者にメールをHTML形式またはプレーンテキスト形式で再送してもらう方法があります。以下のような文面で依頼すると伝わりやすいでしょう：
   </p>
@@ -92,14 +172,14 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     ただし、この方法は即座に対応してもらえない場合もあるため、急ぎの場合は方法1のブラウザベースツールを使用することをおすすめします。
   </p>
 
-  <h2>3つの方法の比較</h2>
+  <h2 id="comparison">3つの方法の比較</h2>
   <ul>
     <li><strong>ブラウザベースツール（方法1）</strong> - 手軽さ：最も簡単、コスト：無料、速度：即座に利用可能、プライバシー：クライアント処理で安全</li>
     <li><strong>サードパーティアプリ（方法2）</strong> - 手軽さ：インストールが必要、コスト：無料～有料、速度：インストール後は快適、プライバシー：アプリによる</li>
     <li><strong>再送依頼（方法3）</strong> - 手軽さ：依頼するだけ、コスト：無料、速度：相手の対応次第、プライバシー：問題なし</li>
   </ul>
 
-  <h2>Macユーザー向けの追加ヒント</h2>
+  <h2 id="tips">Macユーザー向けの追加ヒント</h2>
   <p>
     winmail.datの問題をより効率的に扱うためのヒントをいくつか紹介します。
   </p>
@@ -124,11 +204,29 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     業務でOutlookユーザーとのやり取りが非常に多い場合は、Mac版のMicrosoft Outlookを使用することも選択肢の一つです。Mac版OutlookはTNEFをネイティブにデコードできるため、winmail.datの問題は発生しません。Microsoft 365のサブスクリプションに含まれています。
   </p>
 
-  <h2>まとめ</h2>
+  <h2 id="summary">まとめ</h2>
   <p>
     MacでWinmail.datファイルを受信した場合、最も手軽で安全な方法は<a href="/ja/tools/winmail">OpenedFileのWinmail.datビューア</a>をブラウザで利用することです。インストール不要、無料、そしてプライバシーも保護された状態で、winmail.datの中身を即座に確認できます。
   </p>
   <p>
     頻繁にwinmail.datを受信する場合は、サードパーティアプリの導入も検討してみてください。また、根本的な解決のためには、送信者にOutlookのメール形式をHTMLに変更するよう依頼することが最善の策です。
   </p>
+
+  <div class="not-prose mt-12 rounded-xl border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-800">
+    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">関連記事</h2>
+    <div class="grid gap-3 sm:grid-cols-2">
+      <a href="/ja/blog/what-is-winmail-dat" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">Winmail.datファイルとは？完全ガイド</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">winmail.datファイルの正体と開き方をわかりやすく解説</p>
+      </a>
+      <a href="/ja/blog/winmail-dat-iphone" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">iPhoneでWinmail.datが届いた時の対処法</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">iPhoneやiPadでwinmail.dat添付ファイルを開く方法</p>
+      </a>
+      <a href="/ja/blog/prevent-winmail-dat" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">Winmail.datの問題を防ぐ：Outlook設定ガイド</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">Outlookの設定を変更してwinmail.datの送信を防止する方法</p>
+      </a>
+    </div>
+  </div>
 </BlogLayout>

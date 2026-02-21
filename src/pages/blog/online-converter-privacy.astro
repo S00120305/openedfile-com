@@ -10,7 +10,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
   readingTime="6 min read"
   relatedTools={[{ name: "WebP to JPG/PNG Converter", href: "/tools/webp" }, { name: "HEIC to JPG/PNG Converter", href: "/tools/heic" }, { name: "Winmail.dat Viewer", href: "/tools/winmail" }]}
 >
-  <h2>The Hidden Cost of "Free" Converters</h2>
+  <h2 id="the-hidden-cost-of-free-converters">The Hidden Cost of "Free" Converters</h2>
   <p>
     Every day, millions of people visit online file conversion websites to perform simple tasks: converting an image from WebP to JPG, turning a HEIC photo into PNG, extracting attachments from a winmail.dat file, or transforming a document from one format to another. These tools are convenient, usually free, and require no software installation. But there is a cost that most users never consider: <strong>your privacy</strong>.
   </p>
@@ -18,7 +18,23 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     When you upload a file to an online converter, you are sending a copy of that file to a remote server owned by a company you likely know nothing about. That file could contain personal photos, sensitive business documents, private emails, or confidential data. Once it leaves your device, you have no control over what happens to it. This article examines the real privacy risks of online file converters and presents safer alternatives.
   </p>
 
-  <h2>What Happens When You Upload Files</h2>
+  <nav class="not-prose my-8 rounded-xl border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-800">
+    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Table of Contents</h2>
+    <ul class="space-y-2 text-sm">
+      <li><a href="#what-happens-when-you-upload-files" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">What Happens When You Upload Files</a></li>
+      <li><a href="#real-world-privacy-incidents" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Real-World Privacy Incidents</a></li>
+      <li><a href="#types-of-sensitive-data-at-risk" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Types of Sensitive Data at Risk</a></li>
+      <li><a href="#how-converter-services-may-use-your-data" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">How Converter Services May Use Your Data</a></li>
+      <li><a href="#reading-the-fine-print" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Reading the Fine Print</a></li>
+      <li><a href="#the-alternative-client-side-processing" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">The Alternative: Client-Side Processing</a></li>
+      <li><a href="#how-browser-based-tools-work-differently" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">How Browser-Based Tools Work Differently</a></li>
+      <li><a href="#verifying-that-a-tool-truly-processes-locally" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Verifying That a Tool Truly Processes Locally</a></li>
+      <li><a href="#why-openedfile-processes-everything-locally" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Why OpenedFile Processes Everything Locally</a></li>
+      <li><a href="#conclusion-and-recommendations" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Conclusion and Recommendations</a></li>
+    </ul>
+  </nav>
+
+  <h2 id="what-happens-when-you-upload-files">What Happens When You Upload Files</h2>
   <p>
     To understand the risk, you need to understand the mechanics of server-side file conversion. When you use a traditional online converter, the following steps occur:
   </p>
@@ -32,7 +48,17 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     During this process, your file exists on a server you do not control. It may be stored on disk, cached in memory, copied to backup systems, logged in access records, or even moved to secondary storage. The server operator has full access to your file and, depending on their terms of service, may use it in ways you did not anticipate.
   </p>
 
-  <h2>Real-World Privacy Incidents</h2>
+  <div class="not-prose my-8 rounded-xl border border-amber-200 bg-amber-50 p-5 dark:border-amber-800 dark:bg-amber-950/50">
+    <div class="flex gap-3">
+      <span class="text-xl">&#x26A0;&#xFE0F;</span>
+      <div>
+        <p class="font-semibold text-amber-900 dark:text-amber-200">Important</p>
+        <p class="mt-1 text-sm text-amber-800 dark:text-amber-300">Several file conversion services have suffered data breaches exposing user-uploaded files. When a converter stores millions of files from users worldwide, it becomes a high-value target for hackers. Misconfigured cloud storage buckets have also led to uploaded files being publicly accessible on the internet without authentication.</p>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="real-world-privacy-incidents">Real-World Privacy Incidents</h2>
   <p>
     Privacy concerns about online converters are not hypothetical. There have been numerous real-world incidents that illustrate the risks:
   </p>
@@ -43,7 +69,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     <li><strong>Government surveillance</strong> — Files uploaded to servers in certain jurisdictions may be subject to government surveillance or data retention requirements, depending on local laws.</li>
   </ul>
 
-  <h2>Types of Sensitive Data at Risk</h2>
+  <h2 id="types-of-sensitive-data-at-risk">Types of Sensitive Data at Risk</h2>
   <p>
     Consider the types of files people routinely upload to online converters:
   </p>
@@ -56,7 +82,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     <li><strong>Identity documents</strong> — Scans of passports, driver's licenses, social security cards, and other ID documents are sometimes converted between formats. This is perhaps the most dangerous type of file to upload to an unknown service.</li>
   </ul>
 
-  <h2>How Converter Services May Use Your Data</h2>
+  <h2 id="how-converter-services-may-use-your-data">How Converter Services May Use Your Data</h2>
   <p>
     Even if a conversion service does not suffer a breach, there are ways your data might be used that you may not expect:
   </p>
@@ -77,7 +103,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     Many services claim to delete files within hours or days, but there is no independent verification of these claims. Backup systems, log files, and caching layers may retain copies of your files long after the stated deletion period.
   </p>
 
-  <h2>Reading the Fine Print</h2>
+  <h2 id="reading-the-fine-print">Reading the Fine Print</h2>
   <p>
     Most online converters have Terms of Service (ToS) and Privacy Policies that users never read. When analyzed carefully, these documents often reveal concerning provisions:
   </p>
@@ -88,11 +114,22 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     <li>Disclaimers of liability for data breaches, effectively leaving you without recourse if your files are exposed.</li>
     <li>Jurisdiction clauses that place the service under laws in countries with weak privacy protections.</li>
   </ul>
+
+  <div class="not-prose my-8 rounded-xl border border-amber-200 bg-amber-50 p-5 dark:border-amber-800 dark:bg-amber-950/50">
+    <div class="flex gap-3">
+      <span class="text-xl">&#x26A0;&#xFE0F;</span>
+      <div>
+        <p class="font-semibold text-amber-900 dark:text-amber-200">Important</p>
+        <p class="mt-1 text-sm text-amber-800 dark:text-amber-300">Always read the Terms of Service before using an online converter. Many include broad license grants giving the service the right to "use, store, reproduce, modify, and distribute" your uploaded content. Vague deletion policies and third-party sharing clauses are common red flags.</p>
+      </div>
+    </div>
+  </div>
+
   <p>
     The reality is that most people do not read these documents, and even those who do may not fully understand the implications. The safest approach is to avoid uploading sensitive files to any remote service in the first place.
   </p>
 
-  <h2>The Alternative: Client-Side Processing</h2>
+  <h2 id="the-alternative-client-side-processing">The Alternative: Client-Side Processing</h2>
   <p>
     The good news is that modern web technology has made it possible to build file conversion tools that <strong>process everything locally in your browser</strong>, without ever uploading your files to a server. This approach is called <strong>client-side processing</strong>, and it eliminates virtually all of the privacy risks described above.
   </p>
@@ -100,33 +137,103 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     With client-side processing, the conversion code (JavaScript, WebAssembly) is downloaded to your browser, and all file processing happens on your own device. Your files never leave your computer, tablet, or phone. There is nothing to intercept, nothing to store, and nothing to breach.
   </p>
 
-  <h2>How Browser-Based Tools Work Differently</h2>
+  <div class="not-prose my-8 rounded-xl border border-green-200 bg-green-50 p-5 dark:border-green-800 dark:bg-green-950/50">
+    <div class="flex gap-3">
+      <span class="text-xl">&#x2705;</span>
+      <div>
+        <p class="font-semibold text-green-900 dark:text-green-200">Recommended</p>
+        <p class="mt-1 text-sm text-green-800 dark:text-green-300">Use client-side processing tools that convert files entirely in your browser. Your files never leave your device, eliminating risks of data breaches, unauthorized access, and indefinite retention. You can verify this yourself using your browser's Network tab.</p>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="how-browser-based-tools-work-differently">How Browser-Based Tools Work Differently</h2>
   <p>
     A true client-side converter works like this:
   </p>
-  <ul>
-    <li>You open the converter webpage, which downloads the conversion code to your browser.</li>
-    <li>You select or drag-and-drop your file. The file is read by JavaScript using the <strong>File API</strong> and processed entirely in the browser's memory.</li>
-    <li>The conversion is performed using technologies like the <strong>HTML5 Canvas API</strong>, <strong>WebAssembly</strong>, or <strong>Web Workers</strong>.</li>
-    <li>The converted file is generated in the browser and offered for download directly from your device's memory.</li>
-    <li>At no point does any file data leave your device. No network request is made with your file's contents.</li>
-  </ul>
 
-  <h2>Verifying That a Tool Truly Processes Locally</h2>
+  <div class="not-prose my-6 flex gap-4 rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+    <div class="flex shrink-0 items-center justify-center w-10 h-10 rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400"><span class="text-sm font-bold">1</span></div>
+    <div class="min-w-0">
+      <h3 class="font-semibold text-gray-900 dark:text-white">Open the Converter Webpage</h3>
+      <p class="mt-1.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">You open the converter webpage, which downloads the conversion code to your browser. This is the only data transferred from the server.</p>
+    </div>
+  </div>
+
+  <div class="not-prose my-6 flex gap-4 rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+    <div class="flex shrink-0 items-center justify-center w-10 h-10 rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400"><span class="text-sm font-bold">2</span></div>
+    <div class="min-w-0">
+      <h3 class="font-semibold text-gray-900 dark:text-white">Select Your File</h3>
+      <p class="mt-1.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">You select or drag-and-drop your file. The file is read by JavaScript using the <strong>File API</strong> and processed entirely in the browser's memory.</p>
+    </div>
+  </div>
+
+  <div class="not-prose my-6 flex gap-4 rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+    <div class="flex shrink-0 items-center justify-center w-10 h-10 rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400"><span class="text-sm font-bold">3</span></div>
+    <div class="min-w-0">
+      <h3 class="font-semibold text-gray-900 dark:text-white">Browser Performs the Conversion</h3>
+      <p class="mt-1.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">The conversion is performed using technologies like the <strong>HTML5 Canvas API</strong>, <strong>WebAssembly</strong>, or <strong>Web Workers</strong> — all running locally on your device.</p>
+    </div>
+  </div>
+
+  <div class="not-prose my-6 flex gap-4 rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+    <div class="flex shrink-0 items-center justify-center w-10 h-10 rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400"><span class="text-sm font-bold">4</span></div>
+    <div class="min-w-0">
+      <h3 class="font-semibold text-gray-900 dark:text-white">Download the Result</h3>
+      <p class="mt-1.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">The converted file is generated in the browser and offered for download directly from your device's memory. No server receives the output.</p>
+    </div>
+  </div>
+
+  <div class="not-prose my-6 flex gap-4 rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+    <div class="flex shrink-0 items-center justify-center w-10 h-10 rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400"><span class="text-sm font-bold">5</span></div>
+    <div class="min-w-0">
+      <h3 class="font-semibold text-gray-900 dark:text-white">Your File Never Leaves Your Device</h3>
+      <p class="mt-1.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">At no point does any file data leave your device. No network request is made with your file's contents. You can verify this in the browser's Network tab.</p>
+    </div>
+  </div>
+
+  <h2 id="verifying-that-a-tool-truly-processes-locally">Verifying That a Tool Truly Processes Locally</h2>
   <p>
     You do not have to take a tool's word for it. You can verify client-side processing yourself using your browser's developer tools:
   </p>
-  <ul>
-    <li>Open the browser's <strong>Network tab</strong> (press F12, then click "Network").</li>
-    <li>Clear the network log.</li>
-    <li>Perform the file conversion.</li>
-    <li>Check the Network tab. If the tool truly processes locally, you will see <strong>no outgoing requests containing your file data</strong>. You may see requests for static assets like JavaScript files, CSS, or fonts, but there should be no upload of your actual file.</li>
-  </ul>
+
+  <div class="not-prose my-6 flex gap-4 rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+    <div class="flex shrink-0 items-center justify-center w-10 h-10 rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400"><span class="text-sm font-bold">1</span></div>
+    <div class="min-w-0">
+      <h3 class="font-semibold text-gray-900 dark:text-white">Open the Network Tab</h3>
+      <p class="mt-1.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">Open the browser's <strong>Network tab</strong> by pressing F12, then clicking "Network". This shows all network requests the page makes.</p>
+    </div>
+  </div>
+
+  <div class="not-prose my-6 flex gap-4 rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+    <div class="flex shrink-0 items-center justify-center w-10 h-10 rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400"><span class="text-sm font-bold">2</span></div>
+    <div class="min-w-0">
+      <h3 class="font-semibold text-gray-900 dark:text-white">Clear the Network Log</h3>
+      <p class="mt-1.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">Clear the network log so you start with a clean slate. This lets you see only the requests made during the conversion.</p>
+    </div>
+  </div>
+
+  <div class="not-prose my-6 flex gap-4 rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+    <div class="flex shrink-0 items-center justify-center w-10 h-10 rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400"><span class="text-sm font-bold">3</span></div>
+    <div class="min-w-0">
+      <h3 class="font-semibold text-gray-900 dark:text-white">Perform the Conversion</h3>
+      <p class="mt-1.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">Select your file and run the conversion as you normally would.</p>
+    </div>
+  </div>
+
+  <div class="not-prose my-6 flex gap-4 rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+    <div class="flex shrink-0 items-center justify-center w-10 h-10 rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400"><span class="text-sm font-bold">4</span></div>
+    <div class="min-w-0">
+      <h3 class="font-semibold text-gray-900 dark:text-white">Check for File Uploads</h3>
+      <p class="mt-1.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">Check the Network tab. If the tool truly processes locally, you will see <strong>no outgoing requests containing your file data</strong>. You may see requests for static assets like JavaScript files, CSS, or fonts, but there should be no upload of your actual file.</p>
+    </div>
+  </div>
+
   <p>
     You can also test by disconnecting from the internet after the page has loaded. A true client-side tool will continue to work offline, since it does not need a server connection to process your files.
   </p>
 
-  <h2>Why OpenedFile Processes Everything Locally</h2>
+  <h2 id="why-openedfile-processes-everything-locally">Why OpenedFile Processes Everything Locally</h2>
   <p>
     <a href="/">OpenedFile</a> was built from the ground up with privacy as a core principle. Every tool on the platform, whether it is the <a href="/tools/webp">WebP converter</a>, the <a href="/tools/heic">HEIC converter</a>, or the <a href="/tools/winmail">winmail.dat viewer</a>, processes files entirely in your browser. No files are uploaded, no data is stored, and no accounts are required.
   </p>
@@ -134,7 +241,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     This is not just a feature; it is a fundamental design decision. By eliminating server-side processing, OpenedFile eliminates the entire category of privacy risks associated with traditional online converters. There is nothing to breach because there is nothing stored. There is nothing to intercept because there is nothing transmitted.
   </p>
 
-  <h2>Conclusion and Recommendations</h2>
+  <h2 id="conclusion-and-recommendations">Conclusion and Recommendations</h2>
   <p>
     Online file converters are convenient, but the privacy trade-off is significant. When you upload files to a remote server, you expose potentially sensitive data to risks including data breaches, unauthorized access, data mining, and indefinite retention. These risks apply to personal photos, business documents, legal files, and any other content you might need to convert.
   </p>
@@ -149,4 +256,22 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
   <p>
     If you are not confident in the answers, choose a client-side tool instead. Your files contain your data, your memories, and your business. They deserve to stay under your control.
   </p>
+
+  <div class="not-prose mt-12 rounded-xl border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-800">
+    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Related Articles</h2>
+    <div class="grid gap-3 sm:grid-cols-2">
+      <a href="/blog/why-client-side-processing" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">Why Client-Side Processing Is Safer for Your Files</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">How browser-based file processing protects your privacy compared to server-side conversion tools.</p>
+      </a>
+      <a href="/blog/webp-explained" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">WebP Format Explained: Everything You Need to Know</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">A comprehensive guide to Google's WebP image format — features, benefits, limitations, and conversion.</p>
+      </a>
+      <a href="/blog/heic-vs-jpg" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">HEIC vs JPG: The Complete Comparison Guide</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">Compare Apple's HEIC format with the universal JPG standard across quality, size, and compatibility.</p>
+      </a>
+    </div>
+  </div>
 </BlogLayout>

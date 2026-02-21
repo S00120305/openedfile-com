@@ -10,7 +10,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
   readingTime="6 min read"
   relatedTools={[{ name: "WebP to JPG/PNG Converter", href: "/tools/webp" }]}
 >
-  <h2>Introduction</h2>
+  <h2 id="introduction">Introduction</h2>
   <p>
     If you have ever downloaded an image from the web and found yourself staring at a <strong>.webp</strong> file you couldn't open, you are not alone. WebP is one of the most widely used image formats on the internet today, yet many people still find it confusing. It appears in Google search results, e-commerce product pages, social media feeds, and countless other places across the web.
   </p>
@@ -18,7 +18,23 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     In this article, we will break down everything you need to know about the WebP format: what it is, how it works, why websites love it, where it falls short, and how to convert WebP files when you need a more universally compatible format.
   </p>
 
-  <h2>What Is WebP?</h2>
+  <nav class="not-prose my-8 rounded-xl border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-800">
+    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Table of Contents</h2>
+    <ul class="space-y-2 text-sm">
+      <li><a href="#what-is-webp" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">What Is WebP?</a></li>
+      <li><a href="#how-webp-works-vp8-and-vp8l-codecs" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">How WebP Works: VP8 and VP8L Codecs</a></li>
+      <li><a href="#lossy-vs-lossless-webp" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Lossy vs Lossless WebP</a></li>
+      <li><a href="#webp-features-at-a-glance" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">WebP Features at a Glance</a></li>
+      <li><a href="#file-size-advantages-over-jpg-and-png" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">File Size Advantages Over JPG and PNG</a></li>
+      <li><a href="#webp-limitations" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">WebP Limitations</a></li>
+      <li><a href="#browser-support-status" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Browser Support Status</a></li>
+      <li><a href="#when-to-use-webp" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">When to Use WebP</a></li>
+      <li><a href="#converting-webp-to-jpg-or-png" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Converting WebP to JPG or PNG</a></li>
+      <li><a href="#conclusion" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Conclusion</a></li>
+    </ul>
+  </nav>
+
+  <h2 id="what-is-webp">What Is WebP?</h2>
   <p>
     WebP is an image format developed by <strong>Google</strong> and first released in <strong>2010</strong>. It was created with a single overarching goal: to make the web faster by reducing image file sizes without sacrificing noticeable visual quality. Images account for a huge percentage of data transferred on the web, so even a modest reduction in file size translates into faster page loads, lower bandwidth costs, and a better user experience.
   </p>
@@ -26,7 +42,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     Google derived WebP from the VP8 video codec that it acquired through the purchase of On2 Technologies. The format was designed as a direct replacement for JPG, PNG, and GIF, combining the strengths of all three into a single, more efficient container.
   </p>
 
-  <h2>How WebP Works: VP8 and VP8L Codecs</h2>
+  <h2 id="how-webp-works-vp8-and-vp8l-codecs">How WebP Works: VP8 and VP8L Codecs</h2>
   <p>
     Under the hood, WebP relies on two primary codecs for encoding image data:
   </p>
@@ -38,7 +54,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     Both codecs are encapsulated in a RIFF-based container format, which also supports additional features like animation frames, alpha channels, and metadata.
   </p>
 
-  <h2>Lossy vs Lossless WebP</h2>
+  <h2 id="lossy-vs-lossless-webp">Lossy vs Lossless WebP</h2>
   <p>
     One of WebP's standout advantages is that it supports <strong>both lossy and lossless compression</strong> within the same format. This is a significant distinction from JPG, which only supports lossy, and PNG, which only supports lossless.
   </p>
@@ -46,12 +62,23 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
   <p>
     Lossy WebP compression discards some image data that the human eye is unlikely to notice. Google's own studies have shown that lossy WebP images are <strong>25-34% smaller</strong> than comparable JPG images at the same perceived quality level (as measured by the SSIM index). For photographs and images with gradual tonal transitions, lossy WebP is an excellent choice.
   </p>
+
+  <div class="not-prose my-8 rounded-xl border border-blue-200 bg-blue-50 p-5 dark:border-blue-800 dark:bg-blue-950/50">
+    <div class="flex gap-3">
+      <span class="text-xl">&#x1F4A1;</span>
+      <div>
+        <p class="font-semibold text-blue-900 dark:text-blue-200">Did You Know?</p>
+        <p class="mt-1 text-sm text-blue-800 dark:text-blue-300">Google's research shows lossy WebP images are 25-34% smaller than comparable JPG images at the same perceived visual quality (SSIM index). For a website serving millions of images daily, this translates to massive bandwidth savings and faster load times.</p>
+      </div>
+    </div>
+  </div>
+
   <h3>Lossless WebP</h3>
   <p>
     Lossless WebP retains every single pixel of the original image perfectly. According to Google's comparisons, lossless WebP files are typically <strong>26% smaller</strong> than PNG files. This makes lossless WebP ideal for graphics, illustrations, logos, and any scenario where pixel-perfect reproduction matters.
   </p>
 
-  <h2>WebP Features at a Glance</h2>
+  <h2 id="webp-features-at-a-glance">WebP Features at a Glance</h2>
   <p>
     WebP is more than just a smaller image format. It comes packed with features that make it versatile:
   </p>
@@ -62,7 +89,17 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     <li><strong>Progressive decoding</strong> — WebP supports incremental decoding, which allows browsers to render a lower-quality preview while the full image is still loading.</li>
   </ul>
 
-  <h2>File Size Advantages Over JPG and PNG</h2>
+  <div class="not-prose my-8 rounded-xl border border-green-200 bg-green-50 p-5 dark:border-green-800 dark:bg-green-950/50">
+    <div class="flex gap-3">
+      <span class="text-xl">&#x2705;</span>
+      <div>
+        <p class="font-semibold text-green-900 dark:text-green-200">Recommended</p>
+        <p class="mt-1 text-sm text-green-800 dark:text-green-300">Use WebP as your primary image format for web delivery. It combines the best of JPG (lossy compression for photos), PNG (lossless compression and transparency), and GIF (animation) into a single, more efficient format that is supported by over 97% of browsers worldwide.</p>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="file-size-advantages-over-jpg-and-png">File Size Advantages Over JPG and PNG</h2>
   <p>
     The primary reason websites adopt WebP is <strong>file size savings</strong>. Here is what you can typically expect:
   </p>
@@ -75,7 +112,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     For a website serving millions of images per day, these savings compound dramatically. They reduce bandwidth costs, improve page load times, and boost Core Web Vitals scores, which directly affect search engine rankings.
   </p>
 
-  <h2>WebP Limitations</h2>
+  <h2 id="webp-limitations">WebP Limitations</h2>
   <p>
     Despite its strengths, WebP is not without drawbacks:
   </p>
@@ -87,7 +124,17 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     <li><strong>Lossy recompression</strong> — Like any lossy format, repeatedly editing and saving a lossy WebP file will degrade quality over time. For editing workflows, it is better to keep source files in a lossless format.</li>
   </ul>
 
-  <h2>Browser Support Status</h2>
+  <div class="not-prose my-8 rounded-xl border border-amber-200 bg-amber-50 p-5 dark:border-amber-800 dark:bg-amber-950/50">
+    <div class="flex gap-3">
+      <span class="text-xl">&#x26A0;&#xFE0F;</span>
+      <div>
+        <p class="font-semibold text-amber-900 dark:text-amber-200">Important</p>
+        <p class="mt-1 text-sm text-amber-800 dark:text-amber-300">Older software like Photoshop (pre-23.2), Microsoft Office 2019 and earlier, and desktop Outlook cannot open WebP files natively. If you need to share images with people who may use older software, or embed images in emails and documents, convert your WebP files to JPG or PNG first.</p>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="browser-support-status">Browser Support Status</h2>
   <p>
     WebP browser support has reached near-universal levels. As of 2026, <strong>all modern browsers</strong> fully support WebP:
   </p>
@@ -102,7 +149,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     The only notable holdout was Internet Explorer, which Microsoft officially retired. Today, WebP works in over <strong>97% of active browsers</strong> worldwide, making it safe to use as a primary web image format.
   </p>
 
-  <h2>When to Use WebP</h2>
+  <h2 id="when-to-use-webp">When to Use WebP</h2>
   <p>
     WebP excels in the following scenarios:
   </p>
@@ -116,7 +163,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     However, if your workflow involves sharing images with people who may use older software, or if you need to embed images in emails and documents, you may want to convert your WebP files to JPG or PNG for maximum compatibility.
   </p>
 
-  <h2>Converting WebP to JPG or PNG</h2>
+  <h2 id="converting-webp-to-jpg-or-png">Converting WebP to JPG or PNG</h2>
   <p>
     There are many situations where you need to convert a WebP file to a more universally compatible format. Perhaps you downloaded a product image from a website and need to insert it into a Word document, or you want to share a photo via email without worrying about whether the recipient's email client supports WebP.
   </p>
@@ -127,11 +174,29 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     <a href="/tools/webp">OpenedFile's WebP to JPG/PNG Converter</a> does exactly this. It runs entirely in your browser using JavaScript and the HTML5 Canvas API, so your images are never uploaded anywhere. Simply drag and drop your WebP file, choose your target format, and download the converted file instantly.
   </p>
 
-  <h2>Conclusion</h2>
+  <h2 id="conclusion">Conclusion</h2>
   <p>
     WebP has matured from a Google experiment into the dominant image format on the modern web. Its combination of lossy and lossless compression, animation support, alpha transparency, and impressive file size savings make it an ideal choice for web developers and anyone publishing content online.
   </p>
   <p>
     That said, WebP is not perfect for every situation. Older software, email clients, and certain workflows still require JPG or PNG. When you encounter a WebP file that you need in a different format, a fast and private <a href="/tools/webp">browser-based converter</a> is the best solution. Understanding the format and knowing when to convert gives you the flexibility to work efficiently in any context.
   </p>
+
+  <div class="not-prose mt-12 rounded-xl border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-800">
+    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Related Articles</h2>
+    <div class="grid gap-3 sm:grid-cols-2">
+      <a href="/blog/webp-vs-jpg-vs-png" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">WebP vs JPG vs PNG: Which Format Should You Use?</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">Compare the three most popular image formats and learn which one is best for your use case.</p>
+      </a>
+      <a href="/blog/webp-compatibility" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">WebP Compatibility Issues and How to Solve Them</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">Troubleshoot WebP compatibility problems across browsers, apps, and operating systems.</p>
+      </a>
+      <a href="/blog/online-converter-privacy" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">Privacy Risks of Online File Converters</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">Why uploading your files to online conversion tools is risky and what alternatives exist.</p>
+      </a>
+    </div>
+  </div>
 </BlogLayout>

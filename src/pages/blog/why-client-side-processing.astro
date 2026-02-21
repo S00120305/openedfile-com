@@ -10,7 +10,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
   readingTime="6 min read"
   relatedTools={[{ name: "WebP to JPG/PNG Converter", href: "/tools/webp" }, { name: "HEIC to JPG/PNG Converter", href: "/tools/heic" }, { name: "Winmail.dat Viewer", href: "/tools/winmail" }]}
 >
-  <h2>Server-Side vs Client-Side Processing Explained</h2>
+  <h2 id="server-side-vs-client-side">Server-Side vs Client-Side Processing Explained</h2>
   <p>
     When you use an online tool to convert, edit, or view a file, the processing has to happen somewhere. There are two fundamentally different approaches: <strong>server-side processing</strong>, where your file is sent to a remote computer for processing, and <strong>client-side processing</strong>, where the work happens right on your own device inside your web browser. The difference between these two approaches has profound implications for your privacy, security, and even performance.
   </p>
@@ -18,7 +18,24 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     This article explores both approaches in detail, explains why client-side processing is inherently safer, and shows you how to verify that a tool is truly processing your files locally.
   </p>
 
-  <h2>How Server-Side Converters Work</h2>
+  <nav class="not-prose my-8 rounded-xl border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-800">
+    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Table of Contents</h2>
+    <ul class="space-y-2 text-sm">
+      <li><a href="#server-side-vs-client-side" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Server-Side vs Client-Side Processing Explained</a></li>
+      <li><a href="#how-server-side-converters-work" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">How Server-Side Converters Work</a></li>
+      <li><a href="#how-client-side-converters-work" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">How Client-Side Converters Work</a></li>
+      <li><a href="#privacy-advantages" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Privacy Advantages of Client-Side Processing</a></li>
+      <li><a href="#performance-advantages" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Performance Advantages</a></li>
+      <li><a href="#security-considerations" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Security Considerations</a></li>
+      <li><a href="#technical-deep-dive" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Technical Deep Dive</a></li>
+      <li><a href="#limitations" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Limitations of Client-Side Processing</a></li>
+      <li><a href="#how-openedfile-implements" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">How OpenedFile Implements Client-Side Processing</a></li>
+      <li><a href="#how-to-verify" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">How to Verify Client-Side Processing</a></li>
+      <li><a href="#conclusion" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Conclusion</a></li>
+    </ul>
+  </nav>
+
+  <h2 id="how-server-side-converters-work">How Server-Side Converters Work</h2>
   <p>
     The traditional model for online file conversion is server-side processing. Here is what happens step by step when you use a server-side converter:
   </p>
@@ -33,7 +50,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     Throughout this process, your file exists on infrastructure you do not own, cannot inspect, and cannot control. You are trusting the service operator to handle your data responsibly, and you have no way to verify that trust.
   </p>
 
-  <h2>How Client-Side Converters Work</h2>
+  <h2 id="how-client-side-converters-work">How Client-Side Converters Work</h2>
   <p>
     Client-side processing takes a fundamentally different approach. Instead of sending your file to a server, the processing code is sent to your browser:
   </p>
@@ -47,7 +64,17 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     The critical difference is that <strong>your file never leaves your device</strong>. The conversion happens entirely within the browser's sandbox, using your device's CPU and memory. There is no upload, no remote storage, and no third-party access.
   </p>
 
-  <h2>Privacy Advantages of Client-Side Processing</h2>
+  <div class="not-prose my-8 rounded-xl border border-blue-200 bg-blue-50 p-5 dark:border-blue-800 dark:bg-blue-950/50">
+    <div class="flex gap-3">
+      <span class="text-xl">💡</span>
+      <div>
+        <p class="font-semibold text-blue-900 dark:text-blue-200">Did You Know?</p>
+        <p class="mt-1 text-sm text-blue-800 dark:text-blue-300">With client-side processing, your file never leaves your device. The conversion code is downloaded to your browser, and all processing happens locally using your device's CPU and memory. There is no upload, no remote storage, and no third-party access.</p>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="privacy-advantages">Privacy Advantages of Client-Side Processing</h2>
   <p>
     The privacy benefits of client-side processing are substantial and straightforward:
   </p>
@@ -68,7 +95,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     Server-side converters often require you to create an account, which links your conversion activity to your identity. Client-side tools can operate without any account or login, providing anonymity by design.
   </p>
 
-  <h2>Performance Advantages</h2>
+  <h2 id="performance-advantages">Performance Advantages</h2>
   <p>
     Beyond privacy, client-side processing offers meaningful performance benefits:
   </p>
@@ -80,7 +107,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     <li><strong>Consistent speed</strong> — Server-side conversion speed depends on server load, network latency, and bandwidth. Client-side processing speed depends only on your device's capabilities, providing a more consistent and predictable experience.</li>
   </ul>
 
-  <h2>Security Considerations</h2>
+  <h2 id="security-considerations">Security Considerations</h2>
   <p>
     From a security perspective, client-side processing eliminates several attack vectors:
   </p>
@@ -97,7 +124,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     Server-side converters face a wide range of security challenges: operating system vulnerabilities, unpatched software dependencies, misconfigured access controls, SQL injection, and more. Client-side tools dramatically reduce the attack surface because the server's role is limited to serving static files (HTML, JavaScript, CSS), with no user data processing or storage.
   </p>
 
-  <h2>Technical Deep Dive: The Technologies Behind Client-Side Conversion</h2>
+  <h2 id="technical-deep-dive">Technical Deep Dive: The Technologies Behind Client-Side Conversion</h2>
   <p>
     Several modern web technologies make client-side file conversion possible:
   </p>
@@ -122,7 +149,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     Service Workers can cache the application code, enabling the converter to work completely offline after the first visit. This further reinforces the client-side processing model by ensuring the tool remains functional even without an internet connection.
   </p>
 
-  <h2>Limitations of Client-Side Processing</h2>
+  <h2 id="limitations">Limitations of Client-Side Processing</h2>
   <p>
     Client-side processing is not without limitations, and it is important to understand them:
   </p>
@@ -136,7 +163,17 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     Despite these limitations, client-side processing is more than capable of handling the vast majority of common file conversion tasks, including image format conversion, document viewing, and file extraction.
   </p>
 
-  <h2>How OpenedFile Implements Client-Side Processing</h2>
+  <div class="not-prose my-8 rounded-xl border border-green-200 bg-green-50 p-5 dark:border-green-800 dark:bg-green-950/50">
+    <div class="flex gap-3">
+      <span class="text-xl">&#x2705;</span>
+      <div>
+        <p class="font-semibold text-green-900 dark:text-green-200">Recommended</p>
+        <p class="mt-1 text-sm text-green-800 dark:text-green-300">Always prefer file conversion tools that process files locally in your browser. You can verify this by checking the Network tab in your browser's developer tools — a true client-side tool will show no file upload requests during conversion.</p>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="how-openedfile-implements">How OpenedFile Implements Client-Side Processing</h2>
   <p>
     <a href="/">OpenedFile</a> is built entirely around the client-side processing model. Every tool on the platform, from the <a href="/tools/webp">WebP converter</a> to the <a href="/tools/heic">HEIC converter</a> to the <a href="/tools/winmail">winmail.dat viewer</a>, processes files exclusively in your browser.
   </p>
@@ -144,7 +181,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     The implementation uses a combination of the technologies described above: the HTML5 Canvas API for image format conversion, WebAssembly for decoding formats like HEIC that require specialized codecs, the File API for reading user-selected files, and Web Workers for keeping the interface responsive during processing. The result is a fast, private, and reliable conversion experience that requires no account, no installation, and no trust in a remote server.
   </p>
 
-  <h2>How to Verify Client-Side Processing</h2>
+  <h2 id="how-to-verify">How to Verify Client-Side Processing</h2>
   <p>
     You should never simply trust a tool's claim that it processes files locally. Fortunately, verification is straightforward using your browser's built-in developer tools:
   </p>
@@ -160,7 +197,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     You can also perform a definitive test by <strong>disconnecting from the internet</strong> after the page has loaded and then attempting the conversion. If the tool works offline, it is definitively processing files on your device.
   </p>
 
-  <h2>Conclusion</h2>
+  <h2 id="conclusion">Conclusion</h2>
   <p>
     Client-side processing represents a fundamentally safer approach to online file conversion. By keeping your files on your device and bringing the processing code to you instead of sending your files to a server, client-side tools eliminate the privacy risks, security vulnerabilities, and trust requirements inherent in server-side processing.
   </p>

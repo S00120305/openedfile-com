@@ -10,7 +10,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
   readingTime="6 min read"
   relatedTools={[{ name: "WebP to JPG/PNG Converter", href: "/tools/webp" }]}
 >
-  <h2>The Image Format Dilemma</h2>
+  <h2 id="the-image-format-dilemma">The Image Format Dilemma</h2>
   <p>
     Choosing the right image format seems like a simple decision, but it can have a significant impact on everything from website performance to print quality to file compatibility. The three most common formats you will encounter are <strong>JPG</strong> (also written as JPEG), <strong>PNG</strong>, and <strong>WebP</strong>. Each has distinct strengths and weaknesses, and the best choice depends entirely on your specific use case.
   </p>
@@ -18,7 +18,24 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     In this article, we will thoroughly compare all three formats across multiple dimensions, including compression, quality, transparency, animation, browser support, and file size. By the end, you will know exactly which format to reach for in any situation.
   </p>
 
-  <h2>JPG: The Universal Standard for Photos</h2>
+  <nav class="not-prose my-8 rounded-xl border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-800">
+    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Table of Contents</h2>
+    <ul class="space-y-2 text-sm">
+      <li><a href="#jpg-the-universal-standard-for-photos" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">JPG: The Universal Standard for Photos</a></li>
+      <li><a href="#png-the-lossless-choice-for-graphics" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">PNG: The Lossless Choice for Graphics</a></li>
+      <li><a href="#webp-the-modern-all-rounder" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">WebP: The Modern All-Rounder</a></li>
+      <li><a href="#detailed-format-comparison" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Detailed Format Comparison</a></li>
+      <li><a href="#best-format-for-photographs" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Best Format for Photographs</a></li>
+      <li><a href="#best-format-for-graphics-and-logos" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Best Format for Graphics and Logos</a></li>
+      <li><a href="#best-format-for-web-pages" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Best Format for Web Pages</a></li>
+      <li><a href="#best-format-for-social-media" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Best Format for Social Media</a></li>
+      <li><a href="#best-format-for-archiving" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Best Format for Archiving</a></li>
+      <li><a href="#converting-between-formats" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Converting Between Formats</a></li>
+      <li><a href="#conclusion-and-recommendations" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Conclusion and Recommendations</a></li>
+    </ul>
+  </nav>
+
+  <h2 id="jpg-the-universal-standard-for-photos">JPG: The Universal Standard for Photos</h2>
   <p>
     JPG (Joint Photographic Experts Group) has been the workhorse of digital photography since the early 1990s. It uses <strong>lossy compression</strong>, meaning it discards some image data to achieve smaller file sizes. The amount of data discarded is controlled by a quality setting, typically ranging from 0 (maximum compression, lowest quality) to 100 (minimal compression, highest quality).
   </p>
@@ -37,7 +54,17 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     <li><strong>No animation</strong> — JPG does not support animated frames.</li>
   </ul>
 
-  <h2>PNG: The Lossless Choice for Graphics</h2>
+  <div class="not-prose my-8 rounded-xl border border-amber-200 bg-amber-50 p-5 dark:border-amber-800 dark:bg-amber-950/50">
+    <div class="flex gap-3">
+      <span class="text-xl">&#x26A0;&#xFE0F;</span>
+      <div>
+        <p class="font-semibold text-amber-900 dark:text-amber-200">Important</p>
+        <p class="mt-1 text-sm text-amber-800 dark:text-amber-300">JPG does not support transparency at all. If you need an image with a transparent background (such as a logo or icon overlay), you must use PNG or WebP instead. Saving a transparent image as JPG will replace the transparent areas with a solid color, usually white.</p>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="png-the-lossless-choice-for-graphics">PNG: The Lossless Choice for Graphics</h2>
   <p>
     PNG (Portable Network Graphics) was developed in the mid-1990s as a patent-free alternative to GIF. It uses <strong>lossless compression</strong>, meaning it preserves every single pixel of the original image perfectly. PNG has become the standard format for graphics, screenshots, and any image where precision matters.
   </p>
@@ -55,10 +82,21 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     <li><strong>Limited animation</strong> — While APNG (Animated PNG) exists, it has limited support compared to GIF or animated WebP.</li>
   </ul>
 
-  <h2>WebP: The Modern All-Rounder</h2>
+  <h2 id="webp-the-modern-all-rounder">WebP: The Modern All-Rounder</h2>
   <p>
     WebP, developed by Google and released in 2010, was designed to combine the best features of both JPG and PNG into a single, more efficient format. It supports <strong>both lossy and lossless compression</strong>, transparency, and animation.
   </p>
+
+  <div class="not-prose my-8 rounded-xl border border-blue-200 bg-blue-50 p-5 dark:border-blue-800 dark:bg-blue-950/50">
+    <div class="flex gap-3">
+      <span class="text-xl">&#x1F4A1;</span>
+      <div>
+        <p class="font-semibold text-blue-900 dark:text-blue-200">Did You Know?</p>
+        <p class="mt-1 text-sm text-blue-800 dark:text-blue-300">WebP is the only major image format that supports both lossy and lossless compression, alpha transparency, and animation in a single container. This means one format can replace JPG, PNG, and GIF for virtually all web use cases.</p>
+      </div>
+    </div>
+  </div>
+
   <h3>WebP Strengths</h3>
   <ul>
     <li><strong>Smaller file sizes</strong> — Lossy WebP is 25-34% smaller than JPG at equivalent quality. Lossless WebP is about 26% smaller than PNG.</li>
@@ -74,7 +112,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     <li><strong>Encoding speed</strong> — WebP encoding is generally slower than JPG encoding, which can matter in high-volume image processing pipelines.</li>
   </ul>
 
-  <h2>Detailed Format Comparison</h2>
+  <h2 id="detailed-format-comparison">Detailed Format Comparison</h2>
   <p>
     Here is a side-by-side comparison of the three formats across key characteristics:
   </p>
@@ -151,32 +189,32 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     </tbody>
   </table>
 
-  <h2>Best Format for Photographs</h2>
+  <h2 id="best-format-for-photographs">Best Format for Photographs</h2>
   <p>
     For photographs with rich colors and smooth gradients, <strong>WebP (lossy)</strong> offers the best compression-to-quality ratio for web use. If you need maximum compatibility for sharing via email, messaging apps, or inserting into documents, <strong>JPG</strong> remains the safest bet. Avoid PNG for photos unless you specifically need lossless archival quality and are not concerned about file size.
   </p>
 
-  <h2>Best Format for Graphics and Logos</h2>
+  <h2 id="best-format-for-graphics-and-logos">Best Format for Graphics and Logos</h2>
   <p>
     For logos, icons, illustrations, and any image with flat colors, sharp edges, or text, <strong>PNG</strong> is the traditional gold standard because of its lossless compression and universal support. <strong>Lossless WebP</strong> is an even better choice if your target audience views images in modern browsers, since it produces smaller files with identical quality. Avoid JPG for graphics entirely, as lossy compression creates ugly artifacts around sharp edges.
   </p>
 
-  <h2>Best Format for Web Pages</h2>
+  <h2 id="best-format-for-web-pages">Best Format for Web Pages</h2>
   <p>
     For images displayed on websites, <strong>WebP is the clear winner</strong>. Its superior compression reduces page load times and bandwidth usage. Modern web development best practices recommend serving WebP with JPG or PNG fallbacks for the small percentage of users on older browsers. Many content management systems and CDNs now handle this format negotiation automatically.
   </p>
 
-  <h2>Best Format for Social Media</h2>
+  <h2 id="best-format-for-social-media">Best Format for Social Media</h2>
   <p>
     Social media platforms have their own rules. Most platforms accept <strong>JPG and PNG</strong> uploads and will re-encode images internally regardless of what you submit. For photos, upload high-quality JPG files. For graphics with transparency (like logos), upload PNG. While some platforms now accept WebP, JPG and PNG remain the most reliable choices for social media uploads.
   </p>
 
-  <h2>Best Format for Archiving</h2>
+  <h2 id="best-format-for-archiving">Best Format for Archiving</h2>
   <p>
     For long-term archival of images, <strong>PNG</strong> is the safest choice. It is an open standard, universally supported, and lossless. Lossless WebP is technically superior in terms of compression, but PNG's decades-long track record and universal tool support make it the more conservative archival format. If you are archiving photographs and storage space is a major concern, high-quality JPG (quality 95-100) is a reasonable compromise.
   </p>
 
-  <h2>Converting Between Formats</h2>
+  <h2 id="converting-between-formats">Converting Between Formats</h2>
   <p>
     In practice, you will often need to convert between these formats. You might receive a WebP image from a website but need to insert it into a PowerPoint presentation that only accepts JPG or PNG. Or you might want to convert a large PNG to WebP for faster web delivery.
   </p>
@@ -187,10 +225,21 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     <a href="/tools/webp">OpenedFile's WebP to JPG/PNG Converter</a> handles these conversions entirely in your browser. Your images never leave your device, and the conversion happens instantly using your computer's own processing power. It is free, requires no signup, and works on any modern browser.
   </p>
 
-  <h2>Conclusion and Recommendations</h2>
+  <h2 id="conclusion-and-recommendations">Conclusion and Recommendations</h2>
   <p>
     There is no single "best" image format for every situation. Here is a quick decision framework:
   </p>
+
+  <div class="not-prose my-8 rounded-xl border border-green-200 bg-green-50 p-5 dark:border-green-800 dark:bg-green-950/50">
+    <div class="flex gap-3">
+      <span class="text-xl">&#x2705;</span>
+      <div>
+        <p class="font-semibold text-green-900 dark:text-green-200">Recommended</p>
+        <p class="mt-1 text-sm text-green-800 dark:text-green-300">Quick decision framework: Use <strong>WebP</strong> for web delivery (best quality-to-size ratio). Use <strong>JPG</strong> for universal sharing via email, documents, and printing (works everywhere). Use <strong>PNG</strong> for lossless quality, transparency, graphics, and screenshots (never loses data).</p>
+      </div>
+    </div>
+  </div>
+
   <ul>
     <li><strong>Use WebP</strong> when you are optimizing images for web delivery and your audience uses modern browsers. It offers the best balance of quality and file size.</li>
     <li><strong>Use JPG</strong> when you need universal compatibility, especially for sharing photos via email, messaging, documents, or printing. It is the format that works everywhere.</li>
@@ -199,4 +248,22 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
   <p>
     And when you need to move between formats, a privacy-friendly <a href="/tools/webp">browser-based converter</a> makes the process quick and secure.
   </p>
+
+  <div class="not-prose mt-12 rounded-xl border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-800">
+    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Related Articles</h2>
+    <div class="grid gap-3 sm:grid-cols-2">
+      <a href="/blog/webp-explained" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">WebP Format Explained: Everything You Need to Know</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">A comprehensive guide to Google's WebP image format — features, benefits, limitations, and conversion.</p>
+      </a>
+      <a href="/blog/webp-compatibility" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">WebP Compatibility Issues and How to Solve Them</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">Troubleshoot WebP compatibility problems across browsers, apps, and operating systems.</p>
+      </a>
+      <a href="/blog/online-converter-privacy" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">Privacy Risks of Online File Converters</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">Why uploading your files to online conversion tools is risky and what alternatives exist.</p>
+      </a>
+    </div>
+  </div>
 </BlogLayout>

@@ -10,7 +10,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
   readingTime="6 min read"
   relatedTools={[{ name: "HEIC to JPG/PNG Converter", href: "/tools/heic" }]}
 >
-  <h2>Introduction</h2>
+  <h2 id="introduction">Introduction</h2>
   <p>
     HEIC (High Efficiency Image Container) has been the default photo format on iPhones since
     2017, yet nearly a decade later, compatibility across platforms remains uneven. If you have
@@ -20,7 +20,22 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     dealing with compatibility issues.
   </p>
 
-  <h2>The HEIC Compatibility Landscape</h2>
+  <nav class="not-prose my-8 rounded-xl border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-800">
+    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Table of Contents</h2>
+    <ul class="space-y-2 text-sm">
+      <li><a href="#the-heic-compatibility-landscape" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">The HEIC Compatibility Landscape</a></li>
+      <li><a href="#windows-support" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Windows Support</a></li>
+      <li><a href="#android-support" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Android Support</a></li>
+      <li><a href="#linux-support" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Linux Support</a></li>
+      <li><a href="#macos-support" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">macOS Support</a></li>
+      <li><a href="#web-browser-support" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Web Browser Support</a></li>
+      <li><a href="#solving-heic-compatibility-issues" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Solving HEIC Compatibility Issues</a></li>
+      <li><a href="#batch-conversion-tips" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Batch Conversion Tips</a></li>
+      <li><a href="#conclusion" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Conclusion</a></li>
+    </ul>
+  </nav>
+
+  <h2 id="the-heic-compatibility-landscape">The HEIC Compatibility Landscape</h2>
   <p>
     HEIC is based on the HEIF (High Efficiency Image Format) standard, which uses the HEVC
     (H.265) codec for compression. The compatibility challenges stem from two main factors:
@@ -34,7 +49,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     in detail.
   </p>
 
-  <h2>Windows Support</h2>
+  <h2 id="windows-support">Windows Support</h2>
   <h3>Windows 10 and Windows 11</h3>
   <p>
     Microsoft Windows does not include native HEIC support out of the box. To view HEIC files on
@@ -44,6 +59,17 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     <li><strong>HEIF Image Extensions:</strong> This free extension adds basic HEIF/HEIC file support to Windows, enabling the Photos app, File Explorer thumbnails, and other built-in tools to recognize HEIC files.</li>
     <li><strong>HEVC Video Extensions:</strong> This extension provides the HEVC codec needed to actually decode the image data inside HEIC files. Microsoft charges a small fee (typically around $0.99) for this extension, although a free version titled "HEVC Video Extensions from Device Manufacturer" is sometimes available and comes pre-installed on certain OEM devices.</li>
   </ul>
+
+  <div class="not-prose my-8 rounded-xl border border-amber-200 bg-amber-50 p-5 dark:border-amber-800 dark:bg-amber-950/50">
+    <div class="flex gap-3">
+      <span class="text-xl">⚠️</span>
+      <div>
+        <p class="font-semibold text-amber-900 dark:text-amber-200">Important</p>
+        <p class="mt-1 text-sm text-amber-800 dark:text-amber-300">Windows requires a paid HEVC Video Extensions codec (around $0.99) from the Microsoft Store to decode HEIC images. The free "HEIF Image Extensions" alone is not sufficient — you need both extensions installed for full HEIC support.</p>
+      </div>
+    </div>
+  </div>
+
   <p>
     Even with these extensions installed, HEIC support on Windows has limitations. Some
     applications, particularly older versions of photo editing software, may still be unable to
@@ -58,7 +84,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     <li>Third-party applications vary widely in their HEIC support</li>
   </ul>
 
-  <h2>Android Support</h2>
+  <h2 id="android-support">Android Support</h2>
   <p>
     Android's HEIC support is more fragmented than any other platform. While Google added
     baseline HEIF support to Android 9 (Pie) in 2018, the actual experience varies enormously
@@ -84,7 +110,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     native HEIC support.
   </p>
 
-  <h2>Linux Support</h2>
+  <h2 id="linux-support">Linux Support</h2>
   <p>
     Linux has the most limited native HEIC support of any major platform. Most Linux distributions
     do not include HEIC support by default, and adding it requires installing additional
@@ -116,7 +142,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     to work with HEIC files, a browser-based converter is often the most hassle-free option.
   </p>
 
-  <h2>macOS Support</h2>
+  <h2 id="macos-support">macOS Support</h2>
   <p>
     Apple's macOS has the most comprehensive HEIC support of any desktop operating system, which
     is expected given that Apple championed the format. Native HEIC support was introduced in
@@ -136,7 +162,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     people on other platforms.
   </p>
 
-  <h2>Web Browser Support</h2>
+  <h2 id="web-browser-support">Web Browser Support</h2>
   <p>
     Web browser support for HEIC is one of the most significant gaps in the format's
     compatibility story. As of early 2026, the situation is as follows:
@@ -148,6 +174,17 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     <li><strong>Edge:</strong> Does not support HEIC natively, despite being on Windows where HEVC extensions may be installed</li>
     <li><strong>Opera, Brave, and other Chromium-based browsers:</strong> Do not support HEIC, following Chrome's lead</li>
   </ul>
+
+  <div class="not-prose my-8 rounded-xl border border-blue-200 bg-blue-50 p-5 dark:border-blue-800 dark:bg-blue-950/50">
+    <div class="flex gap-3">
+      <span class="text-xl">💡</span>
+      <div>
+        <p class="font-semibold text-blue-900 dark:text-blue-200">Did You Know?</p>
+        <p class="mt-1 text-sm text-blue-800 dark:text-blue-300">Safari is the only major web browser with native HEIC support. Chrome, Firefox, and Edge all lack HEIC rendering, which means HEIC images cannot be used directly on websites if you want cross-browser compatibility.</p>
+      </div>
+    </div>
+  </div>
+
   <p>
     This lack of browser support means that HEIC images cannot be used on websites. Any HEIC
     photos destined for the web must be converted to JPG, PNG, WebP, or AVIF first. This is a
@@ -155,13 +192,24 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     images online.
   </p>
 
-  <h2>Solving HEIC Compatibility Issues</h2>
+  <h2 id="solving-heic-compatibility-issues">Solving HEIC Compatibility Issues</h2>
   <p>
     Given the inconsistent support across platforms, the most reliable way to handle HEIC
     compatibility is to convert HEIC files to a universally supported format like JPG or PNG.
     There are several approaches:
   </p>
   <h3>Browser-Based Conversion</h3>
+
+  <div class="not-prose my-8 rounded-xl border border-green-200 bg-green-50 p-5 dark:border-green-800 dark:bg-green-950/50">
+    <div class="flex gap-3">
+      <span class="text-xl">✅</span>
+      <div>
+        <p class="font-semibold text-green-900 dark:text-green-200">Recommended</p>
+        <p class="mt-1 text-sm text-green-800 dark:text-green-300">Browser-based conversion is the most universal solution for HEIC compatibility. Tools like <a href="/tools/heic" class="text-green-800 dark:text-green-300 underline">OpenedFile's HEIC converter</a> work on any platform with a modern browser — no software installation needed, and your files stay private on your device.</p>
+      </div>
+    </div>
+  </div>
+
   <p>
     <a href="/tools/heic">OpenedFile's HEIC converter</a> works in any modern web browser on
     any platform. Because it processes files locally using WebAssembly and JavaScript, your
@@ -182,7 +230,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     On Linux, the <code>heif-convert</code> command-line tool handles batch conversion.
   </p>
 
-  <h2>Batch Conversion Tips</h2>
+  <h2 id="batch-conversion-tips">Batch Conversion Tips</h2>
   <p>
     When you need to convert many HEIC files at once, efficiency matters. Here are some practical
     tips for batch conversion:
@@ -195,7 +243,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     <li><strong>Use browser-based tools for privacy:</strong> If your photos contain sensitive or personal content, use a converter like <a href="/tools/heic">OpenedFile</a> that processes files locally rather than uploading them to a server</li>
   </ul>
 
-  <h2>Conclusion</h2>
+  <h2 id="conclusion">Conclusion</h2>
   <p>
     HEIC compatibility has improved significantly since the format's introduction in 2017, but
     it remains far from universal. macOS and iOS handle HEIC flawlessly, Windows requires
@@ -209,4 +257,22 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     private, and works on any platform with a web browser. Until HEIC achieves the universal
     support that JPG has enjoyed for decades, having a reliable conversion workflow is essential.
   </p>
+
+  <div class="not-prose mt-12 rounded-xl border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-800">
+    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Related Articles</h2>
+    <div class="grid gap-3 sm:grid-cols-2">
+      <a href="/blog/heic-vs-jpg" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">HEIC vs JPG: The Complete Comparison Guide</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">Compare HEIC and JPG image formats — quality, file size, compatibility, and when to use each.</p>
+      </a>
+      <a href="/blog/why-iphone-uses-heic" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">Why iPhone Uses HEIC and How to Convert</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">Understand why Apple chose HEIC as the default photo format and learn easy ways to convert to JPG.</p>
+      </a>
+      <a href="/blog/heic-quality-and-size" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">HEIC Quality and File Size: What You Need to Know</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">How HEIC achieves smaller file sizes without sacrificing image quality compared to JPG.</p>
+      </a>
+    </div>
+  </div>
 </BlogLayout>

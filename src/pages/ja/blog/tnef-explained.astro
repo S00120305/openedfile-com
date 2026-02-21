@@ -10,7 +10,25 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
   readingTime="7分で読めます"
   relatedTools={[{ name: "Winmail.dat ビューア", href: "/ja/tools/winmail" }]}
 >
-  <h2>TNEFとは何か？</h2>
+
+  <nav class="not-prose my-8 rounded-xl border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-800">
+    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">目次</h2>
+    <ul class="space-y-2 text-sm">
+      <li><a href="#what-is-tnef" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">TNEFとは何か？</a></li>
+      <li><a href="#history" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">TNEFの歴史</a></li>
+      <li><a href="#technical-mechanism" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">TNEFの技術的な仕組み</a></li>
+      <li><a href="#binary-structure" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">バイナリ形式の構造</a></li>
+      <li><a href="#mapi-properties" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">MAPIプロパティとTNEF</a></li>
+      <li><a href="#why-outlook-uses-tnef" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">OutlookがTNEFを使用する理由</a></li>
+      <li><a href="#problems" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">TNEFが引き起こす問題</a></li>
+      <li><a href="#client-support" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">メールクライアントのTNEF対応状況</a></li>
+      <li><a href="#alternatives" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">TNEFの代替手段</a></li>
+      <li><a href="#future" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">TNEFの将来</a></li>
+      <li><a href="#summary" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">まとめ</a></li>
+    </ul>
+  </nav>
+
+  <h2 id="what-is-tnef">TNEFとは何か？</h2>
   <p>
     TNEF（Transport Neutral Encapsulation Format）は、Microsoftが開発したプロプライエタリなデータ形式で、メールメッセージのリッチコンテンツをカプセル化するために使用されます。「Transport Neutral」という名称が示すように、この形式はメールの転送プロトコルに依存しない中立的なエンコーディングとして設計されました。
   </p>
@@ -18,7 +36,17 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     一般のユーザーがTNEFに直面するのは、ほぼ間違いなく<strong>winmail.dat</strong>というファイル名を通じてです。Outlookがリッチテキスト形式でメールを送信するとき、メッセージの書式情報や添付ファイルをTNEFでエンコードし、winmail.datという名前のファイルとしてメールに添付します。Outlook以外のメールクライアントがこのファイルを処理できないことが、長年にわたって多くのユーザーを悩ませてきた問題の根源です。
   </p>
 
-  <h2>TNEFの歴史</h2>
+  <div class="not-prose my-8 rounded-xl border border-blue-200 bg-blue-50 p-5 dark:border-blue-800 dark:bg-blue-950/50">
+    <div class="flex gap-3">
+      <span class="text-xl">💡</span>
+      <div>
+        <p class="font-semibold text-blue-900 dark:text-blue-200">豆知識</p>
+        <p class="mt-1 text-sm text-blue-800 dark:text-blue-300">TNEFファイルは固定の署名バイト（0x223E9F78）で始まります。このマジックナンバーにより、ファイルがTNEF形式であることを即座に識別できます。</p>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="history">TNEFの歴史</h2>
   <p>
     TNEFの起源は1990年代初頭に遡ります。Microsoftは当時、企業向けメッセージングシステムであるMicrosoft Exchange Serverを開発していました。Exchange ServerはMAPI（Messaging Application Programming Interface）と呼ばれるAPIを使用しており、メールメッセージには豊富なプロパティ情報を付加することができました。
   </p>
@@ -29,7 +57,7 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     1990年代から2000年代にかけて、企業環境ではMicrosoft Exchange ServerとOutlookが圧倒的なシェアを持っていたため、TNEFの互換性問題は限定的でした。しかし、ウェブメール（Gmail、Yahoo!メールなど）の普及、macOSやLinuxユーザーの増加、スマートフォンの登場により、Outlook以外の環境でメールを受信するユーザーが急増し、winmail.datの問題は広く認知されるようになりました。
   </p>
 
-  <h2>TNEFの技術的な仕組み</h2>
+  <h2 id="technical-mechanism">TNEFの技術的な仕組み</h2>
   <p>
     TNEFエンコーディングのプロセスは、以下のように動作します：
   </p>
@@ -44,7 +72,7 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     受信側がOutlookの場合、Content-Typeを認識してTNEFストリームを自動的にデコードし、リッチテキストメッセージとして表示します。一方、他のメールクライアントでは、このContent-Typeを処理できないため、未知の添付ファイル（winmail.dat）として表示されます。
   </p>
 
-  <h2>バイナリ形式の構造</h2>
+  <h2 id="binary-structure">バイナリ形式の構造</h2>
   <p>
     TNEFファイルのバイナリ構造は、以下の要素で構成されています：
   </p>
@@ -70,7 +98,7 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     この構造により、TNEFファイルの中にはメッセージの件名、本文、書式情報、添付ファイルなど、あらゆる種類のデータを格納することが可能です。
   </p>
 
-  <h2>MAPIプロパティとTNEF</h2>
+  <h2 id="mapi-properties">MAPIプロパティとTNEF</h2>
   <p>
     TNEFの最も重要な役割の一つが、MAPIプロパティの転送です。MAPI（Messaging Application Programming Interface）は、Microsoftのメッセージングアーキテクチャの中核を成すAPIです。
   </p>
@@ -91,7 +119,7 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     これらのプロパティは、Outlookの豊富な機能を支える基盤ですが、同時にTNEFエンコーディングが必要とされる理由でもあります。標準的なMIME形式では、これらすべてのプロパティを表現することができないためです。
   </p>
 
-  <h2>OutlookがTNEFを使用する理由</h2>
+  <h2 id="why-outlook-uses-tnef">OutlookがTNEFを使用する理由</h2>
   <p>
     MicrosoftがTNEFを今もサポートし続けている理由はいくつかあります：
   </p>
@@ -102,7 +130,7 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     <li><strong>RTF書式の完全な再現</strong> - リッチテキスト形式の書式情報を完全に保持するにはTNEFが必要です</li>
   </ul>
 
-  <h2>TNEFが引き起こす問題</h2>
+  <h2 id="problems">TNEFが引き起こす問題</h2>
   <p>
     TNEFエンコーディングは、以下のような様々な問題を引き起こします：
   </p>
@@ -117,6 +145,16 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     TNEFエンコーディングは元のメッセージに対してかなりのオーバーヘッドを追加します。書式情報やMAPIプロパティが追加されるため、メールの総サイズが大きくなります。
   </p>
 
+  <div class="not-prose my-8 rounded-xl border border-amber-200 bg-amber-50 p-5 dark:border-amber-800 dark:bg-amber-950/50">
+    <div class="flex gap-3">
+      <span class="text-xl">⚠️</span>
+      <div>
+        <p class="font-semibold text-amber-900 dark:text-amber-200">注意</p>
+        <p class="mt-1 text-sm text-amber-800 dark:text-amber-300">TNEFファイルはバイナリ形式であるため、一部のセキュリティソフトウェアやメールゲートウェイがTNEFファイル内の添付ファイルを適切にスキャンできない場合があります。セキュリティ上の懸念がある点にも留意してください。</p>
+      </div>
+    </div>
+  </div>
+
   <h3>セキュリティ上の懸念</h3>
   <p>
     TNEFファイルはバイナリ形式であるため、その内容を事前に検査することが困難です。一部のセキュリティソフトウェアやメールゲートウェイは、TNEFファイル内の添付ファイルを適切にスキャンできない場合があります。
@@ -127,7 +165,7 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     winmail.datファイルを受信したユーザーの多くは、それが何であるかを理解できません。ITサポートへの問い合わせが増加し、生産性の低下につながります。
   </p>
 
-  <h2>メールクライアントのTNEF対応状況</h2>
+  <h2 id="client-support">メールクライアントのTNEF対応状況</h2>
   <p>
     現在、主要なメールクライアントのTNEF対応状況は以下の通りです：
   </p>
@@ -144,7 +182,17 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     TNEFに対応していないメールクライアントでwinmail.datを受信した場合は、<a href="/ja/tools/winmail">OpenedFileのWinmail.datビューア</a>を使用することで、ブラウザ上で簡単に内容を確認できます。
   </p>
 
-  <h2>TNEFの代替手段</h2>
+  <div class="not-prose my-8 rounded-xl border border-green-200 bg-green-50 p-5 dark:border-green-800 dark:bg-green-950/50">
+    <div class="flex gap-3">
+      <span class="text-xl">✅</span>
+      <div>
+        <p class="font-semibold text-green-900 dark:text-green-200">おすすめ</p>
+        <p class="mt-1 text-sm text-green-800 dark:text-green-300">TNEF非対応のメールクライアントをお使いの場合、<a href="/ja/tools/winmail" class="text-green-700 dark:text-green-200 underline">OpenedFileのWinmail.datビューア</a>をブックマークしておくと便利です。ブラウザ内でファイルを処理するため、データがサーバーに送信されることはありません。</p>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="alternatives">TNEFの代替手段</h2>
   <p>
     TNEFの問題を回避するためには、以下の代替手段があります：
   </p>
@@ -158,7 +206,7 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     Outlookの送信形式をHTMLに変更する具体的な手順については、<a href="/ja/blog/prevent-winmail-dat">Winmail.datの問題を防ぐ：Outlook設定ガイド</a>をご参照ください。
   </p>
 
-  <h2>TNEFの将来</h2>
+  <h2 id="future">TNEFの将来</h2>
   <p>
     メールのエコシステムが進化する中で、TNEFの役割は徐々に縮小しています。Microsoftは近年、Outlookの新バージョンでHTMLをデフォルトの送信形式としており、TNEFが使用されるケースは減少傾向にあります。
   </p>
@@ -172,11 +220,29 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     当面の間、winmail.datファイルを受信する可能性はなくならないため、<a href="/ja/tools/winmail">OpenedFileのWinmail.datビューア</a>のようなツールを知っておくことは、デジタルコミュニケーションにおける重要なスキルといえるでしょう。
   </p>
 
-  <h2>まとめ</h2>
+  <h2 id="summary">まとめ</h2>
   <p>
     TNEFは、MicrosoftがOutlookとExchange Serverのリッチ機能をインターネットメールで転送するために開発した独自の形式です。その技術的な設計は合理的なものですが、Microsoft製品以外との互換性の問題が長年にわたって指摘されてきました。
   </p>
   <p>
     winmail.datファイルを受信した場合は、<a href="/ja/tools/winmail">Winmail.datビューア</a>で内容を確認することができます。また、送信者側のOutlook設定を変更することで、問題の発生自体を防ぐことも可能です。TNEFの技術的な背景を理解することで、この問題に効果的に対処できるようになります。
   </p>
+
+  <div class="not-prose mt-12 rounded-xl border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-800">
+    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">関連記事</h2>
+    <div class="grid gap-3 sm:grid-cols-2">
+      <a href="/ja/blog/what-is-winmail-dat" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">Winmail.datファイルとは？完全ガイド</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">winmail.datファイルの正体と開き方をわかりやすく解説</p>
+      </a>
+      <a href="/ja/blog/prevent-winmail-dat" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">Winmail.datの問題を防ぐ：Outlook設定ガイド</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">Outlookの設定を変更してwinmail.datの送信を防止する方法</p>
+      </a>
+      <a href="/ja/blog/open-winmail-dat-on-mac" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">MacでWinmail.datを開く方法</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">macOSでwinmail.datファイルを開くステップバイステップガイド</p>
+      </a>
+    </div>
+  </div>
 </BlogLayout>

@@ -10,7 +10,21 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
   readingTime="5分で読めます"
   relatedTools={[{ name: "Winmail.dat ビューア", href: "/ja/tools/winmail" }]}
 >
-  <h2>Winmail.datとは何か？</h2>
+
+  <nav class="not-prose my-8 rounded-xl border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-800">
+    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">目次</h2>
+    <ul class="space-y-2 text-sm">
+      <li><a href="#what-is-winmail-dat" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Winmail.datとは何か？</a></li>
+      <li><a href="#why-outlook-creates" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">なぜOutlookはWinmail.datを作成するのか？</a></li>
+      <li><a href="#tnef-basics" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">TNEF形式の基礎知識</a></li>
+      <li><a href="#who-receives" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">誰がWinmail.datを受信するのか？</a></li>
+      <li><a href="#how-to-open" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Winmail.datファイルの開き方</a></li>
+      <li><a href="#common-scenarios" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">よくあるシナリオと対処法</a></li>
+      <li><a href="#summary" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">まとめ</a></li>
+    </ul>
+  </nav>
+
+  <h2 id="what-is-winmail-dat">Winmail.datとは何か？</h2>
   <p>
     メールを開いたとき、本文には何も添付されていないはずなのに「winmail.dat」という見慣れないファイルが添付されていた経験はありませんか？これはMicrosoft Outlookが送信するメールに特有の現象で、世界中の多くのユーザーを悩ませている問題です。
   </p>
@@ -21,7 +35,17 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     Outlookを使っている受信者であれば、このファイルは自動的に処理され、正しい書式でメールが表示されます。しかし、Gmail、Yahoo!メール、Thunderbird、Apple Mailなど、Outlook以外のメールクライアントを使用している場合、このTNEF形式を解釈できないため、winmail.datという不可解なファイルとして表示されてしまいます。
   </p>
 
-  <h2>なぜOutlookはWinmail.datを作成するのか？</h2>
+  <div class="not-prose my-8 rounded-xl border border-blue-200 bg-blue-50 p-5 dark:border-blue-800 dark:bg-blue-950/50">
+    <div class="flex gap-3">
+      <span class="text-xl">💡</span>
+      <div>
+        <p class="font-semibold text-blue-900 dark:text-blue-200">ポイント</p>
+        <p class="mt-1 text-sm text-blue-800 dark:text-blue-300">winmail.datファイルは危険なものではありません。ZIPファイルのようなコンテナ形式であり、中には送信者が意図した添付ファイルや書式情報が格納されています。適切なツールを使えば簡単に中身を確認できます。</p>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="why-outlook-creates">なぜOutlookはWinmail.datを作成するのか？</h2>
   <p>
     Microsoft Outlookには、メールの送信形式として3つのオプションがあります：
   </p>
@@ -37,7 +61,17 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     多くの場合、ユーザーは自分のOutlookがリッチテキスト形式に設定されていることに気づいていません。デフォルト設定や、特定の連絡先に対する設定が原因で、意図せずwinmail.datが生成されてしまうケースが少なくありません。
   </p>
 
-  <h2>TNEF形式の基礎知識</h2>
+  <div class="not-prose my-8 rounded-xl border border-amber-200 bg-amber-50 p-5 dark:border-amber-800 dark:bg-amber-950/50">
+    <div class="flex gap-3">
+      <span class="text-xl">⚠️</span>
+      <div>
+        <p class="font-semibold text-amber-900 dark:text-amber-200">注意</p>
+        <p class="mt-1 text-sm text-amber-800 dark:text-amber-300">Outlookのデフォルト送信形式がHTMLであっても、特定の連絡先に対して個別にリッチテキスト形式が設定されている場合があります。この場合、その連絡先に送るメールだけwinmail.datが生成されます。</p>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="tnef-basics">TNEF形式の基礎知識</h2>
   <p>
     TNEF（Transport Neutral Encapsulation Format）は、Microsoftが開発した独自のバイナリ形式です。この形式は、メールのリッチテキストコンテンツをカプセル化するために設計されました。
   </p>
@@ -56,7 +90,7 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     つまり、winmail.datファイルの中には、送信者が意図した重要な情報が隠されている可能性があるのです。特に、添付ファイルがwinmail.datの中に埋め込まれてしまうケースでは、受信者は重要なドキュメントにアクセスできなくなるという深刻な問題が発生します。
   </p>
 
-  <h2>誰がWinmail.datを受信するのか？</h2>
+  <h2 id="who-receives">誰がWinmail.datを受信するのか？</h2>
   <p>
     winmail.datファイルを受信する可能性があるのは、主にOutlook以外のメールクライアントを使用しているユーザーです。具体的には以下のような環境で問題が発生します：
   </p>
@@ -71,7 +105,7 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     ビジネスシーンでは特に問題になります。取引先からの重要な契約書や見積書がwinmail.datの中に埋もれてしまい、開くことができないという状況は、業務に大きな支障をきたします。
   </p>
 
-  <h2>Winmail.datファイルの開き方</h2>
+  <h2 id="how-to-open">Winmail.datファイルの開き方</h2>
   <p>
     winmail.datファイルを受信してしまった場合、いくつかの方法で内容を確認することができます。最も簡単で安全な方法は、ブラウザベースのオンラインツールを利用することです。
   </p>
@@ -87,9 +121,16 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     <li>ファイルの内容が即座に表示されます</li>
     <li>埋め込まれた添付ファイルがあれば、個別にダウンロードできます</li>
   </ul>
-  <p>
-    このツールの最大の利点は、ファイルの処理がすべてブラウザ内で完結するため、データがサーバーにアップロードされることがないという点です。プライバシーとセキュリティの観点からも安心して利用できます。
-  </p>
+
+  <div class="not-prose my-8 rounded-xl border border-green-200 bg-green-50 p-5 dark:border-green-800 dark:bg-green-950/50">
+    <div class="flex gap-3">
+      <span class="text-xl">✅</span>
+      <div>
+        <p class="font-semibold text-green-900 dark:text-green-200">おすすめ</p>
+        <p class="mt-1 text-sm text-green-800 dark:text-green-300">OpenedFileのWinmail.datビューアは、ファイルの処理がすべてブラウザ内で完結するため、データがサーバーにアップロードされることがありません。プライバシーとセキュリティの観点からも安心して利用できます。</p>
+      </div>
+    </div>
+  </div>
 
   <h3>方法2：送信者に再送を依頼する</h3>
   <p>
@@ -101,7 +142,7 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     WindowsやMac向けのTNEFビューアアプリケーションをインストールする方法もありますが、ソフトウェアのインストールが必要であり、信頼性の低いアプリもあるため注意が必要です。
   </p>
 
-  <h2>よくあるシナリオと対処法</h2>
+  <h2 id="common-scenarios">よくあるシナリオと対処法</h2>
   <p>
     winmail.datに関連して、ユーザーが直面する一般的なシナリオをいくつか紹介します。
   </p>
@@ -121,7 +162,7 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     Outlookの会議出席依頼がwinmail.datとして届くケース。TNEFの中にはカレンダー情報（.icsファイル）が含まれている場合があります。ビューアで開いて、カレンダーファイルを取り出しましょう。
   </p>
 
-  <h2>まとめ</h2>
+  <h2 id="summary">まとめ</h2>
   <p>
     winmail.datファイルは、Microsoft OutlookのTNEFエンコーディングによって生成される特殊なファイルです。Outlook以外のメールクライアントでは直接開くことができませんが、適切なツールを使えば簡単に内容を確認できます。
   </p>
@@ -131,4 +172,22 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
   <p>
     もしwinmail.datファイルを頻繁に受け取る場合は、送信者にOutlookのメール形式をHTMLに変更するよう依頼することで、根本的な問題を解決できます。詳しい設定方法については、<a href="/ja/blog/prevent-winmail-dat">Winmail.datの問題を防ぐ：Outlook設定ガイド</a>をご覧ください。
   </p>
+
+  <div class="not-prose mt-12 rounded-xl border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-800">
+    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">関連記事</h2>
+    <div class="grid gap-3 sm:grid-cols-2">
+      <a href="/ja/blog/tnef-explained" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">OutlookのTNEFエンコーディングを理解する</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">TNEFの技術的な仕組みとwinmail.datが生成される背景を詳しく解説</p>
+      </a>
+      <a href="/ja/blog/open-winmail-dat-on-mac" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">MacでWinmail.datを開く方法</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">macOSでwinmail.datファイルを開くステップバイステップガイド</p>
+      </a>
+      <a href="/ja/blog/prevent-winmail-dat" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">Winmail.datの問題を防ぐ：Outlook設定ガイド</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">Outlookの設定を変更してwinmail.datの送信を防止する方法</p>
+      </a>
+    </div>
+  </div>
 </BlogLayout>

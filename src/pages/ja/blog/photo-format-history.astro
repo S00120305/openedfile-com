@@ -13,7 +13,23 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
   <h2>はじめに</h2>
   <p>私たちが日常的に使用している画像フォーマット — JPG、PNG、GIF — は、いつ、どのような背景で生まれたのでしょうか。そして、HEIC、AVIF、JPEG XLといった新しいフォーマットは、どのような進化を遂げてきたのでしょうか。この記事では、デジタル画像フォーマットの誕生から現在、そして未来までの歴史を包括的に振り返ります。画像フォーマットの進化を理解することで、今日の最適なフォーマット選びにも役立つはずです。</p>
 
-  <h2>黎明期：BMPとGIF</h2>
+  <nav class="not-prose my-8 rounded-xl border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-800">
+    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">目次</h2>
+    <ul class="space-y-2 text-sm">
+      <li><a href="#黎明期bmpとgif" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">黎明期：BMPとGIF</a></li>
+      <li><a href="#jpeg革命1992年" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">JPEG革命（1992年）</a></li>
+      <li><a href="#pngの登場1996年" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">PNGの登場（1996年）</a></li>
+      <li><a href="#web時代の挑戦jpeg-2000の失敗" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Web時代の挑戦：JPEG 2000の失敗</a></li>
+      <li><a href="#googleのwebp2010年" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">GoogleのWebP（2010年）</a></li>
+      <li><a href="#appleのheicheif2017年" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">AppleのHEIC/HEIF（2017年）</a></li>
+      <li><a href="#avif--次世代の本命2019年" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">AVIF（2019年）</a></li>
+      <li><a href="#jpeg-xl--jpegの正統後継2022年" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">JPEG XL（2022年）</a></li>
+      <li><a href="#今後の展望ai圧縮の時代へ" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">今後の展望：AI圧縮の時代へ</a></li>
+      <li><a href="#今日の最適なフォーマット選び" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">今日の最適なフォーマット選び</a></li>
+    </ul>
+  </nav>
+
+  <h2 id="黎明期bmpとgif">黎明期：BMPとGIF</h2>
   <h3>BMP — デジタル画像の原点</h3>
   <p>BMP（Bitmap Image File）は、1986年にMicrosoftがWindows 1.0のためにリリースした最も初期のデジタル画像フォーマットの一つです。BMPはピクセルデータをほぼ無圧縮で保存するシンプルなフォーマットで、画質の劣化がないという利点がありましたが、ファイルサイズが非常に大きいという致命的な欠点がありました。</p>
   <p>例えば、640x480ピクセルの24ビットカラー画像をBMPで保存すると約900KBになります。当時のフロッピーディスクの容量が1.44MBだったことを考えると、1枚の画像でディスクの大半を占有してしまう計算です。この「ファイルサイズの壁」が、圧縮画像フォーマットの開発を強く動機づけました。</p>
@@ -28,12 +44,14 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
   </ul>
   <p>256色の制限があるため写真の再現には不向きでしたが、アイコンやロゴ、そしてアニメーションGIFとして現在でも広く使われています。なお、GIFのLZW圧縮に関する特許問題（Unisys社）は、後のPNG開発の直接的なきっかけとなりました。</p>
 
-  <h2>JPEG革命（1992年）</h2>
+  <div class="not-prose my-8 rounded-xl border border-blue-200 bg-blue-50 p-5 dark:border-blue-800 dark:bg-blue-950/50"><div class="flex gap-3"><span class="text-xl">💡</span><div><p class="font-semibold text-blue-900 dark:text-blue-200">ポイント</p><p class="mt-1 text-sm text-blue-800 dark:text-blue-300">画像フォーマットの歴史は「ファイルサイズの壁」との戦いの歴史です。BMPの無圧縮から始まり、各世代のフォーマットがより効率的な圧縮方法を追求してきました。</p></div></div></div>
+
+  <h2 id="jpeg革命1992年">JPEG革命（1992年）</h2>
   <p>1992年、Joint Photographic Experts Group（JPEG）によって標準化されたJPEGフォーマットは、デジタル画像の歴史において最も革命的な出来事の一つでした。</p>
   <p>JPEGは離散コサイン変換（DCT）を用いた非可逆圧縮を採用し、人間の視覚特性を利用して、知覚しにくい情報を選択的に削除することでファイルサイズを大幅に削減しました。この「人間の目には見えない情報を捨てる」というアプローチは画期的なものでした。</p>
   <p>JPEGの登場により、フルカラーの写真を実用的なファイルサイズで保存・転送できるようになりました。デジタルカメラの普及、インターネット上での写真共有、そして後のスマートフォン写真の基盤となったのがJPEGです。30年以上が経った現在でも、Webで使用される画像の大部分がJPEG形式です。</p>
 
-  <h2>PNGの登場（1996年）</h2>
+  <h2 id="pngの登場1996年">PNGの登場（1996年）</h2>
   <p>PNG（Portable Network Graphics）は、1996年にGIFの特許問題への回答として開発されたフォーマットです。PNGは以下のような特徴を持ち、GIFの限界を大きく超えるものでした。</p>
   <ul>
     <li><strong>フルカラー対応</strong>：24ビット（約1670万色）および48ビットカラーをサポート</li>
@@ -43,7 +61,7 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
   </ul>
   <p>PNGはWebデザインにおいて特に重要な役割を果たしました。ロゴ、アイコン、スクリーンショット、透過が必要な画像など、JPEGが苦手とする領域でPNGが標準フォーマットとなりました。ただし、写真のような複雑な画像ではファイルサイズがJPEGよりも大きくなるため、写真にはJPEG、グラフィックにはPNGという使い分けが一般的になりました。</p>
 
-  <h2>Web時代の挑戦：JPEG 2000の失敗</h2>
+  <h2 id="web時代の挑戦jpeg-2000の失敗">Web時代の挑戦：JPEG 2000の失敗</h2>
   <p>2000年、JPEGの後継として「JPEG 2000」が標準化されました。離散ウェーブレット変換（DWT）を採用し、JPEGよりも高い圧縮効率とロスレス圧縮のサポートを実現しました。技術的にはJPEGを明確に上回るフォーマットでした。</p>
   <p>しかし、JPEG 2000は広く普及することはありませんでした。その主な理由は以下の通りです。</p>
   <ul>
@@ -52,9 +70,10 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     <li><strong>ブラウザの非対応</strong>：主要ブラウザが対応しなかったため、Web上での使用が困難だった</li>
     <li><strong>JPEGで十分</strong>：当時の多くの用途では、JPEGの品質で十分だった</li>
   </ul>
-  <p>JPEG 2000の失敗は、技術的な優位性だけではフォーマットの普及には不十分であることを示す重要な教訓となりました。</p>
 
-  <h2>GoogleのWebP（2010年）</h2>
+  <div class="not-prose my-8 rounded-xl border border-amber-200 bg-amber-50 p-5 dark:border-amber-800 dark:bg-amber-950/50"><div class="flex gap-3"><span class="text-xl">⚠️</span><div><p class="font-semibold text-amber-900 dark:text-amber-200">注意</p><p class="mt-1 text-sm text-amber-800 dark:text-amber-300">JPEG 2000の失敗は、技術的な優位性だけではフォーマットの普及には不十分であることを示す重要な教訓です。互換性、ライセンス、エコシステムの支持が不可欠です。</p></div></div></div>
+
+  <h2 id="googleのwebp2010年">GoogleのWebP（2010年）</h2>
   <p>2010年、GoogleはWebPフォーマットを発表しました。VP8動画コーデックの技術をベースにした画像フォーマットで、以下の特徴を持っています。</p>
   <ul>
     <li><strong>非可逆圧縮</strong>：JPEGと比較して25〜34%小さなファイルサイズ</li>
@@ -64,7 +83,7 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
   </ul>
   <p>WebPは当初、Google Chrome以外のブラウザではサポートされませんでしたが、徐々に対応が広がり、2020年にはSafariも対応したことで、現在ではすべての主要ブラウザでサポートされています。Web上での画像最適化において、WebPは事実上の標準となりつつあります。</p>
 
-  <h2>AppleのHEIC/HEIF（2017年）</h2>
+  <h2 id="appleのheicheif2017年">AppleのHEIC/HEIF（2017年）</h2>
   <p>2017年、AppleはiOS 11でHEIC（High Efficiency Image Container）を標準の画像フォーマットとして採用しました。HEICはHEIF（High Efficiency Image Format）規格に基づき、HEVC（H.265）コーデックで画像データを圧縮します。</p>
   <ul>
     <li><strong>JPEGの約50%のファイルサイズ</strong>で同等の画質を実現</li>
@@ -75,7 +94,7 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
   </ul>
   <p>HEICの圧縮効率はWebPを上回りますが、HEVCのライセンス問題により、Apple製品以外での普及は限定的です。Windows、Android、Webブラウザでは互換性に課題があり、必要に応じて<a href="/ja/tools/heic">JPGへの変換</a>が必要な場面も少なくありません。</p>
 
-  <h2>AVIF — 次世代の本命（2019年）</h2>
+  <h2 id="avif--次世代の本命2019年">AVIF — 次世代の本命（2019年）</h2>
   <p>2019年に登場したAVIF（AV1 Image File Format）は、Alliance for Open Media（AOM）が開発したAV1動画コーデックをベースにした画像フォーマットです。AOMにはGoogle、Apple、Microsoft、Netflix、Amazon、Metaなどの大手テクノロジー企業が参加しています。</p>
   <ul>
     <li><strong>圧縮効率</strong>：JPEGの約50%、WebPの約20%小さなファイルサイズ</li>
@@ -86,7 +105,9 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
   </ul>
   <p>AVIFはロイヤリティフリーであるという大きな利点を持ち、WebP以上の圧縮効率を実現しています。ただし、エンコード速度が遅いという課題があります。</p>
 
-  <h2>JPEG XL — JPEGの正統後継（2022年）</h2>
+  <div class="not-prose my-8 rounded-xl border border-green-200 bg-green-50 p-5 dark:border-green-800 dark:bg-green-950/50"><div class="flex gap-3"><span class="text-xl">✅</span><div><p class="font-semibold text-green-900 dark:text-green-200">おすすめ</p><p class="mt-1 text-sm text-green-800 dark:text-green-300">Webサイトの画像最適化にはWebPを第一候補に、AVIF対応ブラウザにはAVIFを配信し、フォールバックとしてJPEGを使用する多段構成がおすすめです。</p></div></div></div>
+
+  <h2 id="jpeg-xl--jpegの正統後継2022年">JPEG XL — JPEGの正統後継（2022年）</h2>
   <p>JPEG XLは、JPEG委員会が開発した「JPEGの真の後継」となるフォーマットです。2022年に正式に標準化されました。</p>
   <ul>
     <li><strong>JPEGからのロスレス変換</strong>：既存のJPEGファイルを画質劣化なしでJPEG XLに変換可能（ファイルサイズ約20%削減）</li>
@@ -108,7 +129,7 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     <li><strong>JPEG XL（2022年）</strong>：非可逆/ロスレス、32ビット色深度、透過対応、ブラウザ対応が限定的</li>
   </ul>
 
-  <h2>今後の展望：AI圧縮の時代へ</h2>
+  <h2 id="今後の展望ai圧縮の時代へ">今後の展望：AI圧縮の時代へ</h2>
   <p>画像圧縮の次なるフロンティアは、人工知能（AI）を活用した圧縮技術です。機械学習ベースの画像圧縮は、従来の手法では不可能だった高い圧縮率を実現する可能性を秘めています。</p>
   <ul>
     <li><strong>ニューラルネットワーク圧縮</strong>：エンコーダーとデコーダーの両方にニューラルネットワークを使用し、画像の高レベルな特徴を学習して効率的に圧縮する手法が研究されています。</li>
@@ -117,7 +138,9 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
   </ul>
   <p>これらの技術はまだ研究段階ですが、数年以内に実用化される可能性があります。画像フォーマットの進化はまだ続いています。</p>
 
-  <h2>今日の最適なフォーマット選び</h2>
+  <div class="not-prose my-8 rounded-xl border border-blue-200 bg-blue-50 p-5 dark:border-blue-800 dark:bg-blue-950/50"><div class="flex gap-3"><span class="text-xl">💡</span><div><p class="font-semibold text-blue-900 dark:text-blue-200">ポイント</p><p class="mt-1 text-sm text-blue-800 dark:text-blue-300">AI圧縮技術は研究段階ですが、生成AIによる超解像やセマンティック圧縮は、従来の手法では不可能だった圧縮率を実現する可能性を秘めています。今後の動向に注目です。</p></div></div></div>
+
+  <h2 id="今日の最適なフォーマット選び">今日の最適なフォーマット選び</h2>
   <p>歴史を踏まえて、現時点での最適なフォーマットの選び方を整理しましょう。</p>
   <ul>
     <li><strong>Webサイトの写真</strong>：WebPを第一候補に、AVIF対応ブラウザにはAVIFを、フォールバックとしてJPEGを使用</li>
@@ -132,4 +155,22 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
   <p>デジタル画像フォーマットの歴史は、「より小さなファイルサイズで、より高い画質を」という永遠の追求の歴史です。BMPの無圧縮から始まり、JPEGの非可逆圧縮革命、PNGのロスレス圧縮、そしてHEIC、AVIF、JPEG XLといった次世代フォーマットへと進化を続けています。</p>
   <p>現在は複数のフォーマットが共存する過渡期にあり、用途に応じた適切なフォーマット選びが重要です。特にHEICで撮影された写真を他のプラットフォームと共有する場合は、<a href="/ja/tools/heic">OpenedFileのHEIC変換ツール</a>を活用して、最も互換性の高いフォーマットに変換することをおすすめします。</p>
   <p>画像フォーマットの進化はこれからも続きます。AI技術の発展とともに、さらに革新的な圧縮技術が登場することでしょう。その変化を楽しみに待ちながら、今日は最適なフォーマットを選んで写真を楽しみましょう。</p>
+
+  <div class="not-prose mt-12 rounded-xl border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-800">
+    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">関連記事</h2>
+    <div class="grid gap-3 sm:grid-cols-2">
+      <a href="/ja/blog/heic-vs-jpg" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">HEIC vs JPG比較</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">画質・サイズ・互換性を徹底比較</p>
+      </a>
+      <a href="/ja/blog/webp-explained" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">WebP完全解説</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">GoogleのWebPフォーマットの特徴と使い方</p>
+      </a>
+      <a href="/ja/blog/webp-vs-jpg-vs-png" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">WebP vs JPG vs PNG</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">3つの画像フォーマットを徹底比較</p>
+      </a>
+    </div>
+  </div>
 </BlogLayout>

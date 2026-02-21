@@ -10,11 +10,27 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
   readingTime="5分で読めます"
   relatedTools={[{ name: "WebP → JPG/PNG 変換ツール", href: "/ja/tools/webp" }]}
 >
-  <h2>はじめに</h2>
+  <h2 id="introduction">はじめに</h2>
   <p>WebPはGoogleが開発した高効率な画像フォーマットですが、「ダウンロードしたWebP画像が開けない」「WebPファイルを編集ソフトに読み込めない」「メールに添付されたWebP画像が表示されない」といった互換性の問題に直面するユーザーは少なくありません。</p>
   <p>この記事では、WebPの互換性に関する現状を整理し、ブラウザ、OS、アプリケーション、SNSプラットフォーム、メールクライアントそれぞれの対応状況を詳しく解説します。そして、よくある問題の具体的な解決方法を紹介します。</p>
 
-  <h2>WebP互換性問題とは</h2>
+  <nav class="not-prose my-8 rounded-xl border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-800">
+    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">目次</h2>
+    <ul class="space-y-2 text-sm">
+      <li><a href="#what-is-compatibility-issue" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">WebP互換性問題とは</a></li>
+      <li><a href="#browser-support" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">現在のブラウザ対応状況</a></li>
+      <li><a href="#os-support" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">OS別サポート状況</a></li>
+      <li><a href="#app-support" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">アプリケーションの対応状況</a></li>
+      <li><a href="#sns-support" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">SNSプラットフォームの対応</a></li>
+      <li><a href="#email-limitations" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">メールクライアントの制限</a></li>
+      <li><a href="#common-issues" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">よくある問題と解決法</a></li>
+      <li><a href="#max-compatibility" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">最大互換性のための変換</a></li>
+      <li><a href="#future" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">WebP互換性の今後</a></li>
+      <li><a href="#summary" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">まとめ</a></li>
+    </ul>
+  </nav>
+
+  <h2 id="what-is-compatibility-issue">WebP互換性問題とは</h2>
   <p>WebPは2010年に登場した比較的新しいフォーマットです。JPG（1992年）やPNG（1996年）と比較すると歴史が浅く、すべてのソフトウェアやデバイスがネイティブ対応しているわけではありません。特に以下のような場面で互換性の問題が発生します。</p>
   <ul>
     <li>Webサイトからダウンロードした画像がWebP形式で保存され、デスクトップアプリで開けない</li>
@@ -25,7 +41,9 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
   </ul>
   <p>これらの問題は、WebPの技術的な欠陥ではなく、対応ソフトウェアの普及がまだ完全ではないことに起因しています。</p>
 
-  <h2>現在のブラウザ対応状況</h2>
+  <div class="not-prose my-8 rounded-xl border border-blue-200 bg-blue-50 p-5 dark:border-blue-800 dark:bg-blue-950/50"><div class="flex gap-3"><span class="text-xl">💡</span><div><p class="font-semibold text-blue-900 dark:text-blue-200">ポイント</p><p class="mt-1 text-sm text-blue-800 dark:text-blue-300">WebPの互換性問題のほとんどは、JPGやPNGに変換することで解決できます。<a href="/ja/tools/webp" class="text-blue-700 dark:text-blue-200 underline">WebP変換ツール</a>を使えば、ブラウザ内で安全に変換できます。</p></div></div></div>
+
+  <h2 id="browser-support">現在のブラウザ対応状況</h2>
   <p>Webブラウザにおいては、WebPのサポートはほぼ完了しています。2026年現在の対応状況は以下の通りです。</p>
 
   <h3>Google Chrome</h3>
@@ -42,7 +60,7 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
 
   <p>全体として、世界のWebブラウザの<strong>97%以上</strong>がWebPをサポートしています。IE11が唯一の主要な非対応ブラウザでしたが、すでにサポートが終了しています。</p>
 
-  <h2>OS別サポート状況</h2>
+  <h2 id="os-support">OS別サポート状況</h2>
 
   <h3>Windows</h3>
   <p>Windows 10（バージョン1809以降）はWebPをネイティブでサポートしています。Windowsフォトアプリでの表示、エクスプローラーでのサムネイル表示が可能です。Windows 11ではさらに広範なWebPサポートが組み込まれています。ただし、Windows 7や8ではネイティブサポートがなく、別途WebPコーデックのインストールが必要になる場合があります。</p>
@@ -59,7 +77,7 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
   <h3>Android</h3>
   <p>Android 4.0以降で非可逆WebPを、Android 4.2以降で可逆・透過WebPをサポートしています。Androidは最も早い段階からWebPに対応しているOSの1つです。</p>
 
-  <h2>アプリケーションの対応状況</h2>
+  <h2 id="app-support">アプリケーションの対応状況</h2>
   <p>デスクトップアプリケーションのWebP対応状況はさまざまです。</p>
 
   <h3>対応済みのアプリケーション</h3>
@@ -78,7 +96,9 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     <li><strong>一部のRAW現像ソフト</strong>：Lightroom ClassicはWebPの直接読み込みに対応していない場合があります。</li>
   </ul>
 
-  <h2>SNSプラットフォームの対応</h2>
+  <div class="not-prose my-8 rounded-xl border border-amber-200 bg-amber-50 p-5 dark:border-amber-800 dark:bg-amber-950/50"><div class="flex gap-3"><span class="text-xl">⚠️</span><div><p class="font-semibold text-amber-900 dark:text-amber-200">注意</p><p class="mt-1 text-sm text-amber-800 dark:text-amber-300">古いバージョンのPhotoshop（CS6、CC 2019以前）やMicrosoft Officeでは、WebPファイルを直接開けません。事前にJPGやPNGに変換してから使用してください。</p></div></div></div>
+
+  <h2 id="sns-support">SNSプラットフォームの対応</h2>
   <p>SNSのWebP対応状況は改善されていますが、完全ではありません。</p>
   <ul>
     <li><strong>Twitter（X）</strong>：WebP画像のアップロードに対応。ただし、内部的にJPGに再エンコードされる場合があります。</li>
@@ -89,7 +109,7 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
   </ul>
   <p>SNSへの投稿では、最大互換性を確保するためにJPGまたはPNG形式を使用するのが最も安全です。</p>
 
-  <h2>メールクライアントの制限</h2>
+  <h2 id="email-limitations">メールクライアントの制限</h2>
   <p>メールにおけるWebPのサポートは、最も遅れている分野の1つです。</p>
   <ul>
     <li><strong>Gmail（Webブラウザ）</strong>：WebP画像の表示に対応していますが、インライン表示される保証はありません。</li>
@@ -99,7 +119,7 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
   </ul>
   <p>メールで画像を送信する場合は、受信者の環境を考慮して<strong>JPGまたはPNG形式</strong>で送ることを強く推奨します。WebP画像をメールで送る必要がある場合は、事前に変換してから添付しましょう。</p>
 
-  <h2>よくある問題と解決法</h2>
+  <h2 id="common-issues">よくある問題と解決法</h2>
 
   <h3>ダウンロードしたWebP画像が開けない</h3>
   <p>Webサイトから画像をダウンロードしたところ、.webp拡張子で保存され、パソコンの画像ビューアで開けないケースです。</p>
@@ -127,7 +147,9 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     <li>すべての処理はブラウザ内で行われるため、大量のファイルでもプライバシーの心配がありません。</li>
   </ul>
 
-  <h2>最大互換性のための変換</h2>
+  <div class="not-prose my-8 rounded-xl border border-green-200 bg-green-50 p-5 dark:border-green-800 dark:bg-green-950/50"><div class="flex gap-3"><span class="text-xl">✅</span><div><p class="font-semibold text-green-900 dark:text-green-200">おすすめ</p><p class="mt-1 text-sm text-green-800 dark:text-green-300">WebPの互換性問題に直面したら、まず<a href="/ja/tools/webp" class="text-green-700 dark:text-green-200 underline">OpenedFileのWebP変換ツール</a>でJPG/PNGに変換するのが最も簡単で安全な解決策です。ブラウザ内で処理が完結するため、プライバシーも守れます。</p></div></div></div>
+
+  <h2 id="max-compatibility">最大互換性のための変換</h2>
   <p>WebP画像を最大限の互換性が求められる場面で使用する場合、JPGまたはPNGに変換するのが最も確実な方法です。</p>
   <p><a href="/ja/tools/webp">OpenedFileのWebP変換ツール</a>を使えば、ファイルをサーバーにアップロードすることなく、ブラウザ上で安全にWebPファイルを変換できます。クライアントサイド処理を採用しているため、個人的な写真やビジネス関連の画像も安心して変換できます。</p>
   <p>変換時のポイントは以下の通りです。</p>
@@ -138,7 +160,7 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     <li><strong>一般的な用途</strong>：JPGに変換（ファイルサイズと互換性のバランスが良い）</li>
   </ul>
 
-  <h2>WebP互換性の今後</h2>
+  <h2 id="future">WebP互換性の今後</h2>
   <p>WebPの互換性は年々改善されています。今後の展望をまとめます。</p>
   <ul>
     <li><strong>ブラウザ</strong>：すでにほぼ100%の普及率を達成。今後の心配は不要です。</li>
@@ -148,8 +170,26 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     <li><strong>次世代フォーマット</strong>：AVIF（AV1 Image Format）など、さらに新しいフォーマットも登場しています。しかし、WebPは十分に普及しており、今後も長期にわたって使用されるでしょう。</li>
   </ul>
 
-  <h2>まとめ</h2>
+  <h2 id="summary">まとめ</h2>
   <p>WebPの互換性は2026年現在、大幅に改善されています。主要なWebブラウザ、最新のOS、主要な画像編集ソフトのほとんどがWebPをサポートしています。しかし、古いソフトウェア、メールクライアント、一部のSNSプラットフォームではまだ完全な対応が行き届いていないのが現状です。</p>
   <p>WebP画像の互換性問題に直面した場合は、<a href="/ja/tools/webp">OpenedFileのWebP変換ツール</a>を活用して、JPGやPNGに安全に変換することで解決できます。ブラウザ内で処理が完結するため、プライバシーを心配する必要もありません。</p>
   <p>WebPの長所を活かしつつ、互換性が求められる場面では適切に変換する。この使い分けが、現時点でのWebP活用のベストプラクティスです。</p>
+
+  <div class="not-prose mt-12 rounded-xl border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-800">
+    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">関連記事</h2>
+    <div class="grid gap-3 sm:grid-cols-2">
+      <a href="/ja/blog/webp-explained" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">WebP完全解説</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">WebPフォーマットの特徴、メリット、変換方法を包括的に解説します。</p>
+      </a>
+      <a href="/ja/blog/webp-vs-jpg-vs-png" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">WebP vs JPG vs PNG</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">3つの画像フォーマットを比較し、用途別に最適なフォーマットを解説します。</p>
+      </a>
+      <a href="/ja/blog/why-client-side-processing" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">クライアントサイド処理</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">ブラウザベースのファイル処理がプライバシーを保護する仕組みを解説します。</p>
+      </a>
+    </div>
+  </div>
 </BlogLayout>

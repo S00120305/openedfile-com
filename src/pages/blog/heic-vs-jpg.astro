@@ -25,7 +25,23 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     can make an informed decision about which format best suits your needs.
   </p>
 
-  <h2>What Is HEIC?</h2>
+  <nav class="not-prose my-8 rounded-xl border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-800">
+    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Table of Contents</h2>
+    <ul class="space-y-2 text-sm">
+      <li><a href="#what-is-heic" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">What Is HEIC?</a></li>
+      <li><a href="#what-is-jpg" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">What Is JPG?</a></li>
+      <li><a href="#file-size-comparison" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">File Size Comparison: HEIC Is Roughly 50% Smaller</a></li>
+      <li><a href="#image-quality-comparison" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Image Quality Comparison</a></li>
+      <li><a href="#compatibility-differences" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Compatibility Differences</a></li>
+      <li><a href="#feature-comparison" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Feature Comparison</a></li>
+      <li><a href="#when-to-use-heic" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">When to Use HEIC</a></li>
+      <li><a href="#when-to-use-jpg" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">When to Use JPG</a></li>
+      <li><a href="#how-to-convert-between-heic-and-jpg" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">How to Convert Between HEIC and JPG</a></li>
+      <li><a href="#conclusion" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Conclusion</a></li>
+    </ul>
+  </nav>
+
+  <h2 id="what-is-heic">What Is HEIC?</h2>
   <p>
     HEIC stands for High Efficiency Image Container. It is a file format based on the HEIF (High
     Efficiency Image Format) standard, which was developed by the Moving Picture Experts Group
@@ -41,7 +57,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     and auxiliary image data such as HDR gain maps.
   </p>
 
-  <h2>What Is JPG?</h2>
+  <h2 id="what-is-jpg">What Is JPG?</h2>
   <p>
     JPG, also referred to as JPEG, stands for Joint Photographic Experts Group, the committee that
     created the standard in 1992. It is arguably the most widely used image format in the world and
@@ -55,12 +71,23 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     other image format.
   </p>
 
-  <h2>File Size Comparison: HEIC Is Roughly 50% Smaller</h2>
+  <h2 id="file-size-comparison">File Size Comparison: HEIC Is Roughly 50% Smaller</h2>
   <p>
     The most significant advantage of HEIC over JPG is file size. At equivalent visual quality,
     HEIC files are typically <strong>40% to 50% smaller</strong> than their JPG counterparts.
     This is a substantial difference that has real-world implications for storage and bandwidth.
   </p>
+
+  <div class="not-prose my-8 rounded-xl border border-blue-200 bg-blue-50 p-5 dark:border-blue-800 dark:bg-blue-950/50">
+    <div class="flex gap-3">
+      <span class="text-xl">💡</span>
+      <div>
+        <p class="font-semibold text-blue-900 dark:text-blue-200">Did You Know?</p>
+        <p class="mt-1 text-sm text-blue-800 dark:text-blue-300">A typical 12-megapixel iPhone photo saved as JPG is around 3 to 5 MB, while the same image as HEIC is approximately 1.5 to 2.5 MB. Over thousands of photos, this 50% reduction can free up gigabytes of storage on your device.</p>
+      </div>
+    </div>
+  </div>
+
   <p>
     Consider a typical 12-megapixel iPhone photo. Saved as a JPG, the file might be around
     3 to 5 MB. The same image saved as HEIC would be approximately 1.5 to 2.5 MB. Over hundreds
@@ -75,7 +102,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     algorithms with 35 directional modes compared to JPG's much simpler prediction model.
   </p>
 
-  <h2>Image Quality Comparison</h2>
+  <h2 id="image-quality-comparison">Image Quality Comparison</h2>
   <p>
     When comparing image quality at the <strong>same file size</strong>, HEIC consistently
     outperforms JPG. HEIC images retain more fine detail, produce fewer compression artifacts,
@@ -95,7 +122,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     HEIC is that its "floor" of quality at any given file size is higher than JPG's.
   </p>
 
-  <h2>Compatibility Differences</h2>
+  <h2 id="compatibility-differences">Compatibility Differences</h2>
   <p>
     This is where JPG has a clear and decisive advantage. JPG is universally supported across
     every platform, browser, and application. HEIC, on the other hand, has limited support
@@ -110,6 +137,17 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     <li><strong>Web browsers:</strong> Only Safari supports HEIC natively; Chrome, Firefox, and Edge do not</li>
     <li><strong>Social media:</strong> Most platforms automatically convert uploads, but some older systems may reject HEIC files</li>
   </ul>
+
+  <div class="not-prose my-8 rounded-xl border border-amber-200 bg-amber-50 p-5 dark:border-amber-800 dark:bg-amber-950/50">
+    <div class="flex gap-3">
+      <span class="text-xl">⚠️</span>
+      <div>
+        <p class="font-semibold text-amber-900 dark:text-amber-200">Important</p>
+        <p class="mt-1 text-sm text-amber-800 dark:text-amber-300">HEIC files cannot be displayed in Chrome, Firefox, or Edge browsers. If you need to publish images on the web or share with non-Apple users, always convert to JPG or PNG first to avoid compatibility issues.</p>
+      </div>
+    </div>
+  </div>
+
   <p>
     For sharing images widely or publishing on the web, JPG remains the safer and more practical
     choice. If you need to convert HEIC files quickly, <a href="/tools/heic">OpenedFile's HEIC
@@ -117,7 +155,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     to any server.
   </p>
 
-  <h2>Feature Comparison</h2>
+  <h2 id="feature-comparison">Feature Comparison</h2>
   <p>
     Beyond basic image storage, HEIC supports several features that JPG simply cannot match:
   </p>
@@ -150,7 +188,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     introduce additional quality loss.
   </p>
 
-  <h2>When to Use HEIC</h2>
+  <h2 id="when-to-use-heic">When to Use HEIC</h2>
   <p>
     HEIC is the best choice in the following scenarios:
   </p>
@@ -162,7 +200,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     <li>You are archiving photos and want the best quality-to-size ratio</li>
   </ul>
 
-  <h2>When to Use JPG</h2>
+  <h2 id="when-to-use-jpg">When to Use JPG</h2>
   <p>
     JPG is the better choice in these situations:
   </p>
@@ -174,29 +212,93 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
     <li>You are publishing images that need to work everywhere without conversion</li>
   </ul>
 
-  <h2>How to Convert Between HEIC and JPG</h2>
+  <h2 id="how-to-convert-between-heic-and-jpg">How to Convert Between HEIC and JPG</h2>
   <p>
     Converting between these formats is straightforward. If you have HEIC files that you need in
     JPG format, you can use <a href="/tools/heic">OpenedFile's free HEIC to JPG/PNG converter</a>.
     It works entirely in your browser, meaning your photos are never uploaded to a remote server.
     This is particularly important for personal photos where privacy matters.
   </p>
-  <p>
-    Simply drag and drop your HEIC files into the converter, choose your desired output format
-    (JPG or PNG), select a quality level, and download the converted files. The process is fast,
-    private, and requires no software installation.
-  </p>
 
-  <h2>Conclusion</h2>
+  <div class="not-prose my-6 flex gap-4 rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+    <div class="flex shrink-0 items-center justify-center w-10 h-10 rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400">
+      <span class="text-sm font-bold">1</span>
+    </div>
+    <div class="min-w-0">
+      <h3 class="font-semibold text-gray-900 dark:text-white">Open the Converter</h3>
+      <p class="mt-1.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">Visit <a href="/tools/heic" class="text-primary-600 dark:text-primary-400 hover:underline">OpenedFile's HEIC to JPG/PNG converter</a> in any modern web browser.</p>
+    </div>
+  </div>
+
+  <div class="not-prose my-6 flex gap-4 rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+    <div class="flex shrink-0 items-center justify-center w-10 h-10 rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400">
+      <span class="text-sm font-bold">2</span>
+    </div>
+    <div class="min-w-0">
+      <h3 class="font-semibold text-gray-900 dark:text-white">Add Your Files</h3>
+      <p class="mt-1.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">Drag and drop your HEIC files into the converter, or click to browse and select files from your device.</p>
+    </div>
+  </div>
+
+  <div class="not-prose my-6 flex gap-4 rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+    <div class="flex shrink-0 items-center justify-center w-10 h-10 rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400">
+      <span class="text-sm font-bold">3</span>
+    </div>
+    <div class="min-w-0">
+      <h3 class="font-semibold text-gray-900 dark:text-white">Choose Format and Quality</h3>
+      <p class="mt-1.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">Select your desired output format (JPG or PNG) and choose a quality level that suits your needs.</p>
+    </div>
+  </div>
+
+  <div class="not-prose my-6 flex gap-4 rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+    <div class="flex shrink-0 items-center justify-center w-10 h-10 rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400">
+      <span class="text-sm font-bold">4</span>
+    </div>
+    <div class="min-w-0">
+      <h3 class="font-semibold text-gray-900 dark:text-white">Download Converted Files</h3>
+      <p class="mt-1.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">Download your converted files. The process is fast, private, and requires no software installation.</p>
+    </div>
+  </div>
+
+  <h2 id="conclusion">Conclusion</h2>
   <p>
     HEIC and JPG each have distinct strengths. HEIC delivers superior compression efficiency,
     better quality at smaller file sizes, and advanced features like transparency, depth maps,
     and 16-bit color. JPG offers unmatched universal compatibility that no other format can rival.
   </p>
+
+  <div class="not-prose my-8 rounded-xl border border-green-200 bg-green-50 p-5 dark:border-green-800 dark:bg-green-950/50">
+    <div class="flex gap-3">
+      <span class="text-xl">✅</span>
+      <div>
+        <p class="font-semibold text-green-900 dark:text-green-200">Recommended</p>
+        <p class="mt-1 text-sm text-green-800 dark:text-green-300">Use both formats strategically: keep your photos in HEIC on Apple devices to save storage, and convert to JPG when you need to share or publish outside the Apple ecosystem. This gives you the best of both worlds.</p>
+      </div>
+    </div>
+  </div>
+
   <p>
     For most people, the best approach is to use both formats strategically. Keep your photos in
     HEIC on your Apple devices to save storage, and convert to JPG when you need to share or
     publish those images outside the Apple ecosystem. With tools like
     <a href="/tools/heic">OpenedFile</a>, switching between the two is quick and effortless.
   </p>
+
+  <div class="not-prose mt-12 rounded-xl border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-800">
+    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Related Articles</h2>
+    <div class="grid gap-3 sm:grid-cols-2">
+      <a href="/blog/why-iphone-uses-heic" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">Why iPhone Uses HEIC and How to Convert</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">Understand why Apple chose HEIC as the default photo format and learn easy ways to convert to JPG.</p>
+      </a>
+      <a href="/blog/heic-quality-and-size" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">HEIC Quality and File Size: What You Need to Know</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">How HEIC achieves smaller file sizes without sacrificing image quality compared to JPG.</p>
+      </a>
+      <a href="/blog/heic-compatibility-guide" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">HEIC Compatibility Guide: Windows, Android & Linux</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">Everything you need to know about HEIC support across platforms and how to solve compatibility issues.</p>
+      </a>
+    </div>
+  </div>
 </BlogLayout>

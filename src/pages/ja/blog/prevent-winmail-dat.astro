@@ -10,7 +10,25 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
   readingTime="5分で読めます"
   relatedTools={[{ name: "Winmail.dat ビューア", href: "/ja/tools/winmail" }]}
 >
-  <h2>OutlookがWinmail.datを送信する理由</h2>
+
+  <nav class="not-prose my-8 rounded-xl border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-800">
+    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">目次</h2>
+    <ul class="space-y-2 text-sm">
+      <li><a href="#why-outlook-sends" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">OutlookがWinmail.datを送信する理由</a></li>
+      <li><a href="#check-format" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">メール送信形式の確認方法</a></li>
+      <li><a href="#outlook-365" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Outlook 365での設定変更</a></li>
+      <li><a href="#outlook-2019" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Outlook 2019での設定変更</a></li>
+      <li><a href="#outlook-2016" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Outlook 2016での設定変更</a></li>
+      <li><a href="#per-contact" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">連絡先ごとの設定を確認・変更する</a></li>
+      <li><a href="#exchange-admin" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Exchange管理者による組織レベルの設定</a></li>
+      <li><a href="#mac-outlook" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Mac版Outlookでの設定</a></li>
+      <li><a href="#testing" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">設定変更後のテスト方法</a></li>
+      <li><a href="#when-tnef-needed" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">TNEFが必要な場合</a></li>
+      <li><a href="#summary" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">まとめ</a></li>
+    </ul>
+  </nav>
+
+  <h2 id="why-outlook-sends">OutlookがWinmail.datを送信する理由</h2>
   <p>
     あなたが送ったメールに「winmail.dat」というファイルが添付されていると指摘されたことはありませんか？これはMicrosoft Outlookのメール送信形式がリッチテキスト形式（RTF）に設定されている場合に発生します。
   </p>
@@ -21,22 +39,72 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     特に問題なのは、送信者自身はwinmail.datの存在に気づかないことが多い点です。Outlookの送信済みフォルダを確認しても、自分の環境ではリッチテキストが正常に表示されるため、受信者が困っていることに気づきにくいのです。
   </p>
 
-  <h2>メール送信形式の確認方法</h2>
+  <div class="not-prose my-8 rounded-xl border border-amber-200 bg-amber-50 p-5 dark:border-amber-800 dark:bg-amber-950/50">
+    <div class="flex gap-3">
+      <span class="text-xl">⚠️</span>
+      <div>
+        <p class="font-semibold text-amber-900 dark:text-amber-200">注意</p>
+        <p class="mt-1 text-sm text-amber-800 dark:text-amber-300">送信者自身はOutlookでwinmail.datの存在に気づきません。受信者から指摘されるまで問題を認識できないケースがほとんどです。以下の設定を確認して、意図しないwinmail.datの送信を防ぎましょう。</p>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="check-format">メール送信形式の確認方法</h2>
   <p>
     まず、現在のOutlookのメール送信形式を確認しましょう。以下の手順で確認できます：
   </p>
-  <ul>
-    <li>Outlookを開きます</li>
-    <li>「ファイル」メニューをクリックします</li>
-    <li>「オプション」を選択します</li>
-    <li>左側のメニューから「メール」をクリックします</li>
-    <li>「メッセージの作成」セクションの「次の形式でメッセージを作成する」を確認します</li>
-  </ul>
-  <p>
-    ここが「リッチテキスト形式」になっている場合、送信するすべてのメールでwinmail.datが生成される可能性があります。「HTML」または「テキスト形式」に変更することで、問題を解決できます。
-  </p>
 
-  <h2>Outlook 365（Microsoft 365）での設定変更</h2>
+  <div class="not-prose my-6 flex gap-4 rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+    <div class="flex shrink-0 items-center justify-center w-10 h-10 rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400">
+      <span class="text-sm font-bold">1</span>
+    </div>
+    <div class="min-w-0">
+      <h3 class="font-semibold text-gray-900 dark:text-white">Outlookを開く</h3>
+      <p class="mt-1.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">Microsoft Outlookを起動します。</p>
+    </div>
+  </div>
+
+  <div class="not-prose my-6 flex gap-4 rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+    <div class="flex shrink-0 items-center justify-center w-10 h-10 rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400">
+      <span class="text-sm font-bold">2</span>
+    </div>
+    <div class="min-w-0">
+      <h3 class="font-semibold text-gray-900 dark:text-white">「ファイル」メニューを開く</h3>
+      <p class="mt-1.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">画面左上の「ファイル」メニューをクリックします。</p>
+    </div>
+  </div>
+
+  <div class="not-prose my-6 flex gap-4 rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+    <div class="flex shrink-0 items-center justify-center w-10 h-10 rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400">
+      <span class="text-sm font-bold">3</span>
+    </div>
+    <div class="min-w-0">
+      <h3 class="font-semibold text-gray-900 dark:text-white">「オプション」を選択</h3>
+      <p class="mt-1.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">「オプション」をクリックしてOutlookのオプション画面を開きます。</p>
+    </div>
+  </div>
+
+  <div class="not-prose my-6 flex gap-4 rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+    <div class="flex shrink-0 items-center justify-center w-10 h-10 rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400">
+      <span class="text-sm font-bold">4</span>
+    </div>
+    <div class="min-w-0">
+      <h3 class="font-semibold text-gray-900 dark:text-white">「メール」設定を確認</h3>
+      <p class="mt-1.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">左側のメニューから「メール」をクリックし、「メッセージの作成」セクションの「次の形式でメッセージを作成する」を確認します。</p>
+    </div>
+  </div>
+
+  <div class="not-prose my-6 flex gap-4 rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+    <div class="flex shrink-0 items-center justify-center w-10 h-10 rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400">
+      <span class="text-sm font-bold">5</span>
+    </div>
+    <div class="min-w-0">
+      <h3 class="font-semibold text-gray-900 dark:text-white">形式を確認・変更</h3>
+      <p class="mt-1.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">「リッチテキスト形式」になっている場合、winmail.datが生成されます。「HTML」または「テキスト形式」に変更してください。</p>
+    </div>
+  </div>
+
+  <h2 id="outlook-365">Outlook 365（Microsoft 365）での設定変更</h2>
   <p>
     最新のOutlook 365（Microsoft 365に含まれるOutlook）での設定変更手順を解説します。
   </p>
@@ -62,7 +130,17 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     <li>「OK」をクリックして保存します</li>
   </ul>
 
-  <h2>Outlook 2019での設定変更</h2>
+  <div class="not-prose my-8 rounded-xl border border-blue-200 bg-blue-50 p-5 dark:border-blue-800 dark:bg-blue-950/50">
+    <div class="flex gap-3">
+      <span class="text-xl">💡</span>
+      <div>
+        <p class="font-semibold text-blue-900 dark:text-blue-200">ポイント</p>
+        <p class="mt-1 text-sm text-blue-800 dark:text-blue-300">デフォルトのメール形式をHTMLに変更しても、個別の連絡先にリッチテキスト形式が設定されている場合はwinmail.datが生成されます。連絡先ごとの設定も確認することが重要です。</p>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="outlook-2019">Outlook 2019での設定変更</h2>
   <p>
     Outlook 2019での手順はOutlook 365とほぼ同様です：
   </p>
@@ -73,7 +151,7 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     <li>「OK」で保存します</li>
   </ul>
 
-  <h2>Outlook 2016での設定変更</h2>
+  <h2 id="outlook-2016">Outlook 2016での設定変更</h2>
   <p>
     Outlook 2016でも同じ設定画面から変更が可能です：
   </p>
@@ -87,7 +165,7 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     なお、Outlook 2016ではデフォルトの送信形式がHTMLに設定されていることが多いですが、組織のグループポリシーやExchangeの設定によって変更されている場合があります。
   </p>
 
-  <h2>連絡先ごとの設定を確認・変更する</h2>
+  <h2 id="per-contact">連絡先ごとの設定を確認・変更する</h2>
   <p>
     Outlookでは、特定の連絡先に対してメール形式を個別に設定することができます。デフォルトの送信形式をHTMLに変更しても、特定の連絡先にはリッチテキスト形式で送信される設定になっている場合があります。
   </p>
@@ -106,7 +184,7 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     この個別設定は、デフォルトのメール形式設定よりも優先されます。つまり、デフォルトをHTMLに設定していても、連絡先レベルでリッチテキストが指定されていると、その連絡先に対してはwinmail.datが生成されてしまいます。
   </p>
 
-  <h2>Exchange管理者による組織レベルの設定</h2>
+  <h2 id="exchange-admin">Exchange管理者による組織レベルの設定</h2>
   <p>
     組織のIT管理者は、Exchange Serverの設定でTNEFの使用を組織全体で制御することができます。これにより、個々のユーザーの設定に関わらず、外部宛のメールでwinmail.datが生成されないようにすることが可能です。
   </p>
@@ -134,7 +212,17 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     組織レベルでTNEFを無効化することは、外部パートナーや顧客とのコミュニケーションにおける問題を根本的に解決する最も効果的な方法です。
   </p>
 
-  <h2>Mac版Outlookでの設定</h2>
+  <div class="not-prose my-8 rounded-xl border border-green-200 bg-green-50 p-5 dark:border-green-800 dark:bg-green-950/50">
+    <div class="flex gap-3">
+      <span class="text-xl">✅</span>
+      <div>
+        <p class="font-semibold text-green-900 dark:text-green-200">おすすめ</p>
+        <p class="mt-1 text-sm text-green-800 dark:text-green-300">IT管理者の方は、Exchange管理センターのリモートドメイン設定でTNEFを無効化することを検討してください。組織全体で外部へのwinmail.dat送信を一括で防止できます。</p>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="mac-outlook">Mac版Outlookでの設定</h2>
   <p>
     Mac版のMicrosoft Outlookでも、メール送信形式の設定を変更することができます。
   </p>
@@ -148,7 +236,7 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     Mac版OutlookはWindows版と比較して、デフォルトでHTML形式が使用されることが多いため、winmail.datの問題は比較的少ないですが、確認しておくことをおすすめします。
   </p>
 
-  <h2>設定変更後のテスト方法</h2>
+  <h2 id="testing">設定変更後のテスト方法</h2>
   <p>
     Outlookの設定を変更した後は、実際にwinmail.datが生成されなくなったことをテストすることが重要です。以下の手順でテストしてください：
   </p>
@@ -161,12 +249,17 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     <li><strong>書式の確認</strong> - メール本文の書式（太字、色、リンクなど）が正しく表示されていることを確認します</li>
   </ul>
 
-  <h3>テスト時の注意点</h3>
-  <p>
-    設定変更後、すでに作成済みのメールや下書きには古い設定が適用される場合があります。テストは必ず新規メールで行ってください。また、返信や転送の場合も、元のメールの形式が引き継がれることがあるため、新規作成メールでテストすることが重要です。
-  </p>
+  <div class="not-prose my-8 rounded-xl border border-amber-200 bg-amber-50 p-5 dark:border-amber-800 dark:bg-amber-950/50">
+    <div class="flex gap-3">
+      <span class="text-xl">⚠️</span>
+      <div>
+        <p class="font-semibold text-amber-900 dark:text-amber-200">注意</p>
+        <p class="mt-1 text-sm text-amber-800 dark:text-amber-300">設定変更後、すでに作成済みのメールや下書きには古い設定が適用される場合があります。テストは必ず新規メールで行ってください。返信や転送の場合も、元のメールの形式が引き継がれることがあります。</p>
+      </div>
+    </div>
+  </div>
 
-  <h2>TNEFが必要な場合</h2>
+  <h2 id="when-tnef-needed">TNEFが必要な場合</h2>
   <p>
     すべてのケースでTNEFを無効化すべきというわけではありません。以下のようなOutlook固有の機能を使用する場合は、TNEFが必要になることがあります：
   </p>
@@ -179,7 +272,7 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     これらの機能を使用する必要がある場合は、組織内部（同じExchange環境内）の通信ではTNEFを有効にしたまま、外部への通信のみTNEFを無効化するという方法が推奨されます。Exchange管理者がリモートドメインの設定で、この使い分けを実現できます。
   </p>
 
-  <h2>まとめ</h2>
+  <h2 id="summary">まとめ</h2>
   <p>
     winmail.datの問題は、Outlookのメール送信形式を変更することで簡単に防ぐことができます。最も重要な設定変更は以下の2点です：
   </p>
@@ -193,4 +286,22 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
   <p>
     もしwinmail.datファイルを受信してしまった場合は、<a href="/ja/tools/winmail">OpenedFileのWinmail.datビューア</a>を使えば、ブラウザ上で簡単に内容を確認できます。技術的な背景を詳しく知りたい方は、<a href="/ja/blog/tnef-explained">OutlookのTNEFエンコーディングを理解する</a>の記事もご参照ください。
   </p>
+
+  <div class="not-prose mt-12 rounded-xl border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-800">
+    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">関連記事</h2>
+    <div class="grid gap-3 sm:grid-cols-2">
+      <a href="/ja/blog/what-is-winmail-dat" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">Winmail.datファイルとは？完全ガイド</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">winmail.datファイルの正体と開き方をわかりやすく解説</p>
+      </a>
+      <a href="/ja/blog/tnef-explained" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">OutlookのTNEFエンコーディングを理解する</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">TNEFの技術的な仕組みとwinmail.datが生成される背景を詳しく解説</p>
+      </a>
+      <a href="/ja/blog/open-winmail-dat-on-mac" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">MacでWinmail.datを開く方法</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">macOSでwinmail.datファイルを開くステップバイステップガイド</p>
+      </a>
+    </div>
+  </div>
 </BlogLayout>
