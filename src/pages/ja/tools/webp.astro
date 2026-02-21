@@ -1,0 +1,109 @@
+---
+import ToolLayout from '../../../layouts/ToolLayout.astro';
+import WebPConverter from '../../../components/react/WebPConverter';
+import { t } from '../../../i18n/utils';
+
+const locale = 'ja';
+
+const labels = {
+  outputFormat: t(locale, 'webp_converter.output_format'),
+  quality: t(locale, 'webp_converter.quality'),
+  dropTitle: t(locale, 'webp_converter.drop_title'),
+  dropDescription: t(locale, 'webp_converter.drop_description'),
+  dropHint: t(locale, 'webp_converter.drop_hint'),
+  convertAll: t(locale, 'webp_converter.convert_all'),
+  converting: t(locale, 'webp_converter.converting'),
+  download: t(locale, 'webp_converter.download'),
+  downloadAllZip: t(locale, 'webp_converter.download_all_zip'),
+  clearAll: t(locale, 'webp_converter.clear_all'),
+  originalSize: t(locale, 'webp_converter.original_size'),
+  convertedSize: t(locale, 'webp_converter.converted_size'),
+  reduction: t(locale, 'webp_converter.reduction'),
+  increase: t(locale, 'webp_converter.increase'),
+  errorNotWebp: t(locale, 'webp_converter.error_not_webp'),
+  errorConversionFailed: t(locale, 'webp_converter.error_conversion_failed'),
+  errorFileTooLarge: t(locale, 'webp_converter.error_file_too_large'),
+  filesSelected: t(locale, 'webp_converter.files_selected'),
+  converted: t(locale, 'webp_converter.converted'),
+  pending: t(locale, 'webp_converter.pending'),
+  statusConverting: t(locale, 'webp_converter.status_converting'),
+  statusDone: t(locale, 'webp_converter.status_done'),
+  statusError: t(locale, 'webp_converter.status_error'),
+};
+
+// Parse FAQ from i18n
+import ja from '../../../i18n/ja.json';
+const faqItems = ja.webp_page.faq;
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqItems.map((item: { question: string; answer: string }) => ({
+    "@type": "Question",
+    "name": item.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": item.answer,
+    },
+  })),
+};
+---
+
+<ToolLayout
+  title={t(locale, 'tools.webp.page_title')}
+  description={t(locale, 'tools.webp.page_description')}
+  heading={t(locale, 'tools.webp.heading')}
+  subheading={t(locale, 'tools.webp.subheading')}
+>
+  <WebPConverter client:load labels={labels} />
+
+  <Fragment slot="seo-content">
+    <!-- How to use section -->
+    <section class="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
+      <div class="prose prose-gray dark:prose-invert max-w-none lg:max-w-3xl">
+        <h2>{t(locale, 'webp_page.how_to_title')}</h2>
+        {t(locale, 'webp_page.how_to_content').split('\n\n').map((paragraph: string) => {
+          if (paragraph.startsWith('**') && paragraph.includes('**\n')) {
+            const [title, ...rest] = paragraph.split('\n');
+            return (
+              <div>
+                <p set:html={title.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')} />
+                {rest.map((line: string) => (
+                  <p set:html={line.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')} />
+                ))}
+              </div>
+            );
+          }
+          return <p set:html={paragraph.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')} />;
+        })}
+      </div>
+    </section>
+
+    <!-- FAQ section -->
+    <section class="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8 border-t border-gray-200 dark:border-gray-800">
+      <div class="max-w-3xl">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-8">
+          {t(locale, 'webp_page.faq_title')}
+        </h2>
+        <div class="space-y-6">
+          {faqItems.map((item: { question: string; answer: string }) => (
+            <details class="group rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
+              <summary class="flex cursor-pointer items-center justify-between p-5 text-left font-medium text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-750 rounded-xl">
+                <span>{item.question}</span>
+                <svg class="h-5 w-5 shrink-0 text-gray-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </summary>
+              <div class="px-5 pb-5 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                {item.answer}
+              </div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Schema JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+</ToolLayout>

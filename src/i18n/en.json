@@ -21,7 +21,11 @@
   "tools": {
     "webp": {
       "title": "WebP to JPG/PNG",
-      "description": "Convert WebP images to widely compatible JPG or PNG format. Adjust quality settings for the perfect balance."
+      "description": "Convert WebP images to widely compatible JPG or PNG format. Adjust quality settings for the perfect balance.",
+      "page_title": "WebP to JPG/PNG Converter - Free Online Tool | OpenedFile",
+      "page_description": "Convert WebP images to JPG or PNG format instantly in your browser. No upload needed — your files never leave your device. Free, fast, and private.",
+      "heading": "WebP to JPG/PNG Converter",
+      "subheading": "Convert WebP images to JPG or PNG format instantly. All processing happens in your browser — your files never leave your device."
     },
     "heic": {
       "title": "HEIC to JPG",
@@ -31,6 +35,66 @@
       "title": "Open winmail.dat",
       "description": "Extract and view contents of winmail.dat email attachments from Microsoft Outlook."
     }
+  },
+  "webp_converter": {
+    "output_format": "Output Format",
+    "quality": "Quality",
+    "drop_title": "Drop WebP files here",
+    "drop_description": "or click to select files",
+    "drop_hint": "Supports .webp files. Multiple files accepted.",
+    "convert_all": "Convert All",
+    "converting": "Converting...",
+    "download": "Download",
+    "download_all_zip": "Download All as ZIP",
+    "clear_all": "Clear All",
+    "original_size": "Original",
+    "converted_size": "Converted",
+    "reduction": "reduction",
+    "increase": "increase",
+    "error_not_webp": "This file is not a WebP image.",
+    "error_conversion_failed": "Conversion failed. The file may be corrupted.",
+    "error_file_too_large": "This file is very large and may affect performance.",
+    "files_selected": "files selected",
+    "converted": "Converted",
+    "pending": "Pending",
+    "status_converting": "Converting",
+    "status_done": "Done",
+    "status_error": "Error"
+  },
+  "webp_page": {
+    "how_to_title": "How to Convert WebP to JPG or PNG",
+    "how_to_content": "WebP is a modern image format developed by Google that offers superior compression compared to traditional formats like JPG and PNG. While WebP files are significantly smaller in size, they aren't universally supported by all applications and platforms. If you've downloaded a WebP image from the web and can't open it in your image editor, or need to share it with someone whose device doesn't support WebP, this tool makes conversion quick and easy.\n\nOur WebP converter runs entirely in your browser using the HTML5 Canvas API. This means your images are never uploaded to any server — they stay on your device throughout the entire conversion process. Here's how to use it:\n\n**Step 1: Select Your Files**\nDrag and drop your WebP files onto the upload area, or click to browse and select files from your device. You can convert multiple files at once — there's no limit on the number of files.\n\n**Step 2: Choose Your Output Format**\nSelect either JPG or PNG as your output format. JPG is best for photographs and complex images where a smaller file size is preferred. PNG is ideal for images that require transparency or sharp edges, such as logos, screenshots, and graphics.\n\n**Step 3: Adjust Quality (JPG only)**\nIf you've selected JPG as the output format, you can adjust the quality slider from 0% to 100%. A quality of 90% offers an excellent balance between file size and visual quality. Lower values produce smaller files but with some loss of detail.\n\n**Step 4: Download Your Converted Files**\nOnce the conversion is complete, you can download each file individually or use the \"Download All as ZIP\" button to get all converted files in a single ZIP archive.\n\nThe conversion process is instant for most files. Since everything runs locally in your browser, the speed depends only on your device's processing power, not on your internet connection.",
+    "faq_title": "Frequently Asked Questions",
+    "faq": [
+      {
+        "question": "Is it safe to convert WebP files with this tool?",
+        "answer": "Yes, absolutely. This tool processes all files locally in your browser. Your images are never uploaded to any server. The conversion uses your browser's built-in Canvas API, so your files never leave your device."
+      },
+      {
+        "question": "What is the difference between JPG and PNG output?",
+        "answer": "JPG (JPEG) uses lossy compression, which means file sizes are smaller but some image detail may be lost. It's best for photographs. PNG uses lossless compression, preserving all image details and supporting transparency. It's ideal for graphics, screenshots, and images with text."
+      },
+      {
+        "question": "What quality setting should I use for JPG?",
+        "answer": "A quality of 90% provides an excellent balance between file size and visual quality. For web use, 80-85% is often sufficient. If you need the highest possible quality, use 100%, though the file size will be larger. For PNG output, quality settings don't apply since PNG is lossless."
+      },
+      {
+        "question": "Is there a file size limit?",
+        "answer": "There is no strict file size limit since all processing happens in your browser. However, very large files (over 100MB) may cause your browser to slow down. For files over 500MB, your browser may run out of memory. We recommend converting large files one at a time."
+      },
+      {
+        "question": "Can I convert multiple WebP files at once?",
+        "answer": "Yes! You can drag and drop multiple WebP files at once, or select multiple files from the file browser. All files will be converted with the same settings, and you can download them individually or as a single ZIP archive."
+      },
+      {
+        "question": "Why can't I open WebP files on my computer?",
+        "answer": "WebP is a relatively new image format created by Google. While modern browsers and operating systems support it, some older applications and systems don't. Converting to JPG or PNG ensures your images can be opened by virtually any image viewer or editor."
+      },
+      {
+        "question": "Does this tool work offline?",
+        "answer": "Once the page has loaded, the conversion tool works without an internet connection. However, you'll need an internet connection to initially load the page. Since all processing is done locally, the speed of conversion doesn't depend on your internet speed."
+      }
+    ]
   },
   "privacy_badge": {
     "text": "Your files never leave your device",

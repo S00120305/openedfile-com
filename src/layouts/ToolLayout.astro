@@ -1,0 +1,61 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import AdBanner from '../components/AdBanner.astro';
+import PrivacyBadge from '../components/PrivacyBadge.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  heading: string;
+  subheading: string;
+}
+
+const { title, description, heading, subheading } = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+  <!-- Page header -->
+  <section class="bg-gradient-to-b from-primary-50 to-white dark:from-gray-900 dark:to-gray-950">
+    <div class="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8 text-center">
+      <h1 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl dark:text-white">
+        {heading}
+      </h1>
+      <p class="mx-auto mt-4 max-w-2xl text-base text-gray-600 dark:text-gray-300">
+        {subheading}
+      </p>
+      <div class="mt-6 flex justify-center">
+        <PrivacyBadge />
+      </div>
+    </div>
+  </section>
+
+  <!-- Ad banner (header) -->
+  <div class="mx-auto max-w-6xl px-4 py-3 sm:px-6 lg:px-8">
+    <AdBanner slot="header" />
+  </div>
+
+  <!-- Main content area with sidebar -->
+  <div class="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
+    <div class="lg:grid lg:grid-cols-[1fr_300px] lg:gap-8">
+      <!-- Main converter area -->
+      <div class="min-w-0">
+        <slot />
+      </div>
+
+      <!-- Sidebar ad (PC only) -->
+      <aside class="hidden lg:block">
+        <div class="sticky top-24">
+          <AdBanner slot="sidebar" />
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- How-to / SEO content -->
+  <slot name="seo-content" />
+
+  <!-- Ad banner (footer) -->
+  <div class="mx-auto max-w-6xl px-4 py-3 sm:px-6 lg:px-8">
+    <AdBanner slot="footer" />
+  </div>
+</BaseLayout>
