@@ -1,7 +1,7 @@
 import { useState, useRef, useCallback, type DragEvent, type ChangeEvent } from 'react';
 
 interface FileDropZoneProps {
-  accept: string;
+  accept?: string;
   multiple?: boolean;
   onFilesSelected: (files: File[]) => void;
   title: string;
@@ -11,7 +11,7 @@ interface FileDropZoneProps {
 }
 
 export default function FileDropZone({
-  accept,
+  accept = '',
   multiple = true,
   onFilesSelected,
   title,
@@ -109,7 +109,7 @@ export default function FileDropZone({
       <input
         ref={inputRef}
         type="file"
-        accept={accept}
+        accept={accept || undefined}
         multiple={multiple}
         onChange={handleFileInput}
         className="hidden"

@@ -156,7 +156,6 @@ export default function WinmailConverter({ labels }: WinmailConverterProps) {
     <div className="space-y-6">
       {/* Drop zone */}
       <FileDropZone
-        accept=".dat"
         multiple={false}
         onFilesSelected={handleFilesSelected}
         title={labels.dropTitle}
