@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://openedfile.com/sitemap-index.xml
