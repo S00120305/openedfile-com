@@ -1,0 +1,185 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const locale = 'ja';
+const lastUpdated = '2026年2月21日';
+---
+
+<BaseLayout
+  title="プライバシーポリシー | OpenedFile"
+  description="OpenedFileのプライバシーポリシー。ファイルの取り扱い、Cookie、個人データの取り扱いについてご説明します。ファイルはデバイスから離れません。"
+>
+  <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
+    <h1 class="text-3xl font-bold text-gray-900 dark:text-white sm:text-4xl">プライバシーポリシー</h1>
+    <p class="mt-3 text-sm text-gray-500 dark:text-gray-400">最終更新日: {lastUpdated}</p>
+
+    <div class="mt-10 space-y-10 text-base leading-relaxed text-gray-600 dark:text-gray-300">
+
+      <section>
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">1. はじめに</h2>
+        <p>
+          OpenedFile（以下「当社」「私たち」）は、ウェブサイト <strong>openedfile.com</strong> を運営しています。
+          当社はお客様のプライバシーの保護と、データの取り扱いについて透明性を保つことに尽力しています。
+          本プライバシーポリシーでは、当社が収集する情報、その使用方法、およびお客様の個人データに関する権利について説明します。
+        </p>
+        <p class="mt-3">
+          当社のウェブサイトをご利用いただくことにより、本ポリシーに従った情報の収集と使用に同意したものとみなされます。
+          本ポリシーのいずれかの部分に同意いただけない場合は、当社のサービスのご利用をお控えください。
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">2. ファイルの取り扱い</h2>
+        <p>
+          <strong>お客様のファイルが当社のサーバーにアップロードされることは一切ありません。</strong>
+          OpenedFileでのすべてのファイル変換・処理は、JavaScript、WebAssembly、HTML5 Canvas API等の
+          クライアントサイド技術を使用して、お客様のウェブブラウザ内で完全に行われます。WebP画像の変換、HEIC写真の変換、
+          winmail.datファイルの展開など、いずれのツールをご利用の場合も、ファイルは常にお客様のデバイス上に留まります。
+        </p>
+        <p class="mt-3">
+          当社はお客様が処理するファイルへのアクセス、収集、保存、送信を一切行いません。ファイルデータが当社のサーバーを
+          経由することはありません。この設計は当社サービスの根幹であり、お客様のドキュメント、画像、その他のファイルの
+          完全なプライバシーを保証します。
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">3. Cookieおよびトラッキング技術</h2>
+        <p>当社は以下の種類のCookieおよび類似の技術を使用しています：</p>
+        <ul class="mt-3 space-y-2 list-disc pl-6">
+          <li>
+            <strong>必須Cookie：</strong> テーマ設定（ライト/ダークモード）および言語設定を記憶するために
+            localStorageを使用します。これらはウェブサイトが期待通りに機能するために必要不可欠なものです。
+          </li>
+          <li>
+            <strong>アナリティクスCookie：</strong> Google Analyticsを使用して、訪問者がウェブサイトとどのように
+            やり取りしているかを把握します。Google Analyticsは、訪問ページ、滞在時間、大まかな地理的位置などの
+            匿名化されたデータを収集します。このデータはサービスの改善に役立てられます。
+            <a href="https://tools.google.com/dlpage/gaoptout" class="text-primary-600 hover:underline dark:text-primary-400" target="_blank" rel="noopener noreferrer">Google Analyticsオプトアウトアドオン</a>をインストールすることでオプトアウトできます。
+          </li>
+          <li>
+            <strong>広告Cookie：</strong> Google AdSenseを使用して広告を表示します。Google AdSenseは、
+            当社ウェブサイトや他のウェブサイトへの過去の訪問に基づいて広告を配信するためにCookieを使用する場合があります。
+            <a href="https://www.google.com/settings/ads" class="text-primary-600 hover:underline dark:text-primary-400" target="_blank" rel="noopener noreferrer">Google広告設定</a>からパーソナライズ広告をオプトアウトできます。
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">4. 第三者サービス</h2>
+        <p>当社は以下の第三者サービスを使用しています：</p>
+        <ul class="mt-3 space-y-2 list-disc pl-6">
+          <li>
+            <strong>Google AdSense：</strong> 当社ウェブサイトに広告を提供します。Googleは広告のパーソナライズのために
+            データを収集・使用する場合があります。詳細は
+            <a href="https://policies.google.com/privacy" class="text-primary-600 hover:underline dark:text-primary-400" target="_blank" rel="noopener noreferrer">Googleのプライバシーポリシー</a>をご覧ください。
+          </li>
+          <li>
+            <strong>Google Analytics：</strong> ウェブサイトのトラフィックと使用パターンを分析します。
+            収集されるデータは匿名化・集計されます。詳細は
+            <a href="https://policies.google.com/privacy" class="text-primary-600 hover:underline dark:text-primary-400" target="_blank" rel="noopener noreferrer">Googleのプライバシーポリシー</a>をご覧ください。
+          </li>
+          <li>
+            <strong>Cloudflare：</strong> ホスティングおよびCDNサービスを提供します。Cloudflareは
+            セキュリティおよびパフォーマンス目的で特定の技術データ（IPアドレス、リクエストヘッダー）を処理する場合があります。
+            詳細は<a href="https://www.cloudflare.com/privacypolicy/" class="text-primary-600 hover:underline dark:text-primary-400" target="_blank" rel="noopener noreferrer">Cloudflareのプライバシーポリシー</a>をご覧ください。
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">5. 収集する情報</h2>
+        <p>
+          当社は個人情報を直接収集しません。ただし、上記の第三者サービスにより、以下の技術情報が自動的に収集される場合があります：
+        </p>
+        <ul class="mt-3 space-y-1 list-disc pl-6">
+          <li>IPアドレス（Google Analyticsにより匿名化）</li>
+          <li>ブラウザの種類とバージョン</li>
+          <li>オペレーティングシステム</li>
+          <li>訪問したページと各ページでの滞在時間</li>
+          <li>参照元ウェブサイトのURL</li>
+          <li>大まかな地理的位置（国/地域レベル）</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">6. GDPR対応（欧州のユーザー）</h2>
+        <p>
+          欧州経済領域（EEA）にお住まいの場合、一般データ保護規則（GDPR）に基づき、以下のデータ保護権があります：
+        </p>
+        <ul class="mt-3 space-y-1 list-disc pl-6">
+          <li><strong>アクセス権：</strong> 当社が保有するお客様の個人データのコピーを要求できます。</li>
+          <li><strong>訂正権：</strong> 不正確な個人データの訂正を要求できます。</li>
+          <li><strong>削除権：</strong> 個人データの削除を要求できます。</li>
+          <li><strong>制限権：</strong> データ処理の制限を要求できます。</li>
+          <li><strong>データポータビリティ権：</strong> 機械可読形式でのデータ提供を要求できます。</li>
+          <li><strong>異議申立権：</strong> 正当な利益に基づく処理に異議を唱えることができます。</li>
+        </ul>
+        <p class="mt-3">
+          これらの権利を行使するには、
+          <a href="mailto:contact@openedfile.com" class="text-primary-600 hover:underline dark:text-primary-400">contact@openedfile.com</a>
+          までご連絡ください。30日以内にお返事いたします。
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">7. CCPA対応（カリフォルニア州居住者）</h2>
+        <p>
+          カリフォルニア州にお住まいの場合、カリフォルニア州消費者プライバシー法（CCPA）により以下の権利があります：
+        </p>
+        <ul class="mt-3 space-y-1 list-disc pl-6">
+          <li><strong>知る権利：</strong> 収集される個人情報とその使用方法について知ることができます。</li>
+          <li><strong>削除権：</strong> 個人情報の削除を要求できます。</li>
+          <li><strong>オプトアウト権：</strong> 個人情報の販売・共有を拒否する権利があります。</li>
+          <li><strong>差別を受けない権利：</strong> 権利行使による差別を受けません。</li>
+        </ul>
+        <p class="mt-3">
+          <strong>当社はお客様の個人情報を販売・共有しません。</strong>権利を行使するには、
+          <a href="mailto:contact@openedfile.com" class="text-primary-600 hover:underline dark:text-primary-400">contact@openedfile.com</a>
+          までご連絡ください。
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">8. データ保持期間</h2>
+        <p>
+          当社は個人データを直接収集しないため、サーバーに保存される個人データはありません。Google Analyticsにより
+          収集されるアナリティクスデータは、Googleのデータ保持ポリシーに従って保持されます（デフォルト：14ヶ月）。
+          アナリティクスデータの削除を希望される場合はご連絡ください。
+        </p>
+        <p class="mt-3">
+          ブラウザのlocalStorageに保存されるテーマおよび言語の設定は、ブラウザデータを消去するか手動で設定を変更するまで保持されます。
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">9. お子様のプライバシー</h2>
+        <p>
+          当社のサービスは13歳未満のお子様を対象としていません。当社はお子様から故意に個人情報を収集することはありません。
+          お子様の情報を誤って収集した可能性があると思われる場合は、ご連絡いただければ削除の措置を講じます。
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">10. 本ポリシーの変更</h2>
+        <p>
+          当社は、実務の変更や適用法令の変更を反映するため、本プライバシーポリシーを随時更新する場合があります。
+          重要な変更がある場合は、更新された「最終更新日」とともに本ページに掲載してお知らせします。
+          定期的に本ポリシーをご確認いただくことをお勧めします。
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">11. お問い合わせ</h2>
+        <p>
+          本プライバシーポリシーに関するご質問やデータに関する権利の行使については、以下までご連絡ください：
+        </p>
+        <p class="mt-3">
+          <strong>メール：</strong>
+          <a href="mailto:contact@openedfile.com" class="text-primary-600 hover:underline dark:text-primary-400">contact@openedfile.com</a>
+        </p>
+      </section>
+
+    </div>
+  </div>
+</BaseLayout>

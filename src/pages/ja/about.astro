@@ -1,0 +1,134 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { t } from '../../i18n/utils';
+
+const locale = 'ja';
+---
+
+<BaseLayout
+  title="OpenedFileについて | 無料ブラウザベースファイル変換ツール"
+  description="OpenedFileについて — プライバシーを最優先にした無料ファイル変換ツール。すべてブラウザ内で処理。アップロード不要。"
+>
+  <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
+    <h1 class="text-3xl font-bold text-gray-900 dark:text-white sm:text-4xl">OpenedFileについて</h1>
+
+    <div class="mt-10 space-y-10 text-base leading-relaxed text-gray-600 dark:text-gray-300">
+
+      <section>
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">私たちのミッション</h2>
+        <p>
+          OpenedFileは、シンプルなミッションを持って誕生しました：
+          <strong>ファイル変換をプライベートに、無料で、瞬時に</strong>。
+          機密文書、個人の写真、秘密のメール添付ファイルを、使えるフォーマットに変換するためだけに
+          リモートサーバーにアップロードする必要はないと私たちは考えています。
+        </p>
+        <p class="mt-3">
+          毎日何百万もの人々が、開けないファイルに遭遇しています。ウェブからダウンロードしたWebP画像、
+          iPhoneのHEIC写真、Outlookからの不可解なwinmail.dat添付ファイルなど。ほとんどのオンライン変換ツールは
+          これらのファイルをサーバーにアップロードすることを要求し、そこでファイルが保存、分析、あるいは共有される
+          可能性があります。OpenedFileは、より良い選択肢を提供するために開発されました。
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">なぜクライアントサイド処理なのか</h2>
+        <p>
+          プライバシーは単なる機能ではなく、私たちの活動すべての基盤です。すべてのツールはお客様のウェブブラウザ内で
+          完全に動作します。OpenedFileでファイルを変換する際、処理はJavaScript、WebAssembly、HTML5 Canvas APIなどの
+          技術を使用してお客様のデバイス上で行われます。ファイルがサーバーにアップロードされることは一切ありません。
+          当社のサーバーにも、他のどこにも。
+        </p>
+        <p class="mt-3">
+          このアプローチには、いくつかの重要なメリットがあります：
+        </p>
+        <ul class="mt-3 space-y-2 list-disc pl-6">
+          <li><strong>完全なプライバシー：</strong> ファイルはデバイスから離れることがありません。データがインターネット
+            を介して送信されないため、データ漏洩、不正アクセス、第三者への共有のリスクがありません。</li>
+          <li><strong>高速処理：</strong> アップロードやダウンロードの手順がないため、変換はほぼ瞬時に完了します。
+            速度はインターネット接続ではなく、デバイスの処理能力にのみ依存します。</li>
+          <li><strong>オフライン動作：</strong> ページが読み込まれた後は、ほとんどのツールがインターネット接続なしで
+            動作します。飛行機の中や接続状況が悪い場所でもファイルを変換できます。</li>
+          <li><strong>ファイルサイズ制限なし：</strong> サーバーベースの変換ツールは厳密なファイルサイズ制限を
+            設けていることが多いですが、当社のツールはデバイスの利用可能メモリによってのみ制限されるため、
+            より大きなファイルの処理が可能です。</li>
+          <li><strong>登録不要：</strong> アカウントの作成、メールアドレスの提供、何かへのサインアップは一切不要です。
+            ツールを開いてすぐに変換を始められます。</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">ツール一覧</h2>
+        <p>OpenedFileは現在、以下の変換ツールを提供しています：</p>
+        <div class="mt-4 space-y-4">
+          <div class="rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+            <h3 class="font-semibold text-gray-900 dark:text-white">WebP → JPG/PNG 変換ツール</h3>
+            <p class="mt-1.5 text-sm text-gray-500 dark:text-gray-400">
+              WebP画像を汎用性の高いJPGまたはPNG形式に変換します。品質設定の調整が可能で、一括変換にも対応。
+              HTML5 Canvas APIを使用した瞬時のクライアントサイド処理を実現しています。
+            </p>
+          </div>
+          <div class="rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+            <h3 class="font-semibold text-gray-900 dark:text-white">HEIC → JPG/PNG 変換ツール</h3>
+            <p class="mt-1.5 text-sm text-gray-500 dark:text-gray-400">
+              iPhoneやiPadのHEIC/HEIF写真をJPGまたはPNGに変換します。WebAssemblyベースのデコード技術により、
+              高速で高品質な変換を実現。WindowsでiOS写真を開きたい場合やApple以外のユーザーとの共有に最適です。
+            </p>
+          </div>
+          <div class="rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+            <h3 class="font-semibold text-gray-900 dark:text-white">winmail.dat ビューア＆抽出ツール</h3>
+            <p class="mt-1.5 text-sm text-gray-500 dark:text-gray-400">
+              Microsoft Outlookで作成されたwinmail.datメール添付ファイルの内容を展開・表示します。メールの件名、
+              差出人、本文テキストの表示、埋め込みファイルのダウンロードが可能です。日本語および国際的なファイル名に
+              完全対応した独自開発のTNEFパーサーを使用しています。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">技術的な仕組み</h2>
+        <p>
+          当社のツールは、最新のウェブ技術を活用して、すべてのファイル処理をブラウザ内で直接実行します：
+        </p>
+        <ul class="mt-3 space-y-2 list-disc pl-6">
+          <li><strong>HTML5 Canvas API：</strong> 画像フォーマット変換（WebP → JPG/PNG）に使用。ブラウザネイティブの
+            画像エンコード・デコード機能を活用しています。</li>
+          <li><strong>WebAssembly (Wasm)：</strong> HEIC/HEIFデコードに使用。純粋なJavaScriptでは処理が遅すぎる
+            複雑な画像処理タスクをネイティブに近いパフォーマンスで実行します。</li>
+          <li><strong>カスタムTNEFパーサー：</strong> winmail.datツールは、バイナリTNEF形式をデコードし、MAPI属性を
+            抽出し、Shift_JISやUTF-16LE等のマルチバイト文字エンコーディングを正しく処理する独自開発のTypeScript
+            パーサーを使用しています。</li>
+          <li><strong>DOMPurify：</strong> winmail.datファイルのHTMLメール内容は、サンドボックス化されたiframeに
+            表示する前にDOMPurifyでサニタイズされ、潜在的に悪意のあるメール内容に対してもセキュリティを確保します。</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">今後の予定</h2>
+        <p>
+          新しいツールの開発と既存ツールの改善を積極的に行っています。計画中の追加ツール：
+        </p>
+        <ul class="mt-3 space-y-1 list-disc pl-6">
+          <li>PDFツール（結合、分割、圧縮）</li>
+          <li>SVG → PNG/JPG 変換ツール</li>
+          <li>画像圧縮・最適化ツール</li>
+          <li>追加のメール形式サポート</li>
+        </ul>
+        <p class="mt-3">
+          「こんなツールが欲しい」というご要望はありますか？ぜひお聞かせください。
+          <a href="/ja/contact" class="text-primary-600 hover:underline dark:text-primary-400">お問い合わせ</a>。
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">オープンで透明な運営</h2>
+        <p>
+          OpenedFileは、ファイル変換は技術的スキル、オペレーティングシステム、予算に関係なく、すべての人に
+          アクセス可能であるべきという信念に基づいて構築されています。コアツールを無料で維持し、ユーザープライバシーの
+          最高水準を維持することに尽力しています。OpenedFileをお選びいただきありがとうございます。
+        </p>
+      </section>
+
+    </div>
+  </div>
+</BaseLayout>

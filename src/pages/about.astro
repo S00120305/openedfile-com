@@ -1,0 +1,132 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { t } from '../i18n/utils';
+
+const locale = 'en';
+---
+
+<BaseLayout
+  title="About OpenedFile | Free Browser-Based File Conversion Tools"
+  description="Learn about OpenedFile — free, privacy-first file conversion tools that run entirely in your browser. No uploads, no servers, no risk."
+>
+  <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
+    <h1 class="text-3xl font-bold text-gray-900 dark:text-white sm:text-4xl">About OpenedFile</h1>
+
+    <div class="mt-10 space-y-10 text-base leading-relaxed text-gray-600 dark:text-gray-300">
+
+      <section>
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Our Mission</h2>
+        <p>
+          OpenedFile was created with a simple mission: <strong>make file conversion private, free, and instant</strong>.
+          We believe you shouldn't have to upload sensitive documents, personal photos, or confidential email attachments
+          to a remote server just to convert them into a usable format.
+        </p>
+        <p class="mt-3">
+          Every day, millions of people encounter files they can't open — WebP images downloaded from the web, HEIC photos
+          from iPhones, or mysterious winmail.dat attachments from Outlook. Most online converters require you to upload
+          these files to their servers, where they may be stored, analyzed, or shared without your knowledge. We built
+          OpenedFile to provide a better alternative.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Why Client-Side Processing?</h2>
+        <p>
+          Privacy is not just a feature — it's the foundation of everything we do. All of our tools run entirely within
+          your web browser. When you convert a file on OpenedFile, the processing happens on your device using technologies
+          like JavaScript, WebAssembly, and the HTML5 Canvas API. Your files are never uploaded to any server. Not ours,
+          not anyone else's.
+        </p>
+        <p class="mt-3">
+          This approach has several important benefits:
+        </p>
+        <ul class="mt-3 space-y-2 list-disc pl-6">
+          <li><strong>Complete Privacy:</strong> Your files never leave your device. There's no risk of data breaches,
+            unauthorized access, or third-party sharing because your data never travels over the internet.</li>
+          <li><strong>Speed:</strong> Since there's no upload or download step, conversions are nearly instant. The speed
+            depends only on your device's processing power, not your internet connection.</li>
+          <li><strong>Works Offline:</strong> Once the page has loaded, most of our tools work without an internet
+            connection. Your files can be converted even on an airplane or in areas with poor connectivity.</li>
+          <li><strong>No File Size Limits:</strong> Server-based converters often impose strict file size limits. Our
+            tools are limited only by your device's available memory, allowing you to process much larger files.</li>
+          <li><strong>No Registration:</strong> You don't need to create an account, provide an email address, or sign
+            up for anything. Just open the tool and start converting.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Our Tools</h2>
+        <p>OpenedFile currently offers the following conversion tools:</p>
+        <div class="mt-4 space-y-4">
+          <div class="rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+            <h3 class="font-semibold text-gray-900 dark:text-white">WebP to JPG/PNG Converter</h3>
+            <p class="mt-1.5 text-sm text-gray-500 dark:text-gray-400">
+              Convert WebP images to universally compatible JPG or PNG format. Supports batch conversion with adjustable
+              quality settings. Uses the HTML5 Canvas API for instant, client-side processing.
+            </p>
+          </div>
+          <div class="rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+            <h3 class="font-semibold text-gray-900 dark:text-white">HEIC to JPG/PNG Converter</h3>
+            <p class="mt-1.5 text-sm text-gray-500 dark:text-gray-400">
+              Convert iPhone and iPad HEIC/HEIF photos to JPG or PNG. Powered by WebAssembly-based decoding for fast,
+              high-quality conversion. Perfect for opening iOS photos on Windows or sharing with non-Apple users.
+            </p>
+          </div>
+          <div class="rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+            <h3 class="font-semibold text-gray-900 dark:text-white">Winmail.dat Viewer & Extractor</h3>
+            <p class="mt-1.5 text-sm text-gray-500 dark:text-gray-400">
+              Open and extract contents from winmail.dat email attachments created by Microsoft Outlook. View email
+              subject, sender, body text, and download embedded file attachments. Uses a custom-built TNEF parser with
+              full support for Japanese and international filenames.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">How It Works</h2>
+        <p>
+          Our tools leverage modern web technologies to perform all file processing directly in your browser:
+        </p>
+        <ul class="mt-3 space-y-2 list-disc pl-6">
+          <li><strong>HTML5 Canvas API:</strong> Used for image format conversion (WebP to JPG/PNG), providing native
+            browser support for encoding and decoding image formats.</li>
+          <li><strong>WebAssembly (Wasm):</strong> Used for HEIC/HEIF decoding, enabling near-native performance for
+            complex image processing tasks that would be too slow in pure JavaScript.</li>
+          <li><strong>Custom TNEF Parser:</strong> Our winmail.dat tool uses a purpose-built TypeScript parser that
+            decodes the binary TNEF format, extracts MAPI properties, and correctly handles multi-byte character
+            encodings like Shift_JIS and UTF-16LE.</li>
+          <li><strong>DOMPurify:</strong> HTML email content from winmail.dat files is sanitized using DOMPurify before
+            being displayed in a sandboxed iframe, ensuring security even with potentially malicious email content.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">What's Next</h2>
+        <p>
+          We are actively developing new tools and improving existing ones. Planned additions include:
+        </p>
+        <ul class="mt-3 space-y-1 list-disc pl-6">
+          <li>PDF tools (merge, split, compress)</li>
+          <li>SVG to PNG/JPG converter</li>
+          <li>Image compression and optimization tools</li>
+          <li>Additional email format support</li>
+        </ul>
+        <p class="mt-3">
+          Have a suggestion for a tool you'd like to see? We'd love to hear from you.
+          <a href="/contact" class="text-primary-600 hover:underline dark:text-primary-400">Get in touch</a>.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Open and Transparent</h2>
+        <p>
+          OpenedFile is built on the principle that file conversion should be accessible to everyone, regardless of
+          technical skill, operating system, or budget. We are committed to keeping our core tools free and maintaining
+          the highest standards of user privacy. Thank you for choosing OpenedFile.
+        </p>
+      </section>
+
+    </div>
+  </div>
+</BaseLayout>

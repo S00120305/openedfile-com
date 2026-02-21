@@ -1,0 +1,154 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const locale = 'en';
+---
+
+<BaseLayout
+  title="Contact Us | OpenedFile"
+  description="Get in touch with the OpenedFile team. Questions, feedback, bug reports, or feature requests — we'd love to hear from you."
+>
+  <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
+    <h1 class="text-3xl font-bold text-gray-900 dark:text-white sm:text-4xl">Contact Us</h1>
+
+    <div class="mt-10 space-y-10 text-base leading-relaxed text-gray-600 dark:text-gray-300">
+
+      <section>
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Get in Touch</h2>
+        <p>
+          We'd love to hear from you! Whether you have a question about our tools, want to report a bug, suggest a new
+          feature, or just want to say hello — don't hesitate to reach out. We value every piece of feedback and strive
+          to respond to all inquiries promptly.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Email</h2>
+        <p>
+          The best way to contact us is via email. Whether it's a technical question, business inquiry, or general
+          feedback, we aim to respond within a few business days.
+        </p>
+        <div class="mt-4">
+          <a
+            href="mailto:contact@openedfile.com"
+            class="inline-flex items-center gap-3 rounded-xl border border-gray-200 bg-white px-6 py-4 text-gray-900 hover:border-primary-300 hover:bg-primary-50 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:hover:border-primary-600 dark:hover:bg-primary-950 transition-colors"
+          >
+            <svg class="h-6 w-6 text-primary-600 dark:text-primary-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <rect x="2" y="4" width="20" height="16" rx="2" />
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+            </svg>
+            <div>
+              <div class="font-semibold">contact@openedfile.com</div>
+              <div class="text-sm text-gray-500 dark:text-gray-400">We typically respond within 1-3 business days</div>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">What You Can Contact Us About</h2>
+        <div class="mt-4 grid gap-4 sm:grid-cols-2">
+          <div class="rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+            <div class="flex items-center gap-2 mb-2">
+              <svg class="h-5 w-5 text-primary-600 dark:text-primary-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                <line x1="12" y1="17" x2="12.01" y2="17" />
+              </svg>
+              <h3 class="font-semibold text-gray-900 dark:text-white">General Questions</h3>
+            </div>
+            <p class="text-sm text-gray-500 dark:text-gray-400">
+              Have a question about how our tools work, what formats are supported, or how your data is handled? We're
+              happy to help.
+            </p>
+          </div>
+          <div class="rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+            <div class="flex items-center gap-2 mb-2">
+              <svg class="h-5 w-5 text-red-500 dark:text-red-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="15" y1="9" x2="9" y2="15" />
+                <line x1="9" y1="9" x2="15" y2="15" />
+              </svg>
+              <h3 class="font-semibold text-gray-900 dark:text-white">Bug Reports</h3>
+            </div>
+            <p class="text-sm text-gray-500 dark:text-gray-400">
+              Found something that doesn't work correctly? Please include the file type, your browser and OS, and a
+              description of the issue. Screenshots are always helpful.
+            </p>
+          </div>
+          <div class="rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+            <div class="flex items-center gap-2 mb-2">
+              <svg class="h-5 w-5 text-green-500 dark:text-green-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M12 2v4" />
+                <path d="m16 6-2.5 2.5" />
+                <path d="M20 12h-4" />
+                <path d="m16 18-2.5-2.5" />
+                <path d="M12 22v-4" />
+                <path d="m8 18 2.5-2.5" />
+                <path d="M4 12h4" />
+                <path d="m8 6 2.5 2.5" />
+              </svg>
+              <h3 class="font-semibold text-gray-900 dark:text-white">Feature Requests</h3>
+            </div>
+            <p class="text-sm text-gray-500 dark:text-gray-400">
+              Have an idea for a new tool or an improvement to an existing one? We'd love to hear your suggestions and
+              prioritize features based on user feedback.
+            </p>
+          </div>
+          <div class="rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+            <div class="flex items-center gap-2 mb-2">
+              <svg class="h-5 w-5 text-blue-500 dark:text-blue-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg>
+              <h3 class="font-semibold text-gray-900 dark:text-white">Business Inquiries</h3>
+            </div>
+            <p class="text-sm text-gray-500 dark:text-gray-400">
+              Interested in partnerships, advertising, or business collaborations? We're open to hearing about
+              opportunities that align with our mission.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Privacy Requests</h2>
+        <p>
+          If you have questions about our privacy practices, want to exercise your data rights (GDPR, CCPA), or need
+          to report a privacy concern, please email us at
+          <a href="mailto:contact@openedfile.com" class="text-primary-600 hover:underline dark:text-primary-400">contact@openedfile.com</a>
+          with "Privacy Request" in the subject line. We will respond within 30 days.
+        </p>
+        <p class="mt-3">
+          For more details about how we handle your data, please see our
+          <a href="/privacy" class="text-primary-600 hover:underline dark:text-primary-400">Privacy Policy</a>.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Frequently Asked Before Contacting</h2>
+        <p>
+          Before reaching out, you might find the answer to your question on one of our tool pages. Each tool includes
+          a detailed FAQ section:
+        </p>
+        <ul class="mt-3 space-y-1 list-disc pl-6">
+          <li><a href="/tools/webp" class="text-primary-600 hover:underline dark:text-primary-400">WebP to JPG/PNG Converter</a> — WebP format questions, quality settings, batch conversion</li>
+          <li><a href="/tools/heic" class="text-primary-600 hover:underline dark:text-primary-400">HEIC to JPG/PNG Converter</a> — iPhone photo conversion, HEIC vs HEIF, quality options</li>
+          <li><a href="/tools/winmail" class="text-primary-600 hover:underline dark:text-primary-400">Winmail.dat Viewer</a> — TNEF format, Outlook attachments, extraction help</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Response Time</h2>
+        <p>
+          We aim to respond to all emails within 1 to 3 business days. During busy periods, it may take slightly longer.
+          If your inquiry is urgent, please indicate this in your subject line and we will prioritize your message. Thank
+          you for your patience and for choosing OpenedFile.
+        </p>
+      </section>
+
+    </div>
+  </div>
+</BaseLayout>

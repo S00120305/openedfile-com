@@ -1,0 +1,152 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const locale = 'ja';
+---
+
+<BaseLayout
+  title="お問い合わせ | OpenedFile"
+  description="OpenedFileチームへのお問い合わせ。ご質問、フィードバック、バグ報告、機能リクエストなど、お気軽にご連絡ください。"
+>
+  <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
+    <h1 class="text-3xl font-bold text-gray-900 dark:text-white sm:text-4xl">お問い合わせ</h1>
+
+    <div class="mt-10 space-y-10 text-base leading-relaxed text-gray-600 dark:text-gray-300">
+
+      <section>
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">ご連絡ください</h2>
+        <p>
+          皆様からのご連絡をお待ちしております。ツールに関するご質問、バグの報告、新機能のご提案、
+          またはご挨拶など、お気軽にお問い合わせください。すべてのフィードバックを大切にし、
+          迅速にお返事するよう努めています。
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">メール</h2>
+        <p>
+          お問い合わせの最善の方法はメールです。技術的なご質問、ビジネスに関するお問い合わせ、
+          一般的なフィードバックなど、数営業日以内にお返事いたします。
+        </p>
+        <div class="mt-4">
+          <a
+            href="mailto:contact@openedfile.com"
+            class="inline-flex items-center gap-3 rounded-xl border border-gray-200 bg-white px-6 py-4 text-gray-900 hover:border-primary-300 hover:bg-primary-50 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:hover:border-primary-600 dark:hover:bg-primary-950 transition-colors"
+          >
+            <svg class="h-6 w-6 text-primary-600 dark:text-primary-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <rect x="2" y="4" width="20" height="16" rx="2" />
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+            </svg>
+            <div>
+              <div class="font-semibold">contact@openedfile.com</div>
+              <div class="text-sm text-gray-500 dark:text-gray-400">通常1〜3営業日以内にお返事いたします</div>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">お問い合わせ内容</h2>
+        <div class="mt-4 grid gap-4 sm:grid-cols-2">
+          <div class="rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+            <div class="flex items-center gap-2 mb-2">
+              <svg class="h-5 w-5 text-primary-600 dark:text-primary-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                <line x1="12" y1="17" x2="12.01" y2="17" />
+              </svg>
+              <h3 class="font-semibold text-gray-900 dark:text-white">一般的なご質問</h3>
+            </div>
+            <p class="text-sm text-gray-500 dark:text-gray-400">
+              ツールの仕組み、対応フォーマット、データの取り扱いについてのご質問はお気軽にどうぞ。
+            </p>
+          </div>
+          <div class="rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+            <div class="flex items-center gap-2 mb-2">
+              <svg class="h-5 w-5 text-red-500 dark:text-red-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="15" y1="9" x2="9" y2="15" />
+                <line x1="9" y1="9" x2="15" y2="15" />
+              </svg>
+              <h3 class="font-semibold text-gray-900 dark:text-white">バグ報告</h3>
+            </div>
+            <p class="text-sm text-gray-500 dark:text-gray-400">
+              正常に動作しない機能を見つけた場合は、ファイルの種類、ブラウザとOS、問題の説明をお知らせください。
+              スクリーンショットがあると大変助かります。
+            </p>
+          </div>
+          <div class="rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+            <div class="flex items-center gap-2 mb-2">
+              <svg class="h-5 w-5 text-green-500 dark:text-green-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M12 2v4" />
+                <path d="m16 6-2.5 2.5" />
+                <path d="M20 12h-4" />
+                <path d="m16 18-2.5-2.5" />
+                <path d="M12 22v-4" />
+                <path d="m8 18 2.5-2.5" />
+                <path d="M4 12h4" />
+                <path d="m8 6 2.5 2.5" />
+              </svg>
+              <h3 class="font-semibold text-gray-900 dark:text-white">機能リクエスト</h3>
+            </div>
+            <p class="text-sm text-gray-500 dark:text-gray-400">
+              新しいツールや既存ツールの改善案がありましたら、ぜひお聞かせください。
+              ユーザーのフィードバックに基づいて機能の優先順位を決めています。
+            </p>
+          </div>
+          <div class="rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+            <div class="flex items-center gap-2 mb-2">
+              <svg class="h-5 w-5 text-blue-500 dark:text-blue-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg>
+              <h3 class="font-semibold text-gray-900 dark:text-white">ビジネスに関するお問い合わせ</h3>
+            </div>
+            <p class="text-sm text-gray-500 dark:text-gray-400">
+              パートナーシップ、広告、ビジネスコラボレーションに興味がおありですか？
+              私たちのミッションに合致する機会についてのお話をお待ちしています。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">プライバシーに関するご請求</h2>
+        <p>
+          プライバシーに関するご質問、データの権利行使（GDPR、CCPA）、またはプライバシーに関する懸念事項の報告は、
+          件名に「プライバシーリクエスト」と記載の上、
+          <a href="mailto:contact@openedfile.com" class="text-primary-600 hover:underline dark:text-primary-400">contact@openedfile.com</a>
+          までメールをお送りください。30日以内にお返事いたします。
+        </p>
+        <p class="mt-3">
+          データの取り扱いの詳細については、
+          <a href="/ja/privacy" class="text-primary-600 hover:underline dark:text-primary-400">プライバシーポリシー</a>をご覧ください。
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">よくある質問</h2>
+        <p>
+          お問い合わせの前に、各ツールページのFAQセクションで回答が見つかるかもしれません：
+        </p>
+        <ul class="mt-3 space-y-1 list-disc pl-6">
+          <li><a href="/ja/tools/webp" class="text-primary-600 hover:underline dark:text-primary-400">WebP → JPG/PNG 変換ツール</a> — WebP形式、品質設定、一括変換について</li>
+          <li><a href="/ja/tools/heic" class="text-primary-600 hover:underline dark:text-primary-400">HEIC → JPG/PNG 変換ツール</a> — iPhone写真変換、HEIC vs HEIF、品質オプションについて</li>
+          <li><a href="/ja/tools/winmail" class="text-primary-600 hover:underline dark:text-primary-400">winmail.dat ビューア</a> — TNEF形式、Outlook添付ファイル、抽出ヘルプについて</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">返信時間</h2>
+        <p>
+          すべてのメールに1〜3営業日以内にお返事することを目標としています。繁忙期にはもう少しお時間をいただく場合が
+          あります。お急ぎの場合は件名にその旨をご記載いただければ、優先的に対応いたします。
+          ご忍耐いただきありがとうございます。OpenedFileをお選びいただきありがとうございます。
+        </p>
+      </section>
+
+    </div>
+  </div>
+</BaseLayout>
