@@ -29,7 +29,11 @@
     },
     "heic": {
       "title": "HEIC to JPG",
-      "description": "Convert iPhone HEIC/HEIF photos to JPG. Open your iOS photos on any device or platform."
+      "description": "Convert iPhone HEIC/HEIF photos to JPG. Open your iOS photos on any device or platform.",
+      "page_title": "HEIC to JPG/PNG Converter - Free Online Tool | OpenedFile",
+      "page_description": "Convert HEIC and HEIF photos from iPhone to JPG or PNG format instantly in your browser. No upload needed — your files never leave your device.",
+      "heading": "HEIC to JPG/PNG Converter",
+      "subheading": "Convert iPhone HEIC/HEIF photos to JPG or PNG format instantly. All processing happens in your browser — your files never leave your device."
     },
     "winmail": {
       "title": "Open winmail.dat",
@@ -112,6 +116,85 @@
       {
         "question": "Does this tool work offline?",
         "answer": "Once the page has loaded, the conversion tool works without an internet connection. However, you'll need an internet connection to initially load the page. Since all processing is done locally, the speed of conversion doesn't depend on your internet speed."
+      }
+    ]
+  },
+  "heic_converter": {
+    "output_format": "Output Format",
+    "quality": "Quality",
+    "drop_title": "Drop HEIC/HEIF files here",
+    "drop_description": "or click to select files",
+    "drop_hint": "Supports .heic and .heif files. Multiple files accepted.",
+    "convert_all": "Convert All",
+    "converting": "Converting...",
+    "download": "Download",
+    "download_all_zip": "Download All as ZIP",
+    "clear_all": "Clear All",
+    "original_size": "Original",
+    "converted_size": "Converted",
+    "reduction": "reduction",
+    "increase": "increase",
+    "error_not_heic": "This file is not a HEIC/HEIF image.",
+    "error_conversion_failed": "Conversion failed. The file may be corrupted or not a valid HEIC image.",
+    "error_file_too_large": "This file is very large and may affect performance.",
+    "files_selected": "files selected",
+    "converted": "Converted",
+    "pending": "Pending",
+    "status_converting": "Converting",
+    "status_done": "Done",
+    "status_error": "Error"
+  },
+  "heic_page": {
+    "how_to_title": "How to Convert HEIC to JPG or PNG",
+    "how_to_intro": "HEIC (High Efficiency Image Container) is the default photo format on iPhones and iPads running iOS 11 and later. While HEIC offers excellent image quality at roughly half the file size of JPG, it's not universally supported — Windows PCs, older Android devices, and many web applications and image editors still can't open HEIC files directly.\n\nThis tool converts your HEIC and HEIF photos to universally compatible JPG or PNG format right in your browser. The conversion uses WebAssembly-based decoding, so your photos are never uploaded to any server — they stay completely private on your device.",
+    "how_to_steps": [
+      {
+        "title": "Select Your HEIC Files",
+        "description": "Drag and drop your HEIC or HEIF files onto the upload area, or click to browse and select photos from your device. You can convert multiple files at once — perfect for batch-converting an entire photo library."
+      },
+      {
+        "title": "Choose Your Output Format",
+        "description": "Select JPG (default) or PNG as your output format. JPG is recommended for photos since it produces smaller files while maintaining excellent visual quality. PNG is best when you need lossless quality or transparency."
+      },
+      {
+        "title": "Adjust Quality (JPG only)",
+        "description": "When converting to JPG, use the quality slider to find the right balance between file size and image quality. The default setting of 90% preserves nearly all visual detail while keeping file sizes reasonable."
+      },
+      {
+        "title": "Download Your Photos",
+        "description": "Once conversion is complete, download each photo individually or use the \"Download All as ZIP\" button to get all your converted photos in a single archive — great for transferring a batch of photos."
+      }
+    ],
+    "how_to_outro": "HEIC conversion typically takes 1-3 seconds per photo depending on resolution and your device's processing power. Since everything runs locally in your browser, no internet bandwidth is used during conversion.",
+    "faq_title": "Frequently Asked Questions",
+    "faq": [
+      {
+        "question": "What is HEIC and why does my iPhone use it?",
+        "answer": "HEIC (High Efficiency Image Container) is a modern image format based on the HEVC (H.265) video codec. Apple adopted it as the default photo format on iPhones starting with iOS 11 because it produces files roughly 50% smaller than equivalent JPGs while maintaining the same or better image quality. This saves significant storage space on your device."
+      },
+      {
+        "question": "Is it safe to convert HEIC files with this tool?",
+        "answer": "Yes, completely safe. This tool processes all files locally in your browser using WebAssembly technology. Your photos are never uploaded to any server — they remain entirely on your device throughout the conversion process. No one else can see or access your photos."
+      },
+      {
+        "question": "Will I lose image quality when converting from HEIC to JPG?",
+        "answer": "Converting from HEIC to JPG involves re-encoding, so there is a minimal quality loss inherent to lossy compression. However, at the default quality setting of 90%, the difference is virtually imperceptible to the human eye. For truly lossless conversion, choose PNG as the output format."
+      },
+      {
+        "question": "Can I convert HEIC photos from my iPhone on a Windows PC?",
+        "answer": "Yes! That's one of the primary use cases for this tool. Simply transfer your HEIC photos from your iPhone to your Windows PC (via USB, email, cloud storage, etc.), then use this tool to convert them to JPG or PNG. No additional software installation is needed — just your web browser."
+      },
+      {
+        "question": "How do I stop my iPhone from taking photos in HEIC format?",
+        "answer": "You can change your iPhone's camera format by going to Settings > Camera > Formats, and selecting \"Most Compatible\" instead of \"High Efficiency\". This will make your iPhone save photos as JPG instead of HEIC. However, keep in mind that JPG files are roughly twice the size of HEIC files."
+      },
+      {
+        "question": "Can I convert multiple HEIC files at once?",
+        "answer": "Yes! You can select or drag and drop multiple HEIC files simultaneously. All files will be converted with your chosen settings, and you can download them individually or as a single ZIP archive for convenience."
+      },
+      {
+        "question": "What's the difference between HEIC and HEIF?",
+        "answer": "HEIF (High Efficiency Image Format) is the broader standard, while HEIC is specifically HEIF using HEVC compression. In practice, .heic and .heif files are essentially the same thing and this tool handles both formats identically."
       }
     ]
   },
