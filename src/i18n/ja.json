@@ -37,8 +37,82 @@
     },
     "winmail": {
       "title": "winmail.dat を開く",
-      "description": "Microsoft Outlookからのwinmail.datメール添付ファイルの中身を抽出・表示します。"
+      "description": "Microsoft Outlookからのwinmail.datメール添付ファイルの中身を抽出・表示します。",
+      "page_title": "winmail.dat を開く - 無料オンラインビューア | OpenedFile",
+      "page_description": "Microsoft Outlookのwinmail.datメール添付ファイルをブラウザで即座に開いて中身を抽出。メール内容の表示やファイルのダウンロードが可能。プライベート＆無料。",
+      "heading": "winmail.dat ビューア＆抽出ツール",
+      "subheading": "Microsoft Outlookのwinmail.datファイルを開きます。メール内容の表示や添付ファイルの抽出 — すべてブラウザ内で完結、アップロード不要。"
     }
+  },
+  "winmail_converter": {
+    "drop_title": "winmail.datファイルをここにドロップ",
+    "drop_description": "またはクリックしてファイルを選択",
+    "drop_hint": "winmail.datファイル（TNEF形式）に対応。",
+    "download": "ダウンロード",
+    "download_all_zip": "すべてZIPでダウンロード",
+    "clear_all": "クリア",
+    "error_not_tnef": "このファイルは有効なwinmail.dat（TNEF）ファイルではありません。",
+    "error_parse_failed": "ファイルの解析に失敗しました。ファイルが破損しているか、サポートされていない形式の可能性があります。",
+    "subject": "件名",
+    "from": "差出人",
+    "body_text": "テキスト",
+    "body_html": "HTML",
+    "attachments": "添付ファイル",
+    "no_attachments": "このファイルに添付ファイルは見つかりませんでした。",
+    "no_body": "メール本文が見つかりませんでした。",
+    "file_name": "ファイル名",
+    "file_size": "サイズ",
+    "parsing": "winmail.datを解析中..."
+  },
+  "winmail_page": {
+    "how_to_title": "winmail.datファイルの開き方",
+    "how_to_intro": "「winmail.dat」という不思議な添付ファイル付きのメールを受け取ったことはありませんか？このファイルは、Microsoft OutlookがTNEF（Transport Neutral Encapsulation Format）という独自の形式でメールを送信する際に作成されます。Gmail、Apple Mail、Thunderbirdなどの非Outlookメールクライアントではこの形式をデコードできないため、開けない添付ファイルとして表示されます。\n\n当社のwinmail.datビューアは、ブラウザ内でメールの内容と添付ファイルを直接抽出します。独自開発のTNEFデコーダーを使用してローカルで解析するため、サーバーにはデータは一切送信されず、メールの内容は完全にプライベートに保たれます。",
+    "how_to_steps": [
+      {
+        "title": "winmail.datファイルを選択",
+        "description": "winmail.datファイルをアップロードエリアにドラッグ＆ドロップするか、クリックしてデバイスからファイルを選択します。一度に1つのファイルを処理します。"
+      },
+      {
+        "title": "メール内容を確認",
+        "description": "ツールが自動的にファイルを解析し、メールの件名、差出人情報、本文を表示します。HTML形式のメールの場合、プレーンテキストとHTMLビューを切り替えることができます。"
+      },
+      {
+        "title": "添付ファイルをダウンロード",
+        "description": "winmail.datファイルに埋め込まれたすべての添付ファイルが、ファイル名、サイズ、種類とともに一覧表示されます。各ファイルを個別にダウンロードするか、「すべてZIPでダウンロード」ボタンで一括ダウンロードできます。"
+      }
+    ],
+    "how_to_outro": "解析処理は一般的なwinmail.datファイルに対してほぼ瞬時に完了します。独自のTNEFパーサーを使用してブラウザ内でローカルに処理されるため、機密添付ファイルを含むメールデータがデバイスから離れることは一切ありません。",
+    "faq_title": "よくある質問",
+    "faq": [
+      {
+        "question": "winmail.datファイルとは何ですか？",
+        "answer": "winmail.datファイルは、Microsoft OutlookがTNEF（Transport Neutral Encapsulation Format）を使用してメールを送信する際に作成されます。この形式は、メール本文、書式設定、添付ファイルを1つのバイナリファイルにまとめます。Outlook以外のメールクライアントではこの形式をデコードできないため、一般的な「winmail.dat」添付ファイルとして表示されます。"
+      },
+      {
+        "question": "このツールでwinmail.datファイルを開くのは安全ですか？",
+        "answer": "はい、完全に安全です。このツールはファイルをすべてブラウザ内で解析します。サーバーにデータが送信されることは一切ありません。HTMLメール内容はDOMPurifyでサニタイズされ、サンドボックス化されたiframe内に表示されるため、セキュリティリスクが防止されます。"
+      },
+      {
+        "question": "なぜwinmail.datファイルを繰り返し受信するのですか？",
+        "answer": "winmail.datファイルは、リッチテキスト形式（RTF）を使用するよう設定されたMicrosoft Outlookからメールが送信された際に受信します。TNEFエンコーディングがメール内容と添付ファイルを、Outlook以外のクライアントでは読めない単一のファイルにまとめます。送信者にOutlookの設定でHTMLまたはプレーンテキスト形式に切り替えるよう依頼できます。"
+      },
+      {
+        "question": "winmail.datから添付ファイルを抽出できますか？",
+        "answer": "はい！このツールはwinmail.datファイルに埋め込まれたすべての添付ファイルを抽出します。各添付ファイルは元のファイル名とサイズとともに一覧表示されます。個別にダウンロードするか、ZIPアーカイブとして一括ダウンロードできます。"
+      },
+      {
+        "question": "winmail.datファイルにはどのようなコンテンツが含まれますか？",
+        "answer": "winmail.datファイルには、メールの件名、差出人・受信者情報、メール本文（プレーンテキストやHTML形式）、そしてファイル添付が含まれます。一般的な添付ファイルには、ドキュメント（PDF、Word、Excel）、画像、その他元のメールと一緒に送信されたファイルがあります。"
+      },
+      {
+        "question": "winmail.datファイルの送信を防ぐにはどうすればいいですか？",
+        "answer": "Microsoft Outlookを使用している場合は、ファイル > オプション > メールに移動し、「メッセージの作成形式」で「リッチテキスト」ではなく「HTML」または「テキスト形式」を選択してください。個別の連絡先についても、連絡先カードを編集してインターネット形式を「テキストのみ」に設定できます。"
+      },
+      {
+        "question": "このツールはモバイルデバイスで動作しますか？",
+        "answer": "はい！このツールは、スマートフォンやタブレットを含む最新のウェブブラウザを搭載したあらゆるデバイスで動作します。ページを開いてwinmail.datファイルを選択するだけで、ツールが内容を解析・表示します。"
+      }
+    ]
   },
   "webp_converter": {
     "output_format": "出力形式",

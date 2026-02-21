@@ -37,8 +37,82 @@
     },
     "winmail": {
       "title": "Open winmail.dat",
-      "description": "Extract and view contents of winmail.dat email attachments from Microsoft Outlook."
+      "description": "Extract and view contents of winmail.dat email attachments from Microsoft Outlook.",
+      "page_title": "Open winmail.dat - Free Online Viewer | OpenedFile",
+      "page_description": "Open and extract winmail.dat email attachments from Microsoft Outlook instantly in your browser. View email content and download files. Private and free.",
+      "heading": "Winmail.dat Viewer & Extractor",
+      "subheading": "Open winmail.dat files from Microsoft Outlook. View email content and extract attachments — all in your browser, nothing uploaded."
     }
+  },
+  "winmail_converter": {
+    "drop_title": "Drop winmail.dat file here",
+    "drop_description": "or click to select a file",
+    "drop_hint": "Supports winmail.dat files (TNEF format).",
+    "download": "Download",
+    "download_all_zip": "Download All as ZIP",
+    "clear_all": "Clear",
+    "error_not_tnef": "This file is not a valid winmail.dat (TNEF) file.",
+    "error_parse_failed": "Failed to parse the file. It may be corrupted or in an unsupported format.",
+    "subject": "Subject",
+    "from": "From",
+    "body_text": "Text",
+    "body_html": "HTML",
+    "attachments": "Attachments",
+    "no_attachments": "No attachments found in this file.",
+    "no_body": "No email body found.",
+    "file_name": "File Name",
+    "file_size": "Size",
+    "parsing": "Parsing winmail.dat..."
+  },
+  "winmail_page": {
+    "how_to_title": "How to Open winmail.dat Files",
+    "how_to_intro": "If you've ever received an email with a mysterious attachment called \"winmail.dat\", you're not alone. This file is created by Microsoft Outlook when it sends emails using a proprietary format called TNEF (Transport Neutral Encapsulation Format). Non-Outlook email clients like Gmail, Apple Mail, and Thunderbird can't decode this format, leaving you with an unopenable attachment.\n\nOur winmail.dat viewer extracts the original email content and attachments right in your browser. The file is parsed locally using our custom-built TNEF decoder — nothing is uploaded to any server, so your email content stays completely private.",
+    "how_to_steps": [
+      {
+        "title": "Select Your winmail.dat File",
+        "description": "Drag and drop your winmail.dat file onto the upload area, or click to browse and select it from your device. Only one file is processed at a time."
+      },
+      {
+        "title": "View Email Content",
+        "description": "The tool automatically parses the file and displays the email subject, sender information, and message body. If the email contains HTML formatting, you can toggle between plain text and HTML views."
+      },
+      {
+        "title": "Download Attachments",
+        "description": "All attachments embedded in the winmail.dat file are listed with their file names, sizes, and types. Download each file individually, or use the \"Download All as ZIP\" button to get everything in a single archive."
+      }
+    ],
+    "how_to_outro": "The parsing process is nearly instant for typical winmail.dat files. Since all processing happens locally in your browser using our custom TNEF parser, your email data — including any sensitive attachments — never leaves your device.",
+    "faq_title": "Frequently Asked Questions",
+    "faq": [
+      {
+        "question": "What is a winmail.dat file?",
+        "answer": "A winmail.dat file is created by Microsoft Outlook when it sends emails using TNEF (Transport Neutral Encapsulation Format). This format bundles the email body, formatting, and attachments into a single binary file. Email clients other than Outlook can't decode this format, so they display it as a generic \"winmail.dat\" attachment."
+      },
+      {
+        "question": "Is it safe to open winmail.dat files with this tool?",
+        "answer": "Yes, completely safe. This tool parses the file entirely in your browser — no data is sent to any server. If the file contains HTML email content, it is sanitized with DOMPurify and displayed in a sandboxed iframe to prevent any potential security risks."
+      },
+      {
+        "question": "Why do I keep receiving winmail.dat files?",
+        "answer": "You receive winmail.dat files when someone sends you an email from Microsoft Outlook configured to use Rich Text Format (RTF). The TNEF encoding wraps the email content and attachments into a single file that non-Outlook clients can't read. You can ask the sender to switch to HTML or Plain Text format in their Outlook settings."
+      },
+      {
+        "question": "Can I extract attachments from winmail.dat?",
+        "answer": "Yes! This tool extracts all embedded attachments from the winmail.dat file. You'll see each attachment listed with its original file name and size. You can download them individually or all at once as a ZIP archive."
+      },
+      {
+        "question": "What types of content can be inside a winmail.dat file?",
+        "answer": "A winmail.dat file can contain the email subject, sender and recipient information, the email body (in plain text and/or HTML format), and any file attachments. Common attachments include documents (PDF, Word, Excel), images, and other files that were sent with the original email."
+      },
+      {
+        "question": "How can I prevent sending winmail.dat files?",
+        "answer": "If you use Microsoft Outlook, go to File > Options > Mail, and under \"Compose messages in this format\", select \"HTML\" or \"Plain Text\" instead of \"Rich Text\". You can also change the format for individual contacts by editing their contact card and selecting \"Internet Format: Send Plain Text Only\"."
+      },
+      {
+        "question": "Does this tool work on mobile devices?",
+        "answer": "Yes! The tool works on any device with a modern web browser, including smartphones and tablets. Simply open the page, select your winmail.dat file, and the tool will parse and display the contents."
+      }
+    ]
   },
   "webp_converter": {
     "output_format": "Output Format",
