@@ -49,12 +49,16 @@ export class TnefDecoder {
     if (this.pos > this.data.length) this.pos = this.data.length;
   }
 
-  /** Decode null-terminated ANSI string */
-  decodeAnsiString(bytes: Uint8Array): string {
+  /** Decode null-terminated ANSI string with specified encoding */
+  decodeAnsiString(bytes: Uint8Array, encoding: string = 'shift_jis'): string {
     let end = bytes.indexOf(0);
     if (end === -1) end = bytes.length;
-    const decoder = new TextDecoder('windows-1252');
-    return decoder.decode(bytes.subarray(0, end));
+    const sub = bytes.subarray(0, end);
+    try {
+      return new TextDecoder(encoding).decode(sub);
+    } catch {
+      return new TextDecoder('utf-8', { fatal: false }).decode(sub);
+    }
   }
 
   /** Decode UTF-16LE string */

@@ -14,12 +14,35 @@ import {
 export type { TnefParseResult, TnefAttachment };
 
 interface RawAttachment {
-  name: string;
-  longName: string;
+  legacyName: string;
+  mapiFilename: string;
+  mapiLongFilename: string;
+  mapiDisplayName: string;
   data: Uint8Array | null;
   mimeType: string;
   extension: string;
   size: number;
+}
+
+/** Map Windows codepage number to TextDecoder encoding name */
+function codepageToEncoding(cp: number): string {
+  const map: Record<number, string> = {
+    932: 'shift_jis',
+    936: 'gbk',
+    949: 'euc-kr',
+    950: 'big5',
+    1250: 'windows-1250',
+    1251: 'windows-1251',
+    1252: 'windows-1252',
+    1253: 'windows-1253',
+    1254: 'windows-1254',
+    1255: 'windows-1255',
+    1256: 'windows-1256',
+    1257: 'windows-1257',
+    1258: 'windows-1258',
+    65001: 'utf-8',
+  };
+  return map[cp] || 'shift_jis';
 }
 
 /**
@@ -38,6 +61,9 @@ export function parseTnef(buffer: ArrayBuffer | Uint8Array): TnefParseResult {
 
   // Skip legacy key
   decoder.readUint16LE();
+
+  // Default to shift_jis for ANSI strings; updated if OEM codepage attribute is found
+  let ansiEncoding = 'shift_jis';
 
   let subject = '';
   let from = '';
@@ -69,9 +95,20 @@ export function parseTnef(buffer: ArrayBuffer | Uint8Array): TnefParseResult {
 
     if (level === LVL_MESSAGE) {
       switch (attrId) {
+        case ATTR.OEM_CODEPAGE: {
+          // First 4 bytes = OEM codepage (uint32 LE)
+          if (attrData.length >= 4) {
+            const cp = new DataView(
+              attrData.buffer, attrData.byteOffset, attrData.byteLength
+            ).getUint32(0, true);
+            ansiEncoding = codepageToEncoding(cp);
+          }
+          break;
+        }
         case ATTR.SUBJECT: {
+          // Legacy ANSI subject — may be overwritten by MAPI Unicode subject
           const d = new TnefDecoder(attrData);
-          subject = d.decodeAnsiString(attrData);
+          subject = d.decodeAnsiString(attrData, ansiEncoding);
           break;
         }
         case ATTR.FROM: {
@@ -79,17 +116,18 @@ export function parseTnef(buffer: ArrayBuffer | Uint8Array): TnefParseResult {
           // TRP structure: wTrpidType(2) + cbgrtrp(2) + cch(2) + cb(2) + sender_name + \0 + sender_email + \0
           if (attrData.length >= 8) {
             d.skip(8);
-            from = d.decodeAnsiString(attrData.subarray(8));
+            from = d.decodeAnsiString(attrData.subarray(8), ansiEncoding);
           }
           break;
         }
         case ATTR.BODY: {
           const d = new TnefDecoder(attrData);
-          body = d.decodeAnsiString(attrData);
+          body = d.decodeAnsiString(attrData, ansiEncoding);
           break;
         }
         case ATTR.MAPI_PROPS: {
-          const parsed = parseMapiProps(attrData);
+          // MAPI props contain Unicode strings — always preferred over legacy ANSI
+          const parsed = parseMapiProps(attrData, ansiEncoding);
           if (parsed.subject) subject = parsed.subject;
           if (parsed.senderName) from = parsed.senderName;
           if (parsed.senderEmail) {
@@ -108,8 +146,10 @@ export function parseTnef(buffer: ArrayBuffer | Uint8Array): TnefParseResult {
             attachments.push(currentAttachment);
           }
           currentAttachment = {
-            name: '',
-            longName: '',
+            legacyName: '',
+            mapiFilename: '',
+            mapiLongFilename: '',
+            mapiDisplayName: '',
             data: null,
             mimeType: 'application/octet-stream',
             extension: '',
@@ -118,9 +158,10 @@ export function parseTnef(buffer: ArrayBuffer | Uint8Array): TnefParseResult {
           break;
         }
         case ATTACH_ATTR.TITLE: {
+          // Legacy ANSI filename (Shift_JIS in Japanese environments)
           if (currentAttachment) {
             const d = new TnefDecoder(attrData);
-            currentAttachment.name = d.decodeAnsiString(attrData);
+            currentAttachment.legacyName = d.decodeAnsiString(attrData, ansiEncoding);
           }
           break;
         }
@@ -133,9 +174,10 @@ export function parseTnef(buffer: ArrayBuffer | Uint8Array): TnefParseResult {
         }
         case ATTACH_ATTR.MAPI_PROPS: {
           if (currentAttachment) {
-            const parsed = parseAttachMapiProps(attrData);
-            if (parsed.longFilename) currentAttachment.longName = parsed.longFilename;
-            if (parsed.filename) currentAttachment.name = currentAttachment.name || parsed.filename;
+            const parsed = parseAttachMapiProps(attrData, ansiEncoding);
+            if (parsed.longFilename) currentAttachment.mapiLongFilename = parsed.longFilename;
+            if (parsed.filename) currentAttachment.mapiFilename = parsed.filename;
+            if (parsed.displayName) currentAttachment.mapiDisplayName = parsed.displayName;
             if (parsed.mimeType) currentAttachment.mimeType = parsed.mimeType;
             if (parsed.extension) currentAttachment.extension = parsed.extension;
             if (parsed.data) {
@@ -154,15 +196,24 @@ export function parseTnef(buffer: ArrayBuffer | Uint8Array): TnefParseResult {
     attachments.push(currentAttachment);
   }
 
-  // Build final attachment list
+  // Build final attachment list with name priority:
+  // 1st: MAPI PidTagAttachLongFilename (Unicode)
+  // 2nd: MAPI PidTagAttachFilename (Unicode)
+  // 3rd: MAPI PidTagDisplayName (Unicode)
+  // 4th: attAttachTitle (legacy ANSI / Shift_JIS)
   const finalAttachments: TnefAttachment[] = attachments
     .filter((a) => a.data && a.data.length > 0)
-    .map((a) => ({
-      name: a.longName || a.name || 'attachment',
-      size: a.size,
-      data: a.data!,
-      mimeType: a.mimeType || guessMimeType(a.longName || a.name || '', a.extension),
-    }));
+    .map((a) => {
+      const name = a.mapiLongFilename || a.mapiFilename || a.mapiDisplayName || a.legacyName || 'attachment';
+      return {
+        name,
+        size: a.size,
+        data: a.data!,
+        mimeType: a.mimeType !== 'application/octet-stream'
+          ? a.mimeType
+          : guessMimeType(name, a.extension),
+      };
+    });
 
   return { subject, from, body, bodyHtml, attachments: finalAttachments };
 }
@@ -178,12 +229,13 @@ interface MapiResult {
 interface AttachMapiResult {
   filename?: string;
   longFilename?: string;
+  displayName?: string;
   mimeType?: string;
   extension?: string;
   data?: Uint8Array;
 }
 
-function parseMapiProps(data: Uint8Array): MapiResult {
+function parseMapiProps(data: Uint8Array, ansiEncoding: string): MapiResult {
   const result: MapiResult = {};
   try {
     const d = new TnefDecoder(data);
@@ -198,7 +250,7 @@ function parseMapiProps(data: Uint8Array): MapiResult {
         skipNamedPropHeader(d);
       }
 
-      const value = readPropValue(d, propType);
+      const value = readPropValue(d, propType, ansiEncoding);
       if (value === null) break;
 
       switch (propId) {
@@ -231,7 +283,7 @@ function parseMapiProps(data: Uint8Array): MapiResult {
   return result;
 }
 
-function parseAttachMapiProps(data: Uint8Array): AttachMapiResult {
+function parseAttachMapiProps(data: Uint8Array, ansiEncoding: string): AttachMapiResult {
   const result: AttachMapiResult = {};
   try {
     const d = new TnefDecoder(data);
@@ -245,7 +297,7 @@ function parseAttachMapiProps(data: Uint8Array): AttachMapiResult {
         skipNamedPropHeader(d);
       }
 
-      const value = readPropValue(d, propType);
+      const value = readPropValue(d, propType, ansiEncoding);
       if (value === null) break;
 
       switch (propId) {
@@ -254,6 +306,9 @@ function parseAttachMapiProps(data: Uint8Array): AttachMapiResult {
           break;
         case PROP.ATTACH_LONG_FILENAME:
           if (typeof value === 'string') result.longFilename = value;
+          break;
+        case PROP.DISPLAY_NAME:
+          if (typeof value === 'string') result.displayName = value;
           break;
         case PROP.ATTACH_MIME_TAG:
           if (typeof value === 'string') result.mimeType = value;
@@ -290,6 +345,7 @@ function skipNamedPropHeader(d: TnefDecoder): void {
 function readPropValue(
   d: TnefDecoder,
   propType: number,
+  ansiEncoding: string,
 ): string | number | Uint8Array | null {
   try {
     switch (propType) {
@@ -320,7 +376,7 @@ function readPropValue(
         const len = d.readUint32LE();
         const bytes = d.readBytes(len);
         d.skip(pad4(len) - len);
-        return d.decodeAnsiString(bytes);
+        return d.decodeAnsiString(bytes, ansiEncoding);
       }
       case PT.UNICODE: {
         const count = d.readUint32LE();
