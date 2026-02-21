@@ -63,7 +63,26 @@
   },
   "webp_page": {
     "how_to_title": "How to Convert WebP to JPG or PNG",
-    "how_to_content": "WebP is a modern image format developed by Google that offers superior compression compared to traditional formats like JPG and PNG. While WebP files are significantly smaller in size, they aren't universally supported by all applications and platforms. If you've downloaded a WebP image from the web and can't open it in your image editor, or need to share it with someone whose device doesn't support WebP, this tool makes conversion quick and easy.\n\nOur WebP converter runs entirely in your browser using the HTML5 Canvas API. This means your images are never uploaded to any server — they stay on your device throughout the entire conversion process. Here's how to use it:\n\n**Step 1: Select Your Files**\nDrag and drop your WebP files onto the upload area, or click to browse and select files from your device. You can convert multiple files at once — there's no limit on the number of files.\n\n**Step 2: Choose Your Output Format**\nSelect either JPG or PNG as your output format. JPG is best for photographs and complex images where a smaller file size is preferred. PNG is ideal for images that require transparency or sharp edges, such as logos, screenshots, and graphics.\n\n**Step 3: Adjust Quality (JPG only)**\nIf you've selected JPG as the output format, you can adjust the quality slider from 0% to 100%. A quality of 90% offers an excellent balance between file size and visual quality. Lower values produce smaller files but with some loss of detail.\n\n**Step 4: Download Your Converted Files**\nOnce the conversion is complete, you can download each file individually or use the \"Download All as ZIP\" button to get all converted files in a single ZIP archive.\n\nThe conversion process is instant for most files. Since everything runs locally in your browser, the speed depends only on your device's processing power, not on your internet connection.",
+    "how_to_intro": "WebP is a modern image format developed by Google that offers superior compression compared to traditional formats like JPG and PNG. While WebP files are significantly smaller in size, they aren't universally supported by all applications and platforms. If you've downloaded a WebP image from the web and can't open it in your image editor, or need to share it with someone whose device doesn't support WebP, this tool makes conversion quick and easy.\n\nOur WebP converter runs entirely in your browser using the HTML5 Canvas API. This means your images are never uploaded to any server — they stay on your device throughout the entire conversion process.",
+    "how_to_steps": [
+      {
+        "title": "Select Your Files",
+        "description": "Drag and drop your WebP files onto the upload area, or click to browse and select files from your device. You can convert multiple files at once — there's no limit on the number of files."
+      },
+      {
+        "title": "Choose Your Output Format",
+        "description": "Select either JPG or PNG as your output format. JPG is best for photographs and complex images where a smaller file size is preferred. PNG is ideal for images that require transparency or sharp edges, such as logos, screenshots, and graphics."
+      },
+      {
+        "title": "Adjust Quality (JPG only)",
+        "description": "If you've selected JPG as the output format, you can adjust the quality slider from 0% to 100%. A quality of 90% offers an excellent balance between file size and visual quality. Lower values produce smaller files but with some loss of detail."
+      },
+      {
+        "title": "Download Your Converted Files",
+        "description": "Once the conversion is complete, you can download each file individually or use the \"Download All as ZIP\" button to get all converted files in a single ZIP archive."
+      }
+    ],
+    "how_to_outro": "The conversion process is instant for most files. Since everything runs locally in your browser, the speed depends only on your device's processing power, not on your internet connection.",
     "faq_title": "Frequently Asked Questions",
     "faq": [
       {
@@ -97,8 +116,8 @@
     ]
   },
   "privacy_badge": {
-    "text": "Your files never leave your device",
-    "tooltip": "All processing is done locally in your browser. No files are uploaded to any server."
+    "text": "Your files stay safe — processed entirely in your browser. Nothing is uploaded.",
+    "short": "Your files never leave your device"
   },
   "footer": {
     "tools_title": "Tools",
