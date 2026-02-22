@@ -1,0 +1,68 @@
+---
+import { getLocaleFromUrl, getLocalizedPath, t } from '../i18n/utils';
+
+const locale = getLocaleFromUrl(Astro.url);
+const message = t(locale, 'cookie_banner.message');
+const acceptAll = t(locale, 'cookie_banner.accept_all');
+const necessaryOnly = t(locale, 'cookie_banner.necessary_only');
+const settings = t(locale, 'cookie_banner.settings');
+const privacyPath = getLocalizedPath('/privacy', locale);
+---
+
+<div
+  id="cookie-banner"
+  class="fixed bottom-0 left-0 right-0 z-50 hidden border-t border-gray-200 bg-white/95 backdrop-blur-lg dark:border-gray-700 dark:bg-gray-900/95"
+  role="dialog"
+  aria-label="Cookie consent"
+>
+  <div class="mx-auto flex max-w-5xl flex-col items-center gap-4 px-4 py-4 sm:flex-row sm:px-6">
+    <p class="flex-1 text-sm text-gray-600 dark:text-gray-300">
+      {message}
+    </p>
+    <div class="flex flex-wrap items-center gap-2">
+      <a
+        href={privacyPath}
+        class="rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-100 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-800"
+      >
+        {settings}
+      </a>
+      <button
+        id="cookie-necessary"
+        class="rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-100 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-800"
+      >
+        {necessaryOnly}
+      </button>
+      <button
+        id="cookie-accept"
+        class="rounded-lg bg-primary-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-primary-700"
+      >
+        {acceptAll}
+      </button>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  (function() {
+    var consent = localStorage.getItem('cookie-consent');
+    if (consent) {
+      if (consent === 'necessary') {
+        window['ga-disable-G-3DQ439LCJZ'] = true;
+      }
+      return;
+    }
+    var banner = document.getElementById('cookie-banner');
+    if (banner) banner.classList.remove('hidden');
+
+    document.getElementById('cookie-accept')?.addEventListener('click', function() {
+      localStorage.setItem('cookie-consent', 'all');
+      banner?.classList.add('hidden');
+    });
+
+    document.getElementById('cookie-necessary')?.addEventListener('click', function() {
+      localStorage.setItem('cookie-consent', 'necessary');
+      window['ga-disable-G-3DQ439LCJZ'] = true;
+      banner?.classList.add('hidden');
+    });
+  })();
+</script>

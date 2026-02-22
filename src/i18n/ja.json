@@ -300,6 +300,15 @@
     "en": "English",
     "ja": "日本語"
   },
+  "cookie_banner": {
+    "message": "このサイトはCookieを使用して、ユーザー体験の向上とトラフィック分析を行っています。",
+    "accept_all": "すべて許可",
+    "necessary_only": "必要なもののみ",
+    "settings": "詳細設定"
+  },
+  "share": {
+    "title": "この記事をシェア"
+  },
   "common": {
     "coming_soon": "近日公開",
     "try_now": "試してみる",

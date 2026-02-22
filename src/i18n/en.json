@@ -300,6 +300,15 @@
     "en": "English",
     "ja": "Japanese"
   },
+  "cookie_banner": {
+    "message": "This site uses cookies to improve your experience and analyze traffic.",
+    "accept_all": "Accept All",
+    "necessary_only": "Necessary Only",
+    "settings": "Cookie Settings"
+  },
+  "share": {
+    "title": "Share this article"
+  },
   "common": {
     "coming_soon": "Coming Soon",
     "try_now": "Try Now",
