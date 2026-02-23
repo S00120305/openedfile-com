@@ -29,46 +29,95 @@ interface Contact {
   organization: string;
 }
 
-function extractProperty(card: any, prop: string): string {
-  try {
-    const p = card.get(prop);
-    if (!p) return '';
-    if (Array.isArray(p)) {
-      return p.map((item: any) => {
-        const val = item.valueOf();
-        if (Array.isArray(val)) return val.filter(Boolean).join(' ');
-        return String(val || '');
-      }).filter(Boolean).join('; ');
-    }
-    const val = p.valueOf();
-    if (Array.isArray(val)) return val.filter(Boolean).join(' ');
-    return String(val || '');
-  } catch {
-    return '';
-  }
-}
+/**
+ * Simple vCard parser that handles vCard 2.1, 3.0, and 4.0.
+ * vCard is a text format with BEGIN:VCARD / END:VCARD blocks,
+ * each line being PROPERTY;PARAM=VALUE:DATA
+ */
+function parseVcardFile(text: string): Contact[] {
+  const contacts: Contact[] = [];
 
-function extractName(card: any): string {
-  // Try FN (formatted name) first
-  const fn = extractProperty(card, 'fn');
-  if (fn) return fn;
+  // Normalize line endings and unfold continuation lines
+  // (RFC 6350: a line starting with space or tab is a continuation)
+  const normalized = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+  const unfolded = normalized.replace(/\n[ \t]/g, '');
 
-  // Fall back to N (structured name)
-  try {
-    const n = card.get('n');
-    if (n) {
-      const val = n.valueOf();
-      if (Array.isArray(val)) {
-        // N format: family;given;middle;prefix;suffix
-        return val.filter(Boolean).join(' ').trim();
+  // Extract individual vCard blocks
+  const blockRegex = /BEGIN:VCARD\n([\s\S]*?)END:VCARD/gi;
+  let match: RegExpExecArray | null;
+
+  while ((match = blockRegex.exec(unfolded)) !== null) {
+    const block = match[1];
+    const lines = block.split('\n').filter(l => l.trim());
+
+    const emails: string[] = [];
+    const phones: string[] = [];
+    const addresses: string[] = [];
+    const orgs: string[] = [];
+    let fn = '';
+    let n = '';
+
+    for (const line of lines) {
+      // Split into property name (with params) and value
+      // Handle properties like "TEL;TYPE=CELL:090-1234-5678"
+      const colonIdx = line.indexOf(':');
+      if (colonIdx === -1) continue;
+
+      const propPart = line.substring(0, colonIdx);
+      const value = line.substring(colonIdx + 1).trim();
+      if (!value) continue;
+
+      // Extract the base property name (before any ;PARAM)
+      const propName = propPart.split(';')[0].toUpperCase();
+
+      switch (propName) {
+        case 'FN':
+          fn = value;
+          break;
+        case 'N': {
+          // N:Family;Given;Middle;Prefix;Suffix
+          const parts = value.split(';').map(s => s.trim()).filter(Boolean);
+          if (parts.length > 0) {
+            n = parts.join(' ');
+          }
+          break;
+        }
+        case 'EMAIL':
+          emails.push(value);
+          break;
+        case 'TEL':
+          phones.push(value);
+          break;
+        case 'ADR': {
+          // ADR:;;Street;City;State;Zip;Country
+          const adrParts = value.split(';').map(s => s.trim()).filter(Boolean);
+          if (adrParts.length > 0) {
+            addresses.push(adrParts.join(' '));
+          }
+          break;
+        }
+        case 'ORG':
+          // ORG can have multiple levels: Company;Division;Department
+          orgs.push(value.split(';').map(s => s.trim()).filter(Boolean).join(' '));
+          break;
       }
-      return String(val || '');
     }
-  } catch {
-    // ignore
+
+    const contact: Contact = {
+      name: fn || n,
+      email: emails.join('; '),
+      phone: phones.join('; '),
+      address: addresses.join('; '),
+      organization: orgs.join('; '),
+    };
+
+    // Only add contacts with at least a name or email
+    if (contact.name || contact.email) {
+      contacts.push(contact);
+    }
   }
 
-  return '';
+  return contacts;
 }
 
 export default function VcardConverter({ labels }: VcardConverterProps) {
@@ -95,35 +144,7 @@ export default function VcardConverter({ labels }: VcardConverterProps) {
           return;
         }
 
-        const vCard = (await import('vcf')).default;
-
-        // Split into individual vCard blocks
-        const vcardBlocks = text.split(/(?=BEGIN:VCARD)/i).filter(block =>
-          block.trim().toUpperCase().startsWith('BEGIN:VCARD')
-        );
-
-        const parsed: Contact[] = [];
-
-        for (const block of vcardBlocks) {
-          try {
-            const card = new vCard().parse(block.trim());
-
-            const contact: Contact = {
-              name: extractName(card),
-              email: extractProperty(card, 'email'),
-              phone: extractProperty(card, 'tel'),
-              address: extractProperty(card, 'adr'),
-              organization: extractProperty(card, 'org'),
-            };
-
-            // Only add contacts with at least a name or email
-            if (contact.name || contact.email) {
-              parsed.push(contact);
-            }
-          } catch {
-            // Skip individual invalid cards
-          }
-        }
+        const parsed = parseVcardFile(text);
 
         if (parsed.length === 0) {
           setError(labels.errorParseFailed);
