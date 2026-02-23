@@ -25,6 +25,7 @@ interface EmlViewerProps {
     fileSize: string;
     fileType: string;
     parsing: string;
+    saveAsText: string;
   };
 }
 
@@ -194,6 +195,40 @@ export default function EmlViewer({ labels }: EmlViewerProps) {
     URL.revokeObjectURL(url);
   }, [result]);
 
+  const handleSaveAsText = useCallback(() => {
+    if (!result) return;
+
+    const lines: string[] = [];
+    if (result.subject) lines.push(`${labels.subject}: ${result.subject}`);
+    if (result.from) lines.push(`${labels.from}: ${result.from}`);
+    if (result.to) lines.push(`${labels.to}: ${result.to}`);
+    if (result.cc) lines.push(`${labels.cc}: ${result.cc}`);
+    if (result.date) lines.push(`${labels.date}: ${result.date}`);
+    lines.push('---');
+
+    if (result.text) {
+      lines.push(result.text);
+    } else if (result.html) {
+      // Strip HTML tags to get plain text
+      const doc = new DOMParser().parseFromString(result.html, 'text/html');
+      lines.push(doc.body.textContent || '');
+    }
+
+    const bom = '\uFEFF';
+    const blob = new Blob([bom + lines.join('\n')], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    const filename = result.subject
+      ? result.subject.replace(/[<>:"/\\|?*]/g, '_').substring(0, 100) + '.txt'
+      : 'email.txt';
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }, [result, labels]);
+
   const handleClear = useCallback(() => {
     setResult(null);
     setError(null);
@@ -338,6 +373,23 @@ export default function EmlViewer({ labels }: EmlViewerProps) {
               </div>
             </div>
           )}
+
+          {/* Save as text */}
+          <div className="flex">
+            <button
+              onClick={handleSaveAsText}
+              className="inline-flex items-center gap-1.5 rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700 transition-colors"
+            >
+              <svg className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z" />
+                <path d="M14 2v6h6" />
+                <path d="M16 13H8" />
+                <path d="M16 17H8" />
+                <path d="M10 9H8" />
+              </svg>
+              {labels.saveAsText}
+            </button>
+          </div>
 
           {/* Attachments */}
           <div className="rounded-xl border border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-800">

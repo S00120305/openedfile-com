@@ -313,7 +313,8 @@
     "file_name": "File Name",
     "file_size": "Size",
     "file_type": "Type",
-    "parsing": "Parsing EML file..."
+    "parsing": "Parsing EML file...",
+    "save_as_text": "Save as Text"
   },
   "eml_page": {
     "how_to_title": "How to Open and View EML Files",

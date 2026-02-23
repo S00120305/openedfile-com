@@ -313,7 +313,8 @@
     "file_name": "ファイル名",
     "file_size": "サイズ",
     "file_type": "種類",
-    "parsing": "EMLファイルを解析中..."
+    "parsing": "EMLファイルを解析中...",
+    "save_as_text": "テキストで保存"
   },
   "eml_page": {
     "how_to_title": "EMLファイルの開き方と表示方法",
