@@ -45,6 +45,22 @@
       "page_description": "Open and extract winmail.dat email attachments from Microsoft Outlook instantly in your browser. View email content and download files. Private and free.",
       "heading": "Winmail.dat Viewer & Extractor",
       "subheading": "Open winmail.dat files from Microsoft Outlook. View email content and extract attachments — all in your browser, nothing uploaded."
+    },
+    "eml": {
+      "title": "EML File Viewer",
+      "description": "Open and view EML email files directly in your browser. View headers, body, and download attachments.",
+      "page_title": "EML File Viewer - Free Online Tool | OpenedFile",
+      "page_description": "Open and view EML email files instantly in your browser. View email headers, body content, and download attachments. No upload needed — completely private.",
+      "heading": "EML File Viewer",
+      "subheading": "Open and view EML email files instantly. View headers, message body, and download attachments — all in your browser, nothing uploaded."
+    },
+    "vcard": {
+      "title": "VCF/vCard to CSV",
+      "description": "Convert VCF/vCard contact files to CSV format. View and export contacts for Excel and other apps.",
+      "page_title": "VCF/vCard to CSV Converter - Free Online Tool | OpenedFile",
+      "page_description": "Convert VCF and vCard contact files to CSV format instantly in your browser. View contacts and export to Excel. No upload needed — completely private.",
+      "heading": "VCF/vCard to CSV Converter",
+      "subheading": "Convert VCF/vCard contact files to CSV format instantly. View contacts and export for Excel — all in your browser, nothing uploaded."
     }
   },
   "winmail_converter": {
@@ -272,6 +288,151 @@
       {
         "question": "What's the difference between HEIC and HEIF?",
         "answer": "HEIF (High Efficiency Image Format) is the broader standard, while HEIC is specifically HEIF using HEVC compression. In practice, .heic and .heif files are essentially the same thing and this tool handles both formats identically."
+      }
+    ]
+  },
+  "eml_converter": {
+    "drop_title": "Drop EML file here",
+    "drop_description": "or click to select a file",
+    "drop_hint": "Supports .eml email files.",
+    "download": "Download",
+    "download_all_zip": "Download All as ZIP",
+    "clear_all": "Clear",
+    "error_not_eml": "This file does not appear to be a valid EML email file.",
+    "error_parse_failed": "Failed to parse the EML file. It may be corrupted or in an unsupported format.",
+    "subject": "Subject",
+    "from": "From",
+    "to": "To",
+    "cc": "CC",
+    "date": "Date",
+    "body_text": "Text",
+    "body_html": "HTML",
+    "attachments": "Attachments",
+    "no_attachments": "No attachments found in this email.",
+    "no_body": "No email body found.",
+    "file_name": "File Name",
+    "file_size": "Size",
+    "file_type": "Type",
+    "parsing": "Parsing EML file..."
+  },
+  "eml_page": {
+    "how_to_title": "How to Open and View EML Files",
+    "how_to_intro": "EML files are a standard format for storing individual email messages, widely used by email clients such as Microsoft Outlook, Mozilla Thunderbird, Windows Mail, and Apple Mail. Each EML file contains the complete email — including headers (subject, sender, recipients, date), the message body (in plain text and/or HTML), and any file attachments. While EML is an open standard based on RFC 5322 (the Internet Message Format), many users find they can't easily open these files outside of their email client, especially when received as downloads, exported for archival, or found on a shared drive.\n\nOur EML File Viewer solves this problem by letting you open and read any EML file directly in your web browser. The file is parsed entirely on your device using the postal-mime library — a modern, well-maintained email parser built by the Nodemailer team. No data is sent to any server, so even the most confidential emails remain completely private. You can view the full email content, inspect headers, switch between plain text and HTML views, and download any attachments individually or as a ZIP archive.\n\nThis tool is particularly useful for digital forensics, email archival review, IT support, legal discovery, and anyone who needs to quickly inspect an EML file without installing dedicated software.",
+    "how_to_steps": [
+      {
+        "title": "Select Your EML File",
+        "description": "Drag and drop your .eml file onto the upload area, or click to browse and select it from your device. The tool processes one file at a time to display its full contents."
+      },
+      {
+        "title": "View Email Headers",
+        "description": "Once the file is loaded, the tool displays the email subject, sender (From), recipients (To), CC fields, and the date the email was sent. This gives you an immediate overview of the message metadata."
+      },
+      {
+        "title": "Read the Message Body",
+        "description": "The email body is displayed below the headers. If the email contains both plain text and HTML versions, you can switch between them using the tabs. HTML content is sanitized for security and rendered in a sandboxed iframe."
+      },
+      {
+        "title": "Download Attachments",
+        "description": "All attachments are listed with their file names, sizes, and MIME types. Download each file individually with a single click, or use the 'Download All as ZIP' button to get all attachments in one archive."
+      }
+    ],
+    "how_to_outro": "Parsing is nearly instant for typical EML files. Since all processing happens locally in your browser, your email content — including headers, body, and attachments — never leaves your device. This makes our tool ideal for opening sensitive or confidential emails safely.",
+    "faq_title": "Frequently Asked Questions",
+    "faq": [
+      {
+        "question": "What is an EML file?",
+        "answer": "An EML file is a standard email message format based on RFC 5322 (Internet Message Format). It contains the complete email including headers (subject, sender, recipients, date), the message body in plain text and/or HTML, and any file attachments encoded in MIME format. EML files are commonly created by email clients like Outlook, Thunderbird, and Apple Mail when you save or export individual messages."
+      },
+      {
+        "question": "Is it safe to open EML files with this tool?",
+        "answer": "Yes, completely safe. The EML file is parsed entirely in your browser — no data is sent to any server. If the email contains HTML content, it is sanitized using DOMPurify to remove any potentially harmful scripts, and then displayed in a sandboxed iframe with restricted permissions. This prevents any malicious code from executing."
+      },
+      {
+        "question": "Can I download attachments from EML files?",
+        "answer": "Yes! All attachments embedded in the EML file are extracted and listed with their original file names, sizes, and MIME types. You can download each attachment individually or use the 'Download All as ZIP' button to get all attachments in a single archive."
+      },
+      {
+        "question": "Why can't I open EML files on my computer?",
+        "answer": "EML files require an email client or specialized viewer to open. While programs like Outlook and Thunderbird can open them natively, many users don't have these installed or find the process inconvenient. Our browser-based viewer lets you open any EML file instantly without installing any software."
+      },
+      {
+        "question": "What email clients create EML files?",
+        "answer": "Most major email clients can export messages as EML files, including Microsoft Outlook, Mozilla Thunderbird, Windows Mail, Apple Mail, and many webmail services. EML is also the format commonly used for email archival and backup systems, as well as in legal discovery and digital forensics."
+      },
+      {
+        "question": "Does this tool support HTML emails?",
+        "answer": "Yes! Many modern emails are sent in HTML format with rich formatting, images, and styled layouts. Our viewer renders HTML email content in a secure sandboxed iframe, so you can see the email exactly as the sender intended. The HTML is sanitized with DOMPurify to ensure security."
+      },
+      {
+        "question": "Does this tool work on mobile devices?",
+        "answer": "Yes! The EML viewer works on any device with a modern web browser, including smartphones and tablets. Simply open the page, select your EML file, and the tool will parse and display the email contents with a fully responsive layout."
+      }
+    ]
+  },
+  "vcard_converter": {
+    "drop_title": "Drop VCF/vCard files here",
+    "drop_description": "or click to select files",
+    "drop_hint": "Supports .vcf and .vcard files.",
+    "download_csv": "Download CSV",
+    "clear_all": "Clear",
+    "error_not_vcf": "This file does not appear to be a valid VCF/vCard file.",
+    "error_parse_failed": "Failed to parse the VCF file. It may be corrupted or in an unsupported format.",
+    "contacts_found": "contacts found",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "address": "Address",
+    "organization": "Organization",
+    "no_contacts": "No contacts found in this file.",
+    "parsing": "Parsing VCF file..."
+  },
+  "vcard_page": {
+    "how_to_title": "How to Convert VCF/vCard to CSV",
+    "how_to_intro": "VCF (Virtual Contact File), also known as vCard, is the standard file format for storing contact information. It's used by virtually every contact management system, including Apple Contacts, Google Contacts, Microsoft Outlook, and smartphone address books. A single VCF file can contain one contact or hundreds of contacts, each with information like name, email addresses, phone numbers, physical addresses, and organization details.\n\nWhile VCF files are great for transferring contacts between devices and applications, they aren't easy to open or edit directly. Our VCF to CSV converter parses your contact file entirely in your browser and displays all contacts in a clean, readable table. You can then export the data as a CSV file that opens perfectly in Microsoft Excel, Google Sheets, LibreOffice Calc, and other spreadsheet applications. The CSV is exported with a UTF-8 BOM (Byte Order Mark) to ensure special characters and international names display correctly in Excel.\n\nThis tool is ideal for migrating contacts between platforms, creating mailing lists, auditing contact data, or simply viewing the contents of a VCF file without importing it into your address book.",
+    "how_to_steps": [
+      {
+        "title": "Select Your VCF File",
+        "description": "Drag and drop your .vcf or .vcard file onto the upload area, or click to browse and select it from your device. The tool supports files containing single or multiple contacts."
+      },
+      {
+        "title": "View Your Contacts",
+        "description": "All contacts in the file are parsed and displayed in a clean table showing names, email addresses, phone numbers, addresses, and organization names. You can review the data before exporting."
+      },
+      {
+        "title": "Download as CSV",
+        "description": "Click the 'Download CSV' button to export all contacts as a CSV file. The file includes a UTF-8 BOM for perfect Excel compatibility, ensuring special characters and international names display correctly."
+      }
+    ],
+    "how_to_outro": "The conversion is instant for most VCF files, even those containing hundreds of contacts. Since all processing happens locally in your browser, your contact data — including names, phone numbers, and email addresses — never leaves your device.",
+    "faq_title": "Frequently Asked Questions",
+    "faq": [
+      {
+        "question": "What is a VCF/vCard file?",
+        "answer": "VCF (Virtual Contact File) or vCard is the standard file format for electronic business cards and contact information. It stores details like name, email addresses, phone numbers, physical addresses, organization, and more. VCF files are supported by virtually all contact management systems including Apple Contacts, Google Contacts, and Microsoft Outlook."
+      },
+      {
+        "question": "Is it safe to convert VCF files with this tool?",
+        "answer": "Yes, completely safe. The VCF file is parsed entirely in your browser — no contact data is sent to any server. Your names, phone numbers, email addresses, and other personal information remain completely private on your device throughout the entire process."
+      },
+      {
+        "question": "Will the CSV file open correctly in Excel?",
+        "answer": "Yes! The CSV file is exported with UTF-8 encoding and a BOM (Byte Order Mark), which ensures Microsoft Excel correctly recognizes the character encoding. This means special characters, accented letters, and characters from non-Latin scripts (Japanese, Chinese, Korean, Arabic, etc.) will display correctly when you open the file in Excel."
+      },
+      {
+        "question": "Can I convert a VCF file with multiple contacts?",
+        "answer": "Yes! VCF files can contain a single contact or hundreds of contacts. This tool parses all contacts in the file and displays them in a table. The exported CSV will include all contacts, one per row, making it easy to work with large contact lists."
+      },
+      {
+        "question": "How do I export contacts as VCF from my phone?",
+        "answer": "On iPhone, go to Contacts, select a contact, tap 'Share Contact', and choose to save or send the VCF file. For all contacts, use iCloud.com. On Android, open Contacts, go to Settings or Manage Contacts, and select 'Export' to save all contacts as a single VCF file. Google Contacts also allows export from contacts.google.com."
+      },
+      {
+        "question": "What information is included in the CSV export?",
+        "answer": "The CSV export includes columns for Name, Email, Phone, Address, and Organization. If a contact has multiple email addresses or phone numbers, they are combined in the respective field. The CSV format is compatible with all major spreadsheet applications."
+      },
+      {
+        "question": "Does this tool work on mobile devices?",
+        "answer": "Yes! The converter works on any device with a modern web browser, including smartphones and tablets. This is especially convenient for quickly viewing or converting VCF files received via email or messaging apps directly on your phone."
       }
     ]
   },

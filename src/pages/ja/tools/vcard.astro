@@ -1,0 +1,119 @@
+---
+import ToolLayout from '../../../layouts/ToolLayout.astro';
+import VcardConverter from '../../../components/react/VcardConverter';
+import { t } from '../../../i18n/utils';
+
+const locale = 'ja';
+
+const labels = {
+  dropTitle: t(locale, 'vcard_converter.drop_title'),
+  dropDescription: t(locale, 'vcard_converter.drop_description'),
+  dropHint: t(locale, 'vcard_converter.drop_hint'),
+  downloadCsv: t(locale, 'vcard_converter.download_csv'),
+  clearAll: t(locale, 'vcard_converter.clear_all'),
+  errorNotVcf: t(locale, 'vcard_converter.error_not_vcf'),
+  errorParseFailed: t(locale, 'vcard_converter.error_parse_failed'),
+  contactsFound: t(locale, 'vcard_converter.contacts_found'),
+  name: t(locale, 'vcard_converter.name'),
+  email: t(locale, 'vcard_converter.email'),
+  phone: t(locale, 'vcard_converter.phone'),
+  address: t(locale, 'vcard_converter.address'),
+  organization: t(locale, 'vcard_converter.organization'),
+  noContacts: t(locale, 'vcard_converter.no_contacts'),
+  parsing: t(locale, 'vcard_converter.parsing'),
+};
+
+import ja from '../../../i18n/ja.json';
+const steps = ja.vcard_page.how_to_steps;
+const faqItems = ja.vcard_page.faq;
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqItems.map((item) => ({
+    "@type": "Question",
+    "name": item.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": item.answer,
+    },
+  })),
+};
+---
+
+<ToolLayout
+  title={t(locale, 'tools.vcard.page_title')}
+  description={t(locale, 'tools.vcard.page_description')}
+  heading={t(locale, 'tools.vcard.heading')}
+  subheading={t(locale, 'tools.vcard.subheading')}
+  ogImage="/og/vcard.png"
+>
+  <VcardConverter client:load labels={labels} />
+
+  <Fragment slot="seo-content">
+    <!-- How to use section -->
+    <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white sm:text-3xl">
+          {t(locale, 'vcard_page.how_to_title')}
+        </h2>
+
+        <div class="mt-6 space-y-4 text-base leading-relaxed text-gray-600 dark:text-gray-300">
+          {t(locale, 'vcard_page.how_to_intro').split('\n\n').map((p: string) => (
+            <p>{p}</p>
+          ))}
+        </div>
+
+        <div class="mt-10 space-y-4">
+          {steps.map((step, i) => (
+            <div class="flex gap-4 rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-800/60">
+              <div class="flex shrink-0 items-center justify-center w-10 h-10 rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-950 dark:text-primary-400">
+                <span class="text-sm font-bold">{i + 1}</span>
+              </div>
+              <div class="min-w-0">
+                <h3 class="font-semibold text-gray-900 dark:text-white">{step.title}</h3>
+                <p class="mt-1.5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">
+                  {step.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div class="mt-8 text-base leading-relaxed text-gray-600 dark:text-gray-300">
+          <p>{t(locale, 'vcard_page.how_to_outro')}</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <hr class="border-gray-200 dark:border-gray-800" />
+    </div>
+
+    <!-- FAQ section -->
+    <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white sm:text-3xl mb-8">
+          {t(locale, 'vcard_page.faq_title')}
+        </h2>
+        <div class="space-y-3">
+          {faqItems.map((item) => (
+            <details class="group rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800/60 overflow-hidden">
+              <summary class="flex cursor-pointer items-center justify-between gap-4 p-5 text-left font-medium text-gray-900 dark:text-white select-none hover:bg-gray-50 dark:hover:bg-gray-800">
+                <span class="leading-snug">{item.question}</span>
+                <svg class="h-5 w-5 shrink-0 text-gray-400 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </summary>
+              <div class="px-5 pb-5 -mt-1 text-sm leading-relaxed text-gray-600 dark:text-gray-300">
+                {item.answer}
+              </div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+</ToolLayout>
