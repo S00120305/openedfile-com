@@ -74,7 +74,7 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
   <p>契約書、見積書、報告書、プレゼンテーション資料など、ビジネスに関する機密文書をオンラインツールで変換することは、情報漏洩のリスクを伴います。特に、NDA（秘密保持契約）の対象となる情報が含まれている場合、深刻な問題に発展する可能性があります。</p>
 
   <h3>メール添付ファイル</h3>
-  <p><a href="/ja/tools/winmail">winmail.dat</a>ファイルの中身を確認するためにオンラインツールを使用する場合、メールの添付ファイルに含まれる機密情報がサーバーに送信されることになります。ビジネスメールの添付ファイルには、顧客情報や社内機密が含まれていることが少なくありません。</p>
+  <p><a href="/ja/tools/winmail/">winmail.dat</a>ファイルの中身を確認するためにオンラインツールを使用する場合、メールの添付ファイルに含まれる機密情報がサーバーに送信されることになります。ビジネスメールの添付ファイルには、顧客情報や社内機密が含まれていることが少なくありません。</p>
 
   <div class="not-prose my-8 rounded-xl border border-blue-200 bg-blue-50 p-5 dark:border-blue-800 dark:bg-blue-950/50"><div class="flex gap-3"><span class="text-xl">💡</span><div><p class="font-semibold text-blue-900 dark:text-blue-200">ポイント</p><p class="mt-1 text-sm text-blue-800 dark:text-blue-300">画像ファイルにはEXIF情報（GPS座標、撮影日時、デバイス情報）が含まれている場合があります。オンラインツールにアップロードすると、これらの個人情報も一緒に送信されます。</p></div></div></div>
 
@@ -161,9 +161,9 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
   <h2 id="openedfile">OpenedFileの設計理念</h2>
   <p>OpenedFileは、ファイル変換におけるプライバシーの課題を解決するために設計されたツールです。すべての変換処理をクライアントサイドで行い、ファイルがサーバーにアップロードされることは一切ありません。</p>
   <ul>
-    <li><a href="/ja/tools/webp">WebP → JPG/PNG 変換ツール</a>：WebP画像をブラウザ内で安全に変換</li>
-    <li><a href="/ja/tools/heic">HEIC → JPG/PNG 変換ツール</a>：iPhoneのHEIC写真をプライバシーを守りながら変換</li>
-    <li><a href="/ja/tools/winmail">Winmail.dat ビューア</a>：メール添付のwinmail.datファイルをサーバー送信なしで閲覧</li>
+    <li><a href="/ja/tools/webp/">WebP → JPG/PNG 変換ツール</a>：WebP画像をブラウザ内で安全に変換</li>
+    <li><a href="/ja/tools/heic/">HEIC → JPG/PNG 変換ツール</a>：iPhoneのHEIC写真をプライバシーを守りながら変換</li>
+    <li><a href="/ja/tools/winmail/">Winmail.dat ビューア</a>：メール添付のwinmail.datファイルをサーバー送信なしで閲覧</li>
   </ul>
   <p>これらのツールはすべて、ブラウザのJavaScript環境内で動作します。インターネット接続がなくても（ページを読み込んだ後であれば）変換処理が可能です。これこそが、真にプライベートなファイル変換のあり方です。</p>
 
@@ -176,20 +176,20 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
     <li><strong>ネットワークタブで確認する</strong>：疑わしい場合は、開発者ツールでファイルのアップロードが発生していないことを確認する。</li>
     <li><strong>不要なアカウント登録を避ける</strong>：ファイル変換のためにメールアドレスの登録を求めるサービスには注意する。</li>
   </ul>
-  <p>デジタルプライバシーは自分自身で守るものです。便利さの裏に潜むリスクを理解し、安全なツールを選択する習慣を身につけましょう。<a href="/ja/tools/webp">OpenedFile</a>のようなクライアントサイド処理のツールを活用することで、プライバシーを犠牲にすることなく、必要なファイル変換を行えます。</p>
+  <p>デジタルプライバシーは自分自身で守るものです。便利さの裏に潜むリスクを理解し、安全なツールを選択する習慣を身につけましょう。<a href="/ja/tools/webp/">OpenedFile</a>のようなクライアントサイド処理のツールを活用することで、プライバシーを犠牲にすることなく、必要なファイル変換を行えます。</p>
 
   <div class="not-prose mt-12 rounded-xl border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-800">
     <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">関連記事</h2>
     <div class="grid gap-3 sm:grid-cols-2">
-      <a href="/ja/blog/why-client-side-processing" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+      <a href="/ja/blog/why-client-side-processing/" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
         <p class="font-medium text-gray-900 dark:text-white text-sm">クライアントサイド処理が安全な理由</p>
         <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">ブラウザベースのファイル処理がプライバシーを保護する仕組みを技術的に解説します。</p>
       </a>
-      <a href="/ja/blog/webp-explained" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+      <a href="/ja/blog/webp-explained/" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
         <p class="font-medium text-gray-900 dark:text-white text-sm">WebP完全解説</p>
         <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">WebPフォーマットの特徴、メリット、変換方法を包括的に解説します。</p>
       </a>
-      <a href="/ja/blog/heic-vs-jpg" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+      <a href="/ja/blog/heic-vs-jpg/" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
         <p class="font-medium text-gray-900 dark:text-white text-sm">HEIC vs JPG比較</p>
         <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">iPhoneのHEICフォーマットとJPGを比較し、最適な使い分けを解説します。</p>
       </a>

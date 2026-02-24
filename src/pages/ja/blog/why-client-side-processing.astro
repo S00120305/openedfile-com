@@ -159,9 +159,9 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
   <h2 id="openedfile">OpenedFileの実装</h2>
   <p>OpenedFileは、上記のすべての技術を活用してクライアントサイドのファイル変換を実現しています。</p>
   <ul>
-    <li><a href="/ja/tools/webp">WebP変換ツール</a>：Canvas APIとlibwebpのWebAssemblyビルドを使用して、WebPのデコードとJPG/PNGへのエンコードをブラウザ内で実行します。</li>
-    <li><a href="/ja/tools/heic">HEIC変換ツール</a>：libheifのWebAssemblyビルドを活用し、HEICファイルのデコードをブラウザ内で行います。デコードした画像データをCanvas APIでJPGやPNGにエクスポートします。</li>
-    <li><a href="/ja/tools/winmail">Winmail.datビューア</a>：TNEFフォーマットのパーサーをJavaScriptで実装し、winmail.datファイルの解析と添付ファイルの抽出をブラウザ内で完結させます。</li>
+    <li><a href="/ja/tools/webp/">WebP変換ツール</a>：Canvas APIとlibwebpのWebAssemblyビルドを使用して、WebPのデコードとJPG/PNGへのエンコードをブラウザ内で実行します。</li>
+    <li><a href="/ja/tools/heic/">HEIC変換ツール</a>：libheifのWebAssemblyビルドを活用し、HEICファイルのデコードをブラウザ内で行います。デコードした画像データをCanvas APIでJPGやPNGにエクスポートします。</li>
+    <li><a href="/ja/tools/winmail/">Winmail.datビューア</a>：TNEFフォーマットのパーサーをJavaScriptで実装し、winmail.datファイルの解析と添付ファイルの抽出をブラウザ内で完結させます。</li>
   </ul>
   <p>すべてのツールで、ファイルデータがサーバーに送信されないことを設計原則としています。</p>
 
@@ -179,5 +179,5 @@ import BlogLayout from '../../../layouts/BlogLayout.astro';
   <h2 id="conclusion">まとめ</h2>
   <p>クライアントサイド処理は、ファイル変換におけるプライバシー保護の最も効果的なアプローチです。ファイルがデバイスから出ることがないため、データ漏洩、不正アクセス、中間者攻撃のリスクを根本的に排除できます。</p>
   <p>WebAssembly、Canvas API、File APIなどの現代的なWeb技術の発展により、ブラウザ内でもサーバーと同等の変換品質を実現できるようになりました。パフォーマンスの面でも、アップロード待ちがなく、オフラインでも動作するなど、多くの利点があります。</p>
-  <p>OpenedFileの<a href="/ja/tools/webp">WebP変換ツール</a>、<a href="/ja/tools/heic">HEIC変換ツール</a>、<a href="/ja/tools/winmail">Winmail.datビューア</a>はすべて、クライアントサイド処理を採用しています。あなたのファイルはあなたのデバイスの中だけで処理されます。プライバシーを大切にしながら、安全にファイル変換を行いたい方は、ぜひご活用ください。</p>
+  <p>OpenedFileの<a href="/ja/tools/webp/">WebP変換ツール</a>、<a href="/ja/tools/heic/">HEIC変換ツール</a>、<a href="/ja/tools/winmail/">Winmail.datビューア</a>はすべて、クライアントサイド処理を採用しています。あなたのファイルはあなたのデバイスの中だけで処理されます。プライバシーを大切にしながら、安全にファイル変換を行いたい方は、ぜひご活用ください。</p>
 </BlogLayout>

@@ -43,10 +43,12 @@ export function getLocaleFromUrl(url: URL): Locale {
 }
 
 export function getLocalizedPath(path: string, locale: Locale): string {
+  // Ensure trailing slash for Cloudflare Pages compatibility
+  const normalized = path === '/' ? path : path.endsWith('/') ? path : path + '/';
   if (locale === defaultLocale) {
-    return path;
+    return normalized;
   }
-  return `/${locale}${path}`;
+  return `/${locale}${normalized}`;
 }
 
 export function getAlternateLocaleUrl(currentUrl: URL, targetLocale: Locale): string {
