@@ -107,6 +107,62 @@ const articles = [
     category: 'Privacy',
     date: '2026-02-21',
   },
+  {
+    slug: 'what-is-eml-file',
+    title: 'What is an EML File? How to Open Email Files',
+    description: 'Learn what EML files are, which email clients use them, and how to open .eml files easily in your browser.',
+    category: 'EML',
+    date: '2026-02-25',
+  },
+  {
+    slug: 'open-eml-without-outlook',
+    title: 'How to Open EML Files Without Outlook',
+    description: 'Discover the best ways to open .eml email files without Microsoft Outlook — browser tools, free apps, and more.',
+    category: 'EML',
+    date: '2026-02-25',
+  },
+  {
+    slug: 'eml-vs-msg',
+    title: 'EML vs MSG: Email File Format Differences',
+    description: 'Compare EML and MSG email file formats — understand their differences, compatibility, and when to use each.',
+    category: 'EML',
+    date: '2026-02-25',
+  },
+  {
+    slug: 'email-backup-guide',
+    title: 'How to Back Up Your Emails Safely',
+    description: 'A practical guide to backing up your emails — learn about EML export, cloud vs. local storage, and best practices.',
+    category: 'EML',
+    date: '2026-02-25',
+  },
+  {
+    slug: 'what-is-vcf-file',
+    title: 'What is a VCF File? Complete vCard Guide',
+    description: 'Everything you need to know about VCF files — vCard versions, structure, compatibility, and how to open them.',
+    category: 'VCF',
+    date: '2026-02-25',
+  },
+  {
+    slug: 'transfer-contacts-between-phones',
+    title: 'How to Transfer Contacts Between Phones',
+    description: 'Step-by-step guide to transferring contacts between iPhone and Android using VCF files, cloud sync, and more.',
+    category: 'VCF',
+    date: '2026-02-25',
+  },
+  {
+    slug: 'vcf-to-csv-guide',
+    title: 'How to Convert VCF to CSV for Excel',
+    description: 'Learn how to convert VCF contact files to CSV format for use in Excel, Google Sheets, and other spreadsheet apps.',
+    category: 'VCF',
+    date: '2026-02-25',
+  },
+  {
+    slug: 'manage-contacts-efficiently',
+    title: 'Contact Management Best Practices',
+    description: 'Practical tips for organizing, deduplicating, and backing up your digital contacts for personal and professional use.',
+    category: 'VCF',
+    date: '2026-02-25',
+  },
 ];
 
 const categoryColors: Record<string, string> = {
@@ -114,12 +170,14 @@ const categoryColors: Record<string, string> = {
   'HEIC': 'bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300',
   'WebP': 'bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-300',
   'Privacy': 'bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300',
+  'EML': 'bg-rose-100 text-rose-700 dark:bg-rose-900/40 dark:text-rose-300',
+  'VCF': 'bg-teal-100 text-teal-700 dark:bg-teal-900/40 dark:text-teal-300',
 };
 ---
 
 <BaseLayout
   title="Blog | OpenedFile"
-  description="Learn about file formats, privacy, and browser-based file conversion. Tips, guides, and technical explanations for WebP, HEIC, winmail.dat, and more."
+  description="Learn about file formats, privacy, and browser-based file conversion. Tips, guides, and technical explanations for WebP, HEIC, winmail.dat, EML, VCF, and more."
 >
   <div class="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
     <h1 class="text-3xl font-bold text-gray-900 dark:text-white sm:text-4xl">Blog</h1>

@@ -107,6 +107,62 @@ const articles = [
     category: 'プライバシー',
     date: '2026-02-21',
   },
+  {
+    slug: 'what-is-eml-file',
+    title: 'EMLファイルとは？メールファイルの開き方',
+    description: 'EMLファイルの仕様、対応メールソフト、ブラウザで簡単に開く方法を詳しく解説します。',
+    category: 'EML',
+    date: '2026-02-25',
+  },
+  {
+    slug: 'open-eml-without-outlook',
+    title: 'Outlookなしでemlファイルを開く方法',
+    description: 'Microsoft Outlookがなくても.emlファイルを開く方法を紹介。ブラウザツール、無料アプリなど。',
+    category: 'EML',
+    date: '2026-02-25',
+  },
+  {
+    slug: 'eml-vs-msg',
+    title: 'EML vs MSG：メールファイル形式の違い',
+    description: 'EMLとMSGメールファイル形式を徹底比較 — それぞれの特徴、互換性、変換方法を解説。',
+    category: 'EML',
+    date: '2026-02-25',
+  },
+  {
+    slug: 'email-backup-guide',
+    title: 'メールを安全にバックアップする方法',
+    description: 'メールバックアップの実践ガイド — EMLエクスポート、クラウドvsローカル保存、ベストプラクティスを解説。',
+    category: 'EML',
+    date: '2026-02-25',
+  },
+  {
+    slug: 'what-is-vcf-file',
+    title: 'VCFファイルとは？vCard完全ガイド',
+    description: 'VCFファイルの仕様、vCardバージョンの違い、互換性、開き方を詳しく解説します。',
+    category: 'VCF',
+    date: '2026-02-25',
+  },
+  {
+    slug: 'transfer-contacts-between-phones',
+    title: 'スマホ間で連絡先を移行する方法',
+    description: 'iPhone・Android間の連絡先移行をステップバイステップで解説。VCFファイル、クラウド同期など。',
+    category: 'VCF',
+    date: '2026-02-25',
+  },
+  {
+    slug: 'vcf-to-csv-guide',
+    title: 'VCFをCSVに変換してExcelで開く方法',
+    description: 'VCF連絡先ファイルをCSV形式に変換してExcelやGoogleスプレッドシートで活用する方法を解説。',
+    category: 'VCF',
+    date: '2026-02-25',
+  },
+  {
+    slug: 'manage-contacts-efficiently',
+    title: '連絡先管理のベストプラクティス',
+    description: 'デジタル連絡先の整理、重複削除、バックアップのための実践的なヒントを紹介します。',
+    category: 'VCF',
+    date: '2026-02-25',
+  },
 ];
 
 const categoryColors: Record<string, string> = {
@@ -114,12 +170,14 @@ const categoryColors: Record<string, string> = {
   'HEIC': 'bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300',
   'WebP': 'bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-300',
   'プライバシー': 'bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300',
+  'EML': 'bg-rose-100 text-rose-700 dark:bg-rose-900/40 dark:text-rose-300',
+  'VCF': 'bg-teal-100 text-teal-700 dark:bg-teal-900/40 dark:text-teal-300',
 };
 ---
 
 <BaseLayout
   title="ブログ | OpenedFile"
-  description="ファイルフォーマット、プライバシー、ブラウザベースファイル変換に関するガイド、ヒント、技術解説。WebP、HEIC、winmail.datなど。"
+  description="ファイルフォーマット、プライバシー、ブラウザベースファイル変換に関するガイド、ヒント、技術解説。WebP、HEIC、winmail.dat、EML、VCFなど。"
 >
   <div class="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
     <h1 class="text-3xl font-bold text-gray-900 dark:text-white sm:text-4xl">ブログ</h1>

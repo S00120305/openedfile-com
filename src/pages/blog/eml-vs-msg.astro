@@ -1,0 +1,234 @@
+---
+import BlogLayout from '../../layouts/BlogLayout.astro';
+---
+
+<BlogLayout
+  title="EML vs MSG: Email File Format Differences"
+  description="Compare EML and MSG email file formats — understand their differences, compatibility, and when to use each."
+  date="2026-02-25"
+  category="EML"
+  readingTime="6 min read"
+  relatedTools={[{ name: "EML Viewer", href: "/tools/eml/" }]}
+>
+  <p>
+    When you save or export an email from your mail client, it typically ends up as either an <strong>.eml</strong> or <strong>.msg</strong> file. While both formats preserve the contents of an email message, they differ significantly in structure, compatibility, and use cases. Understanding these differences is essential for anyone who works with email archives, digital forensics, legal discovery, or simply needs to share saved emails across different platforms.
+  </p>
+
+  <nav class="not-prose my-8 rounded-xl border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-800">
+    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Table of Contents</h2>
+    <ul class="space-y-2 text-sm">
+      <li><a href="#overview" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Overview of Email File Formats</a></li>
+      <li><a href="#eml-format" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">The EML Format in Detail</a></li>
+      <li><a href="#msg-format" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">The MSG Format in Detail</a></li>
+      <li><a href="#comparison" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Detailed Comparison</a></li>
+      <li><a href="#converting" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Converting Between Formats</a></li>
+      <li><a href="#which-format" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Which Format Should You Choose?</a></li>
+      <li><a href="#conclusion" class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 hover:underline">Conclusion</a></li>
+    </ul>
+  </nav>
+
+  <h2 id="overview">Overview of Email File Formats</h2>
+  <p>
+    Email messages are structured data objects that contain headers (sender, recipient, subject, date), a message body (plain text, HTML, or both), and optional attachments. When an email is saved to a file, the format used to store this data determines how portable, readable, and compatible the resulting file will be.
+  </p>
+  <p>
+    The two most common email file formats are <strong>EML</strong> and <strong>MSG</strong>. EML is an open, standards-based format used by the majority of email clients worldwide. MSG is a proprietary format developed by Microsoft specifically for use with Outlook. Both formats can faithfully represent an email message, but they take fundamentally different approaches to how that data is structured and encoded.
+  </p>
+
+  <h2 id="eml-format">The EML Format in Detail</h2>
+  <p>
+    The EML format is based on <strong>RFC 5322</strong> (Internet Message Format) and <strong>MIME</strong> (Multipurpose Internet Mail Extensions, defined in RFC 2045-2049). An EML file is essentially a raw email message saved exactly as it would be transmitted over the SMTP protocol. Because of this, EML files are plain text files that can be opened and inspected with any text editor.
+  </p>
+  <p>
+    The structure of an EML file follows a straightforward pattern. The file begins with a block of headers, each on its own line in the format <strong>Header-Name: value</strong>. Common headers include <code>From</code>, <code>To</code>, <code>Subject</code>, <code>Date</code>, and <code>Content-Type</code>. After the headers, a blank line separates the header section from the message body. For multipart messages (those with attachments or both plain text and HTML versions), the body is divided into sections using MIME boundaries.
+  </p>
+  <p>
+    Key characteristics of the EML format include:
+  </p>
+  <ul>
+    <li><strong>Text-based</strong>: EML files are human-readable plain text. Binary attachments are encoded using Base64 within the file.</li>
+    <li><strong>Standards-compliant</strong>: Built on well-established Internet standards (RFC 5322, MIME), ensuring broad interoperability.</li>
+    <li><strong>Universally supported</strong>: Virtually every email client on every platform can open EML files, including Thunderbird, Apple Mail, Windows Mail, and web-based tools.</li>
+    <li><strong>Lightweight</strong>: EML files contain only the message data without additional proprietary metadata, keeping file sizes relatively small.</li>
+    <li><strong>Transparent</strong>: Because the format is plain text, EML files can be parsed, searched, and processed by standard text-processing tools and scripts.</li>
+  </ul>
+
+  <div class="not-prose my-8 rounded-xl border border-blue-200 bg-blue-50 p-5 dark:border-blue-800 dark:bg-blue-950/50">
+    <div class="flex gap-3">
+      <span class="text-xl">💡</span>
+      <div>
+        <p class="font-semibold text-blue-900 dark:text-blue-200">Did You Know?</p>
+        <p class="mt-1 text-sm text-blue-800 dark:text-blue-300">MSG files use the <strong>OLE Compound Document</strong> format internally, which is the same binary container format used by legacy Microsoft Office documents like .doc and .xls files. This means MSG files share structural similarities with Word documents rather than with standard email formats.</p>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="msg-format">The MSG Format in Detail</h2>
+  <p>
+    The MSG format is a <strong>proprietary binary format</strong> developed by Microsoft for storing email messages from Outlook. Unlike EML, an MSG file is not a simple text file. It uses the <strong>OLE (Object Linking and Embedding) Compound Document</strong> format, also known as the Compound File Binary Format (CFBF). This is the same underlying container technology used by older Microsoft Office file formats such as .doc, .xls, and .ppt.
+  </p>
+  <p>
+    Inside an MSG file, the email data is organized into a hierarchical structure of storages and streams, similar to a miniature file system within a single file. The message properties (sender, recipient, subject, body, etc.) are stored as <strong>MAPI (Messaging Application Programming Interface) properties</strong>, each identified by a numeric property tag. Attachments are stored as sub-storages within the compound document, and each attachment has its own set of MAPI properties.
+  </p>
+  <p>
+    Key characteristics of the MSG format include:
+  </p>
+  <ul>
+    <li><strong>Binary format</strong>: MSG files are not human-readable and require specialized software or libraries to parse and extract data.</li>
+    <li><strong>Proprietary</strong>: Although Microsoft has published documentation for the format, it is tightly coupled to the Microsoft ecosystem and MAPI property definitions.</li>
+    <li><strong>Outlook-specific</strong>: MSG files are natively supported only by Microsoft Outlook. Other email clients generally cannot open them without conversion or third-party tools.</li>
+    <li><strong>Rich metadata</strong>: MSG files can store extensive Outlook-specific metadata, including categories, flags, follow-up dates, importance levels, and custom MAPI properties that have no equivalent in the EML format.</li>
+    <li><strong>Larger file size</strong>: Due to the OLE compound document overhead and additional metadata, MSG files are typically larger than equivalent EML files for the same email message.</li>
+  </ul>
+
+  <h2 id="comparison">Detailed Comparison</h2>
+  <p>
+    The following table provides a side-by-side comparison of the EML and MSG formats across the most important dimensions:
+  </p>
+
+  <div class="not-prose my-8 overflow-x-auto">
+    <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700 text-sm">
+      <thead>
+        <tr class="bg-gray-50 dark:bg-gray-800">
+          <th class="px-4 py-3 text-left font-semibold text-gray-900 dark:text-white">Feature</th>
+          <th class="px-4 py-3 text-left font-semibold text-gray-900 dark:text-white">EML</th>
+          <th class="px-4 py-3 text-left font-semibold text-gray-900 dark:text-white">MSG</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+        <tr>
+          <td class="px-4 py-3 font-medium text-gray-900 dark:text-white">Format type</td>
+          <td class="px-4 py-3 text-gray-600 dark:text-gray-300">Text-based (MIME)</td>
+          <td class="px-4 py-3 text-gray-600 dark:text-gray-300">Binary (OLE Compound Document)</td>
+        </tr>
+        <tr class="bg-gray-50/50 dark:bg-gray-800/50">
+          <td class="px-4 py-3 font-medium text-gray-900 dark:text-white">Standard</td>
+          <td class="px-4 py-3 text-gray-600 dark:text-gray-300">RFC 5322 / MIME (open standard)</td>
+          <td class="px-4 py-3 text-gray-600 dark:text-gray-300">Microsoft proprietary</td>
+        </tr>
+        <tr>
+          <td class="px-4 py-3 font-medium text-gray-900 dark:text-white">Compatibility</td>
+          <td class="px-4 py-3 text-gray-600 dark:text-gray-300">Universal (all email clients)</td>
+          <td class="px-4 py-3 text-gray-600 dark:text-gray-300">Microsoft Outlook only</td>
+        </tr>
+        <tr class="bg-gray-50/50 dark:bg-gray-800/50">
+          <td class="px-4 py-3 font-medium text-gray-900 dark:text-white">File size</td>
+          <td class="px-4 py-3 text-gray-600 dark:text-gray-300">Smaller (minimal overhead)</td>
+          <td class="px-4 py-3 text-gray-600 dark:text-gray-300">Larger (OLE + MAPI overhead)</td>
+        </tr>
+        <tr>
+          <td class="px-4 py-3 font-medium text-gray-900 dark:text-white">Human-readable</td>
+          <td class="px-4 py-3 text-gray-600 dark:text-gray-300">Yes (plain text)</td>
+          <td class="px-4 py-3 text-gray-600 dark:text-gray-300">No (binary)</td>
+        </tr>
+        <tr class="bg-gray-50/50 dark:bg-gray-800/50">
+          <td class="px-4 py-3 font-medium text-gray-900 dark:text-white">Metadata</td>
+          <td class="px-4 py-3 text-gray-600 dark:text-gray-300">Standard email headers</td>
+          <td class="px-4 py-3 text-gray-600 dark:text-gray-300">Extended MAPI properties</td>
+        </tr>
+        <tr>
+          <td class="px-4 py-3 font-medium text-gray-900 dark:text-white">Outlook features</td>
+          <td class="px-4 py-3 text-gray-600 dark:text-gray-300">Not preserved</td>
+          <td class="px-4 py-3 text-gray-600 dark:text-gray-300">Fully preserved (flags, categories, etc.)</td>
+        </tr>
+        <tr class="bg-gray-50/50 dark:bg-gray-800/50">
+          <td class="px-4 py-3 font-medium text-gray-900 dark:text-white">Attachments</td>
+          <td class="px-4 py-3 text-gray-600 dark:text-gray-300">Base64-encoded in MIME parts</td>
+          <td class="px-4 py-3 text-gray-600 dark:text-gray-300">Stored as OLE sub-storages</td>
+        </tr>
+        <tr>
+          <td class="px-4 py-3 font-medium text-gray-900 dark:text-white">Platform support</td>
+          <td class="px-4 py-3 text-gray-600 dark:text-gray-300">Windows, macOS, Linux, web</td>
+          <td class="px-4 py-3 text-gray-600 dark:text-gray-300">Primarily Windows (Outlook)</td>
+        </tr>
+        <tr class="bg-gray-50/50 dark:bg-gray-800/50">
+          <td class="px-4 py-3 font-medium text-gray-900 dark:text-white">Scripting / parsing</td>
+          <td class="px-4 py-3 text-gray-600 dark:text-gray-300">Easy (text-based, many libraries)</td>
+          <td class="px-4 py-3 text-gray-600 dark:text-gray-300">Complex (requires OLE/MAPI libraries)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="converting">Converting Between Formats</h2>
+  <p>
+    There are situations where you may need to convert emails between EML and MSG formats. For example, you might receive an MSG file from a colleague who uses Outlook, but you need to archive it in a system that only accepts EML. Or you may need to convert an EML archive into MSG format for import into Outlook.
+  </p>
+
+  <h3>EML to MSG Conversion</h3>
+  <p>
+    Converting from EML to MSG typically requires Microsoft Outlook or a specialized conversion tool. The process involves parsing the MIME structure of the EML file and mapping each element to its corresponding MAPI property in the MSG format. While the core message content (headers, body, attachments) converts reliably, some nuances of MIME encoding may not have perfect MAPI equivalents.
+  </p>
+
+  <h3>MSG to EML Conversion</h3>
+  <p>
+    Converting from MSG to EML requires extracting data from the OLE compound document and reconstructing a valid MIME message. This conversion is generally more straightforward for basic messages, since EML is a simpler format. However, Outlook-specific metadata such as categories, flags, voting responses, and custom MAPI properties will be lost during the conversion because the EML format has no way to represent them.
+  </p>
+
+  <div class="not-prose my-8 rounded-xl border border-amber-200 bg-amber-50 p-5 dark:border-amber-800 dark:bg-amber-950/50">
+    <div class="flex gap-3">
+      <span class="text-xl">⚠️</span>
+      <div>
+        <p class="font-semibold text-amber-900 dark:text-amber-200">Important</p>
+        <p class="mt-1 text-sm text-amber-800 dark:text-amber-300">Converting between EML and MSG formats can result in data loss. Outlook-specific MAPI properties (categories, flags, follow-up dates) are lost when converting MSG to EML, and some MIME encoding nuances may not translate perfectly to MSG. Always keep a copy of the original file before converting, especially for legal or compliance purposes.</p>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="which-format">Which Format Should You Choose?</h2>
+  <p>
+    The best format depends on your specific use case. Here are recommendations for common scenarios:
+  </p>
+
+  <h3>For Email Archiving</h3>
+  <p>
+    If you are building a long-term email archive, <strong>EML is the better choice</strong>. Its open, standards-based format ensures that your archived emails will remain readable for decades, regardless of what happens to any particular software vendor. EML files can be processed by a wide range of tools and are suitable for compliance and legal discovery workflows. If you rely heavily on Outlook-specific metadata (categories, flags), consider maintaining a parallel MSG archive alongside your EML files.
+  </p>
+
+  <h3>For Sharing Emails</h3>
+  <p>
+    When sharing saved emails with others, <strong>EML is almost always the right choice</strong>. The recipient can open EML files on any platform with any email client. Sending an MSG file to someone who does not use Outlook will leave them unable to read the message without specialized tools. Even if both parties use Outlook, EML ensures compatibility if the message needs to be forwarded to non-Outlook users later.
+  </p>
+
+  <h3>For Outlook-Centric Workflows</h3>
+  <p>
+    If your entire workflow is built around Microsoft Outlook and Exchange, and you need to preserve Outlook-specific features such as categories, custom flags, or voting responses, <strong>MSG may be the more appropriate format</strong>. MSG files integrate seamlessly with Outlook and preserve every MAPI property, making them ideal for internal workflows within Microsoft-centric organizations.
+  </p>
+
+  <h3>For Forensics and Legal Discovery</h3>
+  <p>
+    In digital forensics and e-discovery, both formats are encountered regularly. Professionals in this field need tools that can handle both formats reliably. EML files are generally preferred for their transparency and ease of verification, as the plain-text format makes it straightforward to verify headers, check for tampering, and extract metadata. MSG files require more specialized tools but can provide additional metadata that may be relevant to an investigation.
+  </p>
+
+  <div class="not-prose my-8 rounded-xl border border-green-200 bg-green-50 p-5 dark:border-green-800 dark:bg-green-950/50">
+    <div class="flex gap-3">
+      <span class="text-xl">✅</span>
+      <div>
+        <p class="font-semibold text-green-900 dark:text-green-200">Recommended</p>
+        <p class="mt-1 text-sm text-green-800 dark:text-green-300">For maximum cross-platform compatibility, use the <strong>EML format</strong> whenever possible. EML files work on every operating system and can be opened by virtually any email client. You can view EML files instantly in your browser with our <a href="/tools/eml/" class="text-green-700 dark:text-green-200 underline font-medium">EML Viewer</a> on OpenedFile -- no software installation required.</p>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="conclusion">Conclusion</h2>
+  <p>
+    EML and MSG are both capable email file formats, but they serve different audiences and use cases. EML is the universal choice: open, standards-based, lightweight, and supported everywhere. MSG is the specialist choice: proprietary, feature-rich within the Outlook ecosystem, but limited in portability. For most users, EML provides the best balance of compatibility and functionality. If you need to work with EML files, our <a href="/tools/eml/">EML Viewer</a> lets you open and inspect them directly in your browser without installing any software.
+  </p>
+  <p>
+    Whether you are archiving important correspondence, sharing emails with colleagues, or managing a compliance workflow, choosing the right email file format will save you time and prevent compatibility headaches down the road. When in doubt, choose EML for its openness and universality.
+  </p>
+
+  <div class="not-prose mt-12 rounded-xl border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-800">
+    <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Related Articles</h2>
+    <div class="grid gap-3 sm:grid-cols-2">
+      <a href="/blog/what-is-eml-file/" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">What Is an EML File?</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">Learn about the EML email format, how it works, and the best ways to open EML files.</p>
+      </a>
+      <a href="/blog/email-backup-guide/" class="rounded-lg border border-gray-200 bg-white p-4 hover:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:hover:border-primary-500 transition-colors">
+        <p class="font-medium text-gray-900 dark:text-white text-sm">Email Backup Guide</p>
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">Best practices for backing up your emails and choosing the right format for long-term storage.</p>
+      </a>
+    </div>
+  </div>
+</BlogLayout>
